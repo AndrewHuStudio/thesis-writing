@@ -5,7 +5,7 @@ from shapely.ops import unary_union
 out=Path(__file__).parent;p=out.parents[2]/'02_嘉兴市第一医院迁建工程'
 d=json.loads((out/'修改前备份'/'annotation.json').read_text());a=json.loads((out/'逐点目读.json').read_text())
 # Values indexed by initial manual read order; revisions made after enlarged original-image review.
-remove={14,15,91,100,101,114,115,157,164,176,187,185,191,197,202,219,220,224,228,237,240}
+remove={14,15,91,100,101,114,115,157,164,176,187,185,191,197,202,219,220,224,227,237}
 # IDs above are temporary review indices, not P identifiers (P identifiers assigned only below).
 fix={18:(50,255,490,777),99:(118,124,2470,537),108:(127,138,2306,749),113:(10,263,2320,886),118:(137,263,1886,886),
 156:(166,267,2041,1200),184:(183,184,1920,1480),190:(188,17,2189,1464),192:(189,265,2265,1477),193:(191,265,2265,1517),
@@ -75,6 +75,7 @@ extra='''
 023 273 2501 1710
 273 024 2518 1721
 023 271 2464 1695
+208 272 2292 1666
 224 274 2078 1976
 224 274 2009 1976
 222 274 1844 1976
