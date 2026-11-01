@@ -1,0 +1,14 @@
+@@ -313,3 +313,3 @@
+     'geometry_method':'assistant_placed_approximate_polygons_using_visible_walls_and_zone_boundaries',
+-    'coverage':'whole_image_first_pass_selected_spaces_and_blocks_not_exhaustive_room_segmentation',
++    'coverage':'whole_image_second_connectivity_pass_selected_spaces_not_exhaustive_room_segmentation',
+     'unannotated_or_aggregated':['左侧停车位不标作房间','柜台、排队带及部分开放空间未完整细分',
+@@ -327,3 +327,3 @@
+     'retired_space_ids':{'S019':'merged_into_S018_due_to_no_physical_partition'},
+-    'refined_space_ids':{'S013':['S013','S083'],'S020':['S020','S084'],'S055':['S055','S086','S087','S088'],'S061':['S061','S085'],'S036':['S036','S027']},
++    'refined_space_ids':{'S013':['S013','S083'],'S020':['S020','S084'],'S055':['S055','S086','S087','S088'],'S060':['S060','S085'],'S061':['S061','S085'],'S036':['S036','S027']},
+     'connectivity_complete':False,
+@@ -478,2 +478,3 @@
+ review=review.replace("$('#uncertain').checked=false;", "$('#uncertain').checked=false;$('#no-movement').checked=false;$('#portal-type').value='';document.querySelectorAll('.marker').forEach(e=>e.style.display='');")
++review=review.replace('${esc(r.relation_type)}；待核，权限未知',"${esc(TYPES[r.relation_type]||r.relation_type)}；${r.is_movement_candidate?'通行候选，权限待核':'非通行关系'}")
+ extra_js='''

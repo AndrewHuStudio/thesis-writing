@@ -1,0 +1,1089 @@
+[
+  {
+    "key": "nw_meet",
+    "zone": "NW",
+    "candidates": [
+      "会议室"
+    ],
+    "basis": "长桌及围坐座椅；房名不能完整辨读。",
+    "confidence": "高",
+    "bbox": [
+      385,
+      926,
+      490,
+      1030
+    ],
+    "id": "S001",
+    "number": "01"
+  },
+  {
+    "key": "nw_new",
+    "zone": "NW",
+    "candidates": [
+      "新风机房",
+      "药房附属用房"
+    ],
+    "basis": "可见“新风”样字，位于电梯与药房之间。",
+    "confidence": "中",
+    "bbox": [
+      958,
+      1018,
+      1025,
+      1129
+    ],
+    "id": "S009",
+    "number": "02"
+  },
+  {
+    "key": "nw_drugroom",
+    "zone": "NW",
+    "candidates": [
+      "贵重药房",
+      "毒麻药房"
+    ],
+    "basis": "图中文字较接近“贵重药房”；前两字仍需人工确认。",
+    "confidence": "中",
+    "bbox": [
+      1030,
+      1017,
+      1139,
+      1129
+    ],
+    "id": "S010",
+    "number": "03"
+  },
+  {
+    "key": "nw_shelves",
+    "zone": "NW",
+    "candidates": [
+      "药品材料库房",
+      "器械材料库房"
+    ],
+    "basis": "室内有多排货架，房名含“材料”样字，前部字样模糊。",
+    "confidence": "中",
+    "bbox": [
+      945,
+      1136,
+      1077,
+      1270
+    ],
+    "id": "S014",
+    "number": "04"
+  },
+  {
+    "key": "nw_relabel",
+    "zone": "NW",
+    "candidates": [
+      "摆药",
+      "摆药区"
+    ],
+    "basis": "可辨“摆药”样字，需确认原字。",
+    "confidence": "中",
+    "bbox": [
+      1213,
+      1189,
+      1494,
+      1345
+    ],
+    "id": "S019",
+    "number": "05"
+  },
+  {
+    "key": "nw_rxwait",
+    "zone": "NW",
+    "candidates": [
+      "静配等候区",
+      "药学服务工作区"
+    ],
+    "basis": "可见长排座椅，完整房名模糊。",
+    "confidence": "中",
+    "bbox": [
+      1508,
+      1283,
+      1604,
+      1600
+    ],
+    "id": "S021",
+    "number": "06"
+  },
+  {
+    "key": "nw_ivstore",
+    "zone": "NW",
+    "candidates": [
+      "输液库房",
+      "输液成品库房"
+    ],
+    "basis": "可辨“输液…库房”，位于西药库与排药准备之间。",
+    "confidence": "高",
+    "bbox": [
+      769,
+      1319,
+      949,
+      1571
+    ],
+    "id": "S024",
+    "number": "07"
+  },
+  {
+    "key": "ne_shop",
+    "zone": "NE",
+    "candidates": [
+      "新风机房",
+      "管理辅助用房"
+    ],
+    "basis": "房名出现“新风”样字，叠写严重；不能仅凭位置定为商店。",
+    "confidence": "低",
+    "bbox": [
+      2910,
+      922,
+      2979,
+      1112
+    ],
+    "id": "S038",
+    "number": "08"
+  },
+  {
+    "key": "ne_police",
+    "zone": "NE",
+    "candidates": [
+      "消防及保安监控室",
+      "消防控制室"
+    ],
+    "basis": "可辨“消防…保安监控室”，右端文字叠写。",
+    "confidence": "高",
+    "bbox": [
+      3348,
+      959,
+      3529,
+      1201
+    ],
+    "id": "S041",
+    "number": "09"
+  },
+  {
+    "key": "ax_tiny1",
+    "zone": "ABS",
+    "candidates": [
+      "设备间",
+      "清洁工具间"
+    ],
+    "basis": "药学南侧连廊西端，见柜体与器具，无清晰房名。",
+    "confidence": "低",
+    "bbox": [
+      637,
+      1828,
+      743,
+      1873
+    ],
+    "id": "S059",
+    "number": "10"
+  },
+  {
+    "key": "ax_tiny2",
+    "zone": "ABS",
+    "candidates": [
+      "管理室",
+      "值班室"
+    ],
+    "basis": "连廊旁独立小间，有桌椅，无清晰房名。",
+    "confidence": "低",
+    "bbox": [
+      811,
+      1828,
+      885,
+      1873
+    ],
+    "id": "S061",
+    "number": "11"
+  },
+  {
+    "key": "ax_b",
+    "zone": "ABS",
+    "candidates": [
+      "露天内院B",
+      "室内中庭B"
+    ],
+    "basis": "原图标“内院B”，有排水坡向样线；是否露天尚未确认。",
+    "confidence": "高",
+    "bbox": [
+      1829,
+      1880,
+      2109,
+      2326
+    ],
+    "id": "S065",
+    "number": "12"
+  },
+  {
+    "key": "wu_islandsmall",
+    "zone": "WU",
+    "candidates": [
+      "器械间",
+      "治疗辅助间"
+    ],
+    "basis": "EICU治疗、处置岛东侧窄间，竖排字样疑为器械类用房。",
+    "confidence": "中",
+    "bbox": [
+      1277,
+      2181,
+      1309,
+      2295
+    ],
+    "id": "S081",
+    "number": "13"
+  },
+  {
+    "key": "wu_small1",
+    "zone": "WU",
+    "candidates": [
+      "卫生间",
+      "抢救辅助间"
+    ],
+    "basis": "抢救室北侧小间，器具及房名字样均不清晰。",
+    "confidence": "低",
+    "bbox": [
+      809,
+      2350,
+      867,
+      2455
+    ],
+    "id": "S084",
+    "number": "14"
+  },
+  {
+    "key": "wu_small2",
+    "zone": "WU",
+    "candidates": [
+      "卫生间",
+      "值班辅助间"
+    ],
+    "basis": "值班与抢救之间的小间，见卫生器具样符号，字样不清。",
+    "confidence": "中",
+    "bbox": [
+      808,
+      2463,
+      865,
+      2538
+    ],
+    "id": "S092",
+    "number": "15"
+  },
+  {
+    "key": "eu_machine",
+    "zone": "EU",
+    "candidates": [
+      "器械",
+      "器材"
+    ],
+    "basis": "可见“器…”字和柜体，末字模糊。",
+    "confidence": "中",
+    "bbox": [
+      3174,
+      1843,
+      3264,
+      1951
+    ],
+    "id": "S098",
+    "number": "16"
+  },
+  {
+    "key": "eu_dirty",
+    "zone": "EU",
+    "candidates": [
+      "污物",
+      "设备辅助间"
+    ],
+    "basis": "狭长隔间，标字不清。",
+    "confidence": "低",
+    "bbox": [
+      3174,
+      1959,
+      3264,
+      2004
+    ],
+    "id": "S103",
+    "number": "17"
+  },
+  {
+    "key": "eu_duty",
+    "zone": "EU",
+    "candidates": [
+      "处置室",
+      "患者准备室"
+    ],
+    "basis": "DSA南侧小间，房名叠写，位置适合作检查辅助用房。",
+    "confidence": "低",
+    "bbox": [
+      2877,
+      2014,
+      2919,
+      2091
+    ],
+    "id": "S106",
+    "number": "18"
+  },
+  {
+    "key": "eu_patientwash",
+    "zone": "EU",
+    "candidates": [
+      "患者洗涤间",
+      "污洗间"
+    ],
+    "basis": "DSA南侧相邻房间，可辨“患者…洗…”样字。",
+    "confidence": "中",
+    "bbox": [
+      3015,
+      2014,
+      3066,
+      2091
+    ],
+    "id": "S108",
+    "number": "19"
+  },
+  {
+    "key": "eu_archive",
+    "zone": "EU",
+    "candidates": [
+      "教学阅片室",
+      "读片室"
+    ],
+    "basis": "可辨“教学、阅片…”字，设双排工作桌。",
+    "confidence": "高",
+    "bbox": [
+      2877,
+      2104,
+      3007,
+      2273
+    ],
+    "id": "S113",
+    "number": "20"
+  },
+  {
+    "key": "eu_print",
+    "zone": "EU",
+    "candidates": [
+      "打印室",
+      "诊断辅助间"
+    ],
+    "basis": "可见“打…”字及设备；完整名称不清。",
+    "confidence": "中",
+    "bbox": [
+      2775,
+      2184,
+      2865,
+      2273
+    ],
+    "id": "S118",
+    "number": "21"
+  },
+  {
+    "key": "ax_ab",
+    "zone": "ABS",
+    "candidates": [
+      "内院A上空",
+      "室内中庭上空"
+    ],
+    "basis": "原图可辨“内院上空”，是否排除面积需确认。",
+    "confidence": "高",
+    "bbox": [
+      1829,
+      2545,
+      2109,
+      2672
+    ],
+    "id": "S131",
+    "number": "22"
+  },
+  {
+    "key": "ax_a",
+    "zone": "ABS",
+    "candidates": [
+      "露天内院A",
+      "室内中庭A"
+    ],
+    "basis": "原图标“内院A”，有排水坡向样线；是否露天尚未确认。",
+    "confidence": "高",
+    "bbox": [
+      1829,
+      2680,
+      2109,
+      3248
+    ],
+    "id": "S132",
+    "number": "23"
+  },
+  {
+    "key": "wl_smalltop",
+    "zone": "WL",
+    "candidates": [
+      "卫生间",
+      "清创辅助间"
+    ],
+    "basis": "清创缝合东侧独立小间，见卫生器具样符号，房名未辨清。",
+    "confidence": "中",
+    "bbox": [
+      977,
+      2601,
+      1067,
+      2631
+    ],
+    "id": "S137",
+    "number": "24"
+  },
+  {
+    "key": "wl_smallinf",
+    "zone": "WL",
+    "candidates": [
+      "库房",
+      "输液辅助间"
+    ],
+    "basis": "急诊治疗室东侧小间，疑有“库”字，完整房名不清。",
+    "confidence": "低",
+    "bbox": [
+      1354,
+      2694,
+      1398,
+      2754
+    ],
+    "id": "S145",
+    "number": "25"
+  },
+  {
+    "key": "wl_wcsmall",
+    "zone": "WL",
+    "candidates": [
+      "卫生间"
+    ],
+    "basis": "狭长隔间可见坐便器。",
+    "confidence": "高",
+    "bbox": [
+      1060,
+      2954,
+      1076,
+      3032
+    ],
+    "id": "S155",
+    "number": "26"
+  },
+  {
+    "key": "wl_communicate",
+    "zone": "WL",
+    "candidates": [
+      "沟通室",
+      "急诊辅助用房"
+    ],
+    "basis": "可辨“沟通”样字；处于收费旁。",
+    "confidence": "中",
+    "bbox": [
+      932,
+      3044,
+      991,
+      3125
+    ],
+    "id": "S157",
+    "number": "27"
+  },
+  {
+    "key": "wl_color",
+    "zone": "WL",
+    "candidates": [
+      "彩超",
+      "急诊检查室"
+    ],
+    "basis": "可辨“彩…”样字，有检查床。",
+    "confidence": "中",
+    "bbox": [
+      998,
+      3044,
+      1076,
+      3125
+    ],
+    "id": "S158",
+    "number": "28"
+  },
+  {
+    "id": "S163",
+    "key": "wl_exam1",
+    "zone": "WL",
+    "candidates": [
+      "诊室",
+      "检查室"
+    ],
+    "basis": "急诊南部上排第1间，设问诊桌和检查床，科室字样不清。",
+    "confidence": "中",
+    "number": "29"
+  },
+  {
+    "id": "S164",
+    "key": "wl_exam2",
+    "zone": "WL",
+    "candidates": [
+      "诊室",
+      "检查室"
+    ],
+    "basis": "急诊南部上排第2间，设问诊桌和检查床，科室字样不清。",
+    "confidence": "中",
+    "number": "30"
+  },
+  {
+    "id": "S165",
+    "key": "wl_exam3",
+    "zone": "WL",
+    "candidates": [
+      "诊室",
+      "检查室"
+    ],
+    "basis": "急诊南部上排第3间，设问诊桌和检查床，科室字样不清。",
+    "confidence": "中",
+    "number": "31"
+  },
+  {
+    "id": "S166",
+    "key": "wl_exam4",
+    "zone": "WL",
+    "candidates": [
+      "诊室",
+      "检查室"
+    ],
+    "basis": "急诊南部上排第4间，设问诊桌和检查床，科室字样不清。",
+    "confidence": "中",
+    "number": "32"
+  },
+  {
+    "id": "S174",
+    "key": "wl_clinic3",
+    "zone": "WL",
+    "candidates": [
+      "急诊诊室"
+    ],
+    "basis": "急诊南部下排第3间，可辨诊室样字，具体科室无法判断。",
+    "confidence": "中",
+    "number": "33"
+  },
+  {
+    "id": "S175",
+    "key": "wl_clinic4",
+    "zone": "WL",
+    "candidates": [
+      "急诊诊室"
+    ],
+    "basis": "急诊南部下排第4间，可辨诊室样字，具体科室无法判断。",
+    "confidence": "中",
+    "number": "34"
+  },
+  {
+    "key": "wl_oneduty",
+    "zone": "WL",
+    "candidates": [
+      "值班室",
+      "值班卫生间"
+    ],
+    "basis": "细长独立房间，字样不清，内有单人床样设备。",
+    "confidence": "中",
+    "bbox": [
+      1073,
+      3442,
+      1117,
+      3556
+    ],
+    "id": "S180",
+    "number": "35"
+  },
+  {
+    "key": "wl_filt",
+    "zone": "WL",
+    "candidates": [
+      "缓冲间",
+      "设备间"
+    ],
+    "basis": "急诊南侧与大厅接口的狭长小间，竖排文字模糊。",
+    "confidence": "低",
+    "bbox": [
+      1330,
+      3461,
+      1370,
+      3556
+    ],
+    "id": "S183",
+    "number": "36"
+  },
+  {
+    "key": "el_small1",
+    "zone": "EL",
+    "candidates": [
+      "准备室",
+      "更衣室"
+    ],
+    "basis": "普通X光检查室西侧上方小间，房名难以辨认。",
+    "confidence": "低",
+    "bbox": [
+      2477,
+      2699,
+      2524,
+      2743
+    ],
+    "id": "S189",
+    "number": "37"
+  },
+  {
+    "key": "el_dr1",
+    "zone": "EL",
+    "candidates": [
+      "普通X光检查室",
+      "DR检查室"
+    ],
+    "basis": "原图有“普通X光”样字及X线摄影设备，具体命名需确认。",
+    "confidence": "中",
+    "bbox": [
+      2536,
+      2694,
+      2672,
+      2858
+    ],
+    "id": "S190",
+    "number": "38"
+  },
+  {
+    "key": "el_small2",
+    "zone": "EL",
+    "candidates": [
+      "值班",
+      "准备室"
+    ],
+    "basis": "可辨“值…”样字，内有单床。",
+    "confidence": "中",
+    "bbox": [
+      2477,
+      2750,
+      2524,
+      2856
+    ],
+    "id": "S194",
+    "number": "39"
+  },
+  {
+    "key": "el_read",
+    "zone": "EL",
+    "candidates": [
+      "读片室",
+      "教学阅片室"
+    ],
+    "basis": "影像南部大房间，双排工作桌，可辨“报告／读片”样字。",
+    "confidence": "中",
+    "bbox": [
+      2885,
+      2947,
+      3076,
+      3128
+    ],
+    "id": "S203",
+    "number": "40"
+  },
+  {
+    "key": "el_bone",
+    "zone": "EL",
+    "candidates": [
+      "骨密度",
+      "检查室"
+    ],
+    "basis": "可辨“骨…”字及检查设备。",
+    "confidence": "中",
+    "bbox": [
+      2379,
+      3035,
+      2467,
+      3128
+    ],
+    "id": "S205",
+    "number": "41"
+  },
+  {
+    "key": "sw_courtyard",
+    "zone": "SW",
+    "candidates": [
+      "露天内院",
+      "室内中庭"
+    ],
+    "basis": "原图标“内院”，是否露天需确认；草稿暂参与面积归一化。",
+    "confidence": "中",
+    "bbox": [
+      768,
+      3588,
+      1344,
+      3687
+    ],
+    "id": "S215",
+    "number": "42"
+  },
+  {
+    "key": "sw_northdirty",
+    "zone": "SW",
+    "candidates": [
+      "污梯前室",
+      "污物通道"
+    ],
+    "basis": "药房东北角、污梯附近小区域；名称与边界是否为前室需确认。",
+    "confidence": "中",
+    "bbox": [
+      1548,
+      3555,
+      1630,
+      3605
+    ],
+    "id": "S216",
+    "number": "43"
+  },
+  {
+    "key": "sw_drugair",
+    "zone": "SW",
+    "candidates": [
+      "收发室",
+      "发药支持用房"
+    ],
+    "basis": "药房西北侧小间，字样接近“收发室”。",
+    "confidence": "中",
+    "bbox": [
+      849,
+      3731,
+      917,
+      3812
+    ],
+    "id": "S220",
+    "number": "44"
+  },
+  {
+    "key": "sw_smalltop",
+    "zone": "SW",
+    "candidates": [
+      "器械室",
+      "诊室辅助用房"
+    ],
+    "basis": "北侧两小间之一，无可读完整名称。",
+    "confidence": "低",
+    "bbox": [
+      863,
+      4155,
+      937,
+      4188
+    ],
+    "id": "S235",
+    "number": "45"
+  },
+  {
+    "id": "S236",
+    "key": "sw_clinic1",
+    "zone": "SW",
+    "candidates": [
+      "外科诊室",
+      "普通诊室"
+    ],
+    "basis": "西南外科门诊排房第1间，设问诊桌和检查床，科室文字模糊。",
+    "confidence": "中",
+    "number": "46"
+  },
+  {
+    "id": "S237",
+    "key": "sw_clinic2",
+    "zone": "SW",
+    "candidates": [
+      "外科诊室",
+      "普通诊室"
+    ],
+    "basis": "西南外科门诊排房第2间，设问诊桌和检查床，科室文字模糊。",
+    "confidence": "中",
+    "number": "47"
+  },
+  {
+    "id": "S238",
+    "key": "sw_clinic3",
+    "zone": "SW",
+    "candidates": [
+      "外科诊室",
+      "普通诊室"
+    ],
+    "basis": "西南外科门诊排房第3间，设问诊桌和检查床，科室文字模糊。",
+    "confidence": "中",
+    "number": "48"
+  },
+  {
+    "id": "S239",
+    "key": "sw_clinic4",
+    "zone": "SW",
+    "candidates": [
+      "外科诊室",
+      "普通诊室"
+    ],
+    "basis": "西南外科门诊排房第4间，设问诊桌和检查床，科室文字模糊。",
+    "confidence": "中",
+    "number": "49"
+  },
+  {
+    "key": "sw_smallmid",
+    "zone": "SW",
+    "candidates": [
+      "处置室",
+      "治疗辅助间"
+    ],
+    "basis": "西南门诊西端中部狭长小间，疑有“处置”字样。",
+    "confidence": "低",
+    "bbox": [
+      863,
+      4196,
+      937,
+      4236
+    ],
+    "id": "S244",
+    "number": "50"
+  },
+  {
+    "key": "sw_smallbottom",
+    "zone": "SW",
+    "candidates": [
+      "诊室",
+      "值班室"
+    ],
+    "basis": "带床及桌椅，完整房名读不清。",
+    "confidence": "低",
+    "bbox": [
+      863,
+      4244,
+      944,
+      4335
+    ],
+    "id": "S245",
+    "number": "51"
+  },
+  {
+    "key": "se_northsmall",
+    "zone": "SE",
+    "candidates": [
+      "治疗辅助间",
+      "缓冲间"
+    ],
+    "basis": "输液区东北角、休息更衣附近小间，无可辨完整房名。",
+    "confidence": "低",
+    "bbox": [
+      3002,
+      3231,
+      3079,
+      3279
+    ],
+    "id": "S251",
+    "number": "52"
+  },
+  {
+    "key": "se_water",
+    "zone": "SE",
+    "candidates": [
+      "开水间"
+    ],
+    "basis": "可见“开…”字和水槽，需确认房名。",
+    "confidence": "高",
+    "bbox": [
+      2290,
+      3391,
+      2336,
+      3446
+    ],
+    "id": "S255",
+    "number": "53"
+  },
+  {
+    "key": "se_clean",
+    "zone": "SE",
+    "candidates": [
+      "无障碍卫生间",
+      "清洁间"
+    ],
+    "basis": "输液区西侧卫生间组内，可辨“无障碍”样字并有卫生器具。",
+    "confidence": "中",
+    "bbox": [
+      2290,
+      3493,
+      2379,
+      3562
+    ],
+    "id": "S256",
+    "number": "54"
+  },
+  {
+    "key": "se_round",
+    "zone": "SE",
+    "candidates": [
+      "母婴室",
+      "辅助用房"
+    ],
+    "basis": "输液区南侧小间，见圆形设施；用途仍无可靠文字依据。",
+    "confidence": "低",
+    "bbox": [
+      2570,
+      3746,
+      2632,
+      3785
+    ],
+    "id": "S260",
+    "number": "55"
+  },
+  {
+    "key": "se_smallwest",
+    "zone": "SE",
+    "candidates": [
+      "治疗辅助间",
+      "卫生间"
+    ],
+    "basis": "狭长小间，设备信息不足。",
+    "confidence": "低",
+    "bbox": [
+      2641,
+      3746,
+      2686,
+      3785
+    ],
+    "id": "S261",
+    "number": "56"
+  },
+  {
+    "key": "se_store2",
+    "zone": "SE",
+    "candidates": [
+      "库房",
+      "治疗辅助间"
+    ],
+    "basis": "儿科支持区北部房间，见柜体，具体房名模糊。",
+    "confidence": "低",
+    "bbox": [
+      2570,
+      3859,
+      2686,
+      3932
+    ],
+    "id": "S270",
+    "number": "57"
+  },
+  {
+    "key": "se_duty2",
+    "zone": "SE",
+    "candidates": [
+      "值班",
+      "休息"
+    ],
+    "basis": "单床与可辨“值…”字。",
+    "confidence": "中",
+    "bbox": [
+      2878,
+      3851,
+      2952,
+      3899
+    ],
+    "id": "S271",
+    "number": "58"
+  },
+  {
+    "key": "se_duty",
+    "zone": "SE",
+    "candidates": [
+      "值班室",
+      "母婴支持间"
+    ],
+    "basis": "儿科办公东侧房间，见床状设备；叠写房名不能确认。",
+    "confidence": "低",
+    "bbox": [
+      2570,
+      3941,
+      2686,
+      4013
+    ],
+    "id": "S276",
+    "number": "59"
+  },
+  {
+    "key": "se_store3",
+    "zone": "SE",
+    "candidates": [
+      "脱消室",
+      "脱洗室"
+    ],
+    "basis": "儿科东南支持区，可辨“脱…室”，中间字仍需核对。",
+    "confidence": "中",
+    "bbox": [
+      2878,
+      3966,
+      2980,
+      4087
+    ],
+    "id": "S278",
+    "number": "60"
+  },
+  {
+    "key": "se_test",
+    "zone": "SE",
+    "candidates": [
+      "检验",
+      "检查"
+    ],
+    "basis": "可辨“检…”字及台面。",
+    "confidence": "中",
+    "bbox": [
+      2483,
+      4023,
+      2562,
+      4087
+    ],
+    "id": "S280",
+    "number": "61"
+  },
+  {
+    "key": "se_storagesmall",
+    "zone": "SE",
+    "candidates": [
+      "器械间",
+      "儿童活动辅助间"
+    ],
+    "basis": "儿童活动区东侧小间，见柜架；房名叠写，不能确定。",
+    "confidence": "低",
+    "bbox": [
+      2753,
+      4158,
+      2836,
+      4215
+    ],
+    "id": "S288",
+    "number": "62"
+  },
+  {
+    "key": "se_center",
+    "zone": "SE",
+    "candidates": [
+      "儿科诊室",
+      "儿童门诊辅助区"
+    ],
+    "basis": "儿童活动区与儿童输液区之间，见问诊桌椅样布置，区域名不清。",
+    "confidence": "低",
+    "bbox": [
+      2845,
+      4158,
+      2929,
+      4280
+    ],
+    "id": "S289",
+    "number": "63"
+  },
+  {
+    "key": "se_lowerexam",
+    "zone": "SE",
+    "candidates": [
+      "检查室",
+      "治疗室"
+    ],
+    "basis": "S289东侧小房间，带检查床样设备，未辨出完整名称。",
+    "confidence": "低",
+    "bbox": [
+      2938,
+      4158,
+      2998,
+      4215
+    ],
+    "id": "S290",
+    "number": "64"
+  }
+]

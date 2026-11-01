@@ -1,0 +1,23 @@
+@@ -270,3 +270,3 @@
+        '<rect width="1992" height="1408" fill="white"/>',
+-       '<style>text{font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif}.space .outline{stroke-width:1.8;fill-opacity:.08}.space.uncertain .outline{stroke-dasharray:6 3}.sid{font-size:10px;font-weight:700;fill:white;pointer-events:none}.space{cursor:pointer}.space:hover .outline,.space.selected .outline{stroke-width:4;fill-opacity:.3}.door{fill:#fff;stroke:#dc2626;stroke-width:1.6}.entrance{fill:#db2777;stroke:white;stroke-width:1.2}</style>',
++       '<style>text{font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif}.space .outline{stroke-width:1.8;fill-opacity:.08}.space.uncertain .outline{stroke-dasharray:6 3}.sid{font-size:8.5px;font-weight:700;fill:white;pointer-events:none}.space{cursor:pointer}.space:hover .outline,.space.selected .outline{stroke-width:4;fill-opacity:.3}.door{fill:#fff;stroke:#dc2626;stroke-width:1.6}.entrance{fill:#db2777;stroke:white;stroke-width:1.2}</style>',
+        '<text x="42" y="40" font-size="25" font-weight="700" fill="#10243a">山东省立医院儿科综合楼 · 一层空间首轮标注</text>',
+@@ -282,4 +282,6 @@
+     lx,ly=n['_label_base']
++    lx=min(lx,max(x for x,y in n['_poly_base'])-31)
+     title=html.escape(f"{n['id']} | {n['name']} | {level_names[n['node_level']]} | {scope_names[n['scope']]} | {n['note']}")
+-    parts.append(f'<g class="space {"uncertain" if uncertain else ""}" id="{n["id"]}" data-scope="{n["scope"]}" data-level="{n["node_level"]}" data-uncertain="{str(uncertain).lower()}"><title>{title}</title><polygon class="outline" points="{poly}" fill="{color}" stroke="{color}"/><g class="idlabel"><rect x="{lx}" y="{ly}" width="35" height="15" rx="3" fill="{color}" opacity=".95"/><text class="sid" x="{lx+3}" y="{ly+11}">{n["id"]}</text></g></g>')
++    dash=' stroke-dasharray="6 3"' if uncertain else ''
++    parts.append(f'<g class="space {"uncertain" if uncertain else ""}" id="{n["id"]}" data-scope="{n["scope"]}" data-level="{n["node_level"]}" data-uncertain="{str(uncertain).lower()}"><title>{title}</title><polygon class="outline" points="{poly}" fill="{color}" fill-opacity="0.08" stroke="{color}" stroke-width="1.8"{dash}/><g class="idlabel"><rect x="{lx}" y="{ly}" width="29" height="13" rx="3" fill="{color}" opacity=".95"/><text class="sid" x="{lx+3}" y="{ly+10}" font-size="8.5" font-weight="700" fill="white">{n["id"]}</text></g></g>')
+ parts.append('</g><g id="door-layer">')
+@@ -287,3 +289,3 @@
+     x,y=d['_base']
+-    parts.append(f'<g class="marker"><title>{d["id"]}: {" ↔ ".join(d["space_ids"])} — 连接待核</title><circle class="door" cx="{x}" cy="{y}" r="3.5"/></g>')
++    parts.append(f'<g class="marker"><title>{d["id"]}: {" ↔ ".join(d["space_ids"])} — 连接待核</title><circle class="door" cx="{x}" cy="{y}" r="3.5" fill="white" stroke="#dc2626" stroke-width="1.6"/></g>')
+ parts.append('</g><g id="entrance-layer">')
+@@ -291,3 +293,3 @@
+     x,y=e['_base']
+-    parts.append(f'<g><title>{e["id"]} {html.escape(e["name"])}</title><path class="entrance" d="M{x-6},{y-6} L{x+6},{y-6} L{x+6},{y+6} L{x-6},{y+6} Z"/><text x="{x+9}" y="{y+4}" font-size="11" font-weight="700" fill="#be185d">{e["id"]}</text></g>')
++    parts.append(f'<g><title>{e["id"]} {html.escape(e["name"])}</title><path class="entrance" d="M{x-6},{y-6} L{x+6},{y-6} L{x+6},{y+6} L{x-6},{y+6} Z" fill="#db2777" stroke="white" stroke-width="1.2"/><text x="{x+9}" y="{y+4}" font-size="11" font-weight="700" fill="#be185d">{e["id"]}</text></g>')
+ parts.append('</g></g><text x="42" y="1391" font-size="12" fill="#475569">首轮人工视觉判读｜坐标对应原图 2796 × 1751｜未知不作负例｜未标全门洞、窗口与交通核内部空间｜2026-10-25</text></svg>')

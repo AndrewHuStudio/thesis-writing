@@ -1,0 +1,5 @@
+@@ -121,3 +121,3 @@
+ add(59,'待核实北端房间','unknown','emergency',box=[1550,215,1683,260],name_status='unresolved',candidate=None)
+-add(60,'急诊北侧交通核','vertical_core','emergency',box=[1550,260,1683,412],level='core_block',name_status='descriptive',note='楼梯、电梯及前室合并，尚未逐一拆分。')
++add(60,'急诊北侧交通核','vertical_core','emergency',poly=[[1550,260],[1683,260],[1683,380],[1615,380],[1615,412],[1550,412]],level='core_block',name_status='descriptive',note='楼梯、电梯及前室合并，尚未逐一拆分。')
+ add(61,'急诊诊区内廊','corridor','emergency',poly=[[1683,215],[1722,215],[1722,768],[1683,768],[1683,412],[1615,412],[1615,380],[1683,380]],level='open_space',name_status='descriptive',label_pos=[1691,540])

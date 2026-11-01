@@ -1,0 +1,244 @@
+--- before/SKILL.md
++++ after/SKILL.md
+@@ -11,7 +11,16 @@
+ 
+ 每张图最终只保留四个文件：原图、带编号及**可见名称**的 SVG、核心 JSON、给人看的简短 MD。已有命名沿用；新样本可用 `source.ext`、`标注.svg`、`annotation.json`、`标注说明.md`。同院多张图分子目录。截图、PNG 检查图和脚本临时产物放临时目录，默认不输出网页、额外审核 JSON 或重复压缩包。清理用户已有文件须在其授权范围内。
+ 
+-概念精度记录空间功能、范围、相对规模与可达性。半墙服务区经图面或用户确认可达时，记录概念连接，**不要求或编造小门位置、门宽、门扇形式、半墙缺口或交通核内部精确路线**。交通核可按整体节点保存。服务窗口、共墙与人员可达分别记录。按图明确范围，不把急诊、住院支持和普通门诊无说明混同。
++概念精度记录空间功能、范围、相对规模与可达性。**原图清晰可辨的门洞和无门开口要记录近似位置，SVG 用红点显示，并与 JSON 的人员可达关系一一对应；不能因删除施工细节而一并删除这些定位信息。**半墙服务区经图面或用户确认可达、但未画出小门时，只记录概念连接，不要求或编造门位。门宽、门扇形式、半墙缺口形状或交通核内部精确路线不纳入数据。交通核可按整体节点保存。服务窗口、共墙与人员可达分别记录。按图明确范围，不把急诊、住院支持和普通门诊无说明混同。
++
++## 门洞红点与连通关系同步
++
++- 逐个检查房间与走廊、相邻空间之间的实际开口。清晰门洞记为 `door`，清晰无门开口记为 `open_passage`，近似中心点采用原图像素坐标；不能从空间质心或共墙中点自动生成门位。
++- 在对应 `access` 关系的 `openings` 中保存 `id`、`kind`、`position_px`，具体结构见 [schema.md](references/schema.md)。一个空间对的可达关系只保留一条，不同门在同一关系下分别记录，开口 P 编号全图唯一且续作保持稳定。
++- SVG 在对应位置绘制实心红点，显示 P 编号；点的标题及属性记录关系编号和两端 S 编号。每个红点必须能回查 JSON 中的开口与空间对，每个已定位开口必须实际画出；名称标签不能遮住红点。
++- 半墙未画小门、未见实体分隔的区域连续等只保存 `access`，可省略 `openings`；无定位红点不等于不相通。不要为满足点数编造位置，也不能因为某处位置不确定而删除其他可辨认门洞。
++- 服务窗口仅记 `service`、共墙仅记 `shared_wall`，均不能据此创建人员通行红点。建筑入口继续沿用 E 编号和入口位置标记，不混入室内 P 编号。
++- 同步修改 JSON、SVG、MD。MD 概括红点数、对应关系数和未定位的概念连通数。旧样本允许暂缺 `openings`，不因该字段可选就称其已恢复；恢复时须回看本图原图，不借用其他医院的点位。
+ 
+ ## 名称是完成条件
+ 
+@@ -82,6 +91,6 @@
+ 
+ MD 概括范围、空间／类型数量、各类关系数量、入口和必要精度说明；不写成程序操作说明。SVG 要实际画出名称，不能只把名称放在悬停标题或外部 JSON 中。
+ 
+-交付前运行正式检查，并渲染 SVG 查看完整图及密集小房间局部，核对可见名称、边界、入口和 JSON 一致。通过后才宣布这张图的标注已完成；格式检查通过不代表已验证模型泛化或整批样本量充分。
++交付前运行正式检查，并渲染 SVG 查看完整图及密集小房间局部，核对可见名称、边界、入口、门洞红点与 JSON 的空间对及坐标一致。`validate --check-dir` 检查红点和 `openings` 的编号、坐标及两端空间对应；它不能替代原图目视判读门洞。通过后才宣布这张图的标注已完成；格式检查通过不代表已验证模型泛化或整批样本量充分。
+ 
+ 经用户确认的案例事实留在该图数据；有复用价值的判读经验再归纳进规则或共享类别，不把单院特例当成所有图纸的固定规则。
+--- before/references/schema.md
++++ after/references/schema.md
+@@ -30,23 +30,35 @@
+ 
+ 普通关系字段：`id`、`source`、`target`、`type`。
+ 
+-- `access`：空间之间的概念级人员可达。门、无门开口、经确认的区域连续均可形成该关系。不同门连接同一空间对时合并。
++- `access`：空间之间的概念级人员可达。门、无门开口、经确认的区域连续均可形成该关系。不同门连接同一空间对时合并为一条关系，具体门洞／开口分别保存在该关系的 `openings` 列表中。
+ - `service`：服务窗口／柜台联系，不由此推断人员可穿行。
+ - `shared_wall`：共墙，不自动表示可达。
+ - `entrance`：额外保存 `name`、`entrance_type`、`position_px`；`source: null` 表示外部边界接口，`target` 为直接相连室内空间，独立 E 编号。
+ 
+ 空间关系按无向概念联系存储，每对空间同一类型只保留一条；不同类型可并存。入口箭头不自动解释为单向权限。外部端点 null 不是供室内寻路的共享室外节点。训练时入口是否转换为特殊节点，由预处理决定。
+ 
+-不保存门坐标、门宽、门扇、半墙缺口和内部精确路径。关系存在不表达患者／医护门禁权限，除非另行定义了相应研究任务。
++### access 的可选 openings
++
++清晰可定位的门洞／无门开口应保存近似位置，供 SVG 红点和连通关系互相核对：
++
++```json
++{"id":"R001","source":"S001","target":"S002","type":"access",
++ "openings":[{"id":"P001","kind":"door","position_px":[100,250]},
++             {"id":"P002","kind":"open_passage","position_px":[100,350]}]}
++```
++
++每个开口仅有 `id`、`kind`、`position_px`：P 编号全图唯一，续作保持稳定；`kind` 仅为 `door` 或 `open_passage`；位置为原图像素坐标，须有限且在图像范围内。一个空间对可有多个开口，不因此复制 `access` 关系。`openings` 仅用于 `access`，服务窗口和共墙不得附带通行开口。
++
++半墙未画小门或区域连续而无具体门洞时，保留概念级 `access`，省略 `openings`；不得取质心或共墙中点伪造门位。旧样本没有该字段时仍可读取，但不能据此声称已复核全部可见门洞。近似门洞位置是连通关系的定位信息；不保存门宽、门扇构造、半墙缺口形状和内部精确路径。关系存在不表达患者／医护门禁权限，除非另行定义了相应研究任务。
+ 
+ ## MD 与 SVG
+ 
+ 最终 MD 是短概览：范围、总数、各类数量、关系分类计数、入口及必要精度说明。草稿有未确认名称时，默认在同一 MD 中加入 SKILL.md 规定的可编辑名称预估表、核对图及局部图链接，并明确未完成；用户填表期间保留其名称修改、确认状态与备注，生成概览时不得覆盖这些内容。全部确认并正式校验通过后再收敛为最终概览。
+ 
+-SVG 自带原图底图；每个空间都可见“编号＋名称”。名称未确定的区域用显著颜色显示“名称未确认”；用户确认采用 SKILL.md 规定的完整原图框选、边栏标签和引线总图，局部放大图为补充。名称不能仅存在于 SVG 的 title 元素。
++SVG 自带原图底图；每个空间都可见“编号＋名称”。`openings` 中的门洞／无门开口在对应坐标绘制实心红点和 P 编号，标题及 `data-opening-id`、`data-relation-id`、`data-source`、`data-target` 属性对应 JSON，保证双向可查；红点位于空间标签上层。建筑入口沿用 E 编号及独立样式。概念连通没有位置时不强行画红点。名称未确定的区域用显著颜色显示“名称未确认”；用户确认采用 SKILL.md 规定的完整原图框选、边栏标签和引线总图，局部放大图为补充。名称不能仅存在于 SVG 的 title 元素。
+ 
+ 核对总图按连续片区自上而下、同排自左向右编排，标签按同一顺序排列，引线不交叉。已有 S 编号保持稳定；需要无跳号核对时，使用连续核对号并在标签注明对应 S 编号。对应关系保存在草稿 MD 预估表或外部核对材料中，不加入 `image`、`spaces` 或 `relations`，不影响最终四文件约定。图片与核对材料按 SKILL.md 放在工作区内、最终样本目录外的可持续保存目录，MD使用可解析的相对图片路径。
+ 
+ ## 完成检查
+ 
+-完成需要：名称确定、类别统一、编号／关系有效、多边形有效且不重叠、面积归一化、SVG 可见名称与 JSON 一致、四文件交付。按用户原名记载不等于有现场测绘证据；不要作超出当前图纸与用户说明的建筑合规或模型效果承诺。
++完成需要：名称确定、类别统一、编号／关系有效、多边形有效且不重叠、面积归一化、SVG 可见名称与 JSON 一致、已定位开口与红点一一对应、四文件交付。`validate --check-dir` 额外核对红点编号、坐标、颜色及两端空间，原图中门洞是否判对仍须全图／局部目视检查。按用户原名记载不等于有现场测绘证据；不要作超出当前图纸与用户说明的建筑合规或模型效果承诺。
+--- before/agents/openai.yaml
++++ after/agents/openai.yaml
+@@ -1,4 +1,4 @@
+ interface:
+   display_name: "门诊平面结构化标注"
+   short_description: "逐张标注门诊概念平面；名称未确定时，以完整原图框选、连续编号及有序引线集中确认。"
+-  default_prompt: "使用 $outpatient-plan-annotation 标注这张门诊概念平面；未确认空间在完整原图上框选，按相邻片区从上到下连续核对，边栏标签顺序一致且引线不交叉，最终只保留原图、具名 SVG、JSON 和概览 MD。"
++  default_prompt: "使用 $outpatient-plan-annotation 标注这张门诊概念平面；清晰门洞和无门开口在 SVG 画红点，并同步 JSON 的 access/openings 及两端空间；半墙等无具体门位的概念连通不编造坐标。未确认空间在完整原图上框选，按相邻片区从上到下连续核对，边栏标签顺序一致且引线不交叉，最终只保留原图、具名 SVG、JSON 和概览 MD。"
+--- before/scripts/annotation_tools.py
++++ after/scripts/annotation_tools.py
+@@ -8,7 +8,7 @@
+ LEVELS={'room','open_space','semi_open_space','core_block','functional_block','landscape'}
+ LEVEL_NAMES={'room':'房间级单元','open_space':'开放空间','semi_open_space':'半墙服务区','core_block':'交通核','functional_block':'功能块','landscape':'绿化'}
+ SPACE_KEYS={'id','name','type','level','scope','polygon_px','area_ratio'}
+-REL_KEYS={'id','source','target','type','name','entrance_type','position_px'}
++REL_KEYS={'id','source','target','type','name','entrance_type','position_px','openings'}
+ REL_NAMES={'access':'人员可达','service':'服务联系','shared_wall':'共墙','entrance':'入口连接'}
+ PENDING=re.compile(r'待核|未确认|未分类|未知|候选|待定|unknown|tbd|\?',re.I)
+ NS='http://www.w3.org/2000/svg';XL='http://www.w3.org/1999/xlink'
+@@ -59,7 +59,7 @@
+     if not math.isclose(total,1,abs_tol=1e-6):errors.append('室内相对面积占比合计须为 1。')
+     rels=data.get('relations',[]);rids=[r.get('id') for r in rels]
+     if len(rids)!=len(set(rids)) or any(not i for i in rids):errors.append('关系编号为空或重复。')
+-    keys=set()
++    keys=set();opening_ids=set();expected_openings={}
+     for r in rels:
+         rid=r.get('id','?');typ=r.get('type');a=r.get('source');b=r.get('target')
+         if not {'id','source','target','type'}<=set(r) or not set(r)<=REL_KEYS:errors.append(f'{rid}: 关系字段不符约定。')
+@@ -72,13 +72,43 @@
+             key=(rid,a,b,typ)
+         else:
+             if a not in ids or a==b:errors.append(f'{rid}: 起点无效或自连接。')
+-            if any(k in r for k in ['position_px','entrance_type']):errors.append(f'{rid}: 普通连接不保存门坐标。')
++            if any(k in r for k in ['position_px','entrance_type']):errors.append(f'{rid}: 普通连接的位置应保存在 openings 中；入口属性仅用于入口。')
+             key=tuple(sorted([str(a),str(b)]))+(str(typ),)
++        if 'openings' in r:
++            if typ!='access':errors.append(f'{rid}: openings 仅用于人员可达，服务窗口和共墙不能标为通行开口。')
++            openings=r['openings']
++            if not isinstance(openings,list) or not openings:
++                errors.append(f'{rid}: openings 须为非空列表；概念连通无定位点时省略此字段。');openings=[]
++            for opening in openings:
++                if not isinstance(opening,dict) or set(opening)!={'id','kind','position_px'}:
++                    errors.append(f'{rid}: 开口字段须为 id、kind、position_px。');continue
++                oid=opening['id'];q=opening['position_px']
++                if not isinstance(oid,str) or not re.fullmatch(r'P\d{3,}',oid) or oid in opening_ids:
++                    errors.append(f'{rid}: 开口编号无效或重复。')
++                else:opening_ids.add(oid)
++                if opening['kind'] not in ('door','open_passage'):errors.append(f'{rid}: 开口类型须为 door 或 open_passage。')
++                valid_q=isinstance(q,list) and len(q)==2 and all(type(v) in (int,float) and math.isfinite(v) for v in q) and 0<=q[0]<=w and 0<=q[1]<=h
++                if not valid_q:errors.append(f'{rid}: 开口坐标无效或超出原图。')
++                elif isinstance(oid,str):expected_openings[oid]=(rid,a,b,q)
+         if key in keys:errors.append(f'{rid}: 重复空间关系。')
+         keys.add(key)
+     if check_dir:
+         files=[f for f in Path(path).parent.iterdir() if f.is_file()]
+         if len(files)!=4 or sum(f.suffix.lower()=='.svg' for f in files)!=1 or sum(f.suffix.lower()=='.md' for f in files)!=1 or sum(f.suffix.lower()=='.json' for f in files)!=1:errors.append('最终图纸目录应只有原图、SVG、JSON、MD 四文件。')
++        svgs=[f for f in files if f.suffix.lower()=='.svg']
++        if len(svgs)==1:
++            try:
++                markers=[e for e in ET.parse(svgs[0]).iter() if e.get('data-opening-id') is not None]
++                found={e.get('data-opening-id'):e for e in markers}
++                if set(found)!=set(expected_openings) or len(found)!=len(markers):errors.append('SVG 红点编号与 JSON openings 不一一对应。')
++                for oid,(rid,a,b,q) in expected_openings.items():
++                    e=found.get(oid)
++                    if e is None:continue
++                    circles=[c for c in e if c.tag=='{'+NS+'}circle']
++                    if e.get('data-relation-id')!=rid or e.get('data-source')!=a or e.get('data-target')!=b:errors.append(f'{oid}: SVG 红点连接空间与 JSON 不一致。')
++                    if len(circles)!=1 or circles[0].get('fill')!='#dc2626' or any(not math.isclose(float(circles[0].get(k,'nan')),v,abs_tol=.01) for k,v in zip(('cx','cy'),q)):
++                        errors.append(f'{oid}: SVG 红点坐标／颜色与 JSON 不一致。')
++            except (ET.ParseError,ValueError,OSError):errors.append('SVG 无法读取或红点属性无效。')
+     pending=[s['id'] for s in unresolved(data)]
+     return {'valid':not errors,'names_complete':not pending,'pending_name_ids':pending,'errors':errors,'spaces':len(spaces),'relations':len(rels)}, (1 if errors else 2 if pending and not allow_incomplete else 0)
+ 
+@@ -170,6 +200,14 @@
+         sg.append(element('rect',{'x':x,'y':y,'width':lw,'height':lh,'rx':2,'fill':'#fff7df' if is_pending else 'white','fill-opacity':'.94','stroke':color,'stroke-width':'.8'}))
+         for i,line in enumerate(lines):sg.append(txt(x+4,y+font+2+i*(font+2),line,font,color,bold=True))
+     for r in data['relations']:
++        for opening in r.get('openings',[]):
++            x,y=opening['position_px'];oid=opening['id']
++            og=element('g',{'id':oid,'data-opening-id':oid,'data-relation-id':r['id'],'data-source':r['source'],'data-target':r['target'],'data-kind':opening['kind']});g.append(og)
++            og.append(element('title',text=f'{oid} | {r["id"]} | {r["source"]} ↔ {r["target"]} | '+('门洞' if opening['kind']=='door' else '无门开口')))
++            og.append(element('circle',{'cx':x,'cy':y,'r':max(3,w/650),'fill':'#dc2626','stroke':'white','stroke-width':max(1,w/1800)}))
++            label=txt(x+max(4,w/500),y-max(4,w/500),oid,max(6,min(9,w/310)),'#b91c1c',True)
++            label.set('stroke','white');label.set('stroke-width','2');label.set('paint-order','stroke');og.append(label)
++    for r in data['relations']:
+         if r['type']!='entrance':continue
+         x,y=r['position_px'];p=polygons[r['target']].representative_point();dx=x-p.x;dy=y-p.y;length=math.hypot(dx,dy) or 1
+         font=max(8,min(15,w/180));label=r['id']+' '+r['name'];lw=visual_width(label,font)+14;lh=font+10
+@@ -179,7 +217,7 @@
+         eg.append(element('circle',{'cx':x,'cy':y,'r':max(3,w/400),'fill':'white','stroke':'#be185d','stroke-width':'2'}))
+         eg.append(element('rect',{'x':bx,'y':by,'width':lw,'height':lh,'rx':3,'fill':'white','stroke':'#be185d'}))
+         eg.append(txt(bx+7,by+font+3,label,font,'#9d174d',True))
+-    root.append(txt(12,h+head+foot-7,'空间名称随 SVG 显示；黄色表示名称未确认。概念级标注不记录施工门位。',max(7,min(14,w/150)),'#52677b'))
++    root.append(txt(12,h+head+foot-7,'红点 P：门洞／无门开口，与 JSON 连通关系对应；粉圈 E：建筑入口；黄色：名称未确认。开口为近似位置。',max(7,min(14,w/150)),'#52677b'))
+     ET.ElementTree(root).write(output,encoding='unicode')
+ 
+ def summary(data,output):
+@@ -190,6 +228,10 @@
+         f'**连接关系：**{len(data["relations"])} 条，'+ '、'.join(f'{REL_NAMES[k]} {v} 条' for k,v in rels.items())+'。','',
+         '**入口：**'+'、'.join(r['name'] for r in data['relations'] if r['type']=='entrance')+'。','',
+         '**相对规模：**室内非重叠标注区域的 `area_ratio` 合计为 1；绿化不参与。具体物理尺寸由生成环节按任务确定。施工级门构造及内部精确路线不纳入数据。']
++    openings=[o for r in data['relations'] for o in r.get('openings',[])]
++    if openings:
++        located=sum(bool(r.get('openings')) for r in data['relations'] if r['type']=='access')
++        lines.extend(['',f'**门洞与开口：**{len(openings)} 个红点，对应 {located} 条人员可达关系；其中门洞 {sum(o["kind"]=="door" for o in openings)} 个、无门开口 {sum(o["kind"]=="open_passage" for o in openings)} 个。同一空间对可有多个开口，关系仍按空间对归并。其余 {rels["access"]-located} 条人员可达关系无定位红点；区域连续及半墙等概念连通不编造门位，服务窗口及共墙不作为通行红点。'])
+     if pending:lines.extend(['','**名称待确认：**'+'、'.join(s['id']+' '+s['name'] for s in pending)+'。此图尚不能宣布打标完成。'])
+     Path(output).write_text('\n'.join(lines)+'\n')
+ 
+--- before/tests/test_annotation_tools.py
++++ after/tests/test_annotation_tools.py
+@@ -50,5 +50,63 @@
+     def test_construction_fields_rejected(self):
+         self.data['relations'][0]['door_width']=900;self.write()
+         self.assertNotEqual(self.run_tool('validate',str(self.f)).returncode,0)
++    def add_openings(self):
++        self.data['relations'][0]['openings']=[
++            {'id':'P001','kind':'door','position_px':[100,25]},
++            {'id':'P002','kind':'open_passage','position_px':[100,75]}]
++        self.write()
++    def test_multiple_openings_render_as_red_points_with_relation_endpoints(self):
++        self.add_openings();out=self.p/'标注.svg'
++        r=self.run_tool('render',str(self.f),'--output',str(out))
++        self.assertEqual(r.returncode,0,r.stdout+r.stderr)
++        points=[e for e in ET.parse(out).iter() if e.get('data-opening-id')]
++        self.assertEqual({e.get('data-opening-id') for e in points},{'P001','P002'})
++        for e in points:
++            self.assertEqual(e.get('data-relation-id'),'R001')
++            self.assertEqual(e.get('data-source'),'S001');self.assertEqual(e.get('data-target'),'S002')
++            circles=[c for c in e if c.tag.endswith('}circle')]
++            self.assertEqual(len(circles),1);self.assertEqual(circles[0].get('fill'),'#dc2626')
++        self.assertEqual(len(self.data['relations']),2)
++    def test_invalid_opening_positions_are_rejected(self):
++        for q in ([201,25],[100,float('nan')],[100],None):
++            with self.subTest(q=q):
++                self.add_openings();self.data['relations'][0]['openings'][0]['position_px']=q;self.write()
++                r=self.run_tool('validate',str(self.f))
++                self.assertNotEqual(r.returncode,0)
++                self.assertIn('开口坐标',r.stdout+r.stderr)
++    def test_duplicate_opening_ids_are_rejected(self):
++        self.add_openings();self.data['relations'][0]['openings'][1]['id']='P001';self.write()
++        r=self.run_tool('validate',str(self.f))
++        self.assertNotEqual(r.returncode,0);self.assertIn('开口编号',r.stdout+r.stderr)
++    def test_service_and_shared_wall_cannot_have_access_openings(self):
++        for typ in ('service','shared_wall'):
++            with self.subTest(typ=typ):
++                self.add_openings();self.data['relations'][0]['type']=typ;self.write()
++                r=self.run_tool('validate',str(self.f))
++                self.assertNotEqual(r.returncode,0);self.assertIn('人员可达',r.stdout+r.stderr)
++    def test_final_check_detects_deleted_svg_red_point(self):
++        self.add_openings();svg=self.p/'标注.svg';md=self.p/'标注说明.md'
++        for args in [('render',str(self.f),'--output',str(svg)),('summary',str(self.f),'--output',str(md))]:
++            r=self.run_tool(*args);self.assertEqual(r.returncode,0,r.stdout+r.stderr)
++        r=self.run_tool('validate',str(self.f),'--check-dir');self.assertEqual(r.returncode,0,r.stdout+r.stderr)
++        tree=ET.parse(svg)
++        for parent in tree.iter():
++            for child in list(parent):
++                if child.get('data-opening-id')=='P001':parent.remove(child)
++        tree.write(svg,encoding='unicode')
++        r=self.run_tool('validate',str(self.f),'--check-dir')
++        self.assertNotEqual(r.returncode,0);self.assertIn('SVG',r.stdout+r.stderr)
++    def test_final_check_rejects_svg_point_at_wrong_position_or_with_wrong_endpoint(self):
++        self.add_openings();svg=self.p/'标注.svg';md=self.p/'标注说明.md'
++        r=self.run_tool('summary',str(self.f),'--output',str(md));self.assertEqual(r.returncode,0,r.stdout+r.stderr)
++        for change in ('position','endpoint'):
++            with self.subTest(change=change):
++                r=self.run_tool('render',str(self.f),'--output',str(svg));self.assertEqual(r.returncode,0,r.stdout+r.stderr)
++                tree=ET.parse(svg);marker=next(e for e in tree.iter() if e.get('data-opening-id')=='P001')
++                if change=='position':next(e for e in marker if e.tag.endswith('}circle')).set('cx','130')
++                else:marker.set('data-target','S003')
++                tree.write(svg,encoding='unicode')
++                r=self.run_tool('validate',str(self.f),'--check-dir')
++                self.assertNotEqual(r.returncode,0);self.assertIn('SVG',r.stdout+r.stderr)
+ 
+ if __name__=='__main__':unittest.main(verbosity=2)

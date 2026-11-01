@@ -1,0 +1,127 @@
+@@ -83,3 +83,3 @@
+ add(26,'南侧东端通道','corridor','outpatient_support',box=[974,916,1045,1098],level='open_space',name_status='descriptive')
+-add(27,'医务廊（西）','corridor','ordinary_outpatient',box=[314,1019,619,1047],level='open_space',name_status='partial',candidate='医务廊',note='功能字样部分可读；并未由此确认医护专用权限。',label_pos=[500,1028])
++add(27,'医务廊（西）','corridor','ordinary_outpatient',poly=[[314,1019],[619,1019],[619,1047],[346,1047],[346,1098],[314,1098]],level='open_space',name_status='partial',candidate='医务廊',note='v2 补西端通道支路；功能字样部分可读，不据此确认医护专用权限。',label_pos=[500,1028])
+ add(28,'西南交通前厅','corridor','ordinary_outpatient',box=[490,1047,561,1098],level='open_space',name_status='descriptive')
+@@ -92,3 +92,3 @@
+ add(35,'分诊','triage','ordinary_outpatient',box=[570,964,619,1019])
+-add(36,'卫生间03','toilet','ordinary_outpatient',box=[314,1047,378,1098],name_status='partial',candidate='WC')
++add(36,'卫生间03','toilet','ordinary_outpatient',box=[346,1047,378,1098],name_status='partial',candidate='WC',note='v2 将西侧通道支路归回 S027。')
+ add(37,'西南楼梯间','vertical_core','ordinary_outpatient',box=[378,1047,490,1098],level='core_block',name_status='descriptive')
+@@ -155,5 +155,7 @@
+ 
+-def door(a,b,x,y,kind='direct_door_candidate',note='可见门洞／开启弧线的首轮视觉判读；位置为近似值。'):
++def door(a,b,x,y,kind='direct_door_candidate',note='可见门洞／开启弧线的第二轮视觉判读；位置为近似值。',segment=None):
+     rid=f'R{len(relations)+1:03d}'
+-    did=f'D{len(door_markers)+1:03d}'
++    did=f'P{len(door_markers)+1:03d}'
++    movement=kind in ['direct_door_candidate','open_passage_candidate','zone_continuity_candidate']
++    aggregate_ids=[f'S{i:03d}' for i in [a,b] if lookup[f'S{i:03d}']['node_level']=='core_block']
+     relations.append({'id':rid,'source':f'S{a:03d}','target':f'S{b:03d}',
+@@ -161,6 +163,12 @@
+                       'review_status':'pending','evidence_marker':did,
+-                      'access_permissions':'unknown','directionality':'unknown','note':note})
++                      'access_permissions':'unknown','directionality':'unknown','note':note,
++                      'is_movement_candidate':movement,'is_service_candidate':kind=='service_window_candidate',
++                      'aggregate_endpoint_ids':aggregate_ids,
++                      'evidence_segment_px':[[round(xx*FX,2),round(yy*FY,2)] for xx,yy in segment] if segment else None})
+     door_markers.append({'id':did,'position_px':[round(x*FX,2),round(y*FY,2)],
+                          'space_ids':[f'S{a:03d}',f'S{b:03d}'],
+-                         'marker_type':kind,'review_status':'pending', '_base':[x,y]})
++                         'marker_type':kind,'review_status':'pending','is_movement_candidate':movement,
++                         'access_permissions':'unknown','aggregate_endpoint_ids':aggregate_ids,
++                         'segment_px':[[round(xx*FX,2),round(yy*FY,2)] for xx,yy in segment] if segment else None,
++                         '_segment_base':segment,'note':note, '_base':[x,y]})
+ 
+@@ -169,6 +177,43 @@
+ door(5,2,1107,412)
++door(6,2,1243,412)
++door(7,2,1389,412)
++door(7,11,1423,380)
++door(8,9,290,412)
++
++# User arrow: the north gap and the absence of a wall between functional zones
++# are different observations, and neither requires a door-leaf symbol.
++door(1,13,654,538,'open_passage_candidate',note='用户箭头对应区域：大厅与取药区之间可见连续开口，未见门扇。',segment=[[621,538],[687,538]])
++door(12,13,619,574,'zone_continuity_candidate',note='挂号收费与取药区之间仅见轴线／人为功能分界，未见实体隔墙；记录区域连续。',segment=[[619,540],[619,607]])
++door(12,82,377,610)
++door(14,82,561,648)
++door(15,82,370,650)
++door(13,83,630,610)
++door(13,83,1032,610)
++door(16,83,630,664)
++door(16,83,1032,664)
++door(12,82,466,610,'service_window_candidate',note='可见连续柜台及坐席，服务联系；不能作为人员穿行边。',segment=[[390,610],[551,610]])
++door(13,83,826,610,'service_window_candidate',note='取药柜台／工作位形成服务界面；门口另行记录。',segment=[[655,610],[1012,610]])
++door(2,84,1075,664)
++door(84,20,1075,704)
++door(2,20,1204,664)
++door(17,26,1045,940)
++door(17,18,1232,848)
++door(17,18,1232,1018)
++door(18,2,1297,876)
++door(17,18,1232,942,'service_window_candidate',note='药房与病房取药区之间可见柜台及工作位；上下端门口单独记录。',segment=[[1232,870],[1232,998]])
++door(21,22,1171,1071)
++
+ door(23,24,619,940)
+ door(25,24,689,940)
++door(29,23,327,964)
++door(30,23,359,964)
+ for a,x in [(31,397),(32,444),(33,491),(34,539)]: door(a,23,x,964)
++for a,x in [(31,415),(32,435),(33,501)]: door(a,27,x,1019)
+ door(35,24,619,980)
++door(36,27,361,1047)
++door(37,28,490,1071)
++door(27,24,619,1033)
++door(27,28,524,1047,'zone_continuity_candidate',note='医务廊与楼梯前厅之间未见隔墙，为连续交通空间。',segment=[[493,1047],[558,1047]])
++door(39,24,689,984)
++for a,x in [(40,751),(41,802),(42,851)]: door(a,25,x,964)
+ for a,x in [(40,770),(41,819),(42,867)]: door(a,45,x,1062)
+@@ -176,2 +221,4 @@
+ door(44,45,900,1062)
++door(45,24,689,1080)
++door(26,16,1017,916)
+ door(46,26,974,948)
+@@ -179,2 +226,6 @@
+ door(48,26,974,1060)
++door(2,49,1423,426)
++door(2,53,1423,551)
++door(2,49,1423,484,'service_window_candidate',note='出入院服务柜台界面，不作为人员通路。',segment=[[1423,447],[1423,520]])
++door(2,53,1423,611,'service_window_candidate',note='财务服务柜台界面，不作为人员通路。',segment=[[1423,578],[1423,644]])
+ door(50,49,1486,440)
+@@ -182,5 +233,24 @@
+ door(52,53,1486,592)
+-door(54,2,1423,698)
++door(54,2,1423,678)
++door(2,86,1423,805)
++door(86,55,1441,830)
++door(86,88,1501,830)
++door(86,87,1515,810)
++door(55,56,1441,916)
++door(88,56,1501,916)
++door(2,56,1423,940)
++door(56,78,1550,940,'zone_continuity_candidate',note='公共横向交通带跨人为区域边界连续，无门扇和隔墙；用户标记位置之一。',segment=[[1550,920],[1550,961]])
+ door(57,2,1423,982)
++door(59,61,1683,241)
++door(62,61,1722,244)
++door(62,64,1740,260)
++door(63,64,1775,260)
++door(64,61,1722,290)
++door(60,85,1615,392)
++door(85,61,1683,392)
++door(65,85,1658,412)
+ for a,y in [(66,500),(67,564),(68,627),(69,690)]: door(a,61,1683,y)
++door(70,77,1631,768)
++door(71,77,1667,768)
++door(72,61,1722,546)
+ door(73,61,1722,607)
+@@ -188,4 +258,7 @@
+ door(75,61,1722,733)
+-door(77,78,1685,846)
+-door(61,76,1702,768,kind='open_connection_candidate',note='可见通道连续处；不是已确认的门。')
++door(77,78,1683,846)
++door(61,76,1702,768,note='v1 曾误记为开放连接；放大后可见双扇门，v2 改为门洞候选。')
++door(76,78,1765,790,'zone_continuity_candidate',note='过渡带与急诊大厅之间未见实体隔断；轴线不当成墙。',segment=[[1725,790],[1824,790]])
++door(78,81,1696,964,note='可见进入南侧交通核的门；交通核内部未完整拆分，不由此推断任意内部空间互通。')
++door(78,81,1660,964,note='可见交通核内小间的北向门；小间尚未独立成节点，需继续拆分，不能解释为贯穿整个交通核的通路。')
+ 

@@ -1,0 +1,81 @@
+@@ -471,2 +471,15 @@
+ review=review_template.replace('__COUNT__',str(len(nodes))).replace('__REL__',str(len(relations))).replace('__DOORS__',str(len(door_markers))).replace('__ENTRY__',str(len(entrances))).replace('__SVG__',svg).replace('__DATA__',json.dumps(data,ensure_ascii=False).replace('</','<\\/')).replace('__SCOPES__',json.dumps(scope_names,ensure_ascii=False)).replace('__LEVELS__',json.dumps(level_names,ensure_ascii=False))
++review=review.replace('一层空间标注 · 可交互复核','连通性复核 v2 · 门洞、开口与窗口')
++review=review.replace('个门／连接点','个门／开口／窗口证据点').replace('首轮草稿，尚未验收为训练真值','补查草稿，全图连通性尚未验收')
++review=review.replace('点空间编号或右侧清单查看详情。','点空间编号、连接符号或右侧清单查看详情。红圈为门；蓝菱形为无门开口；紫菱形为区域连续；橙方块为服务窗口。')
++review=review.replace('<label><input id="doors"', '<select id="portal-type"><option value="">全部连接符号</option><option value="direct_door_candidate">门洞</option><option value="open_passage_candidate">无门开口</option><option value="zone_continuity_candidate">区域连续</option><option value="service_window_candidate">服务窗口（不穿行）</option></select><label><input id="no-movement" type="checkbox">未记录通行证据</label><label><input id="doors"')
++review=review.replace('(!q||[n.id,n.name,n.candidate_name,n.note]', '(!$(\'#no-movement\').checked||n.movement_candidate_degree===0)&&(!q||[n.id,n.name,n.candidate_name,n.note]')
++review=review.replace("['search','scope','level','uncertain'].forEach", "['search','scope','level','uncertain','no-movement'].forEach")
++review=review.replace("$('#uncertain').checked=false;", "$('#uncertain').checked=false;$('#no-movement').checked=false;$('#portal-type').value='';document.querySelectorAll('.marker').forEach(e=>e.style.display='');")
++extra_js='''
++const TYPES={direct_door_candidate:'门洞',open_passage_candidate:'无门开口',zone_continuity_candidate:'区域连续',service_window_candidate:'服务窗口（不穿行）',shared_wall_candidate:'共墙（不自动通行）'};
++document.querySelectorAll('.marker').forEach(el=>el.onclick=()=>{const p=DATA.portal_candidates.find(p=>p.id===el.id);const r=DATA.relation_candidates.find(r=>r.evidence_marker===p.id);$('#detail').innerHTML=`<h3>${p.id} ${esc(TYPES[p.marker_type])}</h3><b>两端：</b>${p.space_ids.map(id=>{const n=DATA.spaces.find(n=>n.id===id);return esc(id+' '+n.name)}).join(' ↔ ')}<p><b>人员通行：</b>${p.is_movement_candidate?'候选通路，权限与方向未知':'服务界面，不创建人员穿行边'}</p><b>证据说明：</b>${esc(p.note)}<p><b>空间层级：</b>${p.aggregate_endpoint_ids.length?'包含交通核聚合节点，内部仍需细分':'端点已独立标出，仍需复核'}</p><b>关系记录：</b>${r.id}<br><b>训练标签：</b>null，尚待验收`;});
++$('#portal-type').onchange=()=>document.querySelectorAll('.marker').forEach(el=>el.style.display=!$('#portal-type').value||el.dataset.type===$('#portal-type').value?'':'none');
++'''
++review=review.replace('</script>',extra_js+'</script>')
+ (OUT/'打开复核.html').write_text(review)
+@@ -527,2 +540,64 @@
+ (OUT/'标注说明.md').write_text(readme)
++counts=Counter(r['relation_type'] for r in relations)
++readme_v2=f'''# 山东省立医院儿科综合楼一层：连通性复核 v2
++
++日期：2026-10-25。保留 v1 原文件，另存本版。原始 JPG 未修改。
++
++本版回应用户指出的开放连接、漏标门洞及区域级打通问题。它仍是视觉复核草稿，不声称完成全部连通性或训练标签验收。
++
++## 查看文件
++
++- `打开复核.html`：点空间编号或连接符号查看说明，可筛选门洞、无门开口、区域连续、服务窗口，也可查未记录通行证据的空间。
++- `标注预览.png` / `标注预览.svg`：全图静态预览。
++- `spatial_data.json`：空间多边形、连接证据、分类型关系、候选图视图与审核状态。
++- `connectivity_audit.json`：仍缺少通行证据的节点、待拆交通核和未证明事项。
++- `annotations.labelme.json` 与 `source.jpg`：可继续编辑的空间多边形及字节相同原图副本。编辑后需另行同步其他导出文件；当前复核页只读。
++
++## 本次修改
++
++1. 大厅 S001 与取药服务区 S013 之间补记无门开口，并保存其线段；挂号 S012 与取药 S013 的轴线分界记录为区域连续，避免人为切断通路。
++2. S013 分成公共取药区 S013 与南侧柜台工作带 S083；补挂号工作带 S082。窗口和门分别保存，窗口不作为人员穿行边。
++3. 合并被轴线误分的病房取药区 S018/S019，保留 S018，停用 S019。补药房与取药区上下端的两处门、取药区至大厅的门及服务窗口。
++4. 拆出中部前室 S084，分别标出与大厅、交通核的门；补急诊北侧公用前室 S085，修正原内廊跨门合并问题。
++5. 将公卫组拆为西厕 S055、东厕 S088、前廊 S086 与附属间 S087，补相关门；补 S056 与急诊大厅 S078 的无隔断连续交通。
++6. 补南侧诊室医务廊侧门、卫生间门、前厅门和右侧辅助用房门。修正急诊内廊 S061 至过渡带 S076：放大可见双扇门，原开放连接改为门洞候选。
++7. 西侧医务廊 S027 补西端支路，缩小 S036 卫生间轮廓；抢救室 S077 补北侧床位带，不按穿过区域的轴线切割。
++
++## 当前统计
++
++- 空间／区域：{len(nodes)}。层级：{dict(Counter(n['node_level'] for n in nodes))}。
++- 关系候选：{len(relations)}。分类：{dict(counts)}。
++- 图形证据点：{len(door_markers)}；外门／入口候选：{len(entrances)}。
++- 按空间对归并后的人员通行候选边：{len(views['movement'])}；服务联系：{len(views['service'])}；共墙：{len(views['shared_wall'])}。
++- 未记录人员通行证据的非绿化空间：{len(isolated)}，详见审计 JSON。这是缺标提示，不证明空间真的隔绝。
++
++## 关系定义
++
++| 类型 | 表达内容 | 可否直接用于人员通行图 |
++| --- | --- | --- |
++| direct_door_candidate | 可见门洞／门扇开启符号 | 可作候选，权限、方向待核 |
++| open_passage_candidate | 可见无门开口 | 可作候选，权限待核 |
++| zone_continuity_candidate | 功能区之间未见实体隔断 | 可作候选；这是分区联系，不是门 |
++| service_window_candidate | 挂号／取药等柜台服务界面 | 不可据此穿行 |
++| shared_wall_candidate | 共墙 | 不自动通行 |
++
++一个空间对可以有两个门、也可以同时有窗口和门。`portal_candidates` 保存每处证据，`graph_views` 按空间对归并。不要把证据点数当成唯一图边数。
++
++所有关系 `label` 仍为 null，`candidate_label=1` 仅为待核存在关系。未列出的空间对仍未知，不记成 0；不把整张图的所有可能空间对自动当负样本。
++
++## 尚未解决
++
++- 原图局部模糊或聚合交通核内部仍需拆分；进入聚合区域的门不证明内部任意房间互通。
++- 患者／医护／工作人员的权限、门禁、门的方向性、营业状态不能仅凭此图全部确定。
++- 真实路径、距离、通路净宽和完整出入口网络尚未验收；本版不能据此报告完整流线仿真结果。
++- 多边形仍为概略墙线／区域轮廓；正式 `area_m2` 保持 null，仅保留按总轴线跨度计算的检查用估算值。
++- 来源、医院／楼栋／楼层与年份尚应对照原始出处核实；现有文件名表明为儿科综合楼。
++
++## 检查范围
++
++检查 JSON/SVG 解析、原图副本哈希、空间编号及坐标、多边形有效性与重叠、连接证据点与边界的距离、关系端点和图视图去重。检查静态 PNG 和重点局部。HTML 做脚本语法检查；当前无可用浏览器连接，未声称完成浏览器 UI 实测。LabelMe 格式未在该应用内验收。
++
++SHA-256：`{sha}`。
++'''
++(OUT/'标注说明.md').write_text(readme_v2)
+ print(json.dumps({'output_directory':str(OUT),'statistics':summary,'files':[p.name for p in OUT.iterdir()]},ensure_ascii=False,indent=2))

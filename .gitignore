@@ -1,0 +1,29 @@
+# macOS and editor temporary files
+.DS_Store
+._*
+~$*
+*.swp
+*.swo
+
+# Python and JavaScript caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+node_modules/
+chrome-profile/
+
+# Local authentication and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+credentials.json
+auth.json
+id_rsa
+id_ed25519
+*.pem
+*.key
+*.p12

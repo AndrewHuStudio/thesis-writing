@@ -1,0 +1,130 @@
+@@ -282,3 +282,9 @@
+     (6,'急诊入口',1828,829,78,'readable'),
+-    (7,'东北外门（功能未标明）',1702,215,61,'descriptive')]:
++    (7,'东北外门（功能未标明）',1702,215,61,'descriptive'),
++    (8,'南侧电梯前厅外门（用途待核）',1205,1098,22,'descriptive'),
++    (9,'西侧医务廊外门（用途待核）',331,1098,27,'descriptive'),
++    (10,'西南前厅外门（用途待核）',530,1098,28,'descriptive'),
++    (11,'南侧东端通道外门（用途待核）',1015,1098,26,'descriptive'),
++    (12,'东侧医务廊外门（用途待核）',712,1098,45,'descriptive'),
++    (13,'北侧前室外门（用途待核）',1391,352,7,'descriptive')]:
+     entrances.append({'id':f'E{i:03d}','name':name,'position_px':[round(x*FX,2),round(y*FY,2)],
+@@ -288,2 +294,5 @@
+ sha=hashlib.sha256(SOURCE.read_bytes()).hexdigest()
++for n in nodes:
++    n['connectivity_review_status']='second_visual_pass_incomplete'
++    n['internal_connectivity_status']='requires_internal_subdivision' if n['node_level']=='core_block' else 'not_independently_validated'
+ public_nodes=[{k:v for k,v in n.items() if not k.startswith('_')} for n in nodes]
+@@ -292,4 +301,4 @@
+ metadata={
+-    'schema_version':'0.1.0','annotation_date':'2026-10-25',
+-    'status':'first_pass_review_draft_not_training_ground_truth',
++    'schema_version':'0.2.0','annotation_date':'2026-10-25',
++    'status':'second_pass_connectivity_review_draft_not_training_ground_truth',
+     'source':{'relative_path':'source.jpg','original_path':str(SOURCE),
+@@ -315,2 +324,55 @@
+     'grouping_policy':'同源裁图、同楼层、增强副本及同医院资料不得因此被视为独立医院或任意跨数据集分组',
++    'revision':'v2_connectivity_review',
++    'previous_version':'山东省立医院儿科综合楼_一层_首轮标注',
++    'retired_space_ids':{'S019':'merged_into_S018_due_to_no_physical_partition'},
++    'refined_space_ids':{'S013':['S013','S083'],'S020':['S020','S084'],'S055':['S055','S086','S087','S088'],'S061':['S061','S085'],'S036':['S036','S027']},
++    'connectivity_complete':False,
++    'relation_semantics':{
++        'direct_door_candidate':'可见门洞／门扇开启符号，人员通行可能，权限未知',
++        'open_passage_candidate':'可见无门开口，人员通行可能，权限未知',
++        'zone_continuity_candidate':'人为功能分区边界处无实体隔断；不应凭标注线产生墙',
++        'service_window_candidate':'柜台／窗口服务界面；不得由此生成穿行边',
++        'shared_wall_candidate':'仅表示共墙；不自动表示可通行'},
++    'multigraph_policy':'多个门可以对应同一空间对；保存每个证据点，图视图按空间对归并。',
++    'aggregate_policy':'进入交通核的门只证明与该聚合区域的接口；不能证明其内部任意两点可达。',
++}
++
++def graph_view(kind):
++    grouped={}
++    for r in relations:
++        selected=(r.get('is_movement_candidate',False) if kind=='movement' else
++                  r.get('is_service_candidate',False) if kind=='service' else
++                  r['relation_type']=='shared_wall_candidate')
++        if not selected:continue
++        key=tuple(sorted([r['source'],r['target']]))
++        if key not in grouped:
++            grouped[key]={'source':key[0],'target':key[1],'label':None,'review_status':'pending',
++                          'relation_ids':[],'portal_ids':[],'aggregate_endpoint_ids':[]}
++        q=grouped[key];q['relation_ids'].append(r['id'])
++        if r.get('evidence_marker'):q['portal_ids'].append(r['evidence_marker'])
++        q['aggregate_endpoint_ids']=sorted(set(q['aggregate_endpoint_ids']+r.get('aggregate_endpoint_ids',[])))
++    return list(grouped.values())
++
++views={k:graph_view(k) for k in ['movement','service','shared_wall']}
++incident=Counter()
++for e in views['movement']:
++    incident[e['source']]+=1;incident[e['target']]+=1
++isolated=[{'id':n['id'],'name':n['name'],'node_level':n['node_level'],'scope':n['scope']}
++          for n in nodes if not incident[n['id']] and n['node_level']!='landscape']
++for n in public_nodes:n['movement_candidate_degree']=incident[n['id']]
++audit={
++    'status':'incomplete_visual_review_not_validation_of_full_reachability',
++    'movement_unique_space_pairs':len(views['movement']),
++    'service_unique_space_pairs':len(views['service']),
++    'shared_wall_unique_space_pairs':len(views['shared_wall']),
++    'spaces_without_movement_evidence':isolated,
++    'aggregate_spaces_requiring_internal_subdivision':[n['id'] for n in nodes if n['node_level']=='core_block'],
++    'not_proven':['所有相关门和开口均已覆盖','患者／医护通行权限','门禁、方向和营业状态',
++                  '交通核内部可达性','未标空间对的不存在关系','全图精确行走路径及距离'],
++    'user_feedback_cases':[
++        {'case':'箭头处大厅到取药区','space_ids':['S001','S013'],'resolution':'补无门开口，保留开口线段'},
++        {'case':'挂号与取药的功能分界','space_ids':['S012','S013'],'resolution':'补区域连续，轴线不当墙'},
++        {'case':'中部前室南北门','space_ids':['S002','S084','S020'],'resolution':'拆前室并分别记录两个门'},
++        {'case':'病房取药及窗口','space_ids':['S017','S018','S002'],'resolution':'合并被轴线误分区域；记录两处药房门、一处大厅门和服务窗口'},
++        {'case':'东侧公卫与急诊横向交通','space_ids':['S002','S086','S055','S088','S056','S078'],'resolution':'拆公卫前廊和两厕，补门及横向连续'}],
+ }
+@@ -320,8 +382,12 @@
+     'by_name_status':dict(Counter(n['name_status'] for n in nodes)),
+-    'relation_candidates':len(relations),'door_or_open_connection_markers':len(door_markers),
++    'relation_candidates':len(relations),'portal_markers':len(door_markers),
++    'by_relation_type':dict(Counter(r['relation_type'] for r in relations)),
++    'movement_unique_space_pairs':len(views['movement']),'service_unique_space_pairs':len(views['service']),
+     'entrance_markers':len(entrances),'confirmed_training_edges':0,
+-},'spaces':public_nodes,'relation_candidates':relations,'door_candidates':public_doors,'entrance_candidates':public_entries}
++},'spaces':public_nodes,'relation_candidates':relations,'portal_candidates':public_doors,'entrance_candidates':public_entries,
++  'graph_views':views,'connectivity_audit':audit}
+ (OUT/'spatial_data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
++(OUT/'connectivity_audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n')
+ 
+-labelme={'version':'5.5.0','flags':{'first_pass':True,'training_ready':False},
++labelme={'version':'5.5.0','flags':{'connectivity_review_v2':True,'training_ready':False},
+          'shapes':[{'label':n['id']+'__'+n['name'],'points':n['polygon_px'],
+@@ -334,3 +400,3 @@
+ 
+-COLORS={'hall':'#2563eb','service':'#b45309','entrance':'#0f766e','vertical_core':'#64748b','pharmacy_counter':'#15803d',
++COLORS={'hall':'#2563eb','service':'#b45309','entrance':'#0f766e','vertical_core':'#64748b','pharmacy_counter':'#15803d','service_work_area':'#64748b','vestibule':'#0f766e',
+         'registration':'#c2410c','pharmacy':'#15803d','office':'#7c3aed','unknown':'#d97706',
+@@ -351,5 +417,5 @@
+        '<style>text{font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif}.space .outline{stroke-width:1.8;fill-opacity:.08}.space.uncertain .outline{stroke-dasharray:6 3}.sid{font-size:8.5px;font-weight:700;fill:white;pointer-events:none}.space{cursor:pointer}.space:hover .outline,.space.selected .outline{stroke-width:4;fill-opacity:.3}.door{fill:#fff;stroke:#dc2626;stroke-width:1.6}.entrance{fill:#db2777;stroke:white;stroke-width:1.2}</style>',
+-       '<text x="42" y="40" font-size="25" font-weight="700" fill="#10243a">山东省立医院儿科综合楼 · 一层空间首轮标注</text>',
+-       f'<text x="42" y="68" font-size="14" fill="#475569">{len(nodes)} 个空间／区域 · 概略轮廓 · 实线：可读名称或描述编号 · 虚线：名称待核 · 非完整训练真值</text>',
+-       '<text x="42" y="93" font-size="13" fill="#475569">S：空间编号　D：门／通道连接候选（红圈）　E：入口候选（粉色）　原图文字保留供复核</text>',
++       '<text x="42" y="40" font-size="25" font-weight="700" fill="#10243a">山东省立医院儿科综合楼 · 连通性复核 v2</text>',
++       f'<text x="42" y="68" font-size="14" fill="#475569">{len(nodes)} 个空间／区域 · {len(relations)} 条关系候选 · 门洞与开放连接补查 · 全图连通性尚未验收</text>',
++       '<text x="42" y="93" font-size="13" fill="#475569">红圈：门洞　蓝菱形：无门开口　紫菱形：区域连续　橙方块：服务窗口（不穿行）　粉色：外门／入口</text>',
+        '<g id="plan" transform="translate(0 115)">',
+@@ -369,3 +435,13 @@
+     x,y=d['_base']
+-    parts.append(f'<g class="marker"><title>{d["id"]}: {" ↔ ".join(d["space_ids"])} — 连接待核</title><circle class="door" cx="{x}" cy="{y}" r="3.5" fill="white" stroke="#dc2626" stroke-width="1.6"/></g>')
++    typ=d['marker_type'];c={'direct_door_candidate':'#dc2626','open_passage_candidate':'#0284c7','zone_continuity_candidate':'#7c3aed','service_window_candidate':'#d97706'}[typ]
++    parts.append(f'<g class="marker" id="{d["id"]}" data-type="{typ}"><title>{d["id"]}: {" ↔ ".join(d["space_ids"])} | {typ} | {html.escape(d["note"])}</title>')
++    if d['_segment_base']:
++        a,b=d['_segment_base'];parts.append(f'<line x1="{a[0]}" y1="{a[1]}" x2="{b[0]}" y2="{b[1]}" stroke="{c}" stroke-width="3" stroke-dasharray="5 3"/>')
++    if typ=='direct_door_candidate':
++        parts.append(f'<circle cx="{x}" cy="{y}" r="3.5" fill="white" stroke="{c}" stroke-width="1.6"/>')
++    elif typ=='service_window_candidate':
++        parts.append(f'<rect x="{x-4}" y="{y-4}" width="8" height="8" fill="white" stroke="{c}" stroke-width="1.8"/>')
++    else:
++        parts.append(f'<path d="M{x},{y-5} L{x+5},{y} L{x},{y+5} L{x-5},{y} Z" fill="white" stroke="{c}" stroke-width="2"/>')
++    parts.append('</g>')
+ parts.append('</g><g id="entrance-layer">')
+@@ -374,3 +450,3 @@
+     parts.append(f'<g><title>{e["id"]} {html.escape(e["name"])}</title><path class="entrance" d="M{x-6},{y-6} L{x+6},{y-6} L{x+6},{y+6} L{x-6},{y+6} Z" fill="#db2777" stroke="white" stroke-width="1.2"/><text x="{x+9}" y="{y+4}" font-size="11" font-weight="700" fill="#be185d">{e["id"]}</text></g>')
+-parts.append('</g></g><text x="42" y="1391" font-size="12" fill="#475569">首轮人工视觉判读｜坐标对应原图 2796 × 1751｜未知不作负例｜未标全门洞、窗口与交通核内部空间｜2026-10-25</text></svg>')
++parts.append('</g></g><text x="42" y="1391" font-size="12" fill="#475569">第二轮视觉复核｜同一空间对可有多个门｜共墙、服务窗口不当穿行｜权限与交通核内部路径待核｜2026-10-25</text></svg>')
+ svg=''.join(parts)

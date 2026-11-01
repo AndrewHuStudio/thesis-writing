@@ -1,0 +1,29 @@
+@@ -68,7 +68,7 @@
+ add(12,'挂号收费','registration','public_service',box=[314,538,619,610],level='functional_block',note='只圈出北侧功能区；南侧柜台、排队带尚未完成细分。')
+-add(13,'门诊西药房','pharmacy','outpatient_support',box=[619,538,1045,664],level='functional_block',note='包含可见窗口带；窗口与内部工作区尚未细分，不以柜台开口当门。')
++add(13,'门诊取药','pharmacy_counter','outpatient_support',box=[619,538,1045,664],level='functional_block',note='取药服务带包含可见窗口；窗口与等候带尚未细分，不以柜台开口当门。')
+ add(14,'办公','office','outpatient_support',box=[561,610,619,664])
+ add(15,'待核实小房间','unknown','public_service',box=[314,610,370,664],name_status='unresolved',candidate=None)
+-add(16,'候诊大厅','waiting','public_service',box=[314,664,1045,916],level='open_space',note='北侧柜台前的窄带未并入；边界为首轮概略分区。',label_pos=[750,760])
+-add(17,'门诊药房','pharmacy','outpatient_support',box=[1045,832,1232,1041],note='靠窗口一侧的墙线和柜台边界需复核。',label_pos=[1070,895])
++add(16,'门诊药房','pharmacy','outpatient_support',box=[314,664,1045,916],note='局部放大核实原文为“门诊药房”；内部为药架，不按候诊座椅判断。北侧柜台前的窄带未并入。',label_pos=[750,760])
++add(17,'病房药房','pharmacy','inpatient_support',box=[1045,832,1232,1041],note='局部放大核实原文为“病房药房”；靠窗口一侧的墙线和柜台边界需复核。',label_pos=[1070,895])
+ add(18,'待核实窗口房间','unknown','outpatient_support',box=[1232,916,1297,1041],name_status='unresolved',candidate=None)
+@@ -254,3 +254,3 @@
+ 
+-COLORS={'hall':'#2563eb','service':'#b45309','entrance':'#0f766e','vertical_core':'#64748b',
++COLORS={'hall':'#2563eb','service':'#b45309','entrance':'#0f766e','vertical_core':'#64748b','pharmacy_counter':'#15803d',
+         'registration':'#c2410c','pharmacy':'#15803d','office':'#7c3aed','unknown':'#d97706',
+@@ -260,3 +260,3 @@
+ scope_names={'public_service':'公共服务','inpatient_public_service':'出入院服务',
+-             'staff_or_public_unknown':'权限待核交通核','outpatient_support':'门诊支持',
++             'staff_or_public_unknown':'权限待核交通核','outpatient_support':'门诊支持','inpatient_support':'住院支持',
+              'ordinary_outpatient':'普通门诊','fever_outpatient':'发热门诊',
+@@ -350,2 +350,7 @@
+ 8. 本次未完整覆盖柜台、排队带、交通核内部、全部小附属间、所有门洞与所有共墙关系。左侧停车位未标作房间。
++9. 关键名称经局部放大复核：S016 为“门诊药房”，S017 为“病房药房”；不能按内部长条图案把药架误作候诊座椅。
++
++## 文件检查范围
++
++已检查 JSON 与 SVG 可解析、原图副本哈希、空间编号一致、坐标范围、多边形有效性、相互重叠与所标连接点的位置，并查看 PNG 渲染。HTML 完成脚本语法检查；当前电脑控制工具未提供可用浏览器，因此未在浏览器 UI 内实测交互。LabelMe JSON 未在 LabelMe 应用内打开验证。
+ 

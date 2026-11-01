@@ -1,0 +1,48 @@
+@@ -15,3 +15,3 @@
+ SOURCE = ROOT / 'i-医院门诊平面/山东省立医院儿科综合楼_一层平面图.jpg'
+-OUT = ROOT / 'p-写作过程/标注试样/山东省立医院儿科综合楼_一层_首轮标注'
++OUT = ROOT / 'p-写作过程/标注试样/山东省立医院儿科综合楼_一层_连通性复核_v2'
+ OUT.mkdir(parents=True, exist_ok=True)
+@@ -68,3 +68,3 @@
+ add(12,'挂号收费','registration','public_service',box=[314,538,619,610],level='functional_block',note='只圈出北侧功能区；南侧柜台、排队带尚未完成细分。')
+-add(13,'门诊取药','pharmacy_counter','outpatient_support',box=[619,538,1045,664],level='functional_block',note='取药服务带包含可见窗口；窗口与等候带尚未细分，不以柜台开口当门。')
++add(13,'门诊取药服务区','pharmacy_counter','outpatient_support',box=[619,538,1045,610],level='open_space',note='v2 将北侧公共取药区与南侧柜台工作带分开。与挂号收费区之间的轴线不当作实体隔墙。')
+ add(14,'办公','office','outpatient_support',box=[561,610,619,664])
+@@ -73,5 +73,4 @@
+ add(17,'病房药房','pharmacy','inpatient_support',box=[1045,832,1232,1041],note='局部放大核实原文为“病房药房”；靠窗口一侧的墙线和柜台边界需复核。',label_pos=[1070,895])
+-add(18,'待核实窗口房间','unknown','outpatient_support',box=[1232,916,1297,1041],name_status='unresolved',candidate=None)
+-add(19,'待核实服务空间','unknown','outpatient_support',box=[1232,832,1297,916],name_status='unresolved',candidate=None,level='functional_block')
+-add(20,'中部交通核','vertical_core','public_service',box=[1045,664,1297,832],level='core_block',name_status='descriptive',note='楼梯、电梯和扶梯聚合标注，不能与房间节点直接混用。')
++add(18,'病房取药服务区','pharmacy_counter','inpatient_support',box=[1232,832,1297,1041],level='open_space',name_status='partial',candidate='病房取药',note='v2 合并原 S018/S019；原分界是穿过区域的轴线，未见实体隔墙。窗口和上下端门分别记录。')
++add(20,'中部交通核（前室外）','vertical_core','public_service',poly=[[1105,664],[1297,664],[1297,832],[1045,832],[1045,704],[1105,704]],level='core_block',name_status='descriptive',note='v2 单独拆出北侧前室 S084。其余楼梯、电梯和扶梯仍为聚合块，内部路径尚不能视为全部互通。')
+ add(21,'南侧楼梯间','vertical_core','public_service',box=[1045,1041,1171,1098],level='core_block',name_status='descriptive')
+@@ -114,3 +113,3 @@
+ add(54,'待核实服务用房','unknown','inpatient_public_service',box=[1423,664,1550,790],name_status='unresolved',candidate=None)
+-add(55,'卫生间及附属间组','toilet','public_service',box=[1423,790,1550,916],level='functional_block',name_status='descriptive',note='男女厕及北端附属小间未拆分，不将整组视为一个房间。')
++add(55,'东侧卫生间（西）','toilet','public_service',box=[1423,830,1488,916],name_status='descriptive',note='v2 将原卫生间组拆开，性别未核实；南北两个可见门口分别记录。')
+ add(56,'东侧公共通道','corridor','public_service',box=[1423,916,1550,964],level='open_space',name_status='descriptive')
+@@ -121,4 +120,4 @@
+ add(59,'待核实北端房间','unknown','emergency',box=[1550,215,1683,260],name_status='unresolved',candidate=None)
+-add(60,'急诊北侧交通核','vertical_core','emergency',poly=[[1550,260],[1683,260],[1683,380],[1615,380],[1615,412],[1550,412]],level='core_block',name_status='descriptive',note='楼梯、电梯及前室合并，尚未逐一拆分。')
+-add(61,'急诊诊区内廊','corridor','emergency',poly=[[1683,215],[1722,215],[1722,768],[1683,768],[1683,412],[1615,412],[1615,380],[1683,380]],level='open_space',name_status='descriptive',label_pos=[1691,540])
++add(60,'急诊北侧交通核','vertical_core','emergency',poly=[[1550,260],[1683,260],[1683,352],[1615,352],[1615,412],[1550,412]],level='core_block',name_status='descriptive',note='v2 单独拆出公用前室 S085；交通核内部仍未逐一细分。')
++add(61,'急诊诊区内廊','corridor','emergency',box=[1683,215,1722,768],level='open_space',name_status='descriptive',note='v2 不再将隔着门的公用前室直接并入本通道。',label_pos=[1691,540])
+ add(62,'待核实北端小间01','unknown','emergency',box=[1722,215,1760,260],name_status='unresolved',candidate=None)
+@@ -138,4 +137,4 @@
+ add(76,'急诊诊区南端过渡带','corridor','emergency',box=[1683,768,1828,790],level='open_space',name_status='descriptive')
+-add(77,'抢救室','resuscitation','emergency',box=[1550,790,1685,916],note='床位区与墙线以概略轮廓标注。',label_pos=[1572,840])
+-add(78,'急诊大厅及南侧交通带','hall','emergency',poly=[[1685,790],[1828,790],[1828,894],[1722,894],[1722,958],[1828,958],[1828,964],[1550,964],[1550,916],[1685,916]],level='open_space',label_pos=[1710,837])
++add(77,'抢救室','resuscitation','emergency',box=[1550,768,1683,916],note='v2 将北侧床位带并回本室，不以穿过床位的轴线分割房间。',label_pos=[1572,840])
++add(78,'急诊大厅及南侧交通带','hall','emergency',poly=[[1683,790],[1828,790],[1828,894],[1722,894],[1722,958],[1828,958],[1828,964],[1550,964],[1550,916],[1683,916]],level='open_space',label_pos=[1710,837])
+ add(79,'挂号收费（急诊）','registration','emergency',box=[1722,894,1828,922])
+@@ -144,2 +143,10 @@
+ 
++add(82,'挂号柜台南侧工作带','service_work_area','outpatient_support',box=[370,610,561,664],level='functional_block',name_status='descriptive',note='v2 补原未标区域；与北侧挂号区之间的柜台窗口和门分开记录。')
++add(83,'门诊取药南侧工作带','service_work_area','outpatient_support',box=[619,610,1045,664],level='functional_block',name_status='descriptive',note='由原 S013 拆出；与北侧取药服务区之间的窗口不等于人员通路。')
++add(84,'前室（中部）','vestibule','public_service',box=[1045,664,1105,704],note='v2 从原 S020 拆出，可见南北两个门口。')
++add(85,'公用前室（急诊北）','vestibule','emergency',box=[1615,352,1683,412],name_status='partial',candidate='公用前室',note='v2 分开记录西侧交通核和东侧内廊的门，避免把隔门空间当成无分隔区域。')
++add(86,'东侧卫生间前廊','corridor','public_service',box=[1423,790,1515,830],level='open_space',name_status='descriptive',note='v2 从原 S055 拆出；洗手／前廊区域。')
++add(87,'卫生间北侧附属小间','unknown','public_service',box=[1515,790,1550,830],name_status='unresolved',candidate=None,note='v2 从原 S055 拆出，原文字待核。')
++add(88,'东侧卫生间（东）','toilet','public_service',box=[1488,830,1550,916],name_status='descriptive',note='v2 从原 S055 拆出，性别未核实；南北门分别记录。')
++
+ lookup = {n['id']:n for n in nodes}

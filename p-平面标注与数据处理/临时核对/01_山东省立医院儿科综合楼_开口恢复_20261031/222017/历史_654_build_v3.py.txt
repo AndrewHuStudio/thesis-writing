@@ -1,0 +1,100 @@
+@@ -15,3 +15,3 @@
+ SOURCE = ROOT / 'i-医院门诊平面/山东省立医院儿科综合楼_一层平面图.jpg'
+-OUT = ROOT / 'p-写作过程/标注试样/山东省立医院儿科综合楼_一层_连通性复核_v2'
++OUT = ROOT / 'p-写作过程/标注试样/山东省立医院儿科综合楼_一层_概念连通标注_v3'
+ OUT.mkdir(parents=True, exist_ok=True)
+@@ -151,2 +151,23 @@
+ 
++for n in nodes:
++    n['annotation_precision']='conceptual_floorplan_topology'
++    if n['id'] in ['S003','S079','S080']:
++        n['node_level']='semi_open_space'
++        n['boundary_type']='half_height_wall'
++        n['polygon_boundary_semantics']='functional_zone_extent_not_full_height_wall'
++        n['generic_person_access']=True
++        n['door_position_status']='unspecified_not_required_at_concept_stage'
++        n['access_evidence']='user_clarification'
++        n['note']='用户确认：半墙服务区，与外部公共空间可达；小门／矮门位置可在施工阶段确定。本轮不设定具体门坐标。'
++    if n['id']=='S020':
++        n['name']='中部电梯厅及交通核'
++        n['central_subspace_type']='elevator_lobby'
++        n['elevator_door_facing']='from_central_lobby_towards_left_and_right'
++        n['note']='用户确认中央区域为电梯厅，向两侧进入电梯；撤回此前将中央图形直接解释为扶梯的判断。概念尺度保留整体节点。'
++    if n['id']=='S009':
++        n['user_confirmed_region_continuity']=['horizontal','vertical']
++        n['note']='用户以箭头确认横向及纵向区域贯通；记录区域级可达，不生成穿越梯井的直线路径。'
++    if n['id']=='S081':
++        n['user_confirmed_access_side']='north_from_upper_hall'
++        n['note']='用户确认从上方前厅方向进入电梯／楼梯区域；本轮整体保留，不追问施工级门位和内部距离。'
+ lookup = {n['id']:n for n in nodes}
+@@ -274,2 +295,20 @@
+ 
++def conceptual_access(a,b,case,reason):
++    relations.append({'id':f'R{len(relations)+1:03d}','source':f'S{a:03d}','target':f'S{b:03d}',
++        'relation_type':'conceptual_access_user_confirmed','label':1,'candidate_label':1,
++        'review_status':'user_confirmed_at_concept_level','is_movement_candidate':True,
++        'is_service_candidate':False,'evidence_marker':None,'evidence_position_px':None,
++        'door_geometry_status':'not_specified_not_required_at_this_stage',
++        'source_authority':'user_clarification_in_chat','question_id':case,
++        'access_permissions':'unknown','directionality':'unknown','note':reason,
++        'aggregate_endpoint_ids':[f'S{i:03d}' for i in [a,b] if lookup[f'S{i:03d}']['node_level']=='core_block']})
++
++conceptual_access(3,1,'01','半墙导医服务区，与相邻门诊大厅可达；小门位置未定，不伪造门洞点。')
++conceptual_access(10,1,'02','用户确认北侧扶梯从左侧门诊大厅进入。')
++conceptual_access(38,28,'03','用户确认梯门朝 B，即西侧前厅；仅记录接口方向。')
++conceptual_access(79,78,'04','用户确认急诊挂号收费为半墙服务区，与外部公共空间可达；具体矮门位置未定。')
++conceptual_access(80,78,'05','用户确认护士站为半墙，与外部公共空间联通；不设定具体小门位置。')
++conceptual_access(9,1,'06','用户箭头确认西侧交通核区域向大厅贯通；不据此指定穿越构件的路径。')
++conceptual_access(81,78,'08','用户确认南侧交通核由上方前厅进入；概念级可达成立。')
++
+ entrances=[]
+@@ -296,3 +335,3 @@
+     n['connectivity_review_status']='second_visual_pass_incomplete'
+-    n['internal_connectivity_status']='requires_internal_subdivision' if n['node_level']=='core_block' else 'not_independently_validated'
++    n['internal_connectivity_status']='kept_as_conceptual_aggregate_internal_route_out_of_scope' if n['node_level']=='core_block' else 'not_independently_validated'
+ public_nodes=[{k:v for k,v in n.items() if not k.startswith('_')} for n in nodes]
+@@ -301,4 +340,4 @@
+ metadata={
+-    'schema_version':'0.2.0','annotation_date':'2026-10-25',
+-    'status':'second_pass_connectivity_review_draft_not_training_ground_truth',
++    'schema_version':'0.3.0','annotation_date':'2026-10-25',
++    'status':'concept_level_topology_with_user_confirmed_access',
+     'source':{'relative_path':'source.jpg','original_path':str(SOURCE),
+@@ -324,4 +363,9 @@
+     'grouping_policy':'同源裁图、同楼层、增强副本及同医院资料不得因此被视为独立医院或任意跨数据集分组',
+-    'revision':'v2_connectivity_review',
+-    'previous_version':'山东省立医院儿科综合楼_一层_首轮标注',
++    'revision':'v3_conceptual_topology',
++    'previous_version':'山东省立医院儿科综合楼_一层_连通性复核_v2',
++    'precision_policy':{'target':'conceptual_layout_generation','required':'space_type_and_topological_access',
++        'not_required':['精确小门位置','门宽','门扇构造','交通核内部精确路径'],
++        'half_height_wall':'半墙服务区可记录概念级通达；门位置未定不作为缺标阻塞。',
++        'provenance':'用户对编号01、04、05及概念平面精度的明确说明'},
++    'pending_user_clarification_ids':[],
+     'retired_space_ids':{'S019':'merged_into_S018_due_to_no_physical_partition'},
+@@ -334,5 +378,6 @@
+         'service_window_candidate':'柜台／窗口服务界面；不得由此生成穿行边',
+-        'shared_wall_candidate':'仅表示共墙；不自动表示可通行'},
++        'shared_wall_candidate':'仅表示共墙；不自动表示可通行',
++        'conceptual_access_user_confirmed':'用户确认概念级人员可达；不要求具体门位，不生成虚构门点'},
+     'multigraph_policy':'多个门可以对应同一空间对；保存每个证据点，图视图按空间对归并。',
+-    'aggregate_policy':'进入交通核的门只证明与该聚合区域的接口；不能证明其内部任意两点可达。',
++    'aggregate_policy':'当前概念尺度允许整体交通核节点；不据此计算内部精确路径或距离，不以未拆分施工细节阻塞本轮。',
+ }
+@@ -351,2 +396,3 @@
+         q=grouped[key];q['relation_ids'].append(r['id'])
++        if r.get('label')==1:q['label']=1;q['review_status']='user_confirmed_at_concept_level'
+         if r.get('evidence_marker'):q['portal_ids'].append(r['evidence_marker'])
+@@ -368,3 +414,5 @@
+     'spaces_without_movement_evidence':isolated,
+-    'aggregate_spaces_requiring_internal_subdivision':[n['id'] for n in nodes if n['node_level']=='core_block'],
++    'aggregate_spaces_kept_at_concept_level':[n['id'] for n in nodes if n['node_level']=='core_block'],
++    'pending_user_clarification_ids':[],
++    'out_of_scope_not_blockers':['施工级小门位置及门宽','交通核内部精确距离','门扇及门禁构造'],
+     'not_proven':['所有相关门和开口均已覆盖','患者／医护通行权限','门禁、方向和营业状态',
+@@ -385,3 +433,4 @@
+     'movement_unique_space_pairs':len(views['movement']),'service_unique_space_pairs':len(views['service']),
+-    'entrance_markers':len(entrances),'confirmed_training_edges':0,
++    'entrance_markers':len(entrances),'user_confirmed_conceptual_access_pairs':sum(e['label']==1 for e in views['movement']),
++    'user_confirmed_conceptual_relations':sum(r['label']==1 for r in relations),
+ },'spaces':public_nodes,'relation_candidates':relations,'portal_candidates':public_doors,'entrance_candidates':public_entries,

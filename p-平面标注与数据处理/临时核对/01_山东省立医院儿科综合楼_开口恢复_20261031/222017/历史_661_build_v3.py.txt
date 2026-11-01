@@ -1,0 +1,87 @@
+@@ -459,3 +459,3 @@
+              'emergency':'急诊','nonclinical':'非临床'}
+-level_names={'room':'房间','open_space':'开放空间','functional_block':'功能块（未细分）',
++level_names={'room':'房间','open_space':'开放空间','semi_open_space':'半墙服务区','functional_block':'功能块（未细分）',
+              'core_block':'交通核（未细分）','landscape':'绿化'}
+@@ -466,5 +466,5 @@
+        '<style>text{font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif}.space .outline{stroke-width:1.8;fill-opacity:.08}.space.uncertain .outline{stroke-dasharray:6 3}.sid{font-size:8.5px;font-weight:700;fill:white;pointer-events:none}.space{cursor:pointer}.space:hover .outline,.space.selected .outline{stroke-width:4;fill-opacity:.3}.door{fill:#fff;stroke:#dc2626;stroke-width:1.6}.entrance{fill:#db2777;stroke:white;stroke-width:1.2}</style>',
+-       '<text x="42" y="40" font-size="25" font-weight="700" fill="#10243a">山东省立医院儿科综合楼 · 连通性复核 v2</text>',
+-       f'<text x="42" y="68" font-size="14" fill="#475569">{len(nodes)} 个空间／区域 · {len(relations)} 条关系候选 · 门洞与开放连接补查 · 全图连通性尚未验收</text>',
+-       '<text x="42" y="93" font-size="13" fill="#475569">红圈：门洞　蓝菱形：无门开口　紫菱形：区域连续　橙方块：服务窗口（不穿行）　粉色：外门／入口</text>',
++       '<text x="42" y="40" font-size="25" font-weight="700" fill="#10243a">山东省立医院儿科综合楼 · 概念级连通标注 v3</text>',
++       f'<text x="42" y="68" font-size="14" fill="#475569">{len(nodes)} 个空间／区域 · 已纳入用户对 01—08 的说明 · 半墙服务区记录可达，不指定小门位置</text>',
++       '<text x="42" y="93" font-size="13" fill="#475569">绿虚线：半墙功能边界（非门位）　红圈：图面门洞候选　蓝／紫：开放连接　橙方块：服务窗口</text>',
+        '<g id="plan" transform="translate(0 115)">',
+@@ -475,2 +475,3 @@
+     color=COLORS[n['category']]
++    if n.get('boundary_type')=='half_height_wall':color='#059669'
+     uncertain=n['name_status'] in ['partial','unresolved']
+@@ -479,3 +480,3 @@
+     title=html.escape(f"{n['id']} | {n['name']} | {level_names[n['node_level']]} | {scope_names[n['scope']]} | {n['note']}")
+-    dash=' stroke-dasharray="6 3"' if uncertain else ''
++    dash=' stroke-dasharray="6 3"' if uncertain or n.get('boundary_type')=='half_height_wall' else ''
+     parts.append(f'<g class="space {"uncertain" if uncertain else ""}" id="{n["id"]}" data-scope="{n["scope"]}" data-level="{n["node_level"]}" data-uncertain="{str(uncertain).lower()}"><title>{title}</title><polygon class="outline" points="{poly}" fill="{color}" fill-opacity="0.08" stroke="{color}" stroke-width="1.8"{dash}/><g class="idlabel"><rect x="{lx}" y="{ly}" width="29" height="13" rx="3" fill="{color}" opacity=".95"/><text class="sid" x="{lx+3}" y="{ly+10}" font-size="8.5" font-weight="700" fill="white">{n["id"]}</text></g></g>')
+@@ -499,3 +500,3 @@
+     parts.append(f'<g><title>{e["id"]} {html.escape(e["name"])}</title><path class="entrance" d="M{x-6},{y-6} L{x+6},{y-6} L{x+6},{y+6} L{x-6},{y+6} Z" fill="#db2777" stroke="white" stroke-width="1.2"/><text x="{x+9}" y="{y+4}" font-size="11" font-weight="700" fill="#be185d">{e["id"]}</text></g>')
+-parts.append('</g></g><text x="42" y="1391" font-size="12" fill="#475569">第二轮视觉复核｜同一空间对可有多个门｜共墙、服务窗口不当穿行｜权限与交通核内部路径待核｜2026-10-25</text></svg>')
++parts.append('</g></g><text x="42" y="1391" font-size="12" fill="#475569">概念精度：空间组织与可达性｜不要求施工级门位、门宽和内部距离｜用户确认的可达关系单独记录来源｜2026-10-25</text></svg>')
+ svg=''.join(parts)
+@@ -528,4 +529,9 @@
+ review=review.replace('${esc(r.relation_type)}；待核，权限未知',"${esc(TYPES[r.relation_type]||r.relation_type)}；${r.is_movement_candidate?'通行候选，权限待核':'非通行关系'}")
++review=review.replace('连通性复核 v2 · 门洞、开口与窗口','概念级连通标注 v3 · 已纳入用户说明')
++review=review.replace('条关系候选','条关系记录').replace('补查草稿，全图连通性尚未验收','概念级精度，小门位置不作必要条件')
++review=review.replace('交通核和功能块与房间分级保存。','交通核可整体保留；半墙服务区记录概念级可达，小门位置无需指定。')
++review=review.replace('所有关系尚待复核；未列出的空间对保持未知，不能当作不连接。','用户确认的概念级可达关系标为 1；其余图面候选保留待核。未列出的关系仍未知。')
++review=review.replace("r.is_movement_candidate?'通行候选，权限待核':'非通行关系'","r.label===1?'概念可达已确认，权限未定':r.is_movement_candidate?'图面通行候选':'非通行关系'")
+ extra_js='''
+-const TYPES={direct_door_candidate:'门洞',open_passage_candidate:'无门开口',zone_continuity_candidate:'区域连续',service_window_candidate:'服务窗口（不穿行）',shared_wall_candidate:'共墙（不自动通行）'};
++const TYPES={direct_door_candidate:'门洞',open_passage_candidate:'无门开口',zone_continuity_candidate:'区域连续',service_window_candidate:'服务窗口（不穿行）',shared_wall_candidate:'共墙（不自动通行）',conceptual_access_user_confirmed:'用户确认的概念级可达'};
+ document.querySelectorAll('.marker').forEach(el=>el.onclick=()=>{const p=DATA.portal_candidates.find(p=>p.id===el.id);const r=DATA.relation_candidates.find(r=>r.evidence_marker===p.id);$('#detail').innerHTML=`<h3>${p.id} ${esc(TYPES[p.marker_type])}</h3><b>两端：</b>${p.space_ids.map(id=>{const n=DATA.spaces.find(n=>n.id===id);return esc(id+' '+n.name)}).join(' ↔ ')}<p><b>人员通行：</b>${p.is_movement_candidate?'候选通路，权限与方向未知':'服务界面，不创建人员穿行边'}</p><b>证据说明：</b>${esc(p.note)}<p><b>空间层级：</b>${p.aggregate_endpoint_ids.length?'包含交通核聚合节点，内部仍需细分':'端点已独立标出，仍需复核'}</p><b>关系记录：</b>${r.id}<br><b>训练标签：</b>null，尚待验收`;});
+@@ -534,2 +540,3 @@
+ review=review.replace('</script>',extra_js+'</script>')
++review=review.replace('包含交通核聚合节点，内部仍需细分','交通核按概念整体节点记录，内部精确路径不在本轮范围')
+ (OUT/'打开复核.html').write_text(review)
+@@ -652,2 +659,43 @@
+ (OUT/'标注说明.md').write_text(readme_v2)
++readme_v3=f'''# 概念级连通标注 v3
++
++本版按用户反馈，将目标精度限定为门诊概念平面的空间组织与可达关系。
++
++## 已纳入的确认
++
++- 01 导医台、04 急诊挂号收费、05 护士站：半墙服务区，与相邻外部公共空间概念级可达。小门／矮门位置可以后续确定，本轮不要求，也不伪造坐标。
++- 02 北侧扶梯从左侧门诊大厅进入。
++- 03 西南电梯朝 B（西侧前厅）开门。
++- 06 西侧交通核按用户箭头记录横向、纵向区域贯通；不据此画穿越梯井的直线路径。
++- 07 中央区域按用户说明记为电梯厅，向两侧进入电梯；撤回此前扶梯解读。整体交通核在本轮可以保留。
++- 08 急诊南侧交通核从上方前厅方向进入。
++
++本批 01—08 已无待追问的施工级门位问题。
++
++## 数据精度原则
++
++1. 主要记录空间功能、区域范围和概念级可达性。半墙的功能边界不等于完整隔墙，也不要求指定小门几何。
++2. 用户明确确认的可达关系为 `conceptual_access_user_confirmed`，`label=1`，无 `evidence_marker` 和虚构门坐标，并记录问题序号及来源。
++3. 图上可见的门、开口、共墙和窗口继续作为图面证据保存。未逐项核验的候选仍 `label=null`。确认区域可达不等于确认每个门位、门宽、单向权限或候选标记都正确。
++4. 施工门位、门宽、门扇和交通核内部精确距离不作为本轮数据准备的必要条件。
++5. 取药／挂号的服务窗口和人员进入服务区的小门是不同关系。用户确认服务区可达后可保留人员边；不能仅由柜台窗口本身推出通路。
++6. 交通核可作为整体节点参与概念级拓扑建模，不声称得到精确内部行走路径。
++7. 正式面积仍为 null；检查用面积估算、原图质心等不自动作为新设计时的模型输入。
++
++## 文件与统计
++
++`打开复核.html` 为只读页面；`标注预览.png/svg` 为预览；`spatial_data.json` 包含空间与关系；`annotations.labelme.json` 配合 `source.jpg` 保存区域轮廓；`connectivity_audit.json` 保存图数据检查范围。
++
++- 空间／区域：{len(nodes)}；层级：{dict(Counter(n['node_level'] for n in nodes))}。
++- 关系记录：{len(relations)}；用户确认的概念级可达空间对：{sum(e['label']==1 for e in views['movement'])}。
++- 当前没有任何通行记录的非绿化节点：{len(isolated)}。这只表示没有零度节点，不证明已标全所有连接。
++- 本批用户待回答项：0。
++
++保留全部历史版本。原图未改动。仍需统一建模类别、确定预测任务、数据分组与验证方式；本版不以少量澄清就声称模型训练条件全部就绪。
++
++图纸出处、房间名称及其余图面候选关系的可靠性仍应在数据验收中核查；这些与不要求施工门位是不同层面。
++'''
++(OUT/'标注说明.md').write_text(readme_v3)
++clarify=ROOT/'p-写作过程/标注试样/连通性待确认_编号截图/用户确认记录_01-08.json'
++shutil.copyfile(clarify,OUT/'用户确认记录_01-08.json')
+ print(json.dumps({'output_directory':str(OUT),'statistics':summary,'files':[p.name for p in OUT.iterdir()]},ensure_ascii=False,indent=2))
