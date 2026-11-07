@@ -1,0 +1,4 @@
+interface:
+  display_name: "门诊平面结构化标注"
+  short_description: "逐张标注门诊概念平面；名称未确定时，以完整原图框选、连续编号及有序引线集中确认。"
+  default_prompt: "使用 $outpatient-plan-annotation 标注这张门诊概念平面；输出具名原图、标注.svg、annotation.json、标注说明.md。SVG 显示空间编号、具体名称和标准功能类别；JSON 用 name 保留具体名称、type 使用共享类别代码。清晰门洞和无门开口画红点，并同步 access/openings 及两端空间；半墙等无具体门位的概念连通不编造坐标。未确认空间在完整原图上框选，按相邻片区从上到下连续核对，边栏标签顺序一致且引线不交叉。"

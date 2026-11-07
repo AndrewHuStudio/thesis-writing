@@ -1,0 +1,49 @@
+{
+  "reference": "36号当前逐空间粗轮廓方法，已读取当前MD/JSON/review_state及全图；36号只读",
+  "scope_interpretation": {
+    "unknown_names_are_not_required_to_fill": true,
+    "must_individually_outline_visible_spaces": true,
+    "missing_relation_is_not_negative": true,
+    "36_hidden_door_statement_not_automatically_applied_to_37": true
+  },
+  "37_current": {
+    "spaces": 275,
+    "room_level": 207,
+    "unknown": 172,
+    "openings": 154
+  },
+  "findings": [
+    {
+      "item": "逐空间粗轮廓",
+      "result": "基本达到36号方法；未因房名缺失而合并明确房间"
+    },
+    {
+      "item": "结构与红点对应",
+      "result": "本轮重跑--allow-incomplete --check-dir通过；这不等于连通语义完成"
+    },
+    {
+      "item": "新增通道连接",
+      "space_id": "S138",
+      "existing_neighbors": [
+        "S135",
+        "S136"
+      ],
+      "candidate_missing_connection": [
+        "S138",
+        "S089"
+      ],
+      "boundary_gap_px": 1.0,
+      "evidence": "逐房间_03.png：S138左侧与S089为连续灰色通行空间；需补/复核直接关系，不能仅依当前validate通过判断完成"
+    },
+    {
+      "item": "S097等新通道",
+      "result": "部分新通道没有access；需先核实空间性质和实际通行，不按全图连通要求强行加边"
+    },
+    {
+      "item": "原K01/K02",
+      "result": "应按36号目标粒度重新筛选；S066已有独立外门，S072/S073具体性质可继续unknown，不能把未知房名全部当必答题"
+    }
+  ],
+  "conclusion": "粗轮廓层面基本到位；主要连通补充尚需收尾，不能宣布全部完成。",
+  "core_data_modified": false
+}

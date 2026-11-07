@@ -5,7 +5,7 @@ from shapely.ops import unary_union
 out=Path(__file__).parent;p=out.parents[2]/'02_嘉兴市第一医院迁建工程'
 d=json.loads((out/'修改前备份'/'annotation.json').read_text());a=json.loads((out/'逐点目读.json').read_text())
 # Values indexed by initial manual read order; revisions made after enlarged original-image review.
-remove={14,15,91,100,101,114,115,157,164,176,187,185,191,197,202,219,220,224,227,237}
+remove={14,15,91,100,101,114,115,157,164,176,187,185,191,197,202,219,220,224,225,227,237}
 # IDs above are temporary review indices, not P identifiers (P identifiers assigned only below).
 fix={18:(50,255,490,777),99:(118,124,2470,537),108:(127,138,2306,749),113:(10,263,2320,886),118:(137,263,1886,886),
 156:(166,267,2041,1200),184:(183,184,1920,1480),190:(188,17,2189,1464),192:(189,265,2265,1477),193:(191,265,2265,1517),
@@ -37,6 +37,8 @@ extra='''
 107 276 1345 1781
 107 276 1415 1781
 107 276 1456 1781
+036 159 2129 1039
+158 159 2129 1077
 047 254 938 539
 049 258 984 671
 007 255 847 897
@@ -71,9 +73,7 @@ extra='''
 026 276 2144 1781
 219 276 2263 1781
 025 276 2371 1781
-034 276 2420 1781
-023 273 2501 1710
-273 024 2518 1721
+034 276 2445 1781
 023 271 2464 1695
 208 272 2292 1666
 224 274 2078 1976
@@ -102,14 +102,14 @@ s050=next(s for s in d['spaces'] if s['id']=='S050');s255=next(s for s in d['spa
 cut=box(480,777,538.529,800.087)
 for sp,geom in [(s050,Polygon(s050['polygon_px']).difference(cut)),(s255,unary_union([Polygon(s255['polygon_px']),cut]))]:
  assert geom.geom_type=='Polygon';sp['polygon_px']=[[round(x,3),round(y,3)] for x,y in list(geom.exterior.coords)[:-1]]
-# All specific names remain unchanged. These six names unambiguously map to existing shared categories.
-type_updates={'S023':'waste_handling','S094':'waste_handling','S133':'waste_handling','S086':'operating_room','S107':'education','S203':'education','S246':'education'}
+# All specific names remain unchanged. These seven names unambiguously map to existing shared categories.
+type_updates={'S023':'unknown','S273':'unknown','S094':'waste_handling','S133':'waste_handling','S086':'operating_room','S107':'education','S203':'education','S246':'education'}
 for s in d['spaces']:
  if s['id'] in type_updates:s['type']=type_updates[s['id']]
 concept=[tuple(x) for x in a['concept_pairs']]
 # One claimed corridor is only a triangular sliver in the old segmentation; no inferred access retained.
 concept=[v for v in concept if set(v) not in [set(['S255','S254']),set(['S243','S276'])]]
-concept.extend([('S265','S268')])
+concept.extend([('S265','S268'),('S034','S271')])
 # Continuity along this region is real, but drawn room geometry is imperfect; isolate in questions instead.
 old_by_pair={tuple(sorted((r['source'],r['target']))):r for r in d['relations'] if r['type']=='access'}
 newnum=max(int(r['id'][1:]) for r in d['relations'] if r['id'].startswith('R'))

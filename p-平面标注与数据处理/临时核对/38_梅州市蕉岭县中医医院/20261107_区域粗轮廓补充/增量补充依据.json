@@ -1,0 +1,103 @@
+{
+  "added_spaces": [
+    {
+      "id": "S153",
+      "split_from": "S059",
+      "evidence": "感染门诊西侧小间.png：通道中的围合小间，门扇可辨，具体用途无字。"
+    },
+    {
+      "id": "S154",
+      "split_from": "S046",
+      "evidence": "急诊中央小间.png：原S046中可见横隔墙及独立门，分出上部小间。"
+    }
+  ],
+  "updated_spaces": [
+    {
+      "id": "S059",
+      "reason": "从原公共区扣除独立小间S153"
+    },
+    {
+      "id": "S046",
+      "reason": "保留较大原单元，独立上间续编S154"
+    },
+    {
+      "id": "S061",
+      "reason": "按儿童发热公共区及图例10校正scope；不推断房间专门功能"
+    },
+    {
+      "id": "S062",
+      "reason": "按儿童发热公共区及图例10校正scope；不推断房间专门功能"
+    },
+    {
+      "id": "S064",
+      "reason": "按儿童发热公共区及图例10校正scope；不推断房间专门功能"
+    },
+    {
+      "id": "S067",
+      "reason": "按儿童发热公共区及图例10校正scope；不推断房间专门功能"
+    },
+    {
+      "id": "S068",
+      "reason": "按儿童发热公共区及图例10校正scope；不推断房间专门功能"
+    }
+  ],
+  "added_relations": [
+    {
+      "id": "R157",
+      "source": "S153",
+      "target": "S059",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P147",
+          "kind": "door",
+          "position_px": [
+            1708.0,
+            272.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R158",
+      "source": "S154",
+      "target": "S044",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P148",
+          "kind": "door",
+          "position_px": [
+            568.0,
+            755.73
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R159",
+      "source": "S046",
+      "target": "S044",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P149",
+          "kind": "door",
+          "position_px": [
+            529.0,
+            755.73
+          ]
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "relation_id": "R015",
+      "source": "S038",
+      "target": "S002",
+      "kind": "布局推断",
+      "basis": "楼梯整体紧贴医疗街侧，输液公共区另有清晰直通医疗街的双扇门；按粗轮廓保留概念联系，不表达精确门向。"
+    }
+  ]
+}
