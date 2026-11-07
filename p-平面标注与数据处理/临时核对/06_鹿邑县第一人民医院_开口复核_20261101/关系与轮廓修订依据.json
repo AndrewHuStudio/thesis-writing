@@ -1,0 +1,360 @@
+[
+  {
+    "action": "geometry",
+    "space": "S032",
+    "basis": "交通核北侧大厅下边界补齐；原凹口漏掉门前约28像素的大厅。"
+  },
+  {
+    "action": "geometry",
+    "space": "S057",
+    "basis": "休闲区西侧连续侧廊延伸至住院大厅南门与西连接廊，未跨入桥体。"
+  },
+  {
+    "action": "geometry",
+    "space": "S058",
+    "basis": "休闲区东侧连续侧廊补齐，住院大厅南门直接朝此侧廊。"
+  },
+  {
+    "action": "geometry",
+    "space": "S037",
+    "basis": "卫生间西侧通往北东通道的短前厅原未覆盖。"
+  },
+  {
+    "action": "geometry",
+    "space": "S045",
+    "basis": "补入开水房西侧与医保后廊连续的小前厅，避开下方卫生间。"
+  },
+  {
+    "action": "geometry",
+    "space": "S112",
+    "basis": "核磁控制区实际向南延伸至打印室西侧，原矩形漏掉开放工作带。"
+  },
+  {
+    "action": "geometry",
+    "space": "S150",
+    "basis": "补入治疗门东侧与注射间南、东侧的护士工作通道；避开注射间。"
+  },
+  {
+    "action": "add_space",
+    "space": "S299",
+    "basis": "原图登记柜台与片库门之间可辨通行带，原S116在此挖除的范围大于柜台。"
+  },
+  {
+    "action": "remove",
+    "before": {
+      "id": "R063",
+      "source": "S068",
+      "target": "S090",
+      "type": "access"
+    },
+    "basis": "值班室北墙未见朝更衣通道的门；实际通过东侧准备间及南侧大厅进入，不跨墙直连。"
+  },
+  {
+    "action": "remove",
+    "before": {
+      "id": "R174",
+      "source": "S197",
+      "target": "S186",
+      "type": "access"
+    },
+    "basis": "影像交通核西侧下部门实际朝北侧通道S185，不能跳过S185直连S197。"
+  },
+  {
+    "action": "remove",
+    "before": {
+      "id": "R094",
+      "source": "S151",
+      "target": "S153",
+      "type": "access"
+    },
+    "basis": "值班S153北墙未见通急诊横通道的门；实际人员门在西侧通S152。"
+  },
+  {
+    "action": "relation",
+    "before": {
+      "id": "R184",
+      "source": "S219",
+      "target": "S227",
+      "type": "access"
+    },
+    "after": {
+      "id": "R184",
+      "source": "S218",
+      "target": "S227",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P200",
+          "kind": "door",
+          "position_px": [
+            775,
+            3968
+          ]
+        }
+      ]
+    },
+    "basis": "女卫生间北侧人员门位于交通核S218南沿，不跳接东侧药房内部通道。"
+  },
+  {
+    "action": "relation",
+    "before": {
+      "id": "R102",
+      "source": "S135",
+      "target": "S139",
+      "type": "access"
+    },
+    "after": {
+      "id": "R102",
+      "source": "S063",
+      "target": "S139",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P127",
+          "kind": "door",
+          "position_px": [
+            1655,
+            2650
+          ]
+        }
+      ]
+    },
+    "basis": "电梯厅东侧双扇门直接朝西侧医疗街；不把此门归到输液区。"
+  },
+  {
+    "action": "relation",
+    "before": {
+      "id": "R203",
+      "source": "S252",
+      "target": "S247",
+      "type": "access"
+    },
+    "after": {
+      "id": "R203",
+      "source": "S252",
+      "target": "S247",
+      "type": "shared_wall"
+    },
+    "basis": "注射间南侧为连续隔墙；清晰人员门位于西侧，通配药S246。"
+  },
+  {
+    "action": "relation",
+    "before": {
+      "id": "R216",
+      "source": "S262",
+      "target": "S283",
+      "type": "access"
+    },
+    "after": {
+      "id": "R216",
+      "source": "S262",
+      "target": "S283",
+      "type": "service"
+    },
+    "basis": "护士站东侧为柜台服务界面；人员门在西侧配剂室一侧。"
+  },
+  {
+    "action": "remove",
+    "before": {
+      "id": "R213",
+      "source": "S262",
+      "target": "S281",
+      "type": "access"
+    },
+    "basis": "护士站S281东侧为服务界面；南侧与儿科横向通道连续，不跳过S285直连S262。"
+  },
+  {
+    "action": "relation",
+    "before": {
+      "id": "R317",
+      "source": "S116",
+      "target": "S130",
+      "type": "access"
+    },
+    "after": {
+      "id": "R317",
+      "source": "S299",
+      "target": "S130",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P117",
+          "kind": "door",
+          "position_px": [
+            2555,
+            2460
+          ]
+        }
+      ]
+    },
+    "basis": "片库西侧单门直接朝登记柜台东侧通行带，非穿过柜台。"
+  },
+  {
+    "action": "relation",
+    "before": null,
+    "after": {
+      "id": "R376",
+      "source": "S133",
+      "target": "S090",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P254",
+          "kind": "door",
+          "position_px": [
+            745,
+            2543
+          ]
+        }
+      ]
+    },
+    "basis": "值班S090南侧双扇门直接朝急诊大厅。"
+  },
+  {
+    "action": "relation",
+    "before": null,
+    "after": {
+      "id": "R377",
+      "source": "S063",
+      "target": "S146",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P129",
+          "kind": "door",
+          "position_px": [
+            1655,
+            2820
+          ]
+        }
+      ]
+    },
+    "basis": "静脉输液大厅东侧双扇门直接朝医疗街；西侧另有通向留观区的门。"
+  },
+  {
+    "action": "relation",
+    "before": null,
+    "after": {
+      "id": "R378",
+      "source": "S246",
+      "target": "S247",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P259",
+          "kind": "door",
+          "position_px": [
+            2480,
+            3255
+          ]
+        }
+      ]
+    },
+    "basis": "注射间西侧清晰单扇门开向配药间。"
+  },
+  {
+    "action": "relation",
+    "before": null,
+    "after": {
+      "id": "R379",
+      "source": "S272",
+      "target": "S262",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P260",
+          "kind": "door",
+          "position_px": [
+            3085,
+            3910
+          ]
+        }
+      ]
+    },
+    "basis": "儿科办公室东侧双扇门朝公共通道，与西侧内通道门分记。"
+  },
+  {
+    "action": "relation",
+    "before": null,
+    "after": {
+      "id": "R380",
+      "source": "S116",
+      "target": "S299",
+      "type": "access"
+    },
+    "basis": "登记东侧短通行带北、南端均与影像等候厅连续，柜台无可穿行假设。"
+  },
+  {
+    "action": "relation",
+    "before": null,
+    "after": {
+      "id": "R381",
+      "source": "S285",
+      "target": "S281",
+      "type": "access"
+    },
+    "basis": "护士站南侧无实体分隔，直接接儿科横向通道；不编造门位。"
+  },
+  {
+    "action": "relation",
+    "before": null,
+    "after": {
+      "id": "R383",
+      "source": "S222",
+      "target": "S224",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P197",
+          "kind": "door",
+          "position_px": [
+            1105,
+            3910
+          ]
+        }
+      ]
+    },
+    "basis": "西药药房南侧东部双扇门直接接中药，不跨过中药跳接内部通道。"
+  },
+  {
+    "action": "relation",
+    "before": null,
+    "after": {
+      "id": "R382",
+      "source": "S262",
+      "target": "S281",
+      "type": "service"
+    },
+    "basis": "护士站东侧柜台服务界面。"
+  },
+  {
+    "action": "remove",
+    "before": {
+      "id": "R043",
+      "source": "S044",
+      "target": "S050",
+      "type": "access"
+    },
+    "basis": "男更北侧人员入口未见清晰开口，保留L08待确认。"
+  },
+  {
+    "action": "remove",
+    "before": {
+      "id": "R247",
+      "source": "S057",
+      "target": "S058",
+      "type": "access"
+    },
+    "basis": "两休闲区之间竖向分隔连续，可否穿行保留L09待确认。"
+  },
+  {
+    "action": "remove",
+    "before": {
+      "id": "R212",
+      "source": "S262",
+      "target": "S276",
+      "type": "access"
+    },
+    "basis": "值班诊室北/东入口门位和直接目标不清，保留L10待确认。"
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "added_space": "S411",
+    "name": "输液中心北侧联络通道"
+  },
+  {
+    "added_space": "S412",
+    "name": "产科门诊北侧联络通道"
+  },
+  {
+    "added_relation": {
+      "id": "R468",
+      "source": "S411",
+      "target": "S391",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R469",
+      "source": "S412",
+      "target": "S396",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R470",
+      "source": "S105",
+      "target": "S411",
+      "type": "access"
+    }
+  },
+  {
+    "added_opening": {
+      "id": "P335",
+      "kind": "door",
+      "position_px": [
+        1181,
+        891
+      ]
+    },
+    "relation": "R470"
+  },
+  {
+    "added_relation": {
+      "id": "R471",
+      "source": "S159",
+      "target": "S412",
+      "type": "access"
+    }
+  },
+  {
+    "added_opening": {
+      "id": "P336",
+      "kind": "door",
+      "position_px": [
+        2494,
+        891
+      ]
+    },
+    "relation": "R471"
+  },
+  {
+    "added_relation": {
+      "id": "R472",
+      "source": "S163",
+      "target": "S161",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R473",
+      "source": "S285",
+      "target": "S286",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R474",
+      "source": "S294",
+      "target": "S291",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R475",
+      "source": "S301",
+      "target": "S297",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R476",
+      "source": "S312",
+      "target": "S304",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R477",
+      "source": "S325",
+      "target": "S321",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R478",
+      "source": "S322",
+      "target": "S273",
+      "type": "access"
+    }
+  },
+  {
+    "added_opening": {
+      "id": "P337",
+      "kind": "door",
+      "position_px": [
+        2106,
+        2086
+      ]
+    },
+    "relation": "R478"
+  }
+]

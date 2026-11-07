@@ -1,0 +1,148 @@
+[
+  {
+    "added_entrance": {
+      "id": "E11",
+      "source": null,
+      "target": "S001",
+      "type": "entrance",
+      "name": "影像北侧外置楼梯入口",
+      "entrance_type": "side",
+      "position_px": [
+        827,
+        975
+      ]
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R166",
+      "source": "S013",
+      "target": "S009",
+      "type": "access"
+    }
+  },
+  {
+    "geometry": "S041",
+    "polygon_px": [
+      [
+        1868.91,
+        1039.78
+      ],
+      [
+        1868.91,
+        1288.52
+      ],
+      [
+        1969.75,
+        1288.52
+      ],
+      [
+        1969.75,
+        1054.0
+      ],
+      [
+        2027.0,
+        1054.0
+      ],
+      [
+        2027.0,
+        1039.78
+      ],
+      [
+        1969.75,
+        1039.78
+      ]
+    ]
+  },
+  {
+    "geometry": "S042",
+    "polygon_px": [
+      [
+        1974.24,
+        1288.52
+      ],
+      [
+        2075.08,
+        1288.52
+      ],
+      [
+        2075.08,
+        1039.78
+      ],
+      [
+        2027.0,
+        1039.78
+      ],
+      [
+        2027.0,
+        1054.0
+      ],
+      [
+        1974.24,
+        1054.0
+      ]
+    ]
+  },
+  {
+    "added_relation": {
+      "id": "R167",
+      "source": "S041",
+      "target": "S042",
+      "type": "access"
+    }
+  },
+  {
+    "added_opening": {
+      "id": "P118",
+      "kind": "door",
+      "position_px": [
+        2005,
+        1054
+      ]
+    },
+    "relation": "R167"
+  },
+  {
+    "added_relation": {
+      "id": "R168",
+      "source": "S041",
+      "target": "S052",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R169",
+      "source": "S024",
+      "target": "S020",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R170",
+      "source": "S025",
+      "target": "S020",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R171",
+      "source": "S028",
+      "target": "S031",
+      "type": "access"
+    }
+  },
+  {
+    "added_opening": {
+      "id": "P119",
+      "kind": "door",
+      "position_px": [
+        1034,
+        2055
+      ]
+    },
+    "relation": "R171"
+  }
+]
