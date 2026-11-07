@@ -1,0 +1,85 @@
+from pathlib import Path
+from PIL import Image,ImageDraw,ImageFont
+from shapely.geometry import LineString
+import json,hashlib
+import pymupdf
+P=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/22_山东省中医院国家中医临床研究基地综合楼')
+T=Path('/tmp/outpatient22-review');data=json.loads((P/'annotation.json').read_text());qs=json.loads((T/'review-map.json').read_text());spaces={s['id']:s for s in data['spaces']}
+font='/System/Library/Fonts/Hiragino Sans GB.ttc'
+def f(n):return ImageFont.truetype(font,n)
+def wrap(s,n):return [s[i:i+n] for i in range(0,len(s),n)]
+raw=Image.open(P/data['image']['file']).convert('RGB'); W,H=raw.size
+side=900;head=110;S=2
+im=Image.new('RGB',((W+side*2)*S,(H+head+90)*S),'#f4f7fb');im.paste(raw.resize((W*S,H*S)),(side*S,head*S));d=ImageDraw.Draw(im)
+def xy(p):return ((p[0]+side)*S,(p[1]+head)*S)
+def text(p,s,n=22,color='#153044'):d.text((p[0]*S,p[1]*S),s,font=f(n*S),fill=color)
+text((40,12),'22号｜一层平面名称核对总图',36)
+text((40,65),'标注草稿 · 13项待确认 · 按01—13回复；03请同时说明露天/挑空或室内。候选不是确定名称。',24)
+# 左右分组按连续编号依次向下；引线分离，不穿过其他待核对框。
+layout={
+'01':('R',470,[(1552,575),(1552,450),(2020,450),(2070,470)]),
+'02':('R',650,[(1800,560),(1990,560),(2070,650)]),
+'03':('L',890,[(947,900),(540,900)]),
+'04':('L',1120,[(560,1180),(515,1180),(480,1120)]),
+'05':('L',1290,[(560,1240),(515,1240),(480,1290)]),
+'06':('L',1590,[(560,1615),(515,1615),(480,1590)]),
+'07':('R',1530,[(1925,1527),(2020,1527)]),
+'08':('R',1930,[(1832,1950),(1980,1950),(2020,1930)]),
+'09':('R',2085,[(1832,2020),(1960,2020),(2020,2085)]),
+'10':('L',2220,[(560,2318),(515,2318),(480,2220)]),
+'11':('R',2300,[(1925,2295),(2020,2295)]),
+'12':('L',2450,[(1335,2410),(1335,2470),(530,2470),(480,2450)]),
+'13':('R',2585,[(1925,2565),(2020,2565)]),
+}
+colors={'01':'#2563eb','02':'#2563eb','03':'#008577','04':'#a64b00','05':'#a64b00','06':'#a64b00','07':'#7c3aed','08':'#be185d','09':'#be185d','10':'#a64b00','11':'#08719e','12':'#a64b00','13':'#08719e'}
+lines=[]
+for q in qs:
+ n=q['number'];s=spaces[q['id']];c=colors[n];sideflag,cy,path=layout[n]
+ pts=[xy(p) for p in s['polygon_px']]
+ d.line(pts+[pts[0]],fill=c,width=4*S)
+ x0=min(p[0] for p in s['polygon_px']);y0=min(p[1] for p in s['polygon_px'])
+ badge=xy((x0+5,y0+5));d.rounded_rectangle((badge[0],badge[1],badge[0]+48*S,badge[1]+33*S),radius=5*S,fill=c)
+ d.text((badge[0]+7*S,badge[1]+2*S),n,font=f(24*S),fill='white')
+ # paths are local source coords; final segment terminates at side card.
+ bx=30 if sideflag=='L' else side+W+50; bw=820
+ end=(bx+bw if sideflag=='L' else bx,cy+head)
+ pp=[xy(p) for p in path]+[(end[0]*S,end[1]*S)]
+ d.line(pp,fill='white',width=8*S,joint='curve');d.line(pp,fill=c,width=3*S,joint='curve')
+ ax,ay=pp[0];d.ellipse((ax-5*S,ay-5*S,ax+5*S,ay+5*S),fill=c)
+ lines.append((n,LineString([(p[0]/S,p[1]/S) for p in pp])))
+ rows=wrap('候选：'+q['candidate'],30)+wrap('依据：'+q['basis'],32)+['把握：'+q['confidence']+'（待你确认）']
+ bh=54+len(rows)*30;by=cy+head-bh/2
+ d.rounded_rectangle((bx*S,by*S,(bx+bw)*S,(by+bh)*S),radius=9*S,fill='white',outline=c,width=2*S)
+ text((bx+18,by+9),f'{n}｜{q["id"]} 名称未确认',27,c)
+ for i,row in enumerate(rows):text((bx+18,by+52+i*30),row,22)
+# Assert the review leaders do not intersect one another.
+cross=[]
+for i,(a,pa) in enumerate(lines):
+ for b,pb in lines[i+1:]:
+  if pa.intersects(pb):cross.append((a,b))
+(T/'leader-check.json').write_text(json.dumps(dict(crossing_pairs=cross,items=len(qs)),ensure_ascii=False,indent=2))
+text((40,H+head+20),'完整原图居中；仅叠加彩框和引线，原图文件不变。编号映射在本轮分批确认时保持不变。',23)
+im.save(T/'22_名称核对总图.png');im.resize(((W+side*2),H+head+90)).save(T/'22_名称核对总图_预览.png')
+# Coherent local enlargements, with the same review numbers and S ids.
+for name,b in [('北侧小房间',(1490,445,1940,660)),('西侧配套用房',(530,1125,780,1750)),('东侧交通及入院手续',(1695,1475,1940,2350)),('大厅南侧服务',(1300,2310,1940,2660))]:
+ sc=3;loc=raw.crop(b).resize(((b[2]-b[0])*sc,(b[3]-b[1])*sc));ld=ImageDraw.Draw(loc)
+ for q in qs:
+  s=spaces[q['id']];ps=s['polygon_px'];cx=sum(p[0] for p in ps)/len(ps);cy=sum(p[1] for p in ps)/len(ps)
+  if not (b[0]<=cx<=b[2] and b[1]<=cy<=b[3]):continue
+  pts=[((x-b[0])*sc,(y-b[1])*sc) for x,y in ps];ld.line(pts+[pts[0]],fill=colors[q['number']],width=6)
+  label=q['number']+'｜'+q['id'];x=max(0,(min(p[0] for p in ps)-b[0])*sc+6);y=max(0,(min(p[1] for p in ps)-b[1])*sc+6)
+  ld.rectangle((x,y,x+210,y+44),fill='white');ld.text((x+4,y),label,font=f(30),fill=colors[q['number']])
+ loc.save(T/(name+'.png'))
+# Draft SVG render for whole-plan and dense-room visual QA.
+doc=pymupdf.open(P/'标注.svg');page=doc[0];pix=page.get_pixmap(matrix=pymupdf.Matrix(1.5,1.5),alpha=False);pix.save(T/'标注全图.png')
+a=Image.open(T/'标注全图.png');a.resize((1212,round(a.height*1212/a.width))).save(T/'标注全图_预览.png')
+# The SVG adds a 121.2px header before the source plan.
+header=121.2
+for name,b in [('标注密集北区',(550,480,1545,840)),('标注密集中区',(850,995,1545,1365))]:
+ a.crop(tuple(round(v*1.5) for v in (b[0],b[1]+header,b[2],b[3]+header))).save(T/(name+'.png'))
+notes=['# 22号本轮核对清单','', '草稿；可分批按01=名称回复。03需说明是否露天或挑空。','']
+for q in qs:notes.append(f'{q["number"]} | {q["id"]} | 候选：{q["candidate"]} | {q["confidence"]} | {q["basis"]}')
+(T/'核对清单.md').write_text('\n'.join(notes)+'\n')
+md=P/'标注说明.md'
+md.write_text(md.read_text()+'''\n**范围：**22号山东省中医院国家中医临床研究基地综合楼一层；记录门诊诊疗、药房、输液及出入院支持空间。`scope` 区分普通门诊、公共服务、医护交通与住院支持，不将其合并为同一种门诊功能。\n\n**标注草稿与待核对事项：**未确认项均为 `unknown`；候选及本轮核对号仅保存在临时核对图和清单。北、中两组共20间诊室按门扇与隔墙分开；候诊区按座椅及图例标识识别，暂未转录模糊的科室标题。卫生间及楼梯电梯按概念功能块保存，不细分厕位、门位或核心内部路线。室外边缘构架、尺寸标注、图例及入口台阶未列为室内空间。\n\n**面积精度：**相对面积由概念轮廓估算；中厅上空 S056 已据图排除室内归一化。S024 内庭院因顶盖性质未明，目前为 unknown 并暂纳入草稿分母；确认其为露天/挑空后将改为 courtyard/open_space 并重新归一化。室外绿化不参与。\n\n**关系精度：**仅记录图面门扇或连续开放区域支持的概念联系，以及少量明确共墙。未确定小室用途时，仅保留与相邻交通核的共墙；未记关系不等于不可达。挂号/收费保存服务联系，未据柜台推断人员穿行；未辨明的药房服务窗口未补造服务关系。交通核入口及权限不作施工级推断。\n''')
+print('review',im.size,'crossings',cross,'source_sha256',hashlib.sha256((P/data['image']['file']).read_bytes()).hexdigest())

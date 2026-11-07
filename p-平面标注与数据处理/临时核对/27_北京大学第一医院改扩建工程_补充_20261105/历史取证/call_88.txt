@@ -1,0 +1,1 @@
+for(const p of ["27_标注SVG_全图检查.png","27_标注SVG_右翼检查.png","27_右翼密集区_放大核对.png"]) image((await tools.view_image({path:"/tmp/outpatient27-review/"+p})).image_url);

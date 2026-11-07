@@ -1,0 +1,1 @@
+text((await tools.exec_command({cmd:"python - <<'PY'\nimport json,collections\np=json.load(open('/tmp/outpatient23-review/review_mapping.json'))\nfor g,items in __import__('itertools').groupby(p,key=lambda p:p['group']):\n a=list(items);print(g,len(a),a[0]['number'],a[-1]['number'])\nimport cairosvg\nprint('cairo available')\nPY","max_output_tokens":1000})).output);

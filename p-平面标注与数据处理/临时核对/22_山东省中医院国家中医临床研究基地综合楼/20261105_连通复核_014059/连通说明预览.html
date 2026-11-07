@@ -1,0 +1,143 @@
+<!doctype html><meta charset="utf-8"><style>body{font:18px/1.7 system-ui;max-width:1100px;margin:30px auto;color:#18314c}img{max-width:100%;height:auto}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccd5dc;padding:7px}h2{margin-top:40px}</style><h1>平面标注概览</h1>
+<p>未完成：13项房名均已按用户填写同步；S024“内庭院”的露天／室内属性待确认，另有2项关键连通问题待确认。</p>
+<p><strong>标注规模：</strong>76 个空间／区域，功能块 7 个、房间级单元 38 个、交通核 9 个、开放空间 16 个、半墙服务区 3 个、绿化 3 个。</p>
+<p><strong>类型与数量：</strong>卫生间 3 个、诊室 20 个、办公 2 个、交通核 9 个、建筑设备用房 8 个、大厅 9 个、通道 6 个、护士站 3 个、处置治疗 4 个、未确认功能 1 个、配药用房 1 个、挂号收费 2 个、库房 1 个、露天／挑空中庭 1 个、药房 2 个、商业服务 1 个、绿化 3 个。</p>
+<p><strong>连接关系：</strong>86 条，人员可达 76 条、服务联系 3 条、共墙 6 条、入口连接 1 条。</p>
+<p><strong>入口：</strong>出入院大厅主入口。</p>
+<p><strong>相对规模：</strong>室内非重叠标注区域的 <code>area_ratio</code> 合计为 1；绿化不参与。具体物理尺寸由生成环节按任务确定。施工级门构造及内部精确路线不纳入数据。</p>
+<p><strong>门洞与开口：</strong>57 个红点，对应 53 条人员可达关系；其中门洞 56 个、无门开口 1 个。同一空间对可有多个开口，关系仍按空间对归并。其余 23 条人员可达关系无定位红点；区域连续及半墙等概念连通不编造门位，服务窗口及共墙不作为通行红点。</p>
+<p><strong>属性待确认：</strong>S024名称已确认“内庭院”；因面积属性未填写，暂保留unknown及原草稿面积口径。此图尚不能宣布打标完成。
+<strong>范围：</strong>22号山东省中医院国家中医临床研究基地综合楼一层，覆盖门诊、输液、药房、公共服务及出入院支持空间；scope沿用原稿。交通核按整体功能块记录，不细分内部路线。</p>
+<p><strong>本轮测试：</strong>从主入口E001的目标空间S069出发，按access无向遍历，可到达67个空间。4个已知室内空间尚未接入主网络：S025，以及相互连接的S045/S046/S047；它们分别对应下方K01、K02。孤立不等于实际不可达，未记关系不作负例。露天／挑空S056和室外绿化不纳入室内通行测试；S024属性另核。</p>
+<p><strong>已自主修正：</strong>北部卫生间S001的南向门连接S013候诊区；输液中心南门改接S054中部大厅；撤去跨候诊区S030南侧连续墙线的S030—S054直连，改由既有西侧通道通行。补入S054—S069连续大厅联系和挂号收费S052的北侧人员小门；柜台service仍单独记录。所有原S编号保留，既有关系编号未重排。</p>
+<p><strong>无定位概念连接与布局推断：</strong>大厅、候诊与通道之间明确连续的区域，以及电梯组／扶梯组与厅的整体功能衔接，保存无openings的access；S031护士站与S030候诊区的可达沿用半墙服务区的布局判断，门位不清，不补造红点。新增S054—S069依据颜色分区交界处的实际连续布局，无实体门洞。上述均为助手图面判断，不记作用户确认。</p>
+<p><strong>本轮不细究的内部细节：</strong>管井仅记录清晰可辨的检修门及既有共墙，不把管井当作常规患者通路；不追问检修权限、交通核内部路线和电梯单元门。清晰门洞仍保留红点；护士站／挂号窗口的服务联系不等于人员可穿行。
+<a href="file:///Users/hushili/Documents/%E7%A0%94%E7%A9%B6-%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E5%A4%A7%E8%AE%BA%E6%96%87/p-%E5%B9%B3%E9%9D%A2%E6%A0%87%E6%B3%A8%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E6%A0%87%E6%B3%A8%E8%AF%95%E6%A0%B7/22_%E5%B1%B1%E4%B8%9C%E7%9C%81%E4%B8%AD%E5%8C%BB%E9%99%A2%E5%9B%BD%E5%AE%B6%E4%B8%AD%E5%8C%BB%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%E7%BB%BC%E5%90%88%E6%A5%BC/22_%E5%B1%B1%E4%B8%9C%E7%9C%81%E4%B8%AD%E5%8C%BB%E9%99%A2%E5%9B%BD%E5%AE%B6%E4%B8%AD%E5%8C%BB%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%E7%BB%BC%E5%90%88%E6%A5%BC_%E5%8E%9F%E5%9B%BE.jpg">原图</a> · <a href="file:///Users/hushili/Documents/%E7%A0%94%E7%A9%B6-%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E5%A4%A7%E8%AE%BA%E6%96%87/p-%E5%B9%B3%E9%9D%A2%E6%A0%87%E6%B3%A8%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E6%A0%87%E6%B3%A8%E8%AF%95%E6%A0%B7/22_%E5%B1%B1%E4%B8%9C%E7%9C%81%E4%B8%AD%E5%8C%BB%E9%99%A2%E5%9B%BD%E5%AE%B6%E4%B8%AD%E5%8C%BB%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%E7%BB%BC%E5%90%88%E6%A5%BC/%E6%A0%87%E6%B3%A8.svg">最新标注SVG</a> · <a href="file:///Users/hushili/Documents/%E7%A0%94%E7%A9%B6-%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E5%A4%A7%E8%AE%BA%E6%96%87/p-%E5%B9%B3%E9%9D%A2%E6%A0%87%E6%B3%A8%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E4%B8%B4%E6%97%B6%E6%A0%B8%E5%AF%B9/22_%E5%B1%B1%E4%B8%9C%E7%9C%81%E4%B8%AD%E5%8C%BB%E9%99%A2%E5%9B%BD%E5%AE%B6%E4%B8%AD%E5%8C%BB%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%E7%BB%BC%E5%90%88%E6%A5%BC/20261105_%E8%BF%9E%E9%80%9A%E5%A4%8D%E6%A0%B8_014059/%E7%94%A8%E6%88%B7%E5%B7%B2%E5%A1%AB%E5%86%99%E6%88%BF%E5%90%8D%E5%8E%9F%E6%96%87.md">用户房名填写原文归档</a></p>
+<h2>连通性核对：2项关键问题</h2>
+<p>可在各图下的“我的确认／备注”直接填写“同意”或实际相连空间；也可在聊天中按 <code>K01=…，K02=…</code> 回复。未填写前不新增这两处不确定连接，也不虚构门位。</p>
+<h3>K01｜西侧交通核S025接入门诊通道</h3>
+<p><img alt="K01：西侧交通核、管井和相邻门诊西侧通道" src="file:///Users/hushili/Documents/%E7%A0%94%E7%A9%B6-%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E5%A4%A7%E8%AE%BA%E6%96%87/p-%E5%B9%B3%E9%9D%A2%E6%A0%87%E6%B3%A8%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E4%B8%B4%E6%97%B6%E6%A0%B8%E5%AF%B9/22_%E5%B1%B1%E4%B8%9C%E7%9C%81%E4%B8%AD%E5%8C%BB%E9%99%A2%E5%9B%BD%E5%AE%B6%E4%B8%AD%E5%8C%BB%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%E7%BB%BC%E5%90%88%E6%A5%BC/20261105_%E8%BF%9E%E9%80%9A%E5%A4%8D%E6%A0%B8_014059/K01_%E8%BF%9E%E9%80%9A%E6%A0%B8%E5%AF%B9.png" /></p>
+<p><a href="file:///Users/hushili/Documents/%E7%A0%94%E7%A9%B6-%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E5%A4%A7%E8%AE%BA%E6%96%87/p-%E5%B9%B3%E9%9D%A2%E6%A0%87%E6%B3%A8%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E4%B8%B4%E6%97%B6%E6%A0%B8%E5%AF%B9/22_%E5%B1%B1%E4%B8%9C%E7%9C%81%E4%B8%AD%E5%8C%BB%E9%99%A2%E5%9B%BD%E5%AE%B6%E4%B8%AD%E5%8C%BB%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%E7%BB%BC%E5%90%88%E6%A5%BC/20261105_%E8%BF%9E%E9%80%9A%E5%A4%8D%E6%A0%B8_014059/K01_%E6%97%A0%E6%A0%87%E8%AE%B0%E5%8E%9F%E5%9B%BE.png">查看无标记原图</a></p>
+<p><strong>问题：</strong>按整体交通核的概念精度，S025是否与S015门诊西侧通道相通？</p>
+<p><strong>我的判断：</strong>倾向相通。交通核南侧前室门和东侧通道方向的双门形成通路，但现有S026“管井”的长条范围覆盖了两门之间的区域，图面不能可靠区分其是否包含前室。当前不把管井作为日常患者通路，也未直接添加S025—S015。若确认整体相通，可保存无门位的概念access；若应经其他空间，请写实际连接即可。</p>
+<p><strong>我的确认／备注：</strong>待填写（同意按整体交通核与S015相通，或说明实际连接）</p>
+<h3>K02｜输液中心配套三室接入主网络</h3>
+<p><img alt="K02：输液中心、护士站、配药、处置及医护电梯厅" src="file:///Users/hushili/Documents/%E7%A0%94%E7%A9%B6-%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E5%A4%A7%E8%AE%BA%E6%96%87/p-%E5%B9%B3%E9%9D%A2%E6%A0%87%E6%B3%A8%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E4%B8%B4%E6%97%B6%E6%A0%B8%E5%AF%B9/22_%E5%B1%B1%E4%B8%9C%E7%9C%81%E4%B8%AD%E5%8C%BB%E9%99%A2%E5%9B%BD%E5%AE%B6%E4%B8%AD%E5%8C%BB%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%E7%BB%BC%E5%90%88%E6%A5%BC/20261105_%E8%BF%9E%E9%80%9A%E5%A4%8D%E6%A0%B8_014059/K02_%E8%BF%9E%E9%80%9A%E6%A0%B8%E5%AF%B9.png" /></p>
+<p><a href="file:///Users/hushili/Documents/%E7%A0%94%E7%A9%B6-%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E5%A4%A7%E8%AE%BA%E6%96%87/p-%E5%B9%B3%E9%9D%A2%E6%A0%87%E6%B3%A8%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E4%B8%B4%E6%97%B6%E6%A0%B8%E5%AF%B9/22_%E5%B1%B1%E4%B8%9C%E7%9C%81%E4%B8%AD%E5%8C%BB%E9%99%A2%E5%9B%BD%E5%AE%B6%E4%B8%AD%E5%8C%BB%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%E7%BB%BC%E5%90%88%E6%A5%BC/20261105_%E8%BF%9E%E9%80%9A%E5%A4%8D%E6%A0%B8_014059/K02_%E6%97%A0%E6%A0%87%E8%AE%B0%E5%8E%9F%E5%9B%BE.png">查看无标记原图</a></p>
+<p><strong>问题：</strong>S045护士站、S046配药和S047处置这组空间，通过哪一侧接入输液中心或相邻交通空间？</p>
+<p><strong>我的判断：</strong>内部S045—S046、S045—S047两处门清晰，已定位P035、P034。倾向S045与S044输液中心有概念通行，但北／西侧双线边界可能为柜台或实体墙，未看到可靠人员开口；现阶段不据服务窗口增设access。若同意S045—S044相通，将只补概念access；也可说明是否实际由S047连接S049医护电梯厅。</p>
+<p><strong>我的确认／备注：</strong>待填写（同意S045与S044相通，或写实际接入空间）</p>
+<h2>03｜内庭院S024面积属性</h2>
+<p><img alt="03：内庭院及周边诊室" src="file:///Users/hushili/Documents/%E7%A0%94%E7%A9%B6-%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E5%A4%A7%E8%AE%BA%E6%96%87/p-%E5%B9%B3%E9%9D%A2%E6%A0%87%E6%B3%A8%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E4%B8%B4%E6%97%B6%E6%A0%B8%E5%AF%B9/21-25_%E5%90%8D%E7%A7%B0%E6%A0%B8%E5%AF%B9_20261105/22_%E5%B1%B1%E4%B8%9C%E7%9C%81%E4%B8%AD%E5%8C%BB%E9%99%A2%E5%9B%BD%E5%AE%B6%E4%B8%AD%E5%8C%BB%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%E7%BB%BC%E5%90%88%E6%A5%BC/%E5%B1%80%E9%83%A8_02_%E6%A0%B8%E5%AF%B903-03.png" /></p>
+<p><strong>已确认名称：</strong>内庭院。</p>
+<p><strong>需补充：</strong>露天／挑空，不计室内面积；或室内可步入，计室内面积。图中植物及步道不能独立确定顶盖性质。属性确认前保持unknown和原草稿面积分母。</p>
+<p><strong>我的确认／备注：</strong>待填写（露天／挑空，或室内可步入）</p>
+<h2>房名填写同步记录</h2>
+<p>以下名称按用户“我的确认／备注”原文采用；旧候选和理由保存在上方原文归档，均不再作为本轮未确认房名。</p>
+<table>
+<thead>
+<tr>
+<th>核对号</th>
+<th>S编号</th>
+<th>用户确认名称</th>
+<th>同步状态</th>
+<th>核对号（重复）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>S010</td>
+<td>管井</td>
+<td>已同步JSON与SVG</td>
+<td>01</td>
+</tr>
+<tr>
+<td>02</td>
+<td>S011</td>
+<td>新风机房</td>
+<td>已同步JSON与SVG</td>
+<td>02</td>
+</tr>
+<tr>
+<td>03</td>
+<td>S024</td>
+<td>内庭院</td>
+<td>名称已同步；面积属性待确认</td>
+<td>03</td>
+</tr>
+<tr>
+<td>04</td>
+<td>S026</td>
+<td>管井</td>
+<td>已同步JSON与SVG</td>
+<td>04</td>
+</tr>
+<tr>
+<td>05</td>
+<td>S027</td>
+<td>新风机房</td>
+<td>已同步JSON与SVG</td>
+<td>05</td>
+</tr>
+<tr>
+<td>06</td>
+<td>S050</td>
+<td>管井</td>
+<td>已同步JSON与SVG</td>
+<td>06</td>
+</tr>
+<tr>
+<td>07</td>
+<td>S053</td>
+<td>药品库</td>
+<td>已同步JSON与SVG</td>
+<td>07</td>
+</tr>
+<tr>
+<td>08</td>
+<td>S064</td>
+<td>管井</td>
+<td>已同步JSON与SVG</td>
+<td>08</td>
+</tr>
+<tr>
+<td>09</td>
+<td>S065</td>
+<td>管井</td>
+<td>已同步JSON与SVG</td>
+<td>09</td>
+</tr>
+<tr>
+<td>10</td>
+<td>S061</td>
+<td>管井</td>
+<td>已同步JSON与SVG</td>
+<td>10</td>
+</tr>
+<tr>
+<td>11</td>
+<td>S068</td>
+<td>出入院手续</td>
+<td>已同步JSON与SVG</td>
+<td>11</td>
+</tr>
+<tr>
+<td>12</td>
+<td>S071</td>
+<td>鲜花超市</td>
+<td>已同步JSON与SVG</td>
+<td>12</td>
+</tr>
+<tr>
+<td>13</td>
+<td>S073</td>
+<td>休息等候</td>
+<td>已同步JSON与SVG</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<h2>门洞定位概览</h2>
+<p><img alt="原图门洞定位总图" src="file:///Users/hushili/Documents/%E7%A0%94%E7%A9%B6-%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/%E5%A4%A7%E8%AE%BA%E6%96%87/p-%E5%B9%B3%E9%9D%A2%E6%A0%87%E6%B3%A8%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E4%B8%B4%E6%97%B6%E6%A0%B8%E5%AF%B9/22_%E5%B1%B1%E4%B8%9C%E7%9C%81%E4%B8%AD%E5%8C%BB%E9%99%A2%E5%9B%BD%E5%AE%B6%E4%B8%AD%E5%8C%BB%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%E7%BB%BC%E5%90%88%E6%A5%BC/20261105_%E8%BF%9E%E9%80%9A%E5%A4%8D%E6%A0%B8_014059/%E9%97%A8%E6%B4%9E%E5%8E%9F%E5%9B%BE%E5%AE%9A%E4%BD%8D%E6%80%BB%E5%9B%BE.png" /></p>
+<p>门洞编号P001—P057与JSON、SVG一一对应；清晰无门开口P020连接S016护士站与S014北侧通道。门位至对应两端概念多边形边界的最大偏差为7像素；这只检查定位一致性，门洞语义仍依据本图复看。K01、K02待确认连接尚未计入关系与红点。</p>

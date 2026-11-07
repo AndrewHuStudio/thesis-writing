@@ -1,0 +1,2 @@
+text(await tools.exec_command({cmd:"python - <<'PY'\nfrom PIL import Image,ImageDraw,ImageFont\nim=Image.open('/tmp/outpatient27-review/原图_临时转正.png')\nfor name,b in [('左翼',(100,490,1070,1405)),('右翼',(2050,490,2690,1405)),('中部',(1050,420,1700,1450))]:\n im.crop(b).resize(((b[2]-b[0])*2,(b[3]-b[1])*2)).save('/tmp/outpatient27-review/'+name+'.png')\nprint('crops saved')\nPY\ncommand -v uv\nfc-list :lang=zh family file | head -12","max_output_tokens":1800}));
+for(const p of ["左翼","右翼"])image((await tools.view_image({path:"/tmp/outpatient27-review/"+p+".png"})).image_url);

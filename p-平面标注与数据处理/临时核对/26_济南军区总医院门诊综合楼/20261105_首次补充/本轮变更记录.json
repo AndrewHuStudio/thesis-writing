@@ -1,0 +1,416 @@
+{
+  "image_read_names": {
+    "S015": [
+      "值班室",
+      "staff_support"
+    ],
+    "S054": [
+      "医生值班室",
+      "staff_support"
+    ],
+    "S059": [
+      "抢救室",
+      "resuscitation"
+    ],
+    "S070": [
+      "B超",
+      "imaging"
+    ],
+    "S097": [
+      "配电房",
+      "building_services"
+    ],
+    "S101": [
+      "诊室",
+      "consultation"
+    ],
+    "S102": [
+      "诊室",
+      "consultation"
+    ],
+    "S104": [
+      "诊室",
+      "consultation"
+    ],
+    "S105": [
+      "诊室",
+      "consultation"
+    ]
+  },
+  "added_spaces": [
+    "S113"
+  ],
+  "endpoint_corrections": [
+    {
+      "id": "R030",
+      "before": {
+        "id": "R030",
+        "source": "S024",
+        "target": "S044",
+        "type": "access"
+      },
+      "after": {
+        "id": "R030",
+        "source": "S036",
+        "target": "S044",
+        "type": "access"
+      }
+    },
+    {
+      "id": "R052",
+      "before": {
+        "id": "R052",
+        "source": "S039",
+        "target": "S035",
+        "type": "access"
+      },
+      "after": {
+        "id": "R052",
+        "source": "S039",
+        "target": "S037",
+        "type": "access"
+      }
+    },
+    {
+      "id": "R053",
+      "before": {
+        "id": "R053",
+        "source": "S042",
+        "target": "S057",
+        "type": "access"
+      },
+      "after": {
+        "id": "R053",
+        "source": "S042",
+        "target": "S037",
+        "type": "access"
+      }
+    },
+    {
+      "id": "R057",
+      "before": {
+        "id": "R057",
+        "source": "S050",
+        "target": "S057",
+        "type": "access"
+      },
+      "after": {
+        "id": "R057",
+        "source": "S050",
+        "target": "S051",
+        "type": "access"
+      }
+    },
+    {
+      "id": "R059",
+      "before": {
+        "id": "R059",
+        "source": "S053",
+        "target": "S072",
+        "type": "access"
+      },
+      "after": {
+        "id": "R059",
+        "source": "S053",
+        "target": "S113",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P047",
+            "kind": "door",
+            "position_px": [
+              1757,
+              1720
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R060",
+      "before": {
+        "id": "R060",
+        "source": "S054",
+        "target": "S072",
+        "type": "access"
+      },
+      "after": {
+        "id": "R060",
+        "source": "S054",
+        "target": "S113",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P048",
+            "kind": "door",
+            "position_px": [
+              1757,
+              1825
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R066",
+      "before": {
+        "id": "R066",
+        "source": "S072",
+        "target": "S078",
+        "type": "access"
+      },
+      "after": {
+        "id": "R066",
+        "source": "S083",
+        "target": "S078",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P050",
+            "kind": "door",
+            "position_px": [
+              1757,
+              2238
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R078",
+      "before": {
+        "id": "R078",
+        "source": "S071",
+        "target": "S062",
+        "type": "access"
+      },
+      "after": {
+        "id": "R078",
+        "source": "S063",
+        "target": "S062",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P061",
+            "kind": "door",
+            "position_px": [
+              1252,
+              2250
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R085",
+      "before": {
+        "id": "R085",
+        "source": "S083",
+        "target": "S080",
+        "type": "access"
+      },
+      "after": {
+        "id": "R085",
+        "source": "S079",
+        "target": "S080",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P068",
+            "kind": "door",
+            "position_px": [
+              1548,
+              2300
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R088",
+      "before": {
+        "id": "R088",
+        "source": "S089",
+        "target": "S085",
+        "type": "access"
+      },
+      "after": {
+        "id": "R088",
+        "source": "S083",
+        "target": "S085",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P069",
+            "kind": "door",
+            "position_px": [
+              1804,
+              2040
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R103",
+      "before": {
+        "id": "R103",
+        "source": "S093",
+        "target": "S103",
+        "type": "access"
+      },
+      "after": {
+        "id": "R103",
+        "source": "S071",
+        "target": "S103",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P082",
+            "kind": "door",
+            "position_px": [
+              1346,
+              2493
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R109",
+      "before": {
+        "id": "R109",
+        "source": "S103",
+        "target": "S083",
+        "type": "access"
+      },
+      "after": {
+        "id": "R109",
+        "source": "S071",
+        "target": "S083",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P087",
+            "kind": "open_passage",
+            "position_px": [
+              1465,
+              2444
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R112",
+      "before": {
+        "id": "R112",
+        "source": "S112",
+        "target": "S110",
+        "type": "access"
+      },
+      "after": {
+        "id": "R112",
+        "source": "S110",
+        "target": "S111",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P089",
+            "kind": "door",
+            "position_px": [
+              1835,
+              2590
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "removed_relations": [
+    {
+      "id": "R008",
+      "source": "S010",
+      "target": "S007",
+      "type": "access"
+    },
+    {
+      "id": "R054",
+      "source": "S051",
+      "target": "S057",
+      "type": "access"
+    },
+    {
+      "id": "R058",
+      "source": "S052",
+      "target": "S072",
+      "type": "access"
+    },
+    {
+      "id": "R063",
+      "source": "S072",
+      "target": "S057",
+      "type": "access"
+    },
+    {
+      "id": "R068",
+      "source": "S072",
+      "target": "S083",
+      "type": "access"
+    },
+    {
+      "id": "R086",
+      "source": "S080",
+      "target": "S082",
+      "type": "access"
+    },
+    {
+      "id": "R087",
+      "source": "S083",
+      "target": "S089",
+      "type": "access"
+    },
+    {
+      "id": "R100",
+      "source": "S093",
+      "target": "S098",
+      "type": "access"
+    },
+    {
+      "id": "R108",
+      "source": "S103",
+      "target": "S106",
+      "type": "access"
+    },
+    {
+      "id": "R111",
+      "source": "S107",
+      "target": "S112",
+      "type": "access"
+    }
+  ],
+  "added_relations": [
+    "R138",
+    "R139",
+    "R140",
+    "R141",
+    "R142",
+    "R143",
+    "R144",
+    "R145",
+    "R146",
+    "R147",
+    "R148",
+    "R149",
+    "R150",
+    "R151",
+    "R152",
+    "R153",
+    "R154",
+    "R155",
+    "R156",
+    "R157",
+    "E007"
+  ],
+  "openings": 109
+}
