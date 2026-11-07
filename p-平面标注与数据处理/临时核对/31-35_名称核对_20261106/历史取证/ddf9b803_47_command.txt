@@ -1,0 +1,6 @@
+python - <<'PY'
+from PIL import Image
+im=Image.open('/tmp/outpatient31-review/upright.png')
+for n,b in [('topwest',(390,455,1080,635)),('topright',(1515,455,2178,960)),('southwest',(390,1380,1270,1570)),('imageleft',(390,950,800,1395)),('imageright',(790,950,1270,1395)),('atrium',(1250,690,1840,1400))]:
+ im.crop(b).resize(((b[2]-b[0])*2,(b[3]-b[1])*2)).save('/tmp/outpatient31-review/'+n+'.png')
+PY

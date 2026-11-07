@@ -1,0 +1,7809 @@
+{
+  "summary": {
+    "created_at": "20261103_223922",
+    "scope": "01-20 only",
+    "source_unchanged": true,
+    "source_files": 80,
+    "formal_passed": 20,
+    "formal_failed": [],
+    "totals": {
+      "spaces": 4416,
+      "rooms": 2919,
+      "relations": 5517,
+      "openings": 4039,
+      "access_without_openings": 936,
+      "vague_scope_count": 449
+    },
+    "levels": {
+      "open_space": 791,
+      "semi_open_space": 125,
+      "room": 2919,
+      "core_block": 325,
+      "functional_block": 220,
+      "landscape": 36
+    },
+    "types": {
+      "hall": 234,
+      "service": 64,
+      "entrance": 43,
+      "vertical_core": 321,
+      "vestibule": 51,
+      "registration": 73,
+      "pharmacy_counter": 25,
+      "office": 355,
+      "pharmacy": 65,
+      "corridor": 505,
+      "toilet": 268,
+      "consultation": 450,
+      "triage": 14,
+      "retail_service": 31,
+      "building_control": 42,
+      "landscape": 36,
+      "staff_support": 374,
+      "treatment": 232,
+      "medication_preparation": 45,
+      "observation": 65,
+      "laboratory": 73,
+      "equipment_room": 61,
+      "storage": 143,
+      "imaging": 195,
+      "examination": 64,
+      "resuscitation": 25,
+      "nurse_station": 53,
+      "service_work_area": 98,
+      "building_services": 194,
+      "waste_handling": 24,
+      "operating_room": 15,
+      "education": 18,
+      "courtyard": 26,
+      "sterile_supply": 16,
+      "conference": 22,
+      "isolation": 14,
+      "patient_preparation": 24,
+      "rehabilitation": 3,
+      "reserved_space": 8,
+      "hospital_logistics": 5,
+      "auxiliary_room": 6,
+      "ward": 36
+    },
+    "relation_types": {
+      "access": 4745,
+      "service": 151,
+      "shared_wall": 426,
+      "entrance": 195
+    },
+    "scope_count": 62,
+    "scopes": {
+      "public_service": 433,
+      "inpatient_public_service": 15,
+      "staff_or_public_unknown": 1,
+      "outpatient_support": 29,
+      "inpatient_support": 166,
+      "ordinary_outpatient": 812,
+      "south_clinic_scope_unknown": 1,
+      "fever_outpatient": 42,
+      "building_support": 17,
+      "nonclinical": 1,
+      "emergency": 630,
+      "administration": 13,
+      "outdoor_courtyard": 6,
+      "public_circulation": 97,
+      "sterile_supply": 26,
+      "medical_technology": 110,
+      "emergency_critical_care": 1,
+      "emergency_support": 3,
+      "pediatric_outpatient": 182,
+      "pediatric_emergency": 2,
+      "pharmacy_support": 115,
+      "outpatient_treatment": 17,
+      "imaging": 103,
+      "sterile_compounding": 11,
+      "infusion_support": 2,
+      "hospital_pharmacy_support": 28,
+      "hospital_public_service": 21,
+      "medical_imaging": 144,
+      "emergency_pediatrics": 50,
+      "emergency_obstetrics_gynecology": 48,
+      "infusion_center": 41,
+      "outpatient_pharmacy": 59,
+      "obstetrics_outpatient": 50,
+      "pediatric_asthma_outpatient": 25,
+      "obstetric_ultrasound": 24,
+      "perinatal_care": 22,
+      "medical_support": 107,
+      "pediatric": 5,
+      "southwest_clinical": 64,
+      "health_examination": 60,
+      "diagnostic_imaging": 54,
+      "diagnostic_treatment": 42,
+      "hospital_support": 25,
+      "staff_catering": 20,
+      "infectious_outpatient": 52,
+      "imaging_center": 42,
+      "northwest_scope_unconfirmed": 20,
+      "scope_unconfirmed": 1,
+      "northeast_scope_unconfirmed": 24,
+      "middle_north_scope_unconfirmed": 26,
+      "middle_south_scope_unconfirmed": 30,
+      "radiology": 39,
+      "infusion": 22,
+      "laboratory_support": 9,
+      "emergency_observation": 26,
+      "landscaped_area": 11,
+      "hospital_unclassified": 332,
+      "emergency_staff_support": 19,
+      "diagnostic_support": 4,
+      "staff_support": 4,
+      "medical_care": 17,
+      "clinical_wing_undetermined": 14
+    },
+    "supplemental_errors": {
+      "area_ratio_errors": 0,
+      "svg_label_errors": 0,
+      "svg_geometry_errors": 0,
+      "missing_embedded_images": 0,
+      "image_size_mismatch": 0,
+      "svg_background_mismatch": 0
+    },
+    "room_bbox_low_fill": 63,
+    "room_bbox_overlap_pairs": 54,
+    "boundary_distance_review_count": 12,
+    "indistinguishable_room_groups": 525
+  },
+  "cases": [
+    {
+      "project": "01_山东省立医院儿科综合楼",
+      "annotation": "p-平面标注与数据处理/标注试样/01_山东省立医院儿科综合楼/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/01_山东省立医院儿科综合楼/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 87,
+        "relations": 119
+      },
+      "spaces": 87,
+      "rooms": 50,
+      "relations": 119,
+      "openings": 88,
+      "levels": {
+        "open_space": 16,
+        "semi_open_space": 3,
+        "room": 50,
+        "core_block": 12,
+        "functional_block": 5,
+        "landscape": 1
+      },
+      "types": {
+        "hall": 3,
+        "service": 4,
+        "entrance": 1,
+        "vertical_core": 12,
+        "vestibule": 3,
+        "registration": 3,
+        "pharmacy_counter": 2,
+        "office": 8,
+        "pharmacy": 3,
+        "corridor": 11,
+        "toilet": 8,
+        "consultation": 11,
+        "triage": 1,
+        "retail_service": 1,
+        "building_control": 1,
+        "landscape": 1,
+        "staff_support": 1,
+        "treatment": 1,
+        "medication_preparation": 1,
+        "observation": 1,
+        "laboratory": 2,
+        "equipment_room": 1,
+        "storage": 1,
+        "imaging": 1,
+        "examination": 1,
+        "resuscitation": 1,
+        "nurse_station": 1,
+        "service_work_area": 2
+      },
+      "scopes": {
+        "public_service": 20,
+        "inpatient_public_service": 7,
+        "staff_or_public_unknown": 1,
+        "outpatient_support": 9,
+        "inpatient_support": 2,
+        "ordinary_outpatient": 13,
+        "south_clinic_scope_unknown": 1,
+        "fever_outpatient": 8,
+        "building_support": 1,
+        "nonclinical": 1,
+        "emergency": 24
+      },
+      "relation_types": {
+        "access": 94,
+        "service": 5,
+        "shared_wall": 14,
+        "entrance": 6
+      },
+      "access_without_openings": 10,
+      "actual_image_size": [
+        2796,
+        1751
+      ],
+      "declared_image_size": [
+        2796,
+        1751
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.00000001,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [],
+      "room_bbox_overlaps_above_05": [],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 2,
+      "vague_scope_examples": [
+        {
+          "id": "S006",
+          "name": "电梯及前厅组",
+          "scope": "staff_or_public_unknown"
+        },
+        {
+          "id": "S024",
+          "name": "南侧独立入口通道",
+          "scope": "south_clinic_scope_unknown"
+        }
+      ],
+      "composite_name_review_candidates": [],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_control",
+        "type:consultation",
+        "type:corridor",
+        "type:entrance",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:laboratory",
+        "type:landscape",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:resuscitation",
+        "type:retail_service",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:triage",
+        "type:vertical_core",
+        "type:vestibule",
+        "level:core_block",
+        "level:functional_block",
+        "level:landscape",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          62,
+          22,
+          2
+        ],
+        "isolated_rooms": [],
+        "indistinguishable_room_groups": [
+          [
+            "S014",
+            "S015"
+          ],
+          [
+            "S029",
+            "S030"
+          ],
+          [
+            "S031",
+            "S032",
+            "S033"
+          ],
+          [
+            "S040",
+            "S041",
+            "S042"
+          ],
+          [
+            "S043",
+            "S044"
+          ],
+          [
+            "S046",
+            "S047",
+            "S048"
+          ],
+          [
+            "S050",
+            "S051"
+          ],
+          [
+            "S055",
+            "S088"
+          ],
+          [
+            "S066",
+            "S067",
+            "S068",
+            "S069"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 23
+    },
+    {
+      "project": "02_嘉兴市第一医院迁建工程",
+      "annotation": "p-平面标注与数据处理/标注试样/02_嘉兴市第一医院迁建工程/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/02_嘉兴市第一医院迁建工程/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 274,
+        "relations": 346
+      },
+      "spaces": 274,
+      "rooms": 195,
+      "relations": 346,
+      "openings": 322,
+      "levels": {
+        "room": 195,
+        "core_block": 21,
+        "open_space": 35,
+        "functional_block": 15,
+        "semi_open_space": 6,
+        "landscape": 2
+      },
+      "types": {
+        "treatment": 14,
+        "building_control": 15,
+        "staff_support": 35,
+        "imaging": 21,
+        "pharmacy": 5,
+        "medication_preparation": 3,
+        "service_work_area": 20,
+        "building_services": 19,
+        "office": 16,
+        "waste_handling": 3,
+        "hall": 11,
+        "examination": 4,
+        "vertical_core": 19,
+        "entrance": 2,
+        "toilet": 12,
+        "registration": 5,
+        "triage": 1,
+        "resuscitation": 1,
+        "nurse_station": 1,
+        "observation": 3,
+        "consultation": 14,
+        "storage": 8,
+        "laboratory": 5,
+        "operating_room": 1,
+        "equipment_room": 3,
+        "education": 3,
+        "service": 4,
+        "pharmacy_counter": 1,
+        "vestibule": 2,
+        "corridor": 21,
+        "landscape": 2
+      },
+      "scopes": {
+        "emergency": 76,
+        "ordinary_outpatient": 143,
+        "inpatient_support": 16,
+        "public_service": 26,
+        "administration": 13
+      },
+      "relation_types": {
+        "access": 317,
+        "shared_wall": 12,
+        "service": 9,
+        "entrance": 8
+      },
+      "access_without_openings": 32,
+      "actual_image_size": [
+        2804,
+        2930
+      ],
+      "declared_image_size": [
+        2804,
+        2930
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 0.99999996,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S223",
+          "name": "库房",
+          "bbox_fill": 0.48670343697580454,
+          "type": "storage"
+        },
+        {
+          "id": "S227",
+          "name": "库房",
+          "bbox_fill": 0.5822276894674276,
+          "type": "storage"
+        },
+        {
+          "id": "S237",
+          "name": "接待室",
+          "bbox_fill": 0.7619068308408866,
+          "type": "service"
+        },
+        {
+          "id": "S247",
+          "name": "空调机房",
+          "bbox_fill": 0.6541163087924701,
+          "type": "building_services"
+        },
+        {
+          "id": "S249",
+          "name": "音控室",
+          "bbox_fill": 0.7223555313507153,
+          "type": "building_services"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S029",
+          "b": "S223",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S030",
+          "b": "S223",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S032",
+          "b": "S227",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S033",
+          "b": "S227",
+          "overlap_over_smaller_box": 1.0
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_control",
+        "type:building_services",
+        "type:consultation",
+        "type:corridor",
+        "type:education",
+        "type:entrance",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:laboratory",
+        "type:landscape",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:operating_room",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:resuscitation",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:triage",
+        "type:vertical_core",
+        "type:vestibule",
+        "type:waste_handling",
+        "level:core_block",
+        "level:functional_block",
+        "level:landscape",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          272
+        ],
+        "isolated_rooms": [],
+        "indistinguishable_room_groups": [
+          [
+            "S001",
+            "S002",
+            "S003",
+            "S042"
+          ],
+          [
+            "S004",
+            "S005"
+          ],
+          [
+            "S008",
+            "S009"
+          ],
+          [
+            "S011",
+            "S012"
+          ],
+          [
+            "S014",
+            "S015",
+            "S018"
+          ],
+          [
+            "S019",
+            "S035"
+          ],
+          [
+            "S021",
+            "S173",
+            "S194"
+          ],
+          [
+            "S024",
+            "S025"
+          ],
+          [
+            "S029",
+            "S030",
+            "S032",
+            "S033"
+          ],
+          [
+            "S041",
+            "S136"
+          ],
+          [
+            "S060",
+            "S061",
+            "S063",
+            "S075",
+            "S076",
+            "S077",
+            "S081",
+            "S082",
+            "S083",
+            "S084",
+            "S087",
+            "S088"
+          ],
+          [
+            "S072",
+            "S073"
+          ],
+          [
+            "S089",
+            "S095",
+            "S096"
+          ],
+          [
+            "S100",
+            "S101"
+          ],
+          [
+            "S112",
+            "S113"
+          ],
+          [
+            "S129",
+            "S130",
+            "S131"
+          ],
+          [
+            "S139",
+            "S140",
+            "S152",
+            "S153"
+          ],
+          [
+            "S142",
+            "S161",
+            "S162",
+            "S163",
+            "S174"
+          ],
+          [
+            "S143",
+            "S149"
+          ],
+          [
+            "S144",
+            "S145",
+            "S147",
+            "S148",
+            "S150",
+            "S151",
+            "S181"
+          ],
+          [
+            "S189",
+            "S191",
+            "S202"
+          ],
+          [
+            "S196",
+            "S197"
+          ],
+          [
+            "S204",
+            "S206"
+          ],
+          [
+            "S209",
+            "S211"
+          ],
+          [
+            "S223",
+            "S227"
+          ],
+          [
+            "S233",
+            "S234"
+          ],
+          [
+            "S240",
+            "S242"
+          ],
+          [
+            "S247",
+            "S249"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 35
+    },
+    {
+      "project": "03_晋中市第一人民医院迁建项目",
+      "annotation": "p-平面标注与数据处理/标注试样/03_晋中市第一人民医院迁建项目/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/03_晋中市第一人民医院迁建项目/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 340,
+        "relations": 376
+      },
+      "spaces": 340,
+      "rooms": 211,
+      "relations": 376,
+      "openings": 253,
+      "levels": {
+        "open_space": 71,
+        "room": 211,
+        "semi_open_space": 15,
+        "functional_block": 19,
+        "core_block": 24
+      },
+      "types": {
+        "corridor": 52,
+        "treatment": 17,
+        "consultation": 48,
+        "office": 26,
+        "toilet": 24,
+        "staff_support": 31,
+        "hall": 12,
+        "nurse_station": 5,
+        "courtyard": 4,
+        "vertical_core": 24,
+        "operating_room": 3,
+        "storage": 18,
+        "pharmacy": 4,
+        "pharmacy_counter": 2,
+        "sterile_supply": 5,
+        "building_services": 11,
+        "conference": 1,
+        "service": 7,
+        "imaging": 18,
+        "service_work_area": 6,
+        "vestibule": 5,
+        "examination": 4,
+        "triage": 1,
+        "registration": 4,
+        "resuscitation": 2,
+        "retail_service": 5,
+        "building_control": 1
+      },
+      "scopes": {
+        "ordinary_outpatient": 99,
+        "outdoor_courtyard": 3,
+        "public_circulation": 31,
+        "public_service": 7,
+        "sterile_supply": 26,
+        "medical_technology": 85,
+        "emergency": 54,
+        "emergency_critical_care": 1,
+        "emergency_support": 3,
+        "inpatient_support": 31
+      },
+      "relation_types": {
+        "access": 353,
+        "service": 10,
+        "entrance": 7,
+        "shared_wall": 6
+      },
+      "access_without_openings": 105,
+      "actual_image_size": [
+        3064,
+        3672
+      ],
+      "declared_image_size": [
+        3064,
+        3672
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 0.99999999,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S281",
+          "name": "办公",
+          "bbox_fill": 0.7999999999999988,
+          "type": "office"
+        },
+        {
+          "id": "S282",
+          "name": "卫生间",
+          "bbox_fill": 0.5,
+          "type": "toilet"
+        },
+        {
+          "id": "S284",
+          "name": "办公",
+          "bbox_fill": 0.5,
+          "type": "office"
+        },
+        {
+          "id": "S290",
+          "name": "卫生间",
+          "bbox_fill": 0.2571756915832163,
+          "type": "toilet"
+        },
+        {
+          "id": "S291",
+          "name": "筛查诊室",
+          "bbox_fill": 0.788482384823847,
+          "type": "consultation"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S088",
+          "b": "S343",
+          "overlap_over_smaller_box": 1.0
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [
+        {
+          "id": "S081",
+          "name": "器械／敷料"
+        },
+        {
+          "id": "S273",
+          "name": "药品／无菌品"
+        }
+      ],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_control",
+        "type:building_services",
+        "type:conference",
+        "type:consultation",
+        "type:corridor",
+        "type:courtyard",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:nurse_station",
+        "type:office",
+        "type:operating_room",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:resuscitation",
+        "type:retail_service",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:sterile_supply",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:triage",
+        "type:vertical_core",
+        "type:vestibule",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          310,
+          6,
+          3,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S121",
+            "name": "辅料室",
+            "type": "storage"
+          },
+          {
+            "id": "S141",
+            "name": "洁具间",
+            "type": "storage"
+          },
+          {
+            "id": "S150",
+            "name": "医生办公",
+            "type": "office"
+          },
+          {
+            "id": "S279",
+            "name": "护士",
+            "type": "staff_support"
+          },
+          {
+            "id": "S281",
+            "name": "办公",
+            "type": "office"
+          },
+          {
+            "id": "S282",
+            "name": "卫生间",
+            "type": "toilet"
+          },
+          {
+            "id": "S287",
+            "name": "新农合",
+            "type": "registration"
+          },
+          {
+            "id": "S313",
+            "name": "设备间",
+            "type": "building_services"
+          },
+          {
+            "id": "S336",
+            "name": "设备间",
+            "type": "building_services"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S003",
+            "S004"
+          ],
+          [
+            "S005",
+            "S006",
+            "S007",
+            "S008",
+            "S009",
+            "S010",
+            "S011",
+            "S012",
+            "S013",
+            "S014",
+            "S015",
+            "S016"
+          ],
+          [
+            "S017",
+            "S020",
+            "S021"
+          ],
+          [
+            "S032",
+            "S033",
+            "S034",
+            "S035",
+            "S036",
+            "S037",
+            "S038",
+            "S039",
+            "S040",
+            "S041",
+            "S042",
+            "S043"
+          ],
+          [
+            "S052",
+            "S053"
+          ],
+          [
+            "S054",
+            "S056",
+            "S058",
+            "S060",
+            "S062",
+            "S064"
+          ],
+          [
+            "S055",
+            "S057",
+            "S059",
+            "S061",
+            "S063",
+            "S065"
+          ],
+          [
+            "S070",
+            "S071"
+          ],
+          [
+            "S073",
+            "S075",
+            "S094",
+            "S095"
+          ],
+          [
+            "S074",
+            "S097"
+          ],
+          [
+            "S079",
+            "S082"
+          ],
+          [
+            "S083",
+            "S085"
+          ],
+          [
+            "S084",
+            "S086"
+          ],
+          [
+            "S092",
+            "S093"
+          ],
+          [
+            "S099",
+            "S100",
+            "S101",
+            "S102",
+            "S103",
+            "S104"
+          ],
+          [
+            "S121",
+            "S141"
+          ],
+          [
+            "S122",
+            "S123"
+          ],
+          [
+            "S130",
+            "S134"
+          ],
+          [
+            "S131",
+            "S132",
+            "S133",
+            "S136"
+          ],
+          [
+            "S146",
+            "S151",
+            "S162"
+          ],
+          [
+            "S150",
+            "S281"
+          ],
+          [
+            "S153",
+            "S156",
+            "S161"
+          ],
+          [
+            "S182",
+            "S183",
+            "S184",
+            "S185"
+          ],
+          [
+            "S193",
+            "S194",
+            "S195",
+            "S196",
+            "S197",
+            "S201"
+          ],
+          [
+            "S208",
+            "S209"
+          ],
+          [
+            "S210",
+            "S211"
+          ],
+          [
+            "S212",
+            "S213"
+          ],
+          [
+            "S214",
+            "S216"
+          ],
+          [
+            "S231",
+            "S232"
+          ],
+          [
+            "S240",
+            "S242",
+            "S243",
+            "S244"
+          ],
+          [
+            "S255",
+            "S288"
+          ],
+          [
+            "S308",
+            "S309",
+            "S310"
+          ],
+          [
+            "S313",
+            "S336"
+          ],
+          [
+            "S332",
+            "S333",
+            "S334"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 62
+    },
+    {
+      "project": "04_兰州市安宁新城医院新建项目",
+      "annotation": "p-平面标注与数据处理/标注试样/04_兰州市安宁新城医院新建项目/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/04_兰州市安宁新城医院新建项目/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 246,
+        "relations": 266
+      },
+      "spaces": 246,
+      "rooms": 154,
+      "relations": 266,
+      "openings": 233,
+      "levels": {
+        "core_block": 21,
+        "functional_block": 18,
+        "room": 154,
+        "open_space": 43,
+        "semi_open_space": 10
+      },
+      "types": {
+        "vertical_core": 21,
+        "toilet": 11,
+        "consultation": 8,
+        "isolation": 1,
+        "building_services": 24,
+        "treatment": 17,
+        "observation": 2,
+        "laboratory": 2,
+        "pharmacy": 4,
+        "triage": 2,
+        "entrance": 7,
+        "registration": 5,
+        "staff_support": 17,
+        "nurse_station": 5,
+        "resuscitation": 2,
+        "pharmacy_counter": 2,
+        "storage": 3,
+        "vestibule": 1,
+        "service_work_area": 9,
+        "office": 11,
+        "conference": 1,
+        "corridor": 20,
+        "medication_preparation": 5,
+        "service": 5,
+        "hall": 19,
+        "equipment_room": 5,
+        "patient_preparation": 5,
+        "imaging": 23,
+        "examination": 1,
+        "retail_service": 6,
+        "waste_handling": 1,
+        "courtyard": 1
+      },
+      "scopes": {
+        "pediatric_outpatient": 26,
+        "pediatric_emergency": 2,
+        "pharmacy_support": 34,
+        "public_service": 14,
+        "outpatient_treatment": 17,
+        "emergency": 43,
+        "inpatient_support": 45,
+        "imaging": 65
+      },
+      "relation_types": {
+        "service": 8,
+        "access": 246,
+        "shared_wall": 2,
+        "entrance": 10
+      },
+      "access_without_openings": 35,
+      "actual_image_size": [
+        3064,
+        4088
+      ],
+      "declared_image_size": [
+        3064,
+        4088
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 0.9999998999999999,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S071",
+          "name": "空调机房",
+          "bbox_fill": 0.7205882352941176,
+          "type": "building_services"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_services",
+        "type:conference",
+        "type:consultation",
+        "type:corridor",
+        "type:courtyard",
+        "type:entrance",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:isolation",
+        "type:laboratory",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:patient_preparation",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:resuscitation",
+        "type:retail_service",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:triage",
+        "type:vertical_core",
+        "type:vestibule",
+        "type:waste_handling",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          223,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S015",
+            "name": "收费",
+            "type": "registration"
+          },
+          {
+            "id": "S045",
+            "name": "F",
+            "type": "building_services"
+          },
+          {
+            "id": "S046",
+            "name": "PY",
+            "type": "building_services"
+          },
+          {
+            "id": "S047",
+            "name": "SF",
+            "type": "building_services"
+          },
+          {
+            "id": "S066",
+            "name": "PY",
+            "type": "building_services"
+          },
+          {
+            "id": "S080",
+            "name": "强电",
+            "type": "building_services"
+          },
+          {
+            "id": "S140",
+            "name": "强弱电",
+            "type": "building_services"
+          },
+          {
+            "id": "S203",
+            "name": "调钡",
+            "type": "medication_preparation"
+          },
+          {
+            "id": "S245",
+            "name": "F",
+            "type": "building_services"
+          },
+          {
+            "id": "S246",
+            "name": "SF",
+            "type": "building_services"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S003",
+            "S004"
+          ],
+          [
+            "S008",
+            "S009"
+          ],
+          [
+            "S016",
+            "S017",
+            "S018"
+          ],
+          [
+            "S031",
+            "S035",
+            "S037"
+          ],
+          [
+            "S032",
+            "S033"
+          ],
+          [
+            "S045",
+            "S046",
+            "S047",
+            "S066",
+            "S080",
+            "S140",
+            "S245",
+            "S246"
+          ],
+          [
+            "S099",
+            "S100",
+            "S109"
+          ],
+          [
+            "S104",
+            "S105"
+          ],
+          [
+            "S106",
+            "S107",
+            "S108"
+          ],
+          [
+            "S116",
+            "S128"
+          ],
+          [
+            "S133",
+            "S134",
+            "S135"
+          ],
+          [
+            "S137",
+            "S147"
+          ],
+          [
+            "S145",
+            "S146"
+          ],
+          [
+            "S151",
+            "S157"
+          ],
+          [
+            "S154",
+            "S155",
+            "S163"
+          ],
+          [
+            "S161",
+            "S165"
+          ],
+          [
+            "S162",
+            "S164"
+          ],
+          [
+            "S176",
+            "S177"
+          ],
+          [
+            "S178",
+            "S179"
+          ],
+          [
+            "S189",
+            "S190",
+            "S191",
+            "S192",
+            "S198",
+            "S201"
+          ],
+          [
+            "S193",
+            "S194",
+            "S195",
+            "S196",
+            "S204",
+            "S209"
+          ],
+          [
+            "S199",
+            "S200"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 29
+    },
+    {
+      "project": "05_兰州重离子医用加速应用示范区",
+      "annotation": "p-平面标注与数据处理/标注试样/05_兰州重离子医用加速应用示范区/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/05_兰州重离子医用加速应用示范区/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 129,
+        "relations": 161
+      },
+      "spaces": 129,
+      "rooms": 73,
+      "relations": 161,
+      "openings": 119,
+      "levels": {
+        "core_block": 14,
+        "room": 73,
+        "open_space": 33,
+        "semi_open_space": 4,
+        "functional_block": 5
+      },
+      "types": {
+        "vertical_core": 14,
+        "pharmacy": 6,
+        "building_services": 19,
+        "corridor": 15,
+        "office": 2,
+        "imaging": 7,
+        "nurse_station": 3,
+        "toilet": 5,
+        "equipment_room": 1,
+        "treatment": 5,
+        "staff_support": 11,
+        "service_work_area": 5,
+        "courtyard": 2,
+        "vestibule": 2,
+        "storage": 3,
+        "building_control": 1,
+        "sterile_supply": 1,
+        "registration": 4,
+        "hall": 9,
+        "entrance": 4,
+        "resuscitation": 1,
+        "consultation": 4,
+        "medication_preparation": 1,
+        "examination": 1,
+        "observation": 1,
+        "laboratory": 1,
+        "pharmacy_counter": 1
+      },
+      "scopes": {
+        "imaging": 38,
+        "public_service": 41,
+        "sterile_compounding": 11,
+        "infusion_support": 2,
+        "pharmacy_support": 6,
+        "inpatient_support": 1,
+        "emergency": 24,
+        "ordinary_outpatient": 6
+      },
+      "relation_types": {
+        "access": 135,
+        "shared_wall": 8,
+        "service": 7,
+        "entrance": 11
+      },
+      "access_without_openings": 27,
+      "actual_image_size": [
+        3079,
+        4088
+      ],
+      "declared_image_size": [
+        3079,
+        4088
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.00000006,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S066",
+          "name": "西药房（二级）",
+          "bbox_fill": 0.7746500900968613,
+          "type": "pharmacy"
+        },
+        {
+          "id": "S108",
+          "name": "诊室",
+          "bbox_fill": 0.7684857022732346,
+          "type": "consultation"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S066",
+          "b": "S069",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S093",
+          "b": "S094",
+          "overlap_over_smaller_box": 1.0
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_control",
+        "type:building_services",
+        "type:consultation",
+        "type:corridor",
+        "type:courtyard",
+        "type:entrance",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:laboratory",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:resuscitation",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:sterile_supply",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:vertical_core",
+        "type:vestibule",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          103,
+          6,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S005",
+            "name": "管井",
+            "type": "building_services"
+          },
+          {
+            "id": "S026",
+            "name": "管井",
+            "type": "building_services"
+          },
+          {
+            "id": "S037",
+            "name": "强电",
+            "type": "building_services"
+          },
+          {
+            "id": "S038",
+            "name": "弱电",
+            "type": "building_services"
+          },
+          {
+            "id": "S046",
+            "name": "消防控制室",
+            "type": "building_control"
+          },
+          {
+            "id": "S047",
+            "name": "管井",
+            "type": "building_services"
+          },
+          {
+            "id": "S070",
+            "name": "管井",
+            "type": "building_services"
+          },
+          {
+            "id": "S076",
+            "name": "强电",
+            "type": "building_services"
+          },
+          {
+            "id": "S077",
+            "name": "弱电",
+            "type": "building_services"
+          },
+          {
+            "id": "S117",
+            "name": "管井",
+            "type": "building_services"
+          },
+          {
+            "id": "S129",
+            "name": "管井",
+            "type": "building_services"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S005",
+            "S026",
+            "S037",
+            "S038",
+            "S047",
+            "S070",
+            "S076",
+            "S077",
+            "S117",
+            "S129"
+          ],
+          [
+            "S010",
+            "S011",
+            "S012"
+          ],
+          [
+            "S016",
+            "S017",
+            "S018"
+          ],
+          [
+            "S019",
+            "S030"
+          ],
+          [
+            "S027",
+            "S029"
+          ],
+          [
+            "S061",
+            "S062",
+            "S067"
+          ],
+          [
+            "S069",
+            "S071"
+          ],
+          [
+            "S098",
+            "S103",
+            "S106",
+            "S108"
+          ],
+          [
+            "S102",
+            "S110"
+          ],
+          [
+            "S113",
+            "S114"
+          ],
+          [
+            "S119",
+            "S120"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 37
+    },
+    {
+      "project": "06_鹿邑县第一人民医院整体迁建项目",
+      "annotation": "p-平面标注与数据处理/标注试样/06_鹿邑县第一人民医院整体迁建项目/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/06_鹿邑县第一人民医院整体迁建项目/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 288,
+        "relations": 356
+      },
+      "spaces": 288,
+      "rooms": 181,
+      "relations": 356,
+      "openings": 278,
+      "levels": {
+        "room": 181,
+        "open_space": 66,
+        "core_block": 14,
+        "functional_block": 8,
+        "semi_open_space": 19
+      },
+      "types": {
+        "conference": 1,
+        "corridor": 34,
+        "office": 20,
+        "storage": 11,
+        "hall": 23,
+        "vertical_core": 14,
+        "building_services": 2,
+        "pharmacy": 4,
+        "medication_preparation": 7,
+        "service_work_area": 10,
+        "staff_support": 31,
+        "toilet": 24,
+        "service": 6,
+        "vestibule": 5,
+        "entrance": 3,
+        "building_control": 1,
+        "registration": 4,
+        "retail_service": 3,
+        "observation": 9,
+        "equipment_room": 8,
+        "nurse_station": 6,
+        "treatment": 19,
+        "waste_handling": 3,
+        "patient_preparation": 1,
+        "resuscitation": 1,
+        "isolation": 2,
+        "imaging": 14,
+        "courtyard": 2,
+        "laboratory": 1,
+        "examination": 2,
+        "consultation": 14,
+        "pharmacy_counter": 2,
+        "triage": 1
+      },
+      "scopes": {
+        "hospital_pharmacy_support": 28,
+        "inpatient_public_service": 7,
+        "hospital_public_service": 21,
+        "public_service": 14,
+        "emergency": 72,
+        "medical_imaging": 66,
+        "ordinary_outpatient": 45,
+        "pediatric_outpatient": 35
+      },
+      "relation_types": {
+        "access": 324,
+        "service": 14,
+        "shared_wall": 1,
+        "entrance": 17
+      },
+      "access_without_openings": 62,
+      "actual_image_size": [
+        4044,
+        5586
+      ],
+      "declared_image_size": [
+        4044,
+        5586
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.00000006,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S039",
+          "name": "管理",
+          "bbox_fill": 0.7855964815832875,
+          "type": "office"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S027",
+          "b": "S028",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S026",
+          "b": "S027",
+          "overlap_over_smaller_box": 0.5333333333333333
+        },
+        {
+          "a": "S020",
+          "b": "S022",
+          "overlap_over_smaller_box": 0.4126984126984127
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [
+        {
+          "id": "P056",
+          "relation": "R054",
+          "source": "S037",
+          "target": "S056",
+          "boundary_distance_px": [
+            29.0,
+            7.0
+          ],
+          "max_distance_px": 29.0
+        },
+        {
+          "id": "P009",
+          "relation": "R009",
+          "source": "S002",
+          "target": "S009",
+          "boundary_distance_px": [
+            22.0,
+            2.0
+          ],
+          "max_distance_px": 22.0
+        },
+        {
+          "id": "P168",
+          "relation": "R160",
+          "source": "S196",
+          "target": "S194",
+          "boundary_distance_px": [
+            21.0,
+            4.0
+          ],
+          "max_distance_px": 21.0
+        },
+        {
+          "id": "P179",
+          "relation": "R291",
+          "source": "S185",
+          "target": "S184",
+          "boundary_distance_px": [
+            5.0,
+            21.0
+          ],
+          "max_distance_px": 21.0
+        },
+        {
+          "id": "P180",
+          "relation": "R292",
+          "source": "S185",
+          "target": "S187",
+          "boundary_distance_px": [
+            5.0,
+            21.0
+          ],
+          "max_distance_px": 21.0
+        }
+      ],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_control",
+        "type:building_services",
+        "type:conference",
+        "type:consultation",
+        "type:corridor",
+        "type:courtyard",
+        "type:entrance",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:isolation",
+        "type:laboratory",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:patient_preparation",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:resuscitation",
+        "type:retail_service",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:triage",
+        "type:vertical_core",
+        "type:vestibule",
+        "type:waste_handling",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          280,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S041",
+            "name": "消防及保安监控室",
+            "type": "building_control"
+          },
+          {
+            "id": "S081",
+            "name": "治疗辅助间",
+            "type": "treatment"
+          },
+          {
+            "id": "S255",
+            "name": "开水间",
+            "type": "staff_support"
+          },
+          {
+            "id": "S260",
+            "name": "无障碍卫生间洗手间",
+            "type": "toilet"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S005",
+            "S023",
+            "S024"
+          ],
+          [
+            "S015",
+            "S018"
+          ],
+          [
+            "S026",
+            "S028"
+          ],
+          [
+            "S047",
+            "S048"
+          ],
+          [
+            "S067",
+            "S069"
+          ],
+          [
+            "S072",
+            "S073"
+          ],
+          [
+            "S078",
+            "S080"
+          ],
+          [
+            "S082",
+            "S091"
+          ],
+          [
+            "S098",
+            "S103"
+          ],
+          [
+            "S110",
+            "S115"
+          ],
+          [
+            "S113",
+            "S118"
+          ],
+          [
+            "S123",
+            "S125"
+          ],
+          [
+            "S126",
+            "S127",
+            "S128"
+          ],
+          [
+            "S140",
+            "S147"
+          ],
+          [
+            "S142",
+            "S148"
+          ],
+          [
+            "S144",
+            "S145",
+            "S149"
+          ],
+          [
+            "S163",
+            "S164",
+            "S165",
+            "S166"
+          ],
+          [
+            "S167",
+            "S168",
+            "S169",
+            "S170"
+          ],
+          [
+            "S177",
+            "S178",
+            "S179",
+            "S180"
+          ],
+          [
+            "S181",
+            "S182"
+          ],
+          [
+            "S191",
+            "S192",
+            "S193"
+          ],
+          [
+            "S199",
+            "S205"
+          ],
+          [
+            "S200",
+            "S201"
+          ],
+          [
+            "S204",
+            "S207"
+          ],
+          [
+            "S223",
+            "S231"
+          ],
+          [
+            "S229",
+            "S230"
+          ],
+          [
+            "S235",
+            "S244"
+          ],
+          [
+            "S237",
+            "S238",
+            "S239"
+          ],
+          [
+            "S240",
+            "S241",
+            "S242"
+          ],
+          [
+            "S254",
+            "S256",
+            "S257"
+          ],
+          [
+            "S259",
+            "S269"
+          ],
+          [
+            "S266",
+            "S274",
+            "S276",
+            "S277"
+          ],
+          [
+            "S267",
+            "S268",
+            "S271"
+          ],
+          [
+            "S292",
+            "S293"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 38
+    },
+    {
+      "project": "07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目",
+      "annotation": "p-平面标注与数据处理/标注试样/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 411,
+        "relations": 477
+      },
+      "spaces": 411,
+      "rooms": 270,
+      "relations": 477,
+      "openings": 337,
+      "levels": {
+        "open_space": 110,
+        "room": 270,
+        "semi_open_space": 11,
+        "core_block": 15,
+        "functional_block": 5
+      },
+      "types": {
+        "corridor": 93,
+        "staff_support": 51,
+        "pharmacy": 5,
+        "storage": 12,
+        "entrance": 1,
+        "resuscitation": 3,
+        "office": 24,
+        "registration": 6,
+        "nurse_station": 4,
+        "consultation": 36,
+        "treatment": 31,
+        "sterile_supply": 2,
+        "equipment_room": 5,
+        "education": 7,
+        "observation": 5,
+        "vertical_core": 15,
+        "toilet": 20,
+        "laboratory": 4,
+        "imaging": 26,
+        "examination": 20,
+        "operating_room": 1,
+        "hall": 10,
+        "medication_preparation": 4,
+        "service": 1,
+        "pharmacy_counter": 4,
+        "courtyard": 3,
+        "vestibule": 2,
+        "isolation": 2,
+        "service_work_area": 2,
+        "patient_preparation": 8,
+        "building_services": 1,
+        "conference": 1,
+        "rehabilitation": 2
+      },
+      "scopes": {
+        "emergency_pediatrics": 50,
+        "emergency_obstetrics_gynecology": 48,
+        "infusion_center": 27,
+        "outpatient_pharmacy": 35,
+        "obstetrics_outpatient": 50,
+        "fever_outpatient": 34,
+        "pediatric_asthma_outpatient": 25,
+        "medical_imaging": 78,
+        "obstetric_ultrasound": 24,
+        "perinatal_care": 22,
+        "public_service": 17,
+        "pediatric_outpatient": 1
+      },
+      "relation_types": {
+        "access": 451,
+        "service": 14,
+        "entrance": 6,
+        "shared_wall": 6
+      },
+      "access_without_openings": 131,
+      "actual_image_size": [
+        3260,
+        2444
+      ],
+      "declared_image_size": [
+        3260,
+        2444
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.00000012,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [],
+      "room_bbox_overlaps_above_05": [],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_services",
+        "type:conference",
+        "type:consultation",
+        "type:corridor",
+        "type:courtyard",
+        "type:education",
+        "type:entrance",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:isolation",
+        "type:laboratory",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:operating_room",
+        "type:patient_preparation",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:rehabilitation",
+        "type:resuscitation",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:sterile_supply",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:vertical_core",
+        "type:vestibule",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          398,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S008",
+            "name": "保安室",
+            "type": "staff_support"
+          },
+          {
+            "id": "S010",
+            "name": "平车存放间",
+            "type": "storage"
+          },
+          {
+            "id": "S057",
+            "name": "保安室",
+            "type": "staff_support"
+          },
+          {
+            "id": "S072",
+            "name": "男更",
+            "type": "staff_support"
+          },
+          {
+            "id": "S323",
+            "name": "男浴",
+            "type": "staff_support"
+          },
+          {
+            "id": "S336",
+            "name": "空调机房",
+            "type": "building_services"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S002",
+            "S004",
+            "S017",
+            "S018",
+            "S019",
+            "S023",
+            "S024",
+            "S032"
+          ],
+          [
+            "S008",
+            "S057",
+            "S072",
+            "S323"
+          ],
+          [
+            "S026",
+            "S037",
+            "S041"
+          ],
+          [
+            "S028",
+            "S035",
+            "S038",
+            "S042"
+          ],
+          [
+            "S036",
+            "S049"
+          ],
+          [
+            "S040",
+            "S043",
+            "S044"
+          ],
+          [
+            "S061",
+            "S062",
+            "S063",
+            "S071",
+            "S073",
+            "S078",
+            "S080"
+          ],
+          [
+            "S075",
+            "S082",
+            "S085"
+          ],
+          [
+            "S076",
+            "S083"
+          ],
+          [
+            "S079",
+            "S086",
+            "S095"
+          ],
+          [
+            "S087",
+            "S089",
+            "S091"
+          ],
+          [
+            "S098",
+            "S119",
+            "S122"
+          ],
+          [
+            "S107",
+            "S109"
+          ],
+          [
+            "S114",
+            "S115"
+          ],
+          [
+            "S136",
+            "S137",
+            "S138"
+          ],
+          [
+            "S145",
+            "S146",
+            "S147",
+            "S148"
+          ],
+          [
+            "S167",
+            "S169",
+            "S178",
+            "S179",
+            "S189"
+          ],
+          [
+            "S171",
+            "S180",
+            "S207"
+          ],
+          [
+            "S173",
+            "S200"
+          ],
+          [
+            "S175",
+            "S186",
+            "S191",
+            "S202"
+          ],
+          [
+            "S181",
+            "S183"
+          ],
+          [
+            "S188",
+            "S203",
+            "S204"
+          ],
+          [
+            "S194",
+            "S205",
+            "S206"
+          ],
+          [
+            "S195",
+            "S199"
+          ],
+          [
+            "S211",
+            "S255"
+          ],
+          [
+            "S220",
+            "S231"
+          ],
+          [
+            "S223",
+            "S242"
+          ],
+          [
+            "S232",
+            "S236"
+          ],
+          [
+            "S247",
+            "S254"
+          ],
+          [
+            "S251",
+            "S262"
+          ],
+          [
+            "S265",
+            "S266"
+          ],
+          [
+            "S277",
+            "S281",
+            "S287"
+          ],
+          [
+            "S282",
+            "S289",
+            "S319"
+          ],
+          [
+            "S284",
+            "S290"
+          ],
+          [
+            "S285",
+            "S294",
+            "S301"
+          ],
+          [
+            "S286",
+            "S291",
+            "S297"
+          ],
+          [
+            "S288",
+            "S296"
+          ],
+          [
+            "S292",
+            "S298",
+            "S305",
+            "S322"
+          ],
+          [
+            "S293",
+            "S300"
+          ],
+          [
+            "S295",
+            "S307",
+            "S409",
+            "S410"
+          ],
+          [
+            "S299",
+            "S314"
+          ],
+          [
+            "S303",
+            "S325"
+          ],
+          [
+            "S304",
+            "S321"
+          ],
+          [
+            "S309",
+            "S311"
+          ],
+          [
+            "S312",
+            "S320"
+          ],
+          [
+            "S326",
+            "S327"
+          ],
+          [
+            "S348",
+            "S362"
+          ],
+          [
+            "S350",
+            "S352",
+            "S363",
+            "S364"
+          ],
+          [
+            "S354",
+            "S356",
+            "S365"
+          ],
+          [
+            "S358",
+            "S361",
+            "S379",
+            "S380"
+          ],
+          [
+            "S360",
+            "S367",
+            "S385"
+          ],
+          [
+            "S368",
+            "S369"
+          ],
+          [
+            "S378",
+            "S389"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 63
+    },
+    {
+      "project": "08_青岛西海岸医疗中心",
+      "annotation": "p-平面标注与数据处理/标注试样/08_青岛西海岸医疗中心/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/08_青岛西海岸医疗中心/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 319,
+        "relations": 341
+      },
+      "spaces": 319,
+      "rooms": 206,
+      "relations": 341,
+      "openings": 239,
+      "levels": {
+        "core_block": 31,
+        "room": 206,
+        "functional_block": 12,
+        "open_space": 53,
+        "semi_open_space": 9,
+        "landscape": 8
+      },
+      "types": {
+        "vertical_core": 30,
+        "storage": 16,
+        "building_services": 32,
+        "toilet": 20,
+        "reserved_space": 6,
+        "corridor": 32,
+        "office": 32,
+        "staff_support": 18,
+        "service": 18,
+        "registration": 3,
+        "entrance": 7,
+        "hall": 16,
+        "landscape": 8,
+        "retail_service": 1,
+        "observation": 9,
+        "courtyard": 4,
+        "building_control": 2,
+        "imaging": 21,
+        "treatment": 10,
+        "education": 2,
+        "consultation": 11,
+        "medication_preparation": 1,
+        "nurse_station": 2,
+        "pharmacy": 1,
+        "examination": 2,
+        "rehabilitation": 1,
+        "pharmacy_counter": 1,
+        "laboratory": 2,
+        "service_work_area": 6,
+        "operating_room": 5
+      },
+      "scopes": {
+        "public_service": 61,
+        "inpatient_support": 1,
+        "medical_support": 88,
+        "pediatric": 2,
+        "pediatric_outpatient": 47,
+        "emergency": 56,
+        "southwest_clinical": 64
+      },
+      "relation_types": {
+        "access": 301,
+        "entrance": 8,
+        "service": 19,
+        "shared_wall": 13
+      },
+      "access_without_openings": 83,
+      "actual_image_size": [
+        2380,
+        3280
+      ],
+      "declared_image_size": [
+        2380,
+        3280
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 0.99999991,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S011",
+          "name": "空调机房",
+          "bbox_fill": 0.7252747252747253,
+          "type": "building_services"
+        },
+        {
+          "id": "S033",
+          "name": "病房楼入口门斗（北）",
+          "bbox_fill": 0.44676494676494677,
+          "type": "entrance"
+        },
+        {
+          "id": "S036",
+          "name": "病房楼入口门斗（南）",
+          "bbox_fill": 0.4494949494949495,
+          "type": "entrance"
+        },
+        {
+          "id": "S037",
+          "name": "病房楼侧门斗",
+          "bbox_fill": 0.49925925925925924,
+          "type": "entrance"
+        },
+        {
+          "id": "S190",
+          "name": "化验",
+          "bbox_fill": 0.7564102564102564,
+          "type": "laboratory"
+        },
+        {
+          "id": "S191",
+          "name": "取样",
+          "bbox_fill": 0.703125,
+          "type": "laboratory"
+        },
+        {
+          "id": "S296",
+          "name": "应急电源间",
+          "bbox_fill": 0.5,
+          "type": "building_services"
+        },
+        {
+          "id": "S305",
+          "name": "治疗室",
+          "bbox_fill": 0.5,
+          "type": "treatment"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S245",
+          "b": "S249",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S190",
+          "b": "S191",
+          "overlap_over_smaller_box": 0.5006127450980392
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [
+        {
+          "id": "S028",
+          "name": "男更衣+女更衣"
+        }
+      ],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_control",
+        "type:building_services",
+        "type:consultation",
+        "type:corridor",
+        "type:courtyard",
+        "type:education",
+        "type:entrance",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:laboratory",
+        "type:landscape",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:operating_room",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:rehabilitation",
+        "type:reserved_space",
+        "type:retail_service",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:vertical_core",
+        "level:core_block",
+        "level:functional_block",
+        "level:landscape",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          262,
+          6,
+          5,
+          3,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S031",
+            "name": "卫生间",
+            "type": "toilet"
+          },
+          {
+            "id": "S060",
+            "name": "电气间",
+            "type": "building_services"
+          },
+          {
+            "id": "S063",
+            "name": "库房",
+            "type": "storage"
+          },
+          {
+            "id": "S064",
+            "name": "卫生间",
+            "type": "toilet"
+          },
+          {
+            "id": "S086",
+            "name": "设备间",
+            "type": "building_services"
+          },
+          {
+            "id": "S092",
+            "name": "卫生间",
+            "type": "toilet"
+          },
+          {
+            "id": "S121",
+            "name": "卫生间",
+            "type": "toilet"
+          },
+          {
+            "id": "S134",
+            "name": "主任",
+            "type": "office"
+          },
+          {
+            "id": "S135",
+            "name": "卫生间",
+            "type": "toilet"
+          },
+          {
+            "id": "S138",
+            "name": "卫生间",
+            "type": "toilet"
+          },
+          {
+            "id": "S145",
+            "name": "值班",
+            "type": "staff_support"
+          },
+          {
+            "id": "S151",
+            "name": "值班",
+            "type": "staff_support"
+          },
+          {
+            "id": "S165",
+            "name": "库房",
+            "type": "storage"
+          },
+          {
+            "id": "S166",
+            "name": "空调机房",
+            "type": "building_services"
+          },
+          {
+            "id": "S167",
+            "name": "电气间",
+            "type": "building_services"
+          },
+          {
+            "id": "S168",
+            "name": "电气间",
+            "type": "building_services"
+          },
+          {
+            "id": "S169",
+            "name": "电气间",
+            "type": "building_services"
+          },
+          {
+            "id": "S170",
+            "name": "设备间",
+            "type": "building_services"
+          },
+          {
+            "id": "S172",
+            "name": "设备间",
+            "type": "building_services"
+          },
+          {
+            "id": "S209",
+            "name": "设备间",
+            "type": "building_services"
+          },
+          {
+            "id": "S217",
+            "name": "设备间",
+            "type": "building_services"
+          },
+          {
+            "id": "S218",
+            "name": "卫生间",
+            "type": "toilet"
+          },
+          {
+            "id": "S251",
+            "name": "应急电源间",
+            "type": "building_services"
+          },
+          {
+            "id": "S318",
+            "name": "备用",
+            "type": "reserved_space"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S002",
+            "S008"
+          ],
+          [
+            "S003",
+            "S014",
+            "S015",
+            "S017",
+            "S018"
+          ],
+          [
+            "S005",
+            "S012"
+          ],
+          [
+            "S020",
+            "S022",
+            "S023",
+            "S024",
+            "S025",
+            "S026",
+            "S027"
+          ],
+          [
+            "S029",
+            "S032"
+          ],
+          [
+            "S031",
+            "S064",
+            "S092",
+            "S121",
+            "S135",
+            "S138",
+            "S218"
+          ],
+          [
+            "S033",
+            "S036",
+            "S037"
+          ],
+          [
+            "S048",
+            "S055",
+            "S056"
+          ],
+          [
+            "S057",
+            "S062"
+          ],
+          [
+            "S060",
+            "S086",
+            "S166",
+            "S167",
+            "S168",
+            "S169",
+            "S170",
+            "S172",
+            "S209",
+            "S217",
+            "S251"
+          ],
+          [
+            "S063",
+            "S165"
+          ],
+          [
+            "S069",
+            "S076",
+            "S078"
+          ],
+          [
+            "S070",
+            "S077"
+          ],
+          [
+            "S075",
+            "S107",
+            "S113"
+          ],
+          [
+            "S087",
+            "S088",
+            "S089",
+            "S090",
+            "S099",
+            "S100",
+            "S101"
+          ],
+          [
+            "S094",
+            "S098"
+          ],
+          [
+            "S105",
+            "S122"
+          ],
+          [
+            "S108",
+            "S109",
+            "S110",
+            "S111",
+            "S117",
+            "S118",
+            "S119",
+            "S120"
+          ],
+          [
+            "S115",
+            "S126"
+          ],
+          [
+            "S140",
+            "S141",
+            "S142",
+            "S143",
+            "S158",
+            "S159"
+          ],
+          [
+            "S144",
+            "S150",
+            "S163"
+          ],
+          [
+            "S145",
+            "S151"
+          ],
+          [
+            "S152",
+            "S155"
+          ],
+          [
+            "S190",
+            "S191"
+          ],
+          [
+            "S196",
+            "S203"
+          ],
+          [
+            "S223",
+            "S224",
+            "S229"
+          ],
+          [
+            "S230",
+            "S233"
+          ],
+          [
+            "S231",
+            "S232"
+          ],
+          [
+            "S235",
+            "S240"
+          ],
+          [
+            "S241",
+            "S244"
+          ],
+          [
+            "S242",
+            "S243"
+          ],
+          [
+            "S258",
+            "S265"
+          ],
+          [
+            "S261",
+            "S271",
+            "S272",
+            "S273",
+            "S274"
+          ],
+          [
+            "S262",
+            "S263",
+            "S266",
+            "S267"
+          ],
+          [
+            "S264",
+            "S281"
+          ],
+          [
+            "S275",
+            "S276",
+            "S277"
+          ],
+          [
+            "S278",
+            "S282"
+          ],
+          [
+            "S288",
+            "S292"
+          ],
+          [
+            "S297",
+            "S298",
+            "S305"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 24
+    },
+    {
+      "project": "09_深圳大学学府医院",
+      "annotation": "p-平面标注与数据处理/标注试样/09_深圳大学学府医院/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/09_深圳大学学府医院/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 237,
+        "relations": 317
+      },
+      "spaces": 237,
+      "rooms": 179,
+      "relations": 317,
+      "openings": 280,
+      "levels": {
+        "room": 179,
+        "open_space": 35,
+        "core_block": 15,
+        "landscape": 6,
+        "functional_block": 1,
+        "semi_open_space": 1
+      },
+      "types": {
+        "treatment": 5,
+        "corridor": 23,
+        "vertical_core": 15,
+        "examination": 2,
+        "imaging": 9,
+        "reserved_space": 1,
+        "service_work_area": 7,
+        "hall": 11,
+        "office": 11,
+        "toilet": 21,
+        "equipment_room": 2,
+        "waste_handling": 6,
+        "staff_support": 20,
+        "sterile_supply": 2,
+        "landscape": 6,
+        "service": 3,
+        "observation": 1,
+        "operating_room": 2,
+        "vestibule": 5,
+        "patient_preparation": 2,
+        "consultation": 62,
+        "medication_preparation": 1,
+        "pharmacy": 5,
+        "building_services": 4,
+        "resuscitation": 2,
+        "conference": 4,
+        "storage": 1,
+        "laboratory": 1,
+        "triage": 1,
+        "isolation": 1,
+        "retail_service": 1
+      },
+      "scopes": {
+        "ordinary_outpatient": 105,
+        "public_service": 22,
+        "emergency": 38,
+        "health_examination": 34,
+        "pediatric_outpatient": 38
+      },
+      "relation_types": {
+        "access": 309,
+        "entrance": 4,
+        "service": 4
+      },
+      "access_without_openings": 36,
+      "actual_image_size": [
+        3260,
+        2444
+      ],
+      "declared_image_size": [
+        3260,
+        2444
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 0.99999995,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S054",
+          "name": "手术室1",
+          "bbox_fill": 0.7857321597921503,
+          "type": "operating_room"
+        },
+        {
+          "id": "S055",
+          "name": "手术室2",
+          "bbox_fill": 0.7025208521005825,
+          "type": "operating_room"
+        },
+        {
+          "id": "S057",
+          "name": "男卫",
+          "bbox_fill": 0.7248356453369854,
+          "type": "toilet"
+        },
+        {
+          "id": "S058",
+          "name": "手术缓冲带",
+          "bbox_fill": 0.5984191873644934,
+          "type": "vestibule"
+        },
+        {
+          "id": "S059",
+          "name": "手术准备",
+          "bbox_fill": 0.5066026476924215,
+          "type": "patient_preparation"
+        },
+        {
+          "id": "S060",
+          "name": "女卫",
+          "bbox_fill": 0.6636862146221553,
+          "type": "toilet"
+        },
+        {
+          "id": "S062",
+          "name": "进入卫生间的前室",
+          "bbox_fill": 0.6494932271599145,
+          "type": "vestibule"
+        },
+        {
+          "id": "S064",
+          "name": "进入卫生间的盥洗室",
+          "bbox_fill": 0.5980618993816431,
+          "type": "toilet"
+        },
+        {
+          "id": "S065",
+          "name": "主任办公",
+          "bbox_fill": 0.4692433481080341,
+          "type": "office"
+        },
+        {
+          "id": "S067",
+          "name": "妇科检查",
+          "bbox_fill": 0.5576826985489243,
+          "type": "consultation"
+        },
+        {
+          "id": "S068",
+          "name": "配药治疗室",
+          "bbox_fill": 0.41303804471590133,
+          "type": "medication_preparation"
+        },
+        {
+          "id": "S069",
+          "name": "胃科治疗室",
+          "bbox_fill": 0.5277773456345538,
+          "type": "treatment"
+        },
+        {
+          "id": "S070",
+          "name": "儿科",
+          "bbox_fill": 0.5340991438579302,
+          "type": "consultation"
+        },
+        {
+          "id": "S071",
+          "name": "换药室",
+          "bbox_fill": 0.39159657649990076,
+          "type": "treatment"
+        },
+        {
+          "id": "S072",
+          "name": "外科",
+          "bbox_fill": 0.5418483306153487,
+          "type": "consultation"
+        },
+        {
+          "id": "S073",
+          "name": "男更衣室",
+          "bbox_fill": 0.4895857608948965,
+          "type": "staff_support"
+        },
+        {
+          "id": "S074",
+          "name": "外科",
+          "bbox_fill": 0.5506378785134937,
+          "type": "consultation"
+        },
+        {
+          "id": "S076",
+          "name": "外科",
+          "bbox_fill": 0.5548669905664262,
+          "type": "consultation"
+        },
+        {
+          "id": "S077",
+          "name": "女更衣室",
+          "bbox_fill": 0.4616665807615386,
+          "type": "staff_support"
+        },
+        {
+          "id": "S078",
+          "name": "急诊药房",
+          "bbox_fill": 0.4766050240711019,
+          "type": "pharmacy"
+        },
+        {
+          "id": "S081",
+          "name": "外科",
+          "bbox_fill": 0.638750598115705,
+          "type": "consultation"
+        },
+        {
+          "id": "S082",
+          "name": "进入楼梯前的前室",
+          "bbox_fill": 0.5129743355288745,
+          "type": "vestibule"
+        },
+        {
+          "id": "S089",
+          "name": "内科抢救室",
+          "bbox_fill": 0.6171956922434855,
+          "type": "resuscitation"
+        },
+        {
+          "id": "S090",
+          "name": "外科抢救室",
+          "bbox_fill": 0.6647169764629893,
+          "type": "resuscitation"
+        },
+        {
+          "id": "S157",
+          "name": "儿科隔离诊室",
+          "bbox_fill": 0.6677103815794598,
+          "type": "isolation"
+        },
+        {
+          "id": "S169",
+          "name": "药房",
+          "bbox_fill": 0.5565373112299524,
+          "type": "pharmacy"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S071",
+          "b": "S073",
+          "overlap_over_smaller_box": 0.5961703958691913
+        },
+        {
+          "a": "S064",
+          "b": "S065",
+          "overlap_over_smaller_box": 0.553812563042824
+        },
+        {
+          "a": "S068",
+          "b": "S071",
+          "overlap_over_smaller_box": 0.5029192234791164
+        },
+        {
+          "a": "S065",
+          "b": "S068",
+          "overlap_over_smaller_box": 0.48162665978607866
+        },
+        {
+          "a": "S057",
+          "b": "S062",
+          "overlap_over_smaller_box": 0.41315560031084764
+        },
+        {
+          "a": "S071",
+          "b": "S077",
+          "overlap_over_smaller_box": 0.3414733969986356
+        },
+        {
+          "a": "S076",
+          "b": "S081",
+          "overlap_over_smaller_box": 0.3283047121685496
+        },
+        {
+          "a": "S067",
+          "b": "S069",
+          "overlap_over_smaller_box": 0.27781230577998706
+        },
+        {
+          "a": "S069",
+          "b": "S070",
+          "overlap_over_smaller_box": 0.2777087217733601
+        },
+        {
+          "a": "S089",
+          "b": "S090",
+          "overlap_over_smaller_box": 0.2731390161040931
+        },
+        {
+          "a": "S058",
+          "b": "S059",
+          "overlap_over_smaller_box": 0.2666572922339737
+        },
+        {
+          "a": "S070",
+          "b": "S072",
+          "overlap_over_smaller_box": 0.2609227859981322
+        },
+        {
+          "a": "S072",
+          "b": "S074",
+          "overlap_over_smaller_box": 0.2515358347798548
+        },
+        {
+          "a": "S074",
+          "b": "S076",
+          "overlap_over_smaller_box": 0.24726273305350233
+        },
+        {
+          "a": "S058",
+          "b": "S062",
+          "overlap_over_smaller_box": 0.23203092482954643
+        },
+        {
+          "a": "S057",
+          "b": "S060",
+          "overlap_over_smaller_box": 0.20834304357958397
+        },
+        {
+          "a": "S059",
+          "b": "S064",
+          "overlap_over_smaller_box": 0.17494056775276307
+        },
+        {
+          "a": "S054",
+          "b": "S058",
+          "overlap_over_smaller_box": 0.16897746967071012
+        },
+        {
+          "a": "S055",
+          "b": "S059",
+          "overlap_over_smaller_box": 0.15825452034126664
+        },
+        {
+          "a": "S065",
+          "b": "S071",
+          "overlap_over_smaller_box": 0.1252643165252587
+        },
+        {
+          "a": "S068",
+          "b": "S073",
+          "overlap_over_smaller_box": 0.12342711559357955
+        },
+        {
+          "a": "S054",
+          "b": "S055",
+          "overlap_over_smaller_box": 0.11868423547255753
+        },
+        {
+          "a": "S073",
+          "b": "S077",
+          "overlap_over_smaller_box": 0.11346585458031905
+        },
+        {
+          "a": "S055",
+          "b": "S058",
+          "overlap_over_smaller_box": 0.10437841858217443
+        },
+        {
+          "a": "S081",
+          "b": "S085",
+          "overlap_over_smaller_box": 0.07234922178988204
+        },
+        {
+          "a": "S057",
+          "b": "S058",
+          "overlap_over_smaller_box": 0.06006711409395979
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [
+        {
+          "id": "S116",
+          "name": "污物间/洁具间"
+        },
+        {
+          "id": "S123",
+          "name": "女卫男卫"
+        },
+        {
+          "id": "S215",
+          "name": "女卫男卫"
+        }
+      ],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_services",
+        "type:conference",
+        "type:consultation",
+        "type:corridor",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:isolation",
+        "type:laboratory",
+        "type:landscape",
+        "type:medication_preparation",
+        "type:observation",
+        "type:office",
+        "type:operating_room",
+        "type:patient_preparation",
+        "type:pharmacy",
+        "type:reserved_space",
+        "type:resuscitation",
+        "type:retail_service",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:sterile_supply",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:triage",
+        "type:vertical_core",
+        "type:vestibule",
+        "type:waste_handling",
+        "level:core_block",
+        "level:functional_block",
+        "level:landscape",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          226,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S079",
+            "name": "官井",
+            "type": "building_services"
+          },
+          {
+            "id": "S083",
+            "name": "官井",
+            "type": "building_services"
+          },
+          {
+            "id": "S164",
+            "name": "管井",
+            "type": "building_services"
+          },
+          {
+            "id": "S170",
+            "name": "管井",
+            "type": "building_services"
+          },
+          {
+            "id": "S193",
+            "name": "辅助用房",
+            "type": "staff_support"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S006",
+            "S008",
+            "S011"
+          ],
+          [
+            "S013",
+            "S024"
+          ],
+          [
+            "S015",
+            "S019"
+          ],
+          [
+            "S017",
+            "S020"
+          ],
+          [
+            "S028",
+            "S029"
+          ],
+          [
+            "S030",
+            "S042"
+          ],
+          [
+            "S037",
+            "S038"
+          ],
+          [
+            "S046",
+            "S047"
+          ],
+          [
+            "S057",
+            "S060"
+          ],
+          [
+            "S067",
+            "S070",
+            "S072",
+            "S074",
+            "S076",
+            "S081",
+            "S084",
+            "S085",
+            "S087",
+            "S088"
+          ],
+          [
+            "S069",
+            "S071"
+          ],
+          [
+            "S079",
+            "S083",
+            "S164",
+            "S170"
+          ],
+          [
+            "S086",
+            "S160"
+          ],
+          [
+            "S089",
+            "S090"
+          ],
+          [
+            "S091",
+            "S095",
+            "S100",
+            "S103",
+            "S106",
+            "S107"
+          ],
+          [
+            "S094",
+            "S105"
+          ],
+          [
+            "S096",
+            "S097"
+          ],
+          [
+            "S098",
+            "S108"
+          ],
+          [
+            "S101",
+            "S102"
+          ],
+          [
+            "S113",
+            "S114",
+            "S115"
+          ],
+          [
+            "S125",
+            "S126",
+            "S127",
+            "S128",
+            "S129",
+            "S130",
+            "S131"
+          ],
+          [
+            "S135",
+            "S136",
+            "S137",
+            "S138",
+            "S139",
+            "S140",
+            "S141",
+            "S142",
+            "S143",
+            "S145",
+            "S147",
+            "S149"
+          ],
+          [
+            "S144",
+            "S146",
+            "S148"
+          ],
+          [
+            "S165",
+            "S166",
+            "S167",
+            "S168"
+          ],
+          [
+            "S176",
+            "S180"
+          ],
+          [
+            "S181",
+            "S182",
+            "S183",
+            "S184",
+            "S185",
+            "S186",
+            "S187",
+            "S188",
+            "S189",
+            "S190",
+            "S191",
+            "S192"
+          ],
+          [
+            "S196",
+            "S198",
+            "S199",
+            "S200",
+            "S201",
+            "S202",
+            "S204",
+            "S205",
+            "S206"
+          ],
+          [
+            "S212",
+            "S214"
+          ],
+          [
+            "S215",
+            "S216"
+          ],
+          [
+            "S217",
+            "S218"
+          ],
+          [
+            "S225",
+            "S226",
+            "S227",
+            "S228",
+            "S229",
+            "S230",
+            "S231"
+          ],
+          [
+            "S237",
+            "S238"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 30
+    },
+    {
+      "project": "10_石家庄第一医院新建赵卜口院区",
+      "annotation": "p-平面标注与数据处理/标注试样/10_石家庄第一医院新建赵卜口院区/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/10_石家庄第一医院新建赵卜口院区/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 222,
+        "relations": 253
+      },
+      "spaces": 222,
+      "rooms": 141,
+      "relations": 253,
+      "openings": 157,
+      "levels": {
+        "room": 141,
+        "open_space": 52,
+        "core_block": 13,
+        "semi_open_space": 7,
+        "landscape": 4,
+        "functional_block": 5
+      },
+      "types": {
+        "toilet": 16,
+        "corridor": 27,
+        "laboratory": 2,
+        "consultation": 15,
+        "staff_support": 14,
+        "vertical_core": 13,
+        "examination": 3,
+        "imaging": 20,
+        "service_work_area": 7,
+        "hall": 19,
+        "retail_service": 1,
+        "service": 4,
+        "courtyard": 6,
+        "office": 12,
+        "treatment": 9,
+        "medication_preparation": 1,
+        "nurse_station": 1,
+        "landscape": 4,
+        "conference": 1,
+        "storage": 12,
+        "equipment_room": 8,
+        "patient_preparation": 6,
+        "resuscitation": 2,
+        "operating_room": 2,
+        "vestibule": 4,
+        "registration": 3,
+        "pharmacy": 5,
+        "pharmacy_counter": 1,
+        "isolation": 3,
+        "observation": 1
+      },
+      "scopes": {
+        "emergency": 44,
+        "public_service": 19,
+        "diagnostic_imaging": 54,
+        "diagnostic_treatment": 42,
+        "outpatient_pharmacy": 24,
+        "ordinary_outpatient": 39
+      },
+      "relation_types": {
+        "access": 232,
+        "service": 13,
+        "entrance": 8
+      },
+      "access_without_openings": 82,
+      "actual_image_size": [
+        2444,
+        3260
+      ],
+      "declared_image_size": [
+        2444,
+        3260
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.00000005,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [],
+      "room_bbox_overlaps_above_05": [],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [],
+      "pilot_feature_order_if_whole_plan": [
+        "type:conference",
+        "type:consultation",
+        "type:corridor",
+        "type:courtyard",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:isolation",
+        "type:laboratory",
+        "type:landscape",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:operating_room",
+        "type:patient_preparation",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:resuscitation",
+        "type:retail_service",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:vertical_core",
+        "type:vestibule",
+        "level:core_block",
+        "level:functional_block",
+        "level:landscape",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          208,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S060",
+            "name": "库房",
+            "type": "storage"
+          },
+          {
+            "id": "S071",
+            "name": "储片",
+            "type": "storage"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S003",
+            "S004"
+          ],
+          [
+            "S005",
+            "S006",
+            "S007",
+            "S008",
+            "S022"
+          ],
+          [
+            "S009",
+            "S010"
+          ],
+          [
+            "S012",
+            "S014"
+          ],
+          [
+            "S013",
+            "S015",
+            "S016",
+            "S017"
+          ],
+          [
+            "S018",
+            "S021"
+          ],
+          [
+            "S024",
+            "S025",
+            "S127",
+            "S128"
+          ],
+          [
+            "S035",
+            "S036",
+            "S037"
+          ],
+          [
+            "S042",
+            "S043",
+            "S044"
+          ],
+          [
+            "S055",
+            "S056"
+          ],
+          [
+            "S057",
+            "S058"
+          ],
+          [
+            "S060",
+            "S071"
+          ],
+          [
+            "S066",
+            "S067",
+            "S068",
+            "S069",
+            "S070"
+          ],
+          [
+            "S074",
+            "S076",
+            "S078",
+            "S081",
+            "S083"
+          ],
+          [
+            "S075",
+            "S077",
+            "S079",
+            "S080",
+            "S082"
+          ],
+          [
+            "S090",
+            "S091",
+            "S092",
+            "S093",
+            "S101",
+            "S102",
+            "S103",
+            "S104"
+          ],
+          [
+            "S113",
+            "S114"
+          ],
+          [
+            "S115",
+            "S116",
+            "S117"
+          ],
+          [
+            "S123",
+            "S125"
+          ],
+          [
+            "S136",
+            "S143"
+          ],
+          [
+            "S137",
+            "S138",
+            "S139"
+          ],
+          [
+            "S144",
+            "S145",
+            "S146",
+            "S147",
+            "S148"
+          ],
+          [
+            "S158",
+            "S159"
+          ],
+          [
+            "S160",
+            "S166"
+          ],
+          [
+            "S181",
+            "S182",
+            "S183",
+            "S184"
+          ],
+          [
+            "S189",
+            "S190"
+          ],
+          [
+            "S195",
+            "S196",
+            "S197"
+          ],
+          [
+            "S207",
+            "S208"
+          ],
+          [
+            "S210",
+            "S211",
+            "S212"
+          ],
+          [
+            "S217",
+            "S218"
+          ],
+          [
+            "S219",
+            "S220"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 26
+    },
+    {
+      "project": "11_寿县县医院新区",
+      "annotation": "p-平面标注与数据处理/标注试样/11_寿县县医院新区/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/11_寿县县医院新区/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 194,
+        "relations": 275
+      },
+      "spaces": 194,
+      "rooms": 133,
+      "relations": 275,
+      "openings": 211,
+      "levels": {
+        "open_space": 22,
+        "core_block": 18,
+        "room": 133,
+        "functional_block": 7,
+        "semi_open_space": 14
+      },
+      "types": {
+        "hall": 5,
+        "vertical_core": 17,
+        "toilet": 17,
+        "staff_support": 18,
+        "office": 23,
+        "storage": 8,
+        "pharmacy": 4,
+        "pharmacy_counter": 3,
+        "vestibule": 1,
+        "corridor": 14,
+        "building_control": 1,
+        "treatment": 10,
+        "registration": 8,
+        "hospital_logistics": 3,
+        "medication_preparation": 3,
+        "waste_handling": 2,
+        "laboratory": 3,
+        "consultation": 14,
+        "imaging": 11,
+        "examination": 1,
+        "service_work_area": 4,
+        "observation": 3,
+        "equipment_room": 7,
+        "patient_preparation": 1,
+        "service": 2,
+        "isolation": 4,
+        "courtyard": 3,
+        "nurse_station": 3,
+        "resuscitation": 1
+      },
+      "scopes": {
+        "hospital_support": 25,
+        "staff_catering": 20,
+        "infectious_outpatient": 26,
+        "imaging_center": 42,
+        "pediatric_outpatient": 22,
+        "outdoor_courtyard": 3,
+        "infusion_center": 14,
+        "emergency": 21,
+        "public_service": 2,
+        "pharmacy_support": 19
+      },
+      "relation_types": {
+        "entrance": 26,
+        "access": 215,
+        "service": 10,
+        "shared_wall": 24
+      },
+      "access_without_openings": 18,
+      "actual_image_size": [
+        2444,
+        3260
+      ],
+      "declared_image_size": [
+        2444,
+        3260
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 0.99999998,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S050",
+          "name": "污物",
+          "bbox_fill": 0.7686397764972935,
+          "type": "waste_handling"
+        },
+        {
+          "id": "S054",
+          "name": "污物",
+          "bbox_fill": 0.7605421686746988,
+          "type": "waste_handling"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S054",
+          "b": "S055",
+          "overlap_over_smaller_box": 0.49019607843137253
+        },
+        {
+          "a": "S050",
+          "b": "S051",
+          "overlap_over_smaller_box": 0.4423076923076923
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [
+        {
+          "id": "S152",
+          "name": "注射、配液"
+        },
+        {
+          "id": "S156",
+          "name": "注射、配液"
+        },
+        {
+          "id": "S167",
+          "name": "器械、药品"
+        }
+      ],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_control",
+        "type:consultation",
+        "type:corridor",
+        "type:courtyard",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:hospital_logistics",
+        "type:imaging",
+        "type:isolation",
+        "type:laboratory",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:patient_preparation",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:resuscitation",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:vertical_core",
+        "type:vestibule",
+        "type:waste_handling",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          173,
+          15,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S028",
+            "name": "餐车清洗",
+            "type": "hospital_logistics"
+          },
+          {
+            "id": "S185",
+            "name": "药房更衣区卫生间",
+            "type": "toilet"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S005",
+            "S006"
+          ],
+          [
+            "S016",
+            "S017"
+          ],
+          [
+            "S020",
+            "S021"
+          ],
+          [
+            "S030",
+            "S031"
+          ],
+          [
+            "S033",
+            "S034"
+          ],
+          [
+            "S036",
+            "S037",
+            "S038",
+            "S039"
+          ],
+          [
+            "S044",
+            "S045"
+          ],
+          [
+            "S048",
+            "S049"
+          ],
+          [
+            "S050",
+            "S054"
+          ],
+          [
+            "S051",
+            "S055"
+          ],
+          [
+            "S059",
+            "S060",
+            "S066",
+            "S067"
+          ],
+          [
+            "S063",
+            "S064"
+          ],
+          [
+            "S070",
+            "S071"
+          ],
+          [
+            "S073",
+            "S078",
+            "S079"
+          ],
+          [
+            "S075",
+            "S076",
+            "S077"
+          ],
+          [
+            "S081",
+            "S103"
+          ],
+          [
+            "S093",
+            "S095"
+          ],
+          [
+            "S097",
+            "S099"
+          ],
+          [
+            "S101",
+            "S102"
+          ],
+          [
+            "S107",
+            "S108",
+            "S110",
+            "S111",
+            "S112"
+          ],
+          [
+            "S113",
+            "S114"
+          ],
+          [
+            "S116",
+            "S117"
+          ],
+          [
+            "S118",
+            "S119",
+            "S120",
+            "S121"
+          ],
+          [
+            "S124",
+            "S125"
+          ],
+          [
+            "S128",
+            "S129"
+          ],
+          [
+            "S130",
+            "S131",
+            "S132",
+            "S133"
+          ],
+          [
+            "S134",
+            "S135"
+          ],
+          [
+            "S141",
+            "S142",
+            "S149",
+            "S150"
+          ],
+          [
+            "S143",
+            "S144"
+          ],
+          [
+            "S145",
+            "S146"
+          ],
+          [
+            "S151",
+            "S154",
+            "S155",
+            "S160",
+            "S161",
+            "S164"
+          ],
+          [
+            "S183",
+            "S184"
+          ],
+          [
+            "S186",
+            "S187",
+            "S193"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 25
+    },
+    {
+      "project": "12_遂川县人民医院",
+      "annotation": "p-平面标注与数据处理/标注试样/12_遂川县人民医院/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/12_遂川县人民医院/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 187,
+        "relations": 235
+      },
+      "spaces": 187,
+      "rooms": 110,
+      "relations": 235,
+      "openings": 175,
+      "levels": {
+        "room": 110,
+        "open_space": 45,
+        "core_block": 14,
+        "functional_block": 18
+      },
+      "types": {
+        "office": 21,
+        "staff_support": 11,
+        "corridor": 33,
+        "vertical_core": 14,
+        "building_services": 7,
+        "toilet": 9,
+        "storage": 9,
+        "building_control": 4,
+        "registration": 2,
+        "hall": 11,
+        "vestibule": 3,
+        "medication_preparation": 3,
+        "service_work_area": 2,
+        "auxiliary_room": 1,
+        "waste_handling": 1,
+        "pharmacy": 5,
+        "imaging": 6,
+        "reserved_space": 1,
+        "observation": 11,
+        "nurse_station": 4,
+        "treatment": 10,
+        "operating_room": 1,
+        "consultation": 14,
+        "resuscitation": 1,
+        "laboratory": 1,
+        "service": 1,
+        "entrance": 1
+      },
+      "scopes": {
+        "northwest_scope_unconfirmed": 20,
+        "public_service": 35,
+        "scope_unconfirmed": 1,
+        "inpatient_public_service": 1,
+        "northeast_scope_unconfirmed": 24,
+        "middle_north_scope_unconfirmed": 26,
+        "middle_south_scope_unconfirmed": 30,
+        "ordinary_outpatient": 50
+      },
+      "relation_types": {
+        "access": 218,
+        "service": 2,
+        "entrance": 15
+      },
+      "access_without_openings": 57,
+      "actual_image_size": [
+        2444,
+        3260
+      ],
+      "declared_image_size": [
+        2444,
+        3260
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.00000002,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S112",
+          "name": "值班",
+          "bbox_fill": 0.7636363636363637,
+          "type": "staff_support"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S003",
+          "b": "S010",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S035",
+          "b": "S045",
+          "overlap_over_smaller_box": 1.0
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 101,
+      "vague_scope_examples": [
+        {
+          "id": "S001",
+          "name": "120急救中心办公室",
+          "scope": "northwest_scope_unconfirmed"
+        },
+        {
+          "id": "S002",
+          "name": "办公室",
+          "scope": "northwest_scope_unconfirmed"
+        },
+        {
+          "id": "S003",
+          "name": "值班室",
+          "scope": "northwest_scope_unconfirmed"
+        },
+        {
+          "id": "S004",
+          "name": "西北通道",
+          "scope": "northwest_scope_unconfirmed"
+        },
+        {
+          "id": "S005",
+          "name": "西北交通核",
+          "scope": "northwest_scope_unconfirmed"
+        },
+        {
+          "id": "S006",
+          "name": "强电",
+          "scope": "northwest_scope_unconfirmed"
+        },
+        {
+          "id": "S007",
+          "name": "电工班办公室",
+          "scope": "northwest_scope_unconfirmed"
+        },
+        {
+          "id": "S008",
+          "name": "农医保",
+          "scope": "northwest_scope_unconfirmed"
+        },
+        {
+          "id": "S009",
+          "name": "弱电",
+          "scope": "northwest_scope_unconfirmed"
+        },
+        {
+          "id": "S010",
+          "name": "值班室内卫生间",
+          "scope": "northwest_scope_unconfirmed"
+        },
+        {
+          "id": "S011",
+          "name": "器械储存间",
+          "scope": "northwest_scope_unconfirmed"
+        },
+        {
+          "id": "S012",
+          "name": "器械库",
+          "scope": "northwest_scope_unconfirmed"
+        }
+      ],
+      "composite_name_review_candidates": [
+        {
+          "id": "S128",
+          "name": "抢救室／洗胃间"
+        }
+      ],
+      "pilot_feature_order_if_whole_plan": [
+        "type:auxiliary_room",
+        "type:building_control",
+        "type:building_services",
+        "type:consultation",
+        "type:corridor",
+        "type:entrance",
+        "type:hall",
+        "type:imaging",
+        "type:laboratory",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:operating_room",
+        "type:pharmacy",
+        "type:registration",
+        "type:reserved_space",
+        "type:resuscitation",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:vertical_core",
+        "type:vestibule",
+        "type:waste_handling",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room"
+      ],
+      "graph": {
+        "component_sizes": [
+          184,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S182",
+            "name": "收费储藏",
+            "type": "storage"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S001",
+            "S002"
+          ],
+          [
+            "S006",
+            "S009"
+          ],
+          [
+            "S012",
+            "S013"
+          ],
+          [
+            "S049",
+            "S055"
+          ],
+          [
+            "S050",
+            "S051",
+            "S052",
+            "S053"
+          ],
+          [
+            "S060",
+            "S061",
+            "S070",
+            "S071",
+            "S073"
+          ],
+          [
+            "S062",
+            "S063",
+            "S075"
+          ],
+          [
+            "S069",
+            "S072"
+          ],
+          [
+            "S079",
+            "S080",
+            "S081",
+            "S082",
+            "S083",
+            "S084"
+          ],
+          [
+            "S088",
+            "S095"
+          ],
+          [
+            "S097",
+            "S100"
+          ],
+          [
+            "S098",
+            "S105",
+            "S106"
+          ],
+          [
+            "S099",
+            "S107"
+          ],
+          [
+            "S111",
+            "S114"
+          ],
+          [
+            "S124",
+            "S125",
+            "S126",
+            "S127"
+          ],
+          [
+            "S133",
+            "S134"
+          ],
+          [
+            "S135",
+            "S136",
+            "S142"
+          ],
+          [
+            "S148",
+            "S149"
+          ],
+          [
+            "S151",
+            "S152"
+          ],
+          [
+            "S153",
+            "S154",
+            "S155",
+            "S156",
+            "S157",
+            "S158",
+            "S159",
+            "S160"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 86
+    },
+    {
+      "project": "13_天津市中心妇产科医院迁址新建工程",
+      "annotation": "p-平面标注与数据处理/标注试样/13_天津市中心妇产科医院迁址新建工程/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/13_天津市中心妇产科医院迁址新建工程/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 200,
+        "relations": 210
+      },
+      "spaces": 200,
+      "rooms": 151,
+      "relations": 210,
+      "openings": 181,
+      "levels": {
+        "room": 151,
+        "core_block": 13,
+        "open_space": 21,
+        "functional_block": 7,
+        "semi_open_space": 4,
+        "landscape": 4
+      },
+      "types": {
+        "imaging": 6,
+        "storage": 7,
+        "building_control": 6,
+        "vertical_core": 13,
+        "corridor": 11,
+        "service_work_area": 6,
+        "building_services": 13,
+        "toilet": 14,
+        "office": 14,
+        "staff_support": 18,
+        "registration": 2,
+        "treatment": 8,
+        "hall": 9,
+        "medication_preparation": 2,
+        "pharmacy": 4,
+        "laboratory": 12,
+        "service": 4,
+        "pharmacy_counter": 2,
+        "consultation": 31,
+        "examination": 4,
+        "landscape": 4,
+        "observation": 4,
+        "patient_preparation": 1,
+        "equipment_room": 1,
+        "sterile_supply": 1,
+        "resuscitation": 1,
+        "triage": 1,
+        "retail_service": 1
+      },
+      "scopes": {
+        "radiology": 39,
+        "inpatient_support": 2,
+        "public_service": 3,
+        "pharmacy_support": 33,
+        "ordinary_outpatient": 94,
+        "emergency": 29
+      },
+      "relation_types": {
+        "access": 200,
+        "service": 3,
+        "entrance": 7
+      },
+      "access_without_openings": 22,
+      "actual_image_size": [
+        2444,
+        3260
+      ],
+      "declared_image_size": [
+        2444,
+        3260
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.00000007,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S001",
+          "name": "CT",
+          "bbox_fill": 0.6483004385964912,
+          "type": "imaging"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S001",
+          "b": "S003",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S008",
+          "b": "S009",
+          "overlap_over_smaller_box": 0.2894736842105263
+        },
+        {
+          "a": "S050",
+          "b": "S055",
+          "overlap_over_smaller_box": 0.14285714285714285
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [
+        {
+          "id": "P166",
+          "relation": "R086",
+          "source": "S177",
+          "target": "S154",
+          "boundary_distance_px": [
+            2.0,
+            27.0
+          ],
+          "max_distance_px": 27.0
+        },
+        {
+          "id": "P123",
+          "relation": "R076",
+          "source": "S121",
+          "target": "S154",
+          "boundary_distance_px": [
+            1.0,
+            23.0
+          ],
+          "max_distance_px": 23.0
+        }
+      ],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [
+        {
+          "id": "S035",
+          "name": "更衣/财务"
+        },
+        {
+          "id": "S069",
+          "name": "阅览室/病案接待"
+        },
+        {
+          "id": "S084",
+          "name": "心电、B超"
+        }
+      ],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_control",
+        "type:building_services",
+        "type:consultation",
+        "type:corridor",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:laboratory",
+        "type:landscape",
+        "type:medication_preparation",
+        "type:observation",
+        "type:office",
+        "type:patient_preparation",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:resuscitation",
+        "type:retail_service",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:sterile_supply",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:triage",
+        "type:vertical_core",
+        "level:core_block",
+        "level:functional_block",
+        "level:landscape",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          189,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S069",
+            "name": "阅览室/病案接待",
+            "type": "service_work_area"
+          },
+          {
+            "id": "S071",
+            "name": "卫生间",
+            "type": "toilet"
+          },
+          {
+            "id": "S073",
+            "name": "卫生间",
+            "type": "toilet"
+          },
+          {
+            "id": "S074",
+            "name": "清单医保",
+            "type": "registration"
+          },
+          {
+            "id": "S092",
+            "name": "空调机房",
+            "type": "building_services"
+          },
+          {
+            "id": "S110",
+            "name": "刷手",
+            "type": "service_work_area"
+          },
+          {
+            "id": "S161",
+            "name": "卫生间",
+            "type": "toilet"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S012",
+            "S032"
+          ],
+          [
+            "S016",
+            "S037"
+          ],
+          [
+            "S017",
+            "S019",
+            "S023",
+            "S027"
+          ],
+          [
+            "S020",
+            "S024"
+          ],
+          [
+            "S021",
+            "S025"
+          ],
+          [
+            "S022",
+            "S026"
+          ],
+          [
+            "S030",
+            "S036"
+          ],
+          [
+            "S048",
+            "S058",
+            "S064"
+          ],
+          [
+            "S053",
+            "S059"
+          ],
+          [
+            "S066",
+            "S067"
+          ],
+          [
+            "S069",
+            "S110"
+          ],
+          [
+            "S070",
+            "S072"
+          ],
+          [
+            "S071",
+            "S073",
+            "S161"
+          ],
+          [
+            "S080",
+            "S081",
+            "S082",
+            "S083",
+            "S087",
+            "S088",
+            "S089",
+            "S090"
+          ],
+          [
+            "S091",
+            "S102",
+            "S103"
+          ],
+          [
+            "S094",
+            "S163",
+            "S168"
+          ],
+          [
+            "S097",
+            "S098"
+          ],
+          [
+            "S099",
+            "S100",
+            "S111",
+            "S112",
+            "S113"
+          ],
+          [
+            "S118",
+            "S119",
+            "S160",
+            "S175",
+            "S176"
+          ],
+          [
+            "S126",
+            "S127"
+          ],
+          [
+            "S132",
+            "S135"
+          ],
+          [
+            "S133",
+            "S152"
+          ],
+          [
+            "S146",
+            "S151"
+          ],
+          [
+            "S148",
+            "S149",
+            "S150"
+          ],
+          [
+            "S156",
+            "S157",
+            "S158",
+            "S159",
+            "S166",
+            "S167"
+          ],
+          [
+            "S170",
+            "S172",
+            "S173"
+          ],
+          [
+            "S179",
+            "S180",
+            "S181",
+            "S182",
+            "S183",
+            "S184",
+            "S185",
+            "S186",
+            "S187",
+            "S188"
+          ],
+          [
+            "S193",
+            "S198",
+            "S199"
+          ],
+          [
+            "S200",
+            "S201"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 27
+    },
+    {
+      "project": "14_无锡市人民医院二期建设项目",
+      "annotation": "p-平面标注与数据处理/标注试样/14_无锡市人民医院二期建设项目/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/14_无锡市人民医院二期建设项目/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 199,
+        "relations": 224
+      },
+      "spaces": 199,
+      "rooms": 132,
+      "relations": 224,
+      "openings": 157,
+      "levels": {
+        "core_block": 17,
+        "room": 132,
+        "functional_block": 18,
+        "open_space": 26,
+        "semi_open_space": 6
+      },
+      "types": {
+        "vertical_core": 17,
+        "building_services": 9,
+        "sterile_supply": 1,
+        "medication_preparation": 6,
+        "toilet": 18,
+        "corridor": 21,
+        "storage": 6,
+        "vestibule": 3,
+        "staff_support": 20,
+        "entrance": 3,
+        "office": 11,
+        "nurse_station": 3,
+        "treatment": 11,
+        "waste_handling": 2,
+        "service_work_area": 1,
+        "hall": 5,
+        "registration": 2,
+        "laboratory": 5,
+        "imaging": 2,
+        "examination": 9,
+        "consultation": 27,
+        "auxiliary_room": 1,
+        "equipment_room": 2,
+        "retail_service": 2,
+        "building_control": 1,
+        "resuscitation": 2,
+        "triage": 1,
+        "service": 1,
+        "pharmacy": 1,
+        "observation": 6
+      },
+      "scopes": {
+        "pharmacy_support": 23,
+        "public_service": 19,
+        "infusion": 22,
+        "pediatric_outpatient": 13,
+        "laboratory_support": 9,
+        "outpatient_support": 20,
+        "health_examination": 26,
+        "emergency": 41,
+        "emergency_observation": 26
+      },
+      "relation_types": {
+        "access": 197,
+        "service": 5,
+        "shared_wall": 10,
+        "entrance": 12
+      },
+      "access_without_openings": 52,
+      "actual_image_size": [
+        3260,
+        2444
+      ],
+      "declared_image_size": [
+        3260,
+        2444
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.00000003,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S004",
+          "name": "普通消洗区",
+          "bbox_fill": 0.7852564102564102,
+          "type": "sterile_supply"
+        },
+        {
+          "id": "S045",
+          "name": "更衣",
+          "bbox_fill": 0.7588577472236911,
+          "type": "staff_support"
+        },
+        {
+          "id": "S092",
+          "name": "空调机房",
+          "bbox_fill": 0.7044334975369458,
+          "type": "building_services"
+        },
+        {
+          "id": "S179",
+          "name": "医用男更衣",
+          "bbox_fill": 0.7599681020733652,
+          "type": "staff_support"
+        },
+        {
+          "id": "S181",
+          "name": "医用女更衣",
+          "bbox_fill": 0.7897727272727273,
+          "type": "staff_support"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S045",
+          "b": "S046",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S090",
+          "b": "S092",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S091",
+          "b": "S092",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S179",
+          "b": "S180",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S181",
+          "b": "S182",
+          "overlap_over_smaller_box": 1.0
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [
+        {
+          "id": "P115",
+          "relation": "R143",
+          "source": "S155",
+          "target": "S157",
+          "boundary_distance_px": [
+            38.0,
+            4.0
+          ],
+          "max_distance_px": 38.0
+        },
+        {
+          "id": "P003",
+          "relation": "R004",
+          "source": "S012",
+          "target": "S010",
+          "boundary_distance_px": [
+            1.0,
+            34.0
+          ],
+          "max_distance_px": 34.0
+        },
+        {
+          "id": "P063",
+          "relation": "R079",
+          "source": "S105",
+          "target": "S092",
+          "boundary_distance_px": [
+            29.0,
+            3.0
+          ],
+          "max_distance_px": 29.0
+        },
+        {
+          "id": "P019",
+          "relation": "R023",
+          "source": "S025",
+          "target": "S041",
+          "boundary_distance_px": [
+            23.0,
+            2.0
+          ],
+          "max_distance_px": 23.0
+        }
+      ],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [
+        {
+          "id": "S088",
+          "name": "化验/采样"
+        }
+      ],
+      "pilot_feature_order_if_whole_plan": [
+        "type:auxiliary_room",
+        "type:building_control",
+        "type:building_services",
+        "type:consultation",
+        "type:corridor",
+        "type:entrance",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:laboratory",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:pharmacy",
+        "type:registration",
+        "type:resuscitation",
+        "type:retail_service",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:sterile_supply",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:triage",
+        "type:vertical_core",
+        "type:vestibule",
+        "type:waste_handling",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          186,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S006",
+            "name": "厕所区",
+            "type": "toilet"
+          },
+          {
+            "id": "S007",
+            "name": "厕所区",
+            "type": "toilet"
+          },
+          {
+            "id": "S008",
+            "name": "厕所区",
+            "type": "toilet"
+          },
+          {
+            "id": "S009",
+            "name": "厕所区",
+            "type": "toilet"
+          },
+          {
+            "id": "S013",
+            "name": "厕所区",
+            "type": "toilet"
+          },
+          {
+            "id": "S064",
+            "name": "备用",
+            "type": "storage"
+          },
+          {
+            "id": "S103",
+            "name": "器材",
+            "type": "equipment_room"
+          },
+          {
+            "id": "S133",
+            "name": "消防控制室",
+            "type": "building_control"
+          },
+          {
+            "id": "S134",
+            "name": "空调机房",
+            "type": "building_services"
+          },
+          {
+            "id": "S199",
+            "name": "前室",
+            "type": "vestibule"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S002",
+            "S003"
+          ],
+          [
+            "S005",
+            "S010"
+          ],
+          [
+            "S006",
+            "S007",
+            "S008",
+            "S009",
+            "S013"
+          ],
+          [
+            "S018",
+            "S019"
+          ],
+          [
+            "S021",
+            "S022"
+          ],
+          [
+            "S033",
+            "S034",
+            "S035",
+            "S036"
+          ],
+          [
+            "S066",
+            "S067"
+          ],
+          [
+            "S079",
+            "S083"
+          ],
+          [
+            "S080",
+            "S082"
+          ],
+          [
+            "S090",
+            "S091"
+          ],
+          [
+            "S094",
+            "S095"
+          ],
+          [
+            "S096",
+            "S097"
+          ],
+          [
+            "S099",
+            "S116",
+            "S117",
+            "S118"
+          ],
+          [
+            "S107",
+            "S108",
+            "S109",
+            "S110",
+            "S112",
+            "S113",
+            "S114",
+            "S115"
+          ],
+          [
+            "S121",
+            "S122",
+            "S123",
+            "S124",
+            "S125",
+            "S126",
+            "S127",
+            "S128"
+          ],
+          [
+            "S136",
+            "S137",
+            "S138",
+            "S139",
+            "S140",
+            "S141",
+            "S142",
+            "S143",
+            "S146",
+            "S147",
+            "S148",
+            "S149",
+            "S150",
+            "S151"
+          ],
+          [
+            "S144",
+            "S145"
+          ],
+          [
+            "S176",
+            "S177"
+          ],
+          [
+            "S179",
+            "S181"
+          ],
+          [
+            "S180",
+            "S182"
+          ],
+          [
+            "S184",
+            "S188"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 22
+    },
+    {
+      "project": "15_盐城市妇幼保健院",
+      "annotation": "p-平面标注与数据处理/标注试样/15_盐城市妇幼保健院/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/15_盐城市妇幼保健院/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 422,
+        "relations": 751
+      },
+      "spaces": 422,
+      "rooms": 318,
+      "relations": 751,
+      "openings": 420,
+      "levels": {
+        "open_space": 59,
+        "landscape": 11,
+        "functional_block": 12,
+        "room": 318,
+        "core_block": 18,
+        "semi_open_space": 4
+      },
+      "types": {
+        "corridor": 48,
+        "landscape": 11,
+        "hall": 19,
+        "office": 66,
+        "toilet": 17,
+        "building_services": 16,
+        "waste_handling": 3,
+        "vertical_core": 18,
+        "staff_support": 25,
+        "consultation": 68,
+        "storage": 5,
+        "treatment": 23,
+        "nurse_station": 11,
+        "observation": 2,
+        "hospital_logistics": 2,
+        "ward": 36,
+        "conference": 10,
+        "building_control": 4,
+        "equipment_room": 14,
+        "examination": 2,
+        "laboratory": 14,
+        "vestibule": 3,
+        "auxiliary_room": 1,
+        "education": 3,
+        "courtyard": 1
+      },
+      "scopes": {
+        "public_circulation": 66,
+        "landscaped_area": 11,
+        "hospital_unclassified": 332,
+        "public_service": 13
+      },
+      "relation_types": {
+        "access": 449,
+        "shared_wall": 299,
+        "entrance": 3
+      },
+      "access_without_openings": 41,
+      "actual_image_size": [
+        2444,
+        3260
+      ],
+      "declared_image_size": [
+        2444,
+        3260
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 0.99999986,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [],
+      "room_bbox_overlaps_above_05": [],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 332,
+      "vague_scope_examples": [
+        {
+          "id": "S005",
+          "name": "休息区",
+          "scope": "hospital_unclassified"
+        },
+        {
+          "id": "S006",
+          "name": "休息区",
+          "scope": "hospital_unclassified"
+        },
+        {
+          "id": "S008",
+          "name": "医办",
+          "scope": "hospital_unclassified"
+        },
+        {
+          "id": "S009",
+          "name": "医办",
+          "scope": "hospital_unclassified"
+        },
+        {
+          "id": "S010",
+          "name": "医办",
+          "scope": "hospital_unclassified"
+        },
+        {
+          "id": "S011",
+          "name": "医办",
+          "scope": "hospital_unclassified"
+        },
+        {
+          "id": "S012",
+          "name": "等候区",
+          "scope": "hospital_unclassified"
+        },
+        {
+          "id": "S014",
+          "name": "等候区",
+          "scope": "hospital_unclassified"
+        },
+        {
+          "id": "S016",
+          "name": "休息区",
+          "scope": "hospital_unclassified"
+        },
+        {
+          "id": "S017",
+          "name": "风机室",
+          "scope": "hospital_unclassified"
+        },
+        {
+          "id": "S018",
+          "name": "污洗间",
+          "scope": "hospital_unclassified"
+        },
+        {
+          "id": "S021",
+          "name": "值班室",
+          "scope": "hospital_unclassified"
+        }
+      ],
+      "composite_name_review_candidates": [],
+      "pilot_feature_order_if_whole_plan": [
+        "type:auxiliary_room",
+        "type:building_control",
+        "type:building_services",
+        "type:conference",
+        "type:consultation",
+        "type:corridor",
+        "type:courtyard",
+        "type:education",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:hospital_logistics",
+        "type:laboratory",
+        "type:landscape",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:staff_support",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:vertical_core",
+        "type:vestibule",
+        "type:ward",
+        "type:waste_handling",
+        "level:core_block",
+        "level:functional_block",
+        "level:landscape",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          401,
+          5,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S017",
+            "name": "风机室",
+            "type": "building_services"
+          },
+          {
+            "id": "S058",
+            "name": "风机房",
+            "type": "building_services"
+          },
+          {
+            "id": "S135",
+            "name": "机房",
+            "type": "building_services"
+          },
+          {
+            "id": "S410",
+            "name": "库房",
+            "type": "storage"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S008",
+            "S009",
+            "S010",
+            "S011"
+          ],
+          [
+            "S017",
+            "S058",
+            "S135"
+          ],
+          [
+            "S021",
+            "S023",
+            "S024"
+          ],
+          [
+            "S025",
+            "S026",
+            "S027"
+          ],
+          [
+            "S039",
+            "S040",
+            "S041",
+            "S042",
+            "S043",
+            "S044",
+            "S045",
+            "S046",
+            "S047",
+            "S048",
+            "S049",
+            "S050",
+            "S051",
+            "S052",
+            "S053",
+            "S054",
+            "S055",
+            "S056"
+          ],
+          [
+            "S061",
+            "S062",
+            "S063"
+          ],
+          [
+            "S064",
+            "S065"
+          ],
+          [
+            "S067",
+            "S079"
+          ],
+          [
+            "S076",
+            "S077"
+          ],
+          [
+            "S081",
+            "S082",
+            "S083",
+            "S084",
+            "S085",
+            "S086",
+            "S087",
+            "S088",
+            "S089",
+            "S090",
+            "S091",
+            "S092",
+            "S093",
+            "S094",
+            "S095",
+            "S096",
+            "S097",
+            "S098"
+          ],
+          [
+            "S099",
+            "S100",
+            "S101",
+            "S102",
+            "S103",
+            "S104",
+            "S105",
+            "S106"
+          ],
+          [
+            "S108",
+            "S112"
+          ],
+          [
+            "S109",
+            "S111"
+          ],
+          [
+            "S113",
+            "S116"
+          ],
+          [
+            "S114",
+            "S115"
+          ],
+          [
+            "S140",
+            "S141",
+            "S146",
+            "S147"
+          ],
+          [
+            "S144",
+            "S145"
+          ],
+          [
+            "S149",
+            "S151",
+            "S158",
+            "S159",
+            "S161",
+            "S162",
+            "S164",
+            "S165",
+            "S168",
+            "S169",
+            "S172"
+          ],
+          [
+            "S153",
+            "S160",
+            "S163",
+            "S167",
+            "S171",
+            "S175"
+          ],
+          [
+            "S166",
+            "S170"
+          ],
+          [
+            "S176",
+            "S178"
+          ],
+          [
+            "S179",
+            "S180",
+            "S181",
+            "S182"
+          ],
+          [
+            "S183",
+            "S184",
+            "S185"
+          ],
+          [
+            "S186",
+            "S187"
+          ],
+          [
+            "S188",
+            "S196"
+          ],
+          [
+            "S189",
+            "S191",
+            "S192"
+          ],
+          [
+            "S197",
+            "S198"
+          ],
+          [
+            "S199",
+            "S201"
+          ],
+          [
+            "S202",
+            "S207"
+          ],
+          [
+            "S203",
+            "S204",
+            "S205",
+            "S206"
+          ],
+          [
+            "S208",
+            "S209",
+            "S210",
+            "S211",
+            "S212",
+            "S213",
+            "S214",
+            "S215"
+          ],
+          [
+            "S229",
+            "S243"
+          ],
+          [
+            "S231",
+            "S244"
+          ],
+          [
+            "S235",
+            "S239"
+          ],
+          [
+            "S236",
+            "S240"
+          ],
+          [
+            "S237",
+            "S241"
+          ],
+          [
+            "S238",
+            "S242"
+          ],
+          [
+            "S253",
+            "S255",
+            "S256"
+          ],
+          [
+            "S257",
+            "S258"
+          ],
+          [
+            "S259",
+            "S260"
+          ],
+          [
+            "S262",
+            "S263",
+            "S264"
+          ],
+          [
+            "S280",
+            "S291",
+            "S313",
+            "S322"
+          ],
+          [
+            "S282",
+            "S296",
+            "S306",
+            "S314"
+          ],
+          [
+            "S283",
+            "S284",
+            "S285",
+            "S286",
+            "S287",
+            "S288",
+            "S297",
+            "S298",
+            "S307",
+            "S308",
+            "S315",
+            "S316",
+            "S317",
+            "S318",
+            "S319",
+            "S320"
+          ],
+          [
+            "S289",
+            "S290"
+          ],
+          [
+            "S292",
+            "S295"
+          ],
+          [
+            "S299",
+            "S300",
+            "S309",
+            "S310"
+          ],
+          [
+            "S301",
+            "S311"
+          ],
+          [
+            "S324",
+            "S334",
+            "S347",
+            "S354"
+          ],
+          [
+            "S326",
+            "S327",
+            "S328",
+            "S329",
+            "S330",
+            "S331",
+            "S332",
+            "S339",
+            "S340"
+          ],
+          [
+            "S341",
+            "S342"
+          ],
+          [
+            "S344",
+            "S346"
+          ],
+          [
+            "S348",
+            "S357"
+          ],
+          [
+            "S349",
+            "S350",
+            "S351",
+            "S352",
+            "S358",
+            "S359",
+            "S360",
+            "S361",
+            "S362",
+            "S363"
+          ],
+          [
+            "S364",
+            "S365"
+          ],
+          [
+            "S370",
+            "S381",
+            "S389",
+            "S391",
+            "S392",
+            "S397"
+          ],
+          [
+            "S372",
+            "S373",
+            "S374",
+            "S375",
+            "S376",
+            "S377",
+            "S378",
+            "S384",
+            "S385",
+            "S386"
+          ],
+          [
+            "S393",
+            "S394",
+            "S395",
+            "S396",
+            "S404",
+            "S405",
+            "S406"
+          ],
+          [
+            "S400",
+            "S402"
+          ],
+          [
+            "S412",
+            "S413"
+          ],
+          [
+            "S419",
+            "S420"
+          ],
+          [
+            "S423",
+            "S424",
+            "S425"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 337
+    },
+    {
+      "project": "16_浙江大学医学院邵逸夫医院下沙院区",
+      "annotation": "p-平面标注与数据处理/标注试样/16_浙江大学医学院邵逸夫医院下沙院区/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/16_浙江大学医学院邵逸夫医院下沙院区/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 207,
+        "relations": 255
+      },
+      "spaces": 207,
+      "rooms": 132,
+      "relations": 255,
+      "openings": 193,
+      "levels": {
+        "open_space": 27,
+        "room": 132,
+        "functional_block": 26,
+        "core_block": 17,
+        "semi_open_space": 5
+      },
+      "types": {
+        "hall": 12,
+        "imaging": 4,
+        "consultation": 19,
+        "laboratory": 4,
+        "toilet": 15,
+        "observation": 5,
+        "service_work_area": 3,
+        "vertical_core": 17,
+        "registration": 5,
+        "corridor": 14,
+        "storage": 12,
+        "office": 23,
+        "pharmacy": 3,
+        "building_services": 11,
+        "staff_support": 14,
+        "pharmacy_counter": 2,
+        "retail_service": 5,
+        "conference": 3,
+        "education": 1,
+        "examination": 3,
+        "vestibule": 3,
+        "building_control": 1,
+        "service": 1,
+        "treatment": 18,
+        "triage": 1,
+        "isolation": 1,
+        "nurse_station": 2,
+        "waste_handling": 2,
+        "resuscitation": 2,
+        "equipment_room": 1
+      },
+      "scopes": {
+        "infectious_outpatient": 26,
+        "ordinary_outpatient": 65,
+        "public_service": 19,
+        "inpatient_support": 28,
+        "emergency": 50,
+        "emergency_staff_support": 19
+      },
+      "relation_types": {
+        "service": 9,
+        "access": 230,
+        "entrance": 16
+      },
+      "access_without_openings": 42,
+      "actual_image_size": [
+        3348,
+        2240
+      ],
+      "declared_image_size": [
+        3348,
+        2240
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.0,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [],
+      "room_bbox_overlaps_above_05": [],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [
+        {
+          "id": "S009",
+          "name": "控制、读片"
+        },
+        {
+          "id": "S066",
+          "name": "弱电、强电"
+        }
+      ],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_control",
+        "type:building_services",
+        "type:conference",
+        "type:consultation",
+        "type:corridor",
+        "type:education",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:isolation",
+        "type:laboratory",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:resuscitation",
+        "type:retail_service",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:triage",
+        "type:vertical_core",
+        "type:vestibule",
+        "type:waste_handling",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          202,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [],
+        "indistinguishable_room_groups": [
+          [
+            "S003",
+            "S004"
+          ],
+          [
+            "S013",
+            "S017"
+          ],
+          [
+            "S021",
+            "S022",
+            "S025",
+            "S026"
+          ],
+          [
+            "S029",
+            "S033",
+            "S037"
+          ],
+          [
+            "S042",
+            "S049",
+            "S083"
+          ],
+          [
+            "S050",
+            "S051"
+          ],
+          [
+            "S054",
+            "S059"
+          ],
+          [
+            "S066",
+            "S071"
+          ],
+          [
+            "S073",
+            "S078"
+          ],
+          [
+            "S085",
+            "S087",
+            "S090",
+            "S091",
+            "S095",
+            "S098",
+            "S099",
+            "S100",
+            "S102"
+          ],
+          [
+            "S104",
+            "S105"
+          ],
+          [
+            "S107",
+            "S109",
+            "S111"
+          ],
+          [
+            "S120",
+            "S121"
+          ],
+          [
+            "S129",
+            "S130"
+          ],
+          [
+            "S133",
+            "S134",
+            "S136",
+            "S137",
+            "S138",
+            "S139"
+          ],
+          [
+            "S150",
+            "S151",
+            "S156"
+          ],
+          [
+            "S155",
+            "S158",
+            "S160",
+            "S161",
+            "S162",
+            "S166",
+            "S167"
+          ],
+          [
+            "S169",
+            "S170"
+          ],
+          [
+            "S177",
+            "S178",
+            "S186",
+            "S187"
+          ],
+          [
+            "S179",
+            "S183"
+          ],
+          [
+            "S188",
+            "S191",
+            "S192"
+          ],
+          [
+            "S189",
+            "S190"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 27
+    },
+    {
+      "project": "17_成都市西区医院",
+      "annotation": "p-平面标注与数据处理/标注试样/17_成都市西区医院/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/17_成都市西区医院/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 49,
+        "relations": 92
+      },
+      "spaces": 49,
+      "rooms": 28,
+      "relations": 92,
+      "openings": 47,
+      "levels": {
+        "room": 28,
+        "core_block": 6,
+        "open_space": 12,
+        "semi_open_space": 3
+      },
+      "types": {
+        "building_services": 2,
+        "toilet": 3,
+        "vertical_core": 6,
+        "corridor": 6,
+        "imaging": 2,
+        "service_work_area": 1,
+        "registration": 3,
+        "staff_support": 3,
+        "building_control": 1,
+        "consultation": 4,
+        "treatment": 4,
+        "laboratory": 1,
+        "examination": 2,
+        "nurse_station": 1,
+        "hall": 6,
+        "resuscitation": 1,
+        "service": 2,
+        "pharmacy": 1
+      },
+      "scopes": {
+        "building_support": 3,
+        "public_service": 18,
+        "diagnostic_support": 4,
+        "staff_support": 4,
+        "emergency": 16,
+        "inpatient_support": 2,
+        "ordinary_outpatient": 2
+      },
+      "relation_types": {
+        "access": 56,
+        "service": 9,
+        "shared_wall": 22,
+        "entrance": 5
+      },
+      "access_without_openings": 16,
+      "actual_image_size": [
+        2444,
+        3260
+      ],
+      "declared_image_size": [
+        2444,
+        3260
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 0.99999998,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S044",
+          "name": "门诊药房",
+          "bbox_fill": 0.574268293456675,
+          "type": "pharmacy"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S031",
+          "b": "S032",
+          "overlap_over_smaller_box": 1.0
+        },
+        {
+          "a": "S003",
+          "b": "S005",
+          "overlap_over_smaller_box": 0.6708860759493671
+        },
+        {
+          "a": "S002",
+          "b": "S005",
+          "overlap_over_smaller_box": 0.25316455696202533
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [
+        {
+          "id": "P012",
+          "relation": "R015",
+          "source": "S014",
+          "target": "S015",
+          "boundary_distance_px": [
+            3.0,
+            26.0
+          ],
+          "max_distance_px": 26.0
+        }
+      ],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_control",
+        "type:building_services",
+        "type:consultation",
+        "type:corridor",
+        "type:examination",
+        "type:hall",
+        "type:imaging",
+        "type:laboratory",
+        "type:nurse_station",
+        "type:pharmacy",
+        "type:registration",
+        "type:resuscitation",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:toilet",
+        "type:treatment",
+        "type:vertical_core",
+        "level:core_block",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          48,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S001",
+            "name": "管井",
+            "type": "building_services"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S002",
+            "S003",
+            "S005"
+          ],
+          [
+            "S008",
+            "S010"
+          ],
+          [
+            "S013",
+            "S014"
+          ],
+          [
+            "S017",
+            "S021",
+            "S023"
+          ],
+          [
+            "S025",
+            "S026"
+          ],
+          [
+            "S027",
+            "S029"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 28
+    },
+    {
+      "project": "18_东营市人民医院急诊急救中心暨内科病房综合楼",
+      "annotation": "p-平面标注与数据处理/标注试样/18_东营市人民医院急诊急救中心暨内科病房综合楼/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/18_东营市人民医院急诊急救中心暨内科病房综合楼/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 132,
+        "relations": 157
+      },
+      "spaces": 132,
+      "rooms": 89,
+      "relations": 157,
+      "openings": 137,
+      "levels": {
+        "core_block": 12,
+        "room": 89,
+        "functional_block": 15,
+        "open_space": 14,
+        "semi_open_space": 2
+      },
+      "types": {
+        "vertical_core": 12,
+        "storage": 3,
+        "service_work_area": 3,
+        "hall": 6,
+        "toilet": 3,
+        "office": 19,
+        "corridor": 6,
+        "staff_support": 26,
+        "medication_preparation": 3,
+        "pharmacy": 1,
+        "building_services": 2,
+        "building_control": 1,
+        "education": 2,
+        "treatment": 13,
+        "resuscitation": 1,
+        "imaging": 4,
+        "equipment_room": 2,
+        "registration": 2,
+        "laboratory": 8,
+        "auxiliary_room": 2,
+        "consultation": 9,
+        "waste_handling": 1,
+        "service": 1,
+        "entrance": 2
+      },
+      "scopes": {
+        "public_service": 20,
+        "medical_support": 19,
+        "medical_technology": 25,
+        "medical_care": 17,
+        "emergency": 38,
+        "inpatient_support": 12,
+        "building_support": 1
+      },
+      "relation_types": {
+        "access": 139,
+        "service": 3,
+        "shared_wall": 9,
+        "entrance": 6
+      },
+      "access_without_openings": 10,
+      "actual_image_size": [
+        2456,
+        3084
+      ],
+      "declared_image_size": [
+        2456,
+        3084
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.00000004,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [],
+      "room_bbox_overlaps_above_05": [],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [
+        {
+          "id": "S004",
+          "name": "审单/打印"
+        },
+        {
+          "id": "S035",
+          "name": "更衣、值班"
+        },
+        {
+          "id": "S036",
+          "name": "更衣、值班"
+        }
+      ],
+      "pilot_feature_order_if_whole_plan": [
+        "type:auxiliary_room",
+        "type:building_control",
+        "type:building_services",
+        "type:consultation",
+        "type:corridor",
+        "type:education",
+        "type:entrance",
+        "type:equipment_room",
+        "type:hall",
+        "type:imaging",
+        "type:laboratory",
+        "type:medication_preparation",
+        "type:office",
+        "type:pharmacy",
+        "type:registration",
+        "type:resuscitation",
+        "type:service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:vertical_core",
+        "type:waste_handling",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          132
+        ],
+        "isolated_rooms": [],
+        "indistinguishable_room_groups": [
+          [
+            "S020",
+            "S023"
+          ],
+          [
+            "S033",
+            "S034"
+          ],
+          [
+            "S039",
+            "S040"
+          ],
+          [
+            "S046",
+            "S047",
+            "S048",
+            "S049",
+            "S050",
+            "S051",
+            "S052"
+          ],
+          [
+            "S056",
+            "S059"
+          ],
+          [
+            "S061",
+            "S062",
+            "S063",
+            "S064"
+          ],
+          [
+            "S069",
+            "S070",
+            "S071",
+            "S075",
+            "S076"
+          ],
+          [
+            "S073",
+            "S077"
+          ],
+          [
+            "S081",
+            "S082"
+          ],
+          [
+            "S084",
+            "S085",
+            "S096",
+            "S097",
+            "S099",
+            "S100",
+            "S101"
+          ],
+          [
+            "S086",
+            "S087",
+            "S088",
+            "S089",
+            "S090",
+            "S091",
+            "S092",
+            "S093",
+            "S094"
+          ],
+          [
+            "S102",
+            "S103"
+          ],
+          [
+            "S109",
+            "S110"
+          ],
+          [
+            "S117",
+            "S118",
+            "S119",
+            "S121"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 27
+    },
+    {
+      "project": "19_哈尔滨医科大学附属第四医院门诊外科楼",
+      "annotation": "p-平面标注与数据处理/标注试样/19_哈尔滨医科大学附属第四医院门诊外科楼/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/19_哈尔滨医科大学附属第四医院门诊外科楼/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 173,
+        "relations": 197
+      },
+      "spaces": 173,
+      "rooms": 108,
+      "relations": 197,
+      "openings": 120,
+      "levels": {
+        "room": 108,
+        "open_space": 40,
+        "core_block": 20,
+        "functional_block": 3,
+        "semi_open_space": 2
+      },
+      "types": {
+        "registration": 9,
+        "hall": 20,
+        "entrance": 8,
+        "building_control": 1,
+        "office": 14,
+        "vertical_core": 20,
+        "consultation": 15,
+        "treatment": 5,
+        "corridor": 21,
+        "retail_service": 5,
+        "vestibule": 5,
+        "nurse_station": 1,
+        "medication_preparation": 4,
+        "toilet": 6,
+        "service_work_area": 4,
+        "pharmacy": 2,
+        "pharmacy_counter": 1,
+        "building_services": 9,
+        "staff_support": 6,
+        "storage": 6,
+        "laboratory": 4,
+        "sterile_supply": 3,
+        "observation": 2,
+        "triage": 2
+      },
+      "scopes": {
+        "inpatient_support": 24,
+        "public_service": 46,
+        "ordinary_outpatient": 100,
+        "pediatric": 3
+      },
+      "relation_types": {
+        "access": 181,
+        "service": 5,
+        "entrance": 11
+      },
+      "access_without_openings": 64,
+      "actual_image_size": [
+        2444,
+        3260
+      ],
+      "declared_image_size": [
+        2444,
+        3260
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.00000004,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": null,
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [],
+      "room_bbox_overlaps_above_05": [],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 0,
+      "vague_scope_examples": [],
+      "composite_name_review_candidates": [
+        {
+          "id": "S139",
+          "name": "观察、挂号"
+        }
+      ],
+      "pilot_feature_order_if_whole_plan": [
+        "type:building_control",
+        "type:building_services",
+        "type:consultation",
+        "type:corridor",
+        "type:entrance",
+        "type:hall",
+        "type:laboratory",
+        "type:medication_preparation",
+        "type:nurse_station",
+        "type:observation",
+        "type:office",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:retail_service",
+        "type:service_work_area",
+        "type:staff_support",
+        "type:sterile_supply",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:triage",
+        "type:vertical_core",
+        "type:vestibule",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room",
+        "level:semi_open_space"
+      ],
+      "graph": {
+        "component_sizes": [
+          159,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S004",
+            "name": "住院手续办理（东）",
+            "type": "registration"
+          },
+          {
+            "id": "S032",
+            "name": "收款",
+            "type": "registration"
+          },
+          {
+            "id": "S033",
+            "name": "挂号",
+            "type": "registration"
+          },
+          {
+            "id": "S036",
+            "name": "东北卫生间",
+            "type": "toilet"
+          },
+          {
+            "id": "S089",
+            "name": "麻药室",
+            "type": "pharmacy"
+          },
+          {
+            "id": "S105",
+            "name": "收款",
+            "type": "registration"
+          },
+          {
+            "id": "S106",
+            "name": "挂号",
+            "type": "registration"
+          },
+          {
+            "id": "S114",
+            "name": "观察室",
+            "type": "observation"
+          },
+          {
+            "id": "S128",
+            "name": "电井",
+            "type": "building_services"
+          },
+          {
+            "id": "S133",
+            "name": "电井",
+            "type": "building_services"
+          },
+          {
+            "id": "S137",
+            "name": "管井",
+            "type": "building_services"
+          },
+          {
+            "id": "S138",
+            "name": "管井",
+            "type": "building_services"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S004",
+            "S032",
+            "S033",
+            "S105",
+            "S106"
+          ],
+          [
+            "S008",
+            "S009"
+          ],
+          [
+            "S016",
+            "S017",
+            "S018",
+            "S019",
+            "S020",
+            "S037"
+          ],
+          [
+            "S026",
+            "S038",
+            "S054"
+          ],
+          [
+            "S053",
+            "S062"
+          ],
+          [
+            "S060",
+            "S061"
+          ],
+          [
+            "S063",
+            "S074",
+            "S084",
+            "S087",
+            "S098"
+          ],
+          [
+            "S066",
+            "S073"
+          ],
+          [
+            "S067",
+            "S085"
+          ],
+          [
+            "S076",
+            "S090"
+          ],
+          [
+            "S079",
+            "S082"
+          ],
+          [
+            "S080",
+            "S081"
+          ],
+          [
+            "S083",
+            "S086"
+          ],
+          [
+            "S092",
+            "S100"
+          ],
+          [
+            "S095",
+            "S096"
+          ],
+          [
+            "S103",
+            "S104",
+            "S125",
+            "S126",
+            "S127"
+          ],
+          [
+            "S128",
+            "S133",
+            "S137",
+            "S138"
+          ],
+          [
+            "S151",
+            "S152",
+            "S153"
+          ],
+          [
+            "S166",
+            "S168"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 68
+    },
+    {
+      "project": "20_哈尔滨医科大学附属第一医院门诊保健大楼",
+      "annotation": "p-平面标注与数据处理/标注试样/20_哈尔滨医科大学附属第一医院门诊保健大楼/annotation.json",
+      "formal_command": [
+        "/Users/hushili/.cache/uv/builds-v0/.tmp3H0qGH/bin/python",
+        "/Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py",
+        "validate",
+        "/Users/hushili/Documents/研究-论文写作/大论文/p-平面标注与数据处理/标注试样/20_哈尔滨医科大学附属第一医院门诊保健大楼/annotation.json",
+        "--check-dir"
+      ],
+      "formal_exit_code": 0,
+      "formal": {
+        "valid": true,
+        "names_complete": true,
+        "pending_name_ids": [],
+        "errors": [],
+        "spaces": 100,
+        "relations": 109
+      },
+      "spaces": 100,
+      "rooms": 58,
+      "relations": 109,
+      "openings": 92,
+      "levels": {
+        "room": 58,
+        "open_space": 11,
+        "core_block": 10,
+        "functional_block": 21
+      },
+      "types": {
+        "consultation": 26,
+        "corridor": 3,
+        "vestibule": 4,
+        "vertical_core": 10,
+        "building_services": 13,
+        "registration": 3,
+        "building_control": 1,
+        "examination": 3,
+        "hall": 8,
+        "toilet": 5,
+        "auxiliary_room": 1,
+        "staff_support": 4,
+        "office": 2,
+        "entrance": 4,
+        "treatment": 2,
+        "resuscitation": 1,
+        "sterile_supply": 1,
+        "storage": 2,
+        "laboratory": 1,
+        "triage": 2,
+        "equipment_room": 1,
+        "pharmacy": 2,
+        "pharmacy_counter": 1
+      },
+      "scopes": {
+        "clinical_wing_undetermined": 14,
+        "building_support": 12,
+        "ordinary_outpatient": 51,
+        "inpatient_support": 2,
+        "public_service": 17,
+        "emergency": 4
+      },
+      "relation_types": {
+        "access": 98,
+        "service": 2,
+        "entrance": 9
+      },
+      "access_without_openings": 11,
+      "actual_image_size": [
+        2444,
+        3260
+      ],
+      "declared_image_size": [
+        2444,
+        3260
+      ],
+      "image_size_matches": true,
+      "area_ratio_sum": 1.00000002,
+      "area_ratio_errors": [],
+      "svg_label_errors": [],
+      "svg_geometry_errors": [],
+      "svg_background_matches": true,
+      "svg_display_transform": "x_display=y_original;y_display=2444-x_original",
+      "missing_embedded_images": [],
+      "rooms_bbox_fill_below_08": [
+        {
+          "id": "S042",
+          "name": "开水间",
+          "bbox_fill": 0.5,
+          "type": "auxiliary_room"
+        },
+        {
+          "id": "S044",
+          "name": "更衣",
+          "bbox_fill": 0.5893962848297214,
+          "type": "staff_support"
+        },
+        {
+          "id": "S089",
+          "name": "排风井",
+          "bbox_fill": 0.5,
+          "type": "building_services"
+        },
+        {
+          "id": "S095",
+          "name": "收费",
+          "bbox_fill": 0.6910709437182421,
+          "type": "registration"
+        },
+        {
+          "id": "S103",
+          "name": "分发室",
+          "bbox_fill": 0.5,
+          "type": "pharmacy_counter"
+        }
+      ],
+      "room_bbox_overlaps_above_05": [
+        {
+          "a": "S019",
+          "b": "S020",
+          "overlap_over_smaller_box": 1.0
+        }
+      ],
+      "openings_over_20px_from_either_boundary": [],
+      "vague_scope_count": 14,
+      "vague_scope_examples": [
+        {
+          "id": "S001",
+          "name": "儿外",
+          "scope": "clinical_wing_undetermined"
+        },
+        {
+          "id": "S002",
+          "name": "脑外",
+          "scope": "clinical_wing_undetermined"
+        },
+        {
+          "id": "S003",
+          "name": "左上翼公共通道",
+          "scope": "clinical_wing_undetermined"
+        },
+        {
+          "id": "S004",
+          "name": "楼梯前室",
+          "scope": "clinical_wing_undetermined"
+        },
+        {
+          "id": "S005",
+          "name": "楼梯及前室",
+          "scope": "clinical_wing_undetermined"
+        },
+        {
+          "id": "S007",
+          "name": "肿瘤",
+          "scope": "clinical_wing_undetermined"
+        },
+        {
+          "id": "S008",
+          "name": "心外",
+          "scope": "clinical_wing_undetermined"
+        },
+        {
+          "id": "S009",
+          "name": "诊室",
+          "scope": "clinical_wing_undetermined"
+        },
+        {
+          "id": "S010",
+          "name": "诊室",
+          "scope": "clinical_wing_undetermined"
+        },
+        {
+          "id": "S011",
+          "name": "登记",
+          "scope": "clinical_wing_undetermined"
+        },
+        {
+          "id": "S012",
+          "name": "离休干部保健诊",
+          "scope": "clinical_wing_undetermined"
+        },
+        {
+          "id": "S015",
+          "name": "电梯及候梯区",
+          "scope": "clinical_wing_undetermined"
+        }
+      ],
+      "composite_name_review_candidates": [
+        {
+          "id": "S045",
+          "name": "值班室、办公室"
+        }
+      ],
+      "pilot_feature_order_if_whole_plan": [
+        "type:auxiliary_room",
+        "type:building_control",
+        "type:building_services",
+        "type:consultation",
+        "type:corridor",
+        "type:entrance",
+        "type:equipment_room",
+        "type:examination",
+        "type:hall",
+        "type:laboratory",
+        "type:office",
+        "type:pharmacy",
+        "type:pharmacy_counter",
+        "type:registration",
+        "type:resuscitation",
+        "type:staff_support",
+        "type:sterile_supply",
+        "type:storage",
+        "type:toilet",
+        "type:treatment",
+        "type:triage",
+        "type:vertical_core",
+        "type:vestibule",
+        "level:core_block",
+        "level:functional_block",
+        "level:open_space",
+        "level:room"
+      ],
+      "graph": {
+        "component_sizes": [
+          91,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "isolated_rooms": [
+          {
+            "id": "S014",
+            "name": "新风井",
+            "type": "building_services"
+          },
+          {
+            "id": "S019",
+            "name": "新风井",
+            "type": "building_services"
+          },
+          {
+            "id": "S029",
+            "name": "管井",
+            "type": "building_services"
+          },
+          {
+            "id": "S040",
+            "name": "管井",
+            "type": "building_services"
+          },
+          {
+            "id": "S047",
+            "name": "污水泵间值班室",
+            "type": "staff_support"
+          },
+          {
+            "id": "S053",
+            "name": "排风井",
+            "type": "building_services"
+          },
+          {
+            "id": "S065",
+            "name": "电井",
+            "type": "building_services"
+          },
+          {
+            "id": "S089",
+            "name": "排风井",
+            "type": "building_services"
+          },
+          {
+            "id": "S112",
+            "name": "新风井",
+            "type": "building_services"
+          }
+        ],
+        "indistinguishable_room_groups": [
+          [
+            "S001",
+            "S002",
+            "S007",
+            "S008"
+          ],
+          [
+            "S009",
+            "S010"
+          ],
+          [
+            "S014",
+            "S019",
+            "S029",
+            "S040",
+            "S053",
+            "S065",
+            "S089",
+            "S112"
+          ],
+          [
+            "S021",
+            "S039"
+          ],
+          [
+            "S023",
+            "S024",
+            "S026",
+            "S031",
+            "S032",
+            "S033",
+            "S034",
+            "S036",
+            "S037",
+            "S038"
+          ],
+          [
+            "S064",
+            "S080"
+          ]
+        ]
+      },
+      "scope_boundary_relations": 28
+    }
+  ],
+  "hashes_before": {
+    "p-平面标注与数据处理/标注试样/01_山东省立医院儿科综合楼/标注.svg": "ff31bfec2df1ef954243e9769dba0c73d5c54d011c81caa55eb19625a8be940b",
+    "p-平面标注与数据处理/标注试样/01_山东省立医院儿科综合楼/annotation.json": "9b06718de08be825c5a776b8c4a9ae0a10d0670ef8dc2964f54f3ca17bbb50e5",
+    "p-平面标注与数据处理/标注试样/01_山东省立医院儿科综合楼/01_山东省立医院儿科综合楼_原图.jpg": "ceb73031de26d21f006ae6bf635d1ab71ad5a4a2756eb35d54f64f3c5958a6f7",
+    "p-平面标注与数据处理/标注试样/01_山东省立医院儿科综合楼/标注说明.md": "8218cc42624f5293cd190d7dec7de15767435e5393b27f3f44e739afc48ee46b",
+    "p-平面标注与数据处理/标注试样/02_嘉兴市第一医院迁建工程/标注.svg": "3d6caa65a1dab639b56ddd8f7f72c03de1b7afd27408ae0be02e47058afd5718",
+    "p-平面标注与数据处理/标注试样/02_嘉兴市第一医院迁建工程/annotation.json": "62dfcbdf668acc29ff34bc6ff2972192ace0737bff4055b9798fad71c766080d",
+    "p-平面标注与数据处理/标注试样/02_嘉兴市第一医院迁建工程/标注说明.md": "d9716872088b27365ec9b5f8b9629f4d726fc43a9b3aac4fe2d51e407a1a777a",
+    "p-平面标注与数据处理/标注试样/02_嘉兴市第一医院迁建工程/02_嘉兴市第一医院迁建工程_原图.jpg": "c1dfdd93b4e796b54de11be99cb61c44877b3b0211f6250b30db04ef014bdfcc",
+    "p-平面标注与数据处理/标注试样/03_晋中市第一人民医院迁建项目/标注.svg": "7840bd37870540f7dc23e2a5e150f538e571673d58feb8fab49ba757e8235ec3",
+    "p-平面标注与数据处理/标注试样/03_晋中市第一人民医院迁建项目/annotation.json": "5b9e78605df941be654e81f5b9283a60250b69f25f8bdda1d13de26e9f7fc2b3",
+    "p-平面标注与数据处理/标注试样/03_晋中市第一人民医院迁建项目/标注说明.md": "c8e3659ca951a74b1c23f7cb2e0d31b4d1c3ee349c192f4fb8ce0bdd3d9b2cb2",
+    "p-平面标注与数据处理/标注试样/03_晋中市第一人民医院迁建项目/03_晋中市第一人民医院迁建项目_原图.jpg": "d1bdea40fcda21da1f920d4d653bc8657416dcdbfc9aa79400c024771875c749",
+    "p-平面标注与数据处理/标注试样/04_兰州市安宁新城医院新建项目/标注.svg": "e6799d0f0084fa42a42a2b17c254a181c2dd99f2667bbc92a2f246d55b947361",
+    "p-平面标注与数据处理/标注试样/04_兰州市安宁新城医院新建项目/annotation.json": "784bb01b657778e245e431f9dabafd07c3d03b8d7a4c0c251a1aa438f17181f4",
+    "p-平面标注与数据处理/标注试样/04_兰州市安宁新城医院新建项目/标注说明.md": "d41460b7f0204f6754586037f1131222d476f56f9efa11e527bf8780af88292a",
+    "p-平面标注与数据处理/标注试样/04_兰州市安宁新城医院新建项目/04_兰州市安宁新城医院新建项目_原图.jpg": "b559174f187ff5f893ddaee0bba602daa0b8de98b68d86b75cae9dc6e6dc5c54",
+    "p-平面标注与数据处理/标注试样/05_兰州重离子医用加速应用示范区/标注.svg": "6ecfd52b27542a20dfc698bf6a16fb4af94973343470da6865b07c274ab4fd12",
+    "p-平面标注与数据处理/标注试样/05_兰州重离子医用加速应用示范区/annotation.json": "6aac8e564959b3deae4eb6b8bdad2a915f3cba1063f011d678889548052d22ce",
+    "p-平面标注与数据处理/标注试样/05_兰州重离子医用加速应用示范区/标注说明.md": "9c4bf913b0ae9822bf9cfbaaa094e597ab61ee9e536cc0eb59d082fdb5920891",
+    "p-平面标注与数据处理/标注试样/05_兰州重离子医用加速应用示范区/05_兰州重离子医用加速应用示范区_原图.jpg": "f5dc1bdd918d48da0caa37b2da17f4017506661c366ce9578ee051d7d5386023",
+    "p-平面标注与数据处理/标注试样/06_鹿邑县第一人民医院整体迁建项目/标注.svg": "6963f150eb9b1e701872a3ba5433b76f048bb025e0d6960235f21aeed6b8cb5f",
+    "p-平面标注与数据处理/标注试样/06_鹿邑县第一人民医院整体迁建项目/annotation.json": "f39a18e28338f213421eb22519a1cd2146459517de2a5f8994c235e7d87701be",
+    "p-平面标注与数据处理/标注试样/06_鹿邑县第一人民医院整体迁建项目/标注说明.md": "a8b79e0da490fee6dda99631ebc8c368b31ba0ef8f7c4203731df1714b9911ff",
+    "p-平面标注与数据处理/标注试样/06_鹿邑县第一人民医院整体迁建项目/06_鹿邑县第一人民医院整体迁建项目_原图.jpg": "0d932ce799d2d0d838ebb3535bce231160f2e6182034a49a3f7b122ae5eb03c4",
+    "p-平面标注与数据处理/标注试样/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目/标注.svg": "70ca40c8c15ed580b910ec6dcd5f48e2391ec57b0dd8ab9054e4238df6a781db",
+    "p-平面标注与数据处理/标注试样/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目/annotation.json": "670463cac00937c10e9640dff533348297af29757398630349ff974905505822",
+    "p-平面标注与数据处理/标注试样/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目_原图.jpg": "711e1bbe4ad254a7b5ddb9b2fc37356db04cdfae915c37d4a846e3d51803e19d",
+    "p-平面标注与数据处理/标注试样/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目/标注说明.md": "12850ee2f612db36a3a13115dbde07a44fdf3ef54c2005d3c157aee8558e1b13",
+    "p-平面标注与数据处理/标注试样/08_青岛西海岸医疗中心/标注.svg": "410206ec794f8b69557e69527c8411a1a13283ef67e8e7e2abee34166ebe0299",
+    "p-平面标注与数据处理/标注试样/08_青岛西海岸医疗中心/annotation.json": "42db5aa88151f19d81be854c787aa44686352269b809e6138d11e4ee58e78dc7",
+    "p-平面标注与数据处理/标注试样/08_青岛西海岸医疗中心/标注说明.md": "e2229fae6c99f4e5007ee5f5f55a5bb1da9b1380c0f504b82c88ecb200736ec9",
+    "p-平面标注与数据处理/标注试样/08_青岛西海岸医疗中心/08_青岛西海岸医疗中心_原图.jpg": "f6325e80ddd6c27eda7c95e0833519e657ed01ce97b10e70196daa2cc7596461",
+    "p-平面标注与数据处理/标注试样/09_深圳大学学府医院/标注.svg": "567aed5c9f5db7f64170bd675160bca611ce20691b928e77f459d90884c3f263",
+    "p-平面标注与数据处理/标注试样/09_深圳大学学府医院/annotation.json": "163965d38b9bf5f213d6557f475de83262bd4ac64fe45901a4a5e2a91ff4f810",
+    "p-平面标注与数据处理/标注试样/09_深圳大学学府医院/标注说明.md": "e337f68434bf329a73e8ce11d2fe9e2cad4e1e2f4d1a85360d58ca89a2e45c83",
+    "p-平面标注与数据处理/标注试样/09_深圳大学学府医院/09_深圳大学学府医院_原图.jpg": "b3d3e695373e99d56ea2b9637349cde5037c7c16cb9d1f9ab0d0d65cda82cf57",
+    "p-平面标注与数据处理/标注试样/10_石家庄第一医院新建赵卜口院区/标注.svg": "79594268f4a7c064264e5c3373387e6c223416bd43e454426946c7931b46ff0e",
+    "p-平面标注与数据处理/标注试样/10_石家庄第一医院新建赵卜口院区/annotation.json": "b4ccf7735d7c70a504617a51748220bddaea3c51fc79f8eb19ef86c53ea4f5f0",
+    "p-平面标注与数据处理/标注试样/10_石家庄第一医院新建赵卜口院区/标注说明.md": "bb1e03f339cc4e785ec1ab88a586d29a8add8a280c0932cb4c42523363926f37",
+    "p-平面标注与数据处理/标注试样/10_石家庄第一医院新建赵卜口院区/10_石家庄第一医院新建赵卜口院区_原图.jpg": "55989b76a7b5ec58dea83dd9c63c52c990805914f024227c6938a82d2de1367f",
+    "p-平面标注与数据处理/标注试样/11_寿县县医院新区/标注.svg": "04c8eade0b5f21b8bfd1916b9f6c2b115f5482fa5765928381ab2a08e0742af2",
+    "p-平面标注与数据处理/标注试样/11_寿县县医院新区/annotation.json": "b8154bac4169d35b60b18dbef8bdbfe5a23eab81f07f47846be8389992b99cd1",
+    "p-平面标注与数据处理/标注试样/11_寿县县医院新区/11_寿县县医院新区_原图.jpg": "b390bc0cfb90d0a0d6a3c2b5aaae9472dfaf005335661ca85896caad6442e37a",
+    "p-平面标注与数据处理/标注试样/11_寿县县医院新区/标注说明.md": "316a7766b04fc58667cee336be9efffc6705f42ef39ccb75e7c8c823a1fea49c",
+    "p-平面标注与数据处理/标注试样/12_遂川县人民医院/标注.svg": "756d57c2425d911f27e5192f97df8fd9f5af02bcc1ae7b0a60e3b6b8495ca6f7",
+    "p-平面标注与数据处理/标注试样/12_遂川县人民医院/annotation.json": "20c199268eea48dceb5da897f0fa2f1b708ab683fc5b5fc6fcea57a87aec3e27",
+    "p-平面标注与数据处理/标注试样/12_遂川县人民医院/12_遂川县人民医院_原图.jpg": "d8e7a48d46b7d979533ce78b56854da7e6cb1af3796d478f0ccac1041445d865",
+    "p-平面标注与数据处理/标注试样/12_遂川县人民医院/标注说明.md": "4616b0bd058c5a106ec61f1f1e2b54a925de9d578820d4fb430450bb8ea178f1",
+    "p-平面标注与数据处理/标注试样/13_天津市中心妇产科医院迁址新建工程/标注.svg": "d92aa849cd247b36243f6a22e7e7f546b6c40ce8acb61d340762d060603aa2d5",
+    "p-平面标注与数据处理/标注试样/13_天津市中心妇产科医院迁址新建工程/annotation.json": "3dcd075f124df9d6c06467b74b7aeaf1e498e194993bec2746556ad935954c0c",
+    "p-平面标注与数据处理/标注试样/13_天津市中心妇产科医院迁址新建工程/标注说明.md": "08249a7072bc511363e50bde89ef6606f582a0f607a1b22888b057f8c9ea8253",
+    "p-平面标注与数据处理/标注试样/13_天津市中心妇产科医院迁址新建工程/13_天津市中心妇产科医院迁址新建工程_原图.jpg": "9c5e174708dfcd266ec0904a237348871f21e2bcefb4865be2f7713cee07c487",
+    "p-平面标注与数据处理/标注试样/14_无锡市人民医院二期建设项目/标注.svg": "132fefd2edcb2a41e31d308c7bc0df6af09c344bc1593b8e4195c372af72e0b7",
+    "p-平面标注与数据处理/标注试样/14_无锡市人民医院二期建设项目/annotation.json": "14ba336c75a9e88dbf88691df7bb699587b2a15511fb34e3bedd131206904c88",
+    "p-平面标注与数据处理/标注试样/14_无锡市人民医院二期建设项目/标注说明.md": "c45bf62685d4e5df7683029df8fec406242f5aa57dccf61428411b6aad09503a",
+    "p-平面标注与数据处理/标注试样/14_无锡市人民医院二期建设项目/14_无锡市人民医院二期建设项目_原图.jpg": "06b340aba0f6c189169929546a33949bccc340e1a2ccf72d67d89d7cc33776a0",
+    "p-平面标注与数据处理/标注试样/15_盐城市妇幼保健院/标注.svg": "abc18dc4764a73688f19a68ad95ef23cba109edd02a20cbb3cd9536af4579b04",
+    "p-平面标注与数据处理/标注试样/15_盐城市妇幼保健院/annotation.json": "69372a5ababf2e9d380d128b3bb02ec789fe0c2c82254cb8e2f67b656e0f7ca1",
+    "p-平面标注与数据处理/标注试样/15_盐城市妇幼保健院/标注说明.md": "e584064ff93536220e7d5ffce1208615ce53ea3531332f59ecacfb4e91527a69",
+    "p-平面标注与数据处理/标注试样/15_盐城市妇幼保健院/15_盐城市妇幼保健院_原图.jpg": "e95cc8039826c610d7678b27d6bfb2ec6cff85250a87a3a7c4d68ec8b12da9a7",
+    "p-平面标注与数据处理/标注试样/16_浙江大学医学院邵逸夫医院下沙院区/标注.svg": "c77e4453f18c53ce0d1ba8eb15acc11a8e34be90835f015e37560f3b2f459d80",
+    "p-平面标注与数据处理/标注试样/16_浙江大学医学院邵逸夫医院下沙院区/annotation.json": "62e29ef8ce7b4d88fdd43eae597e1de7ec82fe81c0e77f4951d4a258e0480906",
+    "p-平面标注与数据处理/标注试样/16_浙江大学医学院邵逸夫医院下沙院区/标注说明.md": "ec3361249f9dc7caa95397734bdea7aa40d1aeb449c13294cfd648d59d289b04",
+    "p-平面标注与数据处理/标注试样/16_浙江大学医学院邵逸夫医院下沙院区/16_浙江大学医学院邵逸夫医院下沙院区_原图.jpg": "5ac85bf3fad75cdb757a34ee25269a7bda4edd0bddacc7e59c62975efdd4f08c",
+    "p-平面标注与数据处理/标注试样/17_成都市西区医院/标注.svg": "08c25baea0aeed0b60bb87b84a6edcab2fed6647a8e2db944684f8591611ec3a",
+    "p-平面标注与数据处理/标注试样/17_成都市西区医院/annotation.json": "4755c74e8e3c68f6cf3baad1117d95126680cce0817d2e9db74647404e5d9e29",
+    "p-平面标注与数据处理/标注试样/17_成都市西区医院/标注说明.md": "697771dc380154fb98aa87e2fe5303ea1cbe82ffbf423efba486fb23f60d80b9",
+    "p-平面标注与数据处理/标注试样/17_成都市西区医院/17_成都市西区医院_原图.jpg": "82eb35b13a6a3bb96a3aabdd00890920f96d4a1efc17dd1d4fdb0c34499ed8fc",
+    "p-平面标注与数据处理/标注试样/18_东营市人民医院急诊急救中心暨内科病房综合楼/标注.svg": "734d4f014142029e16093c9a9394d0eb2edb8046eb2dda090871ffa90baa8e7c",
+    "p-平面标注与数据处理/标注试样/18_东营市人民医院急诊急救中心暨内科病房综合楼/annotation.json": "ada235a36af86daa1764a4bed94362b63f1bb4607cb83f805c835955b9a2e9df",
+    "p-平面标注与数据处理/标注试样/18_东营市人民医院急诊急救中心暨内科病房综合楼/18_东营市人民医院急诊急救中心暨内科病房综合楼_原图.jpg": "9e614f9e9c7b7d38236c1a16acc3e6e973b2f77952ddca659bcce8c7e207ca53",
+    "p-平面标注与数据处理/标注试样/18_东营市人民医院急诊急救中心暨内科病房综合楼/标注说明.md": "fb4a646adfbb9ccd732ce7d3a722c4acd80ad80e4985fc1fc616f7ac6c49ce14",
+    "p-平面标注与数据处理/标注试样/19_哈尔滨医科大学附属第四医院门诊外科楼/标注.svg": "3e8d5ba069514e09f6e1c9dbcc70737f232ee3ebd079b09aef3fce22ce4ef9b2",
+    "p-平面标注与数据处理/标注试样/19_哈尔滨医科大学附属第四医院门诊外科楼/annotation.json": "42d7ac95ff4baa6ac8d54b6cb7f6b42420a039d4f26b200da0702c8964fdfaa7",
+    "p-平面标注与数据处理/标注试样/19_哈尔滨医科大学附属第四医院门诊外科楼/19_哈尔滨医科大学附属第四医院门诊外科楼_原图.jpg": "c351771b3868d977aff404059cd9c2d144c0a7b6ed94e28aeafe7ee8c2a278df",
+    "p-平面标注与数据处理/标注试样/19_哈尔滨医科大学附属第四医院门诊外科楼/标注说明.md": "243a216253145c8c5439a3677cb262d39e4b9f4d75b4716b9d9c926df182ae61",
+    "p-平面标注与数据处理/标注试样/20_哈尔滨医科大学附属第一医院门诊保健大楼/标注.svg": "d740ad4eca068bbffcab072fbb0d7b210e6c80f3e3fdafc61b924df4757a3367",
+    "p-平面标注与数据处理/标注试样/20_哈尔滨医科大学附属第一医院门诊保健大楼/annotation.json": "82d303019f7680185ce445e3bc6ef88e0faad899aa8513243999580d393ba53f",
+    "p-平面标注与数据处理/标注试样/20_哈尔滨医科大学附属第一医院门诊保健大楼/20_哈尔滨医科大学附属第一医院门诊保健大楼_原图.jpg": "12c86a77045712dcd7aeccd2501bf90099ef282adc69b9e23cba3f3cca58f6d8",
+    "p-平面标注与数据处理/标注试样/20_哈尔滨医科大学附属第一医院门诊保健大楼/标注说明.md": "ff5f0db6934527db8f9711f6fc3da608d8a731e860645a81d7cd034e5f48b866"
+  },
+  "hashes_after": {
+    "p-平面标注与数据处理/标注试样/01_山东省立医院儿科综合楼/标注.svg": "ff31bfec2df1ef954243e9769dba0c73d5c54d011c81caa55eb19625a8be940b",
+    "p-平面标注与数据处理/标注试样/01_山东省立医院儿科综合楼/annotation.json": "9b06718de08be825c5a776b8c4a9ae0a10d0670ef8dc2964f54f3ca17bbb50e5",
+    "p-平面标注与数据处理/标注试样/01_山东省立医院儿科综合楼/01_山东省立医院儿科综合楼_原图.jpg": "ceb73031de26d21f006ae6bf635d1ab71ad5a4a2756eb35d54f64f3c5958a6f7",
+    "p-平面标注与数据处理/标注试样/01_山东省立医院儿科综合楼/标注说明.md": "8218cc42624f5293cd190d7dec7de15767435e5393b27f3f44e739afc48ee46b",
+    "p-平面标注与数据处理/标注试样/02_嘉兴市第一医院迁建工程/标注.svg": "3d6caa65a1dab639b56ddd8f7f72c03de1b7afd27408ae0be02e47058afd5718",
+    "p-平面标注与数据处理/标注试样/02_嘉兴市第一医院迁建工程/annotation.json": "62dfcbdf668acc29ff34bc6ff2972192ace0737bff4055b9798fad71c766080d",
+    "p-平面标注与数据处理/标注试样/02_嘉兴市第一医院迁建工程/标注说明.md": "d9716872088b27365ec9b5f8b9629f4d726fc43a9b3aac4fe2d51e407a1a777a",
+    "p-平面标注与数据处理/标注试样/02_嘉兴市第一医院迁建工程/02_嘉兴市第一医院迁建工程_原图.jpg": "c1dfdd93b4e796b54de11be99cb61c44877b3b0211f6250b30db04ef014bdfcc",
+    "p-平面标注与数据处理/标注试样/03_晋中市第一人民医院迁建项目/标注.svg": "7840bd37870540f7dc23e2a5e150f538e571673d58feb8fab49ba757e8235ec3",
+    "p-平面标注与数据处理/标注试样/03_晋中市第一人民医院迁建项目/annotation.json": "5b9e78605df941be654e81f5b9283a60250b69f25f8bdda1d13de26e9f7fc2b3",
+    "p-平面标注与数据处理/标注试样/03_晋中市第一人民医院迁建项目/标注说明.md": "c8e3659ca951a74b1c23f7cb2e0d31b4d1c3ee349c192f4fb8ce0bdd3d9b2cb2",
+    "p-平面标注与数据处理/标注试样/03_晋中市第一人民医院迁建项目/03_晋中市第一人民医院迁建项目_原图.jpg": "d1bdea40fcda21da1f920d4d653bc8657416dcdbfc9aa79400c024771875c749",
+    "p-平面标注与数据处理/标注试样/04_兰州市安宁新城医院新建项目/标注.svg": "e6799d0f0084fa42a42a2b17c254a181c2dd99f2667bbc92a2f246d55b947361",
+    "p-平面标注与数据处理/标注试样/04_兰州市安宁新城医院新建项目/annotation.json": "784bb01b657778e245e431f9dabafd07c3d03b8d7a4c0c251a1aa438f17181f4",
+    "p-平面标注与数据处理/标注试样/04_兰州市安宁新城医院新建项目/标注说明.md": "d41460b7f0204f6754586037f1131222d476f56f9efa11e527bf8780af88292a",
+    "p-平面标注与数据处理/标注试样/04_兰州市安宁新城医院新建项目/04_兰州市安宁新城医院新建项目_原图.jpg": "b559174f187ff5f893ddaee0bba602daa0b8de98b68d86b75cae9dc6e6dc5c54",
+    "p-平面标注与数据处理/标注试样/05_兰州重离子医用加速应用示范区/标注.svg": "6ecfd52b27542a20dfc698bf6a16fb4af94973343470da6865b07c274ab4fd12",
+    "p-平面标注与数据处理/标注试样/05_兰州重离子医用加速应用示范区/annotation.json": "6aac8e564959b3deae4eb6b8bdad2a915f3cba1063f011d678889548052d22ce",
+    "p-平面标注与数据处理/标注试样/05_兰州重离子医用加速应用示范区/标注说明.md": "9c4bf913b0ae9822bf9cfbaaa094e597ab61ee9e536cc0eb59d082fdb5920891",
+    "p-平面标注与数据处理/标注试样/05_兰州重离子医用加速应用示范区/05_兰州重离子医用加速应用示范区_原图.jpg": "f5dc1bdd918d48da0caa37b2da17f4017506661c366ce9578ee051d7d5386023",
+    "p-平面标注与数据处理/标注试样/06_鹿邑县第一人民医院整体迁建项目/标注.svg": "6963f150eb9b1e701872a3ba5433b76f048bb025e0d6960235f21aeed6b8cb5f",
+    "p-平面标注与数据处理/标注试样/06_鹿邑县第一人民医院整体迁建项目/annotation.json": "f39a18e28338f213421eb22519a1cd2146459517de2a5f8994c235e7d87701be",
+    "p-平面标注与数据处理/标注试样/06_鹿邑县第一人民医院整体迁建项目/标注说明.md": "a8b79e0da490fee6dda99631ebc8c368b31ba0ef8f7c4203731df1714b9911ff",
+    "p-平面标注与数据处理/标注试样/06_鹿邑县第一人民医院整体迁建项目/06_鹿邑县第一人民医院整体迁建项目_原图.jpg": "0d932ce799d2d0d838ebb3535bce231160f2e6182034a49a3f7b122ae5eb03c4",
+    "p-平面标注与数据处理/标注试样/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目/标注.svg": "70ca40c8c15ed580b910ec6dcd5f48e2391ec57b0dd8ab9054e4238df6a781db",
+    "p-平面标注与数据处理/标注试样/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目/annotation.json": "670463cac00937c10e9640dff533348297af29757398630349ff974905505822",
+    "p-平面标注与数据处理/标注试样/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目_原图.jpg": "711e1bbe4ad254a7b5ddb9b2fc37356db04cdfae915c37d4a846e3d51803e19d",
+    "p-平面标注与数据处理/标注试样/07_内蒙古自治区儿童医院、妇产医院、妇幼保健院外迁合建项目/标注说明.md": "12850ee2f612db36a3a13115dbde07a44fdf3ef54c2005d3c157aee8558e1b13",
+    "p-平面标注与数据处理/标注试样/08_青岛西海岸医疗中心/标注.svg": "410206ec794f8b69557e69527c8411a1a13283ef67e8e7e2abee34166ebe0299",
+    "p-平面标注与数据处理/标注试样/08_青岛西海岸医疗中心/annotation.json": "42db5aa88151f19d81be854c787aa44686352269b809e6138d11e4ee58e78dc7",
+    "p-平面标注与数据处理/标注试样/08_青岛西海岸医疗中心/标注说明.md": "e2229fae6c99f4e5007ee5f5f55a5bb1da9b1380c0f504b82c88ecb200736ec9",
+    "p-平面标注与数据处理/标注试样/08_青岛西海岸医疗中心/08_青岛西海岸医疗中心_原图.jpg": "f6325e80ddd6c27eda7c95e0833519e657ed01ce97b10e70196daa2cc7596461",
+    "p-平面标注与数据处理/标注试样/09_深圳大学学府医院/标注.svg": "567aed5c9f5db7f64170bd675160bca611ce20691b928e77f459d90884c3f263",
+    "p-平面标注与数据处理/标注试样/09_深圳大学学府医院/annotation.json": "163965d38b9bf5f213d6557f475de83262bd4ac64fe45901a4a5e2a91ff4f810",
+    "p-平面标注与数据处理/标注试样/09_深圳大学学府医院/标注说明.md": "e337f68434bf329a73e8ce11d2fe9e2cad4e1e2f4d1a85360d58ca89a2e45c83",
+    "p-平面标注与数据处理/标注试样/09_深圳大学学府医院/09_深圳大学学府医院_原图.jpg": "b3d3e695373e99d56ea2b9637349cde5037c7c16cb9d1f9ab0d0d65cda82cf57",
+    "p-平面标注与数据处理/标注试样/10_石家庄第一医院新建赵卜口院区/标注.svg": "79594268f4a7c064264e5c3373387e6c223416bd43e454426946c7931b46ff0e",
+    "p-平面标注与数据处理/标注试样/10_石家庄第一医院新建赵卜口院区/annotation.json": "b4ccf7735d7c70a504617a51748220bddaea3c51fc79f8eb19ef86c53ea4f5f0",
+    "p-平面标注与数据处理/标注试样/10_石家庄第一医院新建赵卜口院区/标注说明.md": "bb1e03f339cc4e785ec1ab88a586d29a8add8a280c0932cb4c42523363926f37",
+    "p-平面标注与数据处理/标注试样/10_石家庄第一医院新建赵卜口院区/10_石家庄第一医院新建赵卜口院区_原图.jpg": "55989b76a7b5ec58dea83dd9c63c52c990805914f024227c6938a82d2de1367f",
+    "p-平面标注与数据处理/标注试样/11_寿县县医院新区/标注.svg": "04c8eade0b5f21b8bfd1916b9f6c2b115f5482fa5765928381ab2a08e0742af2",
+    "p-平面标注与数据处理/标注试样/11_寿县县医院新区/annotation.json": "b8154bac4169d35b60b18dbef8bdbfe5a23eab81f07f47846be8389992b99cd1",
+    "p-平面标注与数据处理/标注试样/11_寿县县医院新区/11_寿县县医院新区_原图.jpg": "b390bc0cfb90d0a0d6a3c2b5aaae9472dfaf005335661ca85896caad6442e37a",
+    "p-平面标注与数据处理/标注试样/11_寿县县医院新区/标注说明.md": "316a7766b04fc58667cee336be9efffc6705f42ef39ccb75e7c8c823a1fea49c",
+    "p-平面标注与数据处理/标注试样/12_遂川县人民医院/标注.svg": "756d57c2425d911f27e5192f97df8fd9f5af02bcc1ae7b0a60e3b6b8495ca6f7",
+    "p-平面标注与数据处理/标注试样/12_遂川县人民医院/annotation.json": "20c199268eea48dceb5da897f0fa2f1b708ab683fc5b5fc6fcea57a87aec3e27",
+    "p-平面标注与数据处理/标注试样/12_遂川县人民医院/12_遂川县人民医院_原图.jpg": "d8e7a48d46b7d979533ce78b56854da7e6cb1af3796d478f0ccac1041445d865",
+    "p-平面标注与数据处理/标注试样/12_遂川县人民医院/标注说明.md": "4616b0bd058c5a106ec61f1f1e2b54a925de9d578820d4fb430450bb8ea178f1",
+    "p-平面标注与数据处理/标注试样/13_天津市中心妇产科医院迁址新建工程/标注.svg": "d92aa849cd247b36243f6a22e7e7f546b6c40ce8acb61d340762d060603aa2d5",
+    "p-平面标注与数据处理/标注试样/13_天津市中心妇产科医院迁址新建工程/annotation.json": "3dcd075f124df9d6c06467b74b7aeaf1e498e194993bec2746556ad935954c0c",
+    "p-平面标注与数据处理/标注试样/13_天津市中心妇产科医院迁址新建工程/标注说明.md": "08249a7072bc511363e50bde89ef6606f582a0f607a1b22888b057f8c9ea8253",
+    "p-平面标注与数据处理/标注试样/13_天津市中心妇产科医院迁址新建工程/13_天津市中心妇产科医院迁址新建工程_原图.jpg": "9c5e174708dfcd266ec0904a237348871f21e2bcefb4865be2f7713cee07c487",
+    "p-平面标注与数据处理/标注试样/14_无锡市人民医院二期建设项目/标注.svg": "132fefd2edcb2a41e31d308c7bc0df6af09c344bc1593b8e4195c372af72e0b7",
+    "p-平面标注与数据处理/标注试样/14_无锡市人民医院二期建设项目/annotation.json": "14ba336c75a9e88dbf88691df7bb699587b2a15511fb34e3bedd131206904c88",
+    "p-平面标注与数据处理/标注试样/14_无锡市人民医院二期建设项目/标注说明.md": "c45bf62685d4e5df7683029df8fec406242f5aa57dccf61428411b6aad09503a",
+    "p-平面标注与数据处理/标注试样/14_无锡市人民医院二期建设项目/14_无锡市人民医院二期建设项目_原图.jpg": "06b340aba0f6c189169929546a33949bccc340e1a2ccf72d67d89d7cc33776a0",
+    "p-平面标注与数据处理/标注试样/15_盐城市妇幼保健院/标注.svg": "abc18dc4764a73688f19a68ad95ef23cba109edd02a20cbb3cd9536af4579b04",
+    "p-平面标注与数据处理/标注试样/15_盐城市妇幼保健院/annotation.json": "69372a5ababf2e9d380d128b3bb02ec789fe0c2c82254cb8e2f67b656e0f7ca1",
+    "p-平面标注与数据处理/标注试样/15_盐城市妇幼保健院/标注说明.md": "e584064ff93536220e7d5ffce1208615ce53ea3531332f59ecacfb4e91527a69",
+    "p-平面标注与数据处理/标注试样/15_盐城市妇幼保健院/15_盐城市妇幼保健院_原图.jpg": "e95cc8039826c610d7678b27d6bfb2ec6cff85250a87a3a7c4d68ec8b12da9a7",
+    "p-平面标注与数据处理/标注试样/16_浙江大学医学院邵逸夫医院下沙院区/标注.svg": "c77e4453f18c53ce0d1ba8eb15acc11a8e34be90835f015e37560f3b2f459d80",
+    "p-平面标注与数据处理/标注试样/16_浙江大学医学院邵逸夫医院下沙院区/annotation.json": "62e29ef8ce7b4d88fdd43eae597e1de7ec82fe81c0e77f4951d4a258e0480906",
+    "p-平面标注与数据处理/标注试样/16_浙江大学医学院邵逸夫医院下沙院区/标注说明.md": "ec3361249f9dc7caa95397734bdea7aa40d1aeb449c13294cfd648d59d289b04",
+    "p-平面标注与数据处理/标注试样/16_浙江大学医学院邵逸夫医院下沙院区/16_浙江大学医学院邵逸夫医院下沙院区_原图.jpg": "5ac85bf3fad75cdb757a34ee25269a7bda4edd0bddacc7e59c62975efdd4f08c",
+    "p-平面标注与数据处理/标注试样/17_成都市西区医院/标注.svg": "08c25baea0aeed0b60bb87b84a6edcab2fed6647a8e2db944684f8591611ec3a",
+    "p-平面标注与数据处理/标注试样/17_成都市西区医院/annotation.json": "4755c74e8e3c68f6cf3baad1117d95126680cce0817d2e9db74647404e5d9e29",
+    "p-平面标注与数据处理/标注试样/17_成都市西区医院/标注说明.md": "697771dc380154fb98aa87e2fe5303ea1cbe82ffbf423efba486fb23f60d80b9",
+    "p-平面标注与数据处理/标注试样/17_成都市西区医院/17_成都市西区医院_原图.jpg": "82eb35b13a6a3bb96a3aabdd00890920f96d4a1efc17dd1d4fdb0c34499ed8fc",
+    "p-平面标注与数据处理/标注试样/18_东营市人民医院急诊急救中心暨内科病房综合楼/标注.svg": "734d4f014142029e16093c9a9394d0eb2edb8046eb2dda090871ffa90baa8e7c",
+    "p-平面标注与数据处理/标注试样/18_东营市人民医院急诊急救中心暨内科病房综合楼/annotation.json": "ada235a36af86daa1764a4bed94362b63f1bb4607cb83f805c835955b9a2e9df",
+    "p-平面标注与数据处理/标注试样/18_东营市人民医院急诊急救中心暨内科病房综合楼/18_东营市人民医院急诊急救中心暨内科病房综合楼_原图.jpg": "9e614f9e9c7b7d38236c1a16acc3e6e973b2f77952ddca659bcce8c7e207ca53",
+    "p-平面标注与数据处理/标注试样/18_东营市人民医院急诊急救中心暨内科病房综合楼/标注说明.md": "fb4a646adfbb9ccd732ce7d3a722c4acd80ad80e4985fc1fc616f7ac6c49ce14",
+    "p-平面标注与数据处理/标注试样/19_哈尔滨医科大学附属第四医院门诊外科楼/标注.svg": "3e8d5ba069514e09f6e1c9dbcc70737f232ee3ebd079b09aef3fce22ce4ef9b2",
+    "p-平面标注与数据处理/标注试样/19_哈尔滨医科大学附属第四医院门诊外科楼/annotation.json": "42d7ac95ff4baa6ac8d54b6cb7f6b42420a039d4f26b200da0702c8964fdfaa7",
+    "p-平面标注与数据处理/标注试样/19_哈尔滨医科大学附属第四医院门诊外科楼/19_哈尔滨医科大学附属第四医院门诊外科楼_原图.jpg": "c351771b3868d977aff404059cd9c2d144c0a7b6ed94e28aeafe7ee8c2a278df",
+    "p-平面标注与数据处理/标注试样/19_哈尔滨医科大学附属第四医院门诊外科楼/标注说明.md": "243a216253145c8c5439a3677cb262d39e4b9f4d75b4716b9d9c926df182ae61",
+    "p-平面标注与数据处理/标注试样/20_哈尔滨医科大学附属第一医院门诊保健大楼/标注.svg": "d740ad4eca068bbffcab072fbb0d7b210e6c80f3e3fdafc61b924df4757a3367",
+    "p-平面标注与数据处理/标注试样/20_哈尔滨医科大学附属第一医院门诊保健大楼/annotation.json": "82d303019f7680185ce445e3bc6ef88e0faad899aa8513243999580d393ba53f",
+    "p-平面标注与数据处理/标注试样/20_哈尔滨医科大学附属第一医院门诊保健大楼/20_哈尔滨医科大学附属第一医院门诊保健大楼_原图.jpg": "12c86a77045712dcd7aeccd2501bf90099ef282adc69b9e23cba3f3cca58f6d8",
+    "p-平面标注与数据处理/标注试样/20_哈尔滨医科大学附属第一医院门诊保健大楼/标注说明.md": "ff5f0db6934527db8f9711f6fc3da608d8a731e860645a81d7cd034e5f48b866"
+  },
+  "limitations": [
+    "No re-reading of all original labels or doors by eye.",
+    "Boundary distances, disconnected nodes and name hints are review candidates, not semantic errors.",
+    "No model training or dataset export was performed."
+  ],
+  "visual_review": {
+    "opening_distance_candidates_viewed": 12,
+    "all_openings_reaudited": false,
+    "bbox_example": {
+      "project": "09",
+      "spaces": [
+        "S071",
+        "S073"
+      ],
+      "polygon_intersection_px2": 0,
+      "bbox_overlap_over_smaller_box": 0.5961703958691913
+    },
+    "note": "No source edits. Distance diagnostics alone are not errors."
+  }
+}

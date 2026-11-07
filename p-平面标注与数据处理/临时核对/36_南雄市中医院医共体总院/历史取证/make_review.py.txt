@@ -1,0 +1,172 @@
+from pathlib import Path
+import json, math, heapq, time
+from PIL import Image,ImageDraw,ImageFont
+from shapely.geometry import Polygon,LineString
+
+T=Path('/tmp/outpatient36-review')
+meta=json.loads((T/'空间工作索引.json').read_text())
+pending=json.loads((T/'核对号对应.json').read_text())
+byid={m['id']:m for m in meta}
+source=Image.open(T/'转正原图.png').convert('RGB')
+FONT='/System/Library/Fonts/STHeiti Medium.ttc'
+palette={'A':'#b45309','B':'#6d28d9','C':'#0369a1','D':'#be185d','E':'#4338ca','F':'#0f766e','G':'#a16207','H':'#b91c1c'}
+SCALE=2
+def font(n):return ImageFont.truetype(FONT,round(n*SCALE))
+def text(d,xy,s,size=18,fill='#18314c'):
+    d.text(tuple(round(v*SCALE) for v in xy),s,font=font(size),fill=fill)
+def line(d,pts,fill,width=1):
+    d.line([(round(x*SCALE),round(y*SCALE)) for x,y in pts],fill=fill,width=max(1,round(width*SCALE)))
+def rect(d,b,fill=None,outline=None,width=1):
+    d.rounded_rectangle(tuple(round(v*SCALE) for v in b),radius=5*SCALE,fill=fill,outline=outline,width=max(1,round(width*SCALE)))
+def wrap(s,n):return [s[i:i+n] for i in range(0,len(s),n)]
+
+def route_all(specs,W,H,imagebox,room_shapes,step=5):
+    nx=math.ceil(W/step)+1;ny=math.ceil(H/step)+1
+    total=nx*ny;blocked=bytearray(total);protected={};targets={}
+    soft=Image.new('L',(nx,ny),1);sd=ImageDraw.Draw(soft)
+    for pts in room_shapes:sd.polygon([(round(x/step),round(y/step)) for x,y in pts],fill=4)
+    costs=soft.tobytes()
+    def idx(p):return max(0,min(nx-1,round(p[0]/step)))+nx*max(0,min(ny-1,round(p[1]/step)))
+    for sp in specs:
+        t=idx(sp['anchor']);targets[sp['id']]=t
+        # 预留未来端点，防止先画的引线封住小房间。
+        x=t%nx;y=t//nx
+        for dy in [-1,0,1]:
+            for dx in [-1,0,1]:
+                q=x+dx+nx*(y+dy)
+                if 0<=q<total:protected.setdefault(q,set()).add(sp['id'])
+    left=min(s['start'][0] for s in specs)-step if specs else 0
+    right=max(s['start'][0] for s in specs)+step if specs else W
+    paths={};stats=[]
+    # 先接深入图心的端点，后接外围端点。
+    ordered=sorted(specs,key=lambda s:-abs(s['start'][0]-s['anchor'][0]))
+    for count,sp in enumerate(ordered,1):
+        start=idx(sp['start']);goal=targets[sp['id']];gx=goal%nx;gy=goal//nx
+        heap=[(0,0,start)];dist={start:0};parent={};done=set();found=False
+        while heap:
+            _,g,v=heapq.heappop(heap)
+            if v in done:continue
+            if v==goal:found=True;break
+            done.add(v)
+            if len(done)>450000:break
+            x=v%nx;y=v//nx
+            for w in (v-1,v+1,v-nx,v+nx):
+                if not 0<=w<total:continue
+                xx=w%nx;yy=w//nx
+                if abs(xx-x)+abs(yy-y)!=1:continue
+                if w!=goal and w!=start:
+                    if blocked[w]:continue
+                    if w in protected and sp['id'] not in protected[w]:continue
+                    if xx*step<left or xx*step>right:continue
+                    if yy*step<115 or yy*step>H-60:continue
+                ng=g+costs[w]
+                if ng<dist.get(w,10**12):
+                    dist[w]=ng;parent[w]=v
+                    h=abs(xx-gx)+abs(yy-gy)
+                    heapq.heappush(heap,(ng+h,ng,w))
+        if not found:
+            raise RuntimeError(('unroutable',sp['id'],len(done)))
+        cells=[goal]
+        while cells[-1]!=start:cells.append(parent[cells[-1]])
+        cells.reverse()
+        pts=[(q%nx*step,q//nx*step) for q in cells]
+        simple=[pts[0]]
+        for j in range(1,len(pts)-1):
+            a=pts[j-1];b=pts[j];c=pts[j+1]
+            if (b[0]-a[0],b[1]-a[1])!=(c[0]-b[0],c[1]-b[1]):simple.append(b)
+        simple.append(pts[-1])
+        paths[sp['id']]=simple
+        for q in cells:
+            x=q%nx;y=q//nx
+            # 保留间距；所有线使用水平／竖直网格，互不共用单元。
+            for dx,dy in [(0,0),(-1,0),(1,0),(0,-1),(0,1)]:
+                w=x+dx+nx*(y+dy)
+                if 0<=w<total and not (w in protected and sp['id'] not in protected[w]):blocked[w]=1
+        stats.append((sp['id'],len(done),len(simple)))
+        if count%20==0:print('routed',count,'/',len(specs),flush=True)
+    # 复查折线之间没有交点；标签点与框内编号不计为其他引线。
+    intersections=[];items=list(paths.items())
+    for i,(a,pa) in enumerate(items):
+        for b,pb in items[i+1:]:
+            g=LineString(pa).intersection(LineString(pb))
+            if not g.is_empty:intersections.append((a,b,g.wkt))
+    if intersections:raise RuntimeError(('crossed leaders',intersections[:5]))
+    return paths,stats
+
+def sheet(name,items,crop=None,scale=1,W=4400,H=4500,left_groups=None):
+    # crop 坐标对应 2000×1500 临时阅读图；原始高分辨率像素直接贴入。
+    if crop is None:crop=(0,0,2000,1500)
+    cw=(crop[2]-crop[0])*scale;ch=(crop[3]-crop[1])*scale
+    ox=(W-cw)/2;oy=(H-ch)/2
+    im=Image.new('RGB',(W*SCALE,H*SCALE),'#f8fafc');d=ImageDraw.Draw(im)
+    box=tuple(round(v*(source.width/2000 if i%2==0 else source.height/1500)) for i,v in enumerate(crop))
+    raw=source.crop(box).resize((round(cw*SCALE),round(ch*SCALE)),Image.Resampling.LANCZOS)
+    im.paste(raw,(round(ox*SCALE),round(oy*SCALE)))
+    text(d,(35,22),'36 南雄市中医院医共体总院｜首层标注草稿',30)
+    text(d,(35,66),f'{len(items)} 项待确认｜候选不是已确认名称｜按 01=名称、02=名称 回复，可分批',21,'#9a3412')
+    text(d,(35,H-40),'彩框、编号、引线、边栏一一对应；支持使用 S 编号回答。原图文件未修改。',17,'#475569')
+    def trans(pts):return [(ox+(x-crop[0])*scale,oy+(y-crop[1])*scale) for x,y in pts]
+    shapes=[trans(m['shape']) for m in meta if Polygon(m['shape']).intersects(Polygon([(crop[0],crop[1]),(crop[2],crop[1]),(crop[2],crop[3]),(crop[0],crop[3])]))]
+    if left_groups is None:
+        left_items=items[:math.ceil(len(items)/2)];right_items=items[math.ceil(len(items)/2):]
+    else:
+        left_items=[m for m in items if m['group'][0] in left_groups]
+        right_items=[m for m in items if m['group'][0] not in left_groups]
+    sidew=max(600,min(1040,ox-45))
+    specs=[]
+    for side,ls in [('left',left_items),('right',right_items)]:
+        gap=min(140,(H-220)/max(1,len(ls)))
+        start_y=max(140,(H-gap*len(ls))/2)
+        for j,m in enumerate(ls):
+            y=start_y+j*gap
+            bx=25 if side=='left' else W-sidew-25
+            center=Polygon(trans(m['shape'])).representative_point()
+            specs.append(dict(id=m['id'],m=m,box=(bx,y,bx+sidew,y+gap-5),start=(bx+sidew+5,y+gap*.42) if side=='left' else (bx-5,y+gap*.42),anchor=(center.x,center.y),side=side))
+    paths,stats=route_all(specs,W,H,(ox,oy,ox+cw,oy+ch),shapes,step=4)
+    for s in specs:
+        color=palette[s['m']['group'][0]]
+        line(d,paths[s['id']],'white',3.4);line(d,paths[s['id']],color,1.1)
+    for s in specs:
+        m=s['m'];color=palette[m['group'][0]];pts=trans(m['shape'])
+        line(d,pts+[pts[0]],color,1.8)
+        ax,ay=paths[s['id']][-1]
+        n=m['review'];ww=max(17,len(n)*7+5)
+        rect(d,(ax-ww/2,ay-8,ax+ww/2,ay+9),fill='white',outline=color,width=1)
+        text(d,(ax-ww/2+3,ay-7),n,12,color)
+        bx,y,rx,by=s['box'];rect(d,(bx,y,rx,by),fill='white',outline=color,width=1)
+        h=by-y
+        size=18 if h<80 else 23
+        text(d,(bx+12,y+5),f"{n}｜{m['id']}  名称未确认",size,color)
+        candidate=m['candidate'] or '未知（无可用图面依据）'
+        text(d,(bx+12,y+size+8),f"候选：{candidate}  [{m['confidence']}]",size-2)
+        text(d,(bx+12,y+size*2+10),'依据：'+m['basis'],size-4,'#475569')
+        if h>110:text(d,(bx+12,y+size*3+17),m['group'],size-4,color)
+    im.save(T/(name+'.png'),optimize=True)
+    im.resize((min(2200,im.width),round(im.height*min(2200,im.width)/im.width))).save(T/(name+'_预览.png'))
+    (T/(name+'_引线检查.json')).write_text(json.dumps(dict(count=len(specs),crossings=0,stats=stats,paths=paths),ensure_ascii=False))
+    print(name,'saved',im.size,flush=True)
+
+if __name__=='__main__':
+    import sys
+    task=sys.argv[1] if len(sys.argv)>1 else 'all'
+    if task in ('main','all'):
+        sheet('36_高清核对总图',pending,scale=1.1,left_groups={'A','B','D','E','G'})
+    settings=[
+        ('36_餐厨放大核对',{'A'},(590,180,840,555),4,2850,2000),
+        ('36_放射科放大核对',{'C'},(1150,175,1440,585),3.6,3000,2150),
+        ('36_妇科西药房放大核对',{'D'},(290,495,840,845),3,3550,1950),
+        ('36_门厅留白放大核对',{'B','E'},(815,245,1165,775),2.9,2900,2200),
+        ('36_综合门诊放大核对',{'F'},(1150,500,1580,835),3,3300,2100),
+        ('36_儿科中药房放大核对',{'G'},(290,805,840,1060),3,3550,1800),
+        ('36_输液急诊放大核对',{'H'},(1150,805,1700,1065),3,3550,2200),
+    ]
+    for name,gs,box,sc,w,h in settings:
+        if task in ('details','all') or task==next(iter(gs)):
+            sheet(name,[m for m in pending if m['group'][0] in gs],box,sc,w,h)
+    if task in ('main','all'):
+        lines=['# 36号首层名称核对清单','',f'共 {len(pending)} 项。候选仅供确认，核心 JSON 保持 unknown。','', '按相邻片区阅读，核对号与本轮图固定；可分批回复 `01=名称，02=名称`，也可直接用 S 编号。','']
+        last=''
+        for m in pending:
+            if m['group']!=last:lines+=['','## '+m['group'],'','| 核对号 | S编号 | 候选用途 | 图面依据 | 把握 |','|---|---|---|---|---|'];last=m['group']
+            lines.append(f"| {m['review']} | {m['id']} | {m['candidate'] or '未知'} | {m['basis']} | {m['confidence']} |")
+        (T/'36_核对清单.md').write_text('\n'.join(lines)+'\n')

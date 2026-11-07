@@ -1,0 +1,18 @@
+python - <<'PY'
+from PIL import Image,ImageDraw,ImageFont
+im=Image.open('/tmp/outpatient35-review/upright.png')
+f=ImageFont.truetype('/System/Library/Fonts/Menlo.ttc',15)
+for name,b in [('NW',(380,480,1260,1325)),('SW',(380,1480,1270,2070)),('SE',(1390,1460,2280,2070)),('courts',(600,800,1060,1495)),('legend2',(2330,200,3020,1370))]:
+ a=im.crop(b).resize(((b[2]-b[0])*2,(b[3]-b[1])*2)); d=ImageDraw.Draw(a)
+ if name!='legend2':
+  for x in range((b[0]//50+1)*50,b[2],50):
+   xx=(x-b[0])*2; d.line((xx,0,xx,a.height),fill=(30,160,210),width=1); d.text((xx+2,2),str(x),font=f,fill=(0,80,140))
+  for y in range((b[1]//50+1)*50,b[3],50):
+   yy=(y-b[1])*2;d.line((0,yy,a.width,yy),fill=(30,160,210),width=1);d.text((2,yy+2),str(y),font=f,fill=(0,80,140))
+ a.save('/tmp/outpatient35-review/'+name+'_grid.png')
+PY
+command -v uv && python - <<'PY'
+import importlib.util
+for x in ['shapely','pymupdf','cairosvg','PIL']:
+ print(x,bool(importlib.util.find_spec(x)))
+PY

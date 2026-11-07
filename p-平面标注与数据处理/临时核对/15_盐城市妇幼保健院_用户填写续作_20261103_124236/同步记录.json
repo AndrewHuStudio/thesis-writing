@@ -1,0 +1,192 @@
+{
+  "direct_names": {
+    "S005": "休息区",
+    "S006": "休息区",
+    "S012": "等候区",
+    "S014": "等候区",
+    "S016": "休息区",
+    "S017": "风机室",
+    "S021": "值班室",
+    "S022": "诊室",
+    "S023": "值班更衣",
+    "S024": "值班更衣",
+    "S059": "会议室",
+    "S064": "值班更衣",
+    "S065": "值班更衣",
+    "S067": "资料室",
+    "S137": "候诊区",
+    "S156": "VIP休息室",
+    "S176": "专科检查",
+    "S177": "候诊区",
+    "S294": "候诊区",
+    "S273": "教室",
+    "S275": "教室",
+    "S276": "休息区",
+    "S277": "休息区",
+    "S337": "休息区",
+    "S400": "休息区",
+    "S402": "休息区",
+    "S410": "库房",
+    "S415": "公共大厅",
+    "S419": "厕所",
+    "S420": "厕所"
+  },
+  "merged_ids": {
+    "S368": "S367",
+    "S401": "S400",
+    "S403": "S402",
+    "S416": "S415"
+  },
+  "corner_repartition_confirmed_in_chat": true,
+  "resolved_previous_pending": 34,
+  "remaining": [
+    "S205",
+    "S206",
+    "S222",
+    "S245",
+    "S274"
+  ],
+  "relation_changes": [
+    {
+      "before": {
+        "id": "R243",
+        "source": "S401",
+        "target": "S399",
+        "type": "access"
+      },
+      "action": "删除合并后自连接或重复关系"
+    },
+    {
+      "before": {
+        "id": "R245",
+        "source": "S403",
+        "target": "S399",
+        "type": "access"
+      },
+      "action": "删除合并后自连接或重复关系"
+    },
+    {
+      "before": {
+        "id": "R526",
+        "source": "S361",
+        "target": "S368",
+        "type": "shared_wall"
+      },
+      "after": {
+        "id": "R526",
+        "source": "S361",
+        "target": "S367",
+        "type": "shared_wall"
+      },
+      "action": "重定向合并端点"
+    },
+    {
+      "before": {
+        "id": "R528",
+        "source": "S362",
+        "target": "S368",
+        "type": "shared_wall"
+      },
+      "after": {
+        "id": "R528",
+        "source": "S362",
+        "target": "S367",
+        "type": "shared_wall"
+      },
+      "action": "重定向合并端点"
+    },
+    {
+      "before": {
+        "id": "R530",
+        "source": "S363",
+        "target": "S368",
+        "type": "shared_wall"
+      },
+      "after": {
+        "id": "R530",
+        "source": "S363",
+        "target": "S367",
+        "type": "shared_wall"
+      },
+      "action": "重定向合并端点"
+    },
+    {
+      "before": {
+        "id": "R532",
+        "source": "S364",
+        "target": "S368",
+        "type": "shared_wall"
+      },
+      "after": {
+        "id": "R532",
+        "source": "S364",
+        "target": "S367",
+        "type": "shared_wall"
+      },
+      "action": "重定向合并端点"
+    },
+    {
+      "before": {
+        "id": "R533",
+        "source": "S366",
+        "target": "S368",
+        "type": "shared_wall"
+      },
+      "after": {
+        "id": "R533",
+        "source": "S366",
+        "target": "S367",
+        "type": "shared_wall"
+      },
+      "action": "重定向合并端点"
+    },
+    {
+      "before": {
+        "id": "R552",
+        "source": "S400",
+        "target": "S401",
+        "type": "shared_wall"
+      },
+      "action": "删除合并后自连接或重复关系"
+    },
+    {
+      "before": {
+        "id": "R553",
+        "source": "S401",
+        "target": "S402",
+        "type": "shared_wall"
+      },
+      "after": {
+        "id": "R553",
+        "source": "S400",
+        "target": "S402",
+        "type": "shared_wall"
+      },
+      "action": "重定向合并端点"
+    },
+    {
+      "before": {
+        "id": "R554",
+        "source": "S402",
+        "target": "S403",
+        "type": "shared_wall"
+      },
+      "action": "删除合并后自连接或重复关系"
+    },
+    {
+      "before": {
+        "id": "R555",
+        "source": "S403",
+        "target": "S404",
+        "type": "shared_wall"
+      },
+      "after": {
+        "id": "R555",
+        "source": "S402",
+        "target": "S404",
+        "type": "shared_wall"
+      },
+      "action": "重定向合并端点"
+    }
+  ]
+}

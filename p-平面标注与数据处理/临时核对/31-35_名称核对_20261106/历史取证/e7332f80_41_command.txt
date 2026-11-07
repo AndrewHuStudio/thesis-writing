@@ -1,0 +1,6 @@
+command -v uv && python - <<'PY'
+from PIL import Image
+im=Image.open('p-写作过程/标注试样/34_青岛市中心医院综合病房楼/34_青岛市中心医院综合病房楼_原图.jpg')
+for name,box in [('妇产小字',(470,805,930,1180)),('外科小字',(1840,810,2160,1190))]:
+ im.crop(box).resize(((box[2]-box[0])*4,(box[3]-box[1])*4)).save('/tmp/outpatient34-review/'+name+'.png')
+PY

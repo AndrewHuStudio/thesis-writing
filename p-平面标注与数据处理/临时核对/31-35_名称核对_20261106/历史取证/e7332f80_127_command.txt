@@ -1,0 +1,11 @@
+python - <<'PY'
+from PIL import Image
+im=Image.open('/tmp/outpatient34-review/完整检查.svg.png')
+scale=im.width/3418
+xoff=487;head=122.2
+im.resize((1700,1700)).save('/tmp/outpatient34-review/34_标注完整预览.png')
+for name,b in [('妇产标注',(450,690,1090,1350)),('外科标注',(1830,695,2180,1355)),('急诊标注',(1170,1910,2170,2230)),('大厅标注',(390,1450,1435,2180))]:
+ x1,y1,x2,y2=b
+ box=tuple(round(v*scale) for v in (x1+xoff,y1+head,x2+xoff,y2+head))
+ cut=im.crop(box);cut.resize((round((x2-x1)*2),round((y2-y1)*2))).save('/tmp/outpatient34-review/'+name+'.png')
+PY

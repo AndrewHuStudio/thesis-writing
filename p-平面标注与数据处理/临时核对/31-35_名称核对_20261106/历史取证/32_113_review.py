@@ -1,0 +1,106 @@
+from pathlib import Path
+from PIL import Image,ImageDraw,ImageFont
+from shapely.geometry import Polygon,LineString
+import json,math
+T=Path('/tmp/outpatient32-review');P=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼')
+a=json.loads((P/'annotation.json').read_text());m=json.loads((T/'核对映射.json').read_text())
+source=Image.open(P/a['image']['file']).convert('RGB')
+fontpath='/System/Library/Fonts/STHeiti Medium.ttc'
+def f(n):return ImageFont.truetype(fontpath,n)
+F34=f(34);F28=f(28);F25=f(25);F22=f(22);F20=f(20)
+scale=1.9;side=1050;W=round(source.width*scale)+2*side;H=9000
+im=Image.new('RGB',(W,H),'#f3f6fa');d=ImageDraw.Draw(im)
+ox=side;oy=(H-round(source.height*scale))//2
+im.paste(source.resize((round(source.width*scale),round(source.height*scale)),Image.Resampling.LANCZOS),(ox,oy))
+d.text((side,35),'32 青岛大学附属医院东区病房综合楼｜一层标注草稿',font=F34,fill='#142e48')
+d.text((side,86),'115 项待确认；核对号 01—115。先按相邻片区，再从上到下、同排从左到右。',font=F28,fill='#973c10')
+d.text((side,130),'候选不等于名称。回复：01=名称，02=名称；可分批，也可用 S 编号。',font=F25,fill='#334155')
+d.text((side,H-90),'完整原图保持原方向，未裁切；彩框、编号与引线为临时叠加层。绿色围合区的室内外属性另待确认。',font=F25,fill='#334155')
+colors={'A':'#2b5caa','B':'#8552a0','C':'#b84436','D':'#077c71','E':'#865926','F':'#925172','G':'#3f6b2d','H':'#5261a3','I':'#a15f09','J':'#007293'}
+# 同一相邻片区集中同侧。B 只有第一项绿色区域在右侧，其余连续三项在左。
+for q in m:
+ q['side']='right' if q['group'] in ['A','D','F','H','J'] or (q['group']=='B' and q['key']=='green_upper2') else 'left'
+lines=[];labelboxes=[]
+def wrapped(text,maxwidth,font):
+ out=['']
+ for ch in text:
+  if d.textlength(out[-1]+ch,font=font)>maxwidth:out.append(ch)
+  else:out[-1]+=ch
+ return out
+for sd in ['left','right']:
+ qs=[q for q in m if q['side']==sd]
+ print(sd,len(qs))
+ previous=-1
+ for i,q in enumerate(qs):
+  poly=Polygon(q['polygon_px']);minx,miny,maxx,maxy=poly.bounds
+  ay=max(miny+4,previous+1.5)
+  if ay>maxy-2:raise ValueError('anchor order conflict '+q['key'])
+  previous=ay
+  cut=poly.intersection(LineString([(0,ay),(2436,ay)]))
+  b=cut.bounds;ax=b[0] if sd=='left' else b[2]
+  target=(ox+ax*scale,oy+ay*scale)
+  labely=230+i*(H-500)/max(1,len(qs)-1)
+  color=colors[q['group']]
+  labelx=25 if sd=='left' else W-side+25
+  bw=side-50;bh=100;cy=labely+bh/2
+  # 所有扇出线位于原图中的建筑外边，末段水平且按图面高度单调。
+  jointx=ox+350*scale if sd=='left' else ox+2060*scale
+  start=(labelx+bw,cy) if sd=='left' else (labelx,cy)
+  path=[start,(jointx,target[1]),target]
+  lines.append((q['review'],LineString(path)))
+  d.line(path,fill=color,width=2)
+  q['anchor']=[ax,ay]
+  # 彩色轮廓、图内编号以同一颜色对应边栏。
+  pts=[(ox+x*scale,oy+y*scale) for x,y in q['polygon_px']]
+  d.line(pts+[pts[0]],fill=color,width=4)
+  # 图内编号置于目标点附近，避免遮盖底图房名。
+  num=q['review'];tw=d.textlength(num,font=F28)+12
+  nx=target[0]+6 if sd=='left' else target[0]-tw-6
+  ny=target[1]+4
+  d.rounded_rectangle((nx,ny,nx+tw,ny+35),radius=5,fill='white',outline=color,width=2)
+  d.text((nx+6,ny+2),num,font=F28,fill=color)
+  d.rounded_rectangle((labelx,labely,labelx+bw,labely+bh),radius=8,fill='white',outline=color,width=2)
+  d.text((labelx+12,labely+6),f"{q['review']}｜{q['id']}   把握：{q['confidence']}",font=F28,fill=color)
+  can=q['candidate']
+  rows=wrapped('候选：'+can,bw-24,F25)
+  if len(rows)>1:raise ValueError('candidate too long')
+  d.text((labelx+12,labely+39),rows[0],font=F25,fill='#162f47')
+  bas=wrapped('依据：'+q['basis'],bw-24,F20)[0]
+  if len(wrapped('依据：'+q['basis'],bw-24,F20))>1:bas=bas[:-1]+'…'
+  d.text((labelx+12,labely+72),bas,font=F20,fill='#475569')
+  labelboxes.append((labelx,labely,labelx+bw,labely+bh))
+# 引线逐对检测，发现交叉不交付。
+cross=[]
+for i,(na,la) in enumerate(lines):
+ for nb,lb in lines[i+1:]:
+  if la.intersects(lb):cross.append((na,nb))
+if cross:raise ValueError('leader intersections '+str(cross[:15]))
+for i,a1 in enumerate(labelboxes):
+ for b1 in labelboxes[i+1:]:
+  if min(a1[2],b1[2])>max(a1[0],b1[0]) and min(a1[3],b1[3])>max(a1[1],b1[1]):raise ValueError('label overlap')
+im.save(T/'32_高清核对总图.png')
+im.resize((round(W*.35),3150)).save(T/'32_核对总图预览.png')
+# 高密度小房间局部，沿用总图核对号和 S，不再重新编号；局部作为补充。
+for title,b in [('01_上部服务片区',(1360,230,1940,650)),('02_左侧医技上片区',(365,1170,1040,1605)),('03_左侧医技中片区',(365,1590,1040,2150)),('04_左下支持与诊疗片区',(365,2310,1040,2925)),('05_右侧服务与大厅',(1380,1220,1930,2090)),('06_右下诊疗片区',(1380,2460,1810,2925))]:
+ crop=source.crop(b);ss=3;canvas=Image.new('RGB',(crop.width*ss,crop.height*ss+90),'white');canvas.paste(crop.resize((crop.width*ss,crop.height*ss)),(0,90));cd=ImageDraw.Draw(canvas)
+ cd.text((12,15),title+'｜沿用总图核对号',font=F28,fill='#162f47')
+ for q in m:
+  poly=Polygon(q['polygon_px']);cx,cy=poly.representative_point().coords[0]
+  if not (b[0]<=cx<b[2] and b[1]<=cy<b[3]):continue
+  color=colors[q['group']];pts=[((x-b[0])*ss,(y-b[1])*ss+90) for x,y in q['polygon_px']]
+  cd.line(pts+[pts[0]],fill=color,width=4)
+  anchor=poly.representative_point();tx=(anchor.x-b[0])*ss;ty=(anchor.y-b[1])*ss+90
+  text=q['review']+' '+q['id'];tw=cd.textlength(text,font=F28)
+  cd.rectangle((tx-tw/2-4,ty-17,tx+tw/2+4,ty+18),fill='white',outline=color,width=2)
+  cd.text((tx-tw/2,ty-15),text,font=F28,fill=color)
+ canvas.save(T/(title+'.png'))
+# 临时连续核对表，表内保留依据与候选，核心 JSON 不保存这些推断。
+text=['# 32号一层名称核对表','',f'共 {len(m)} 项。候选均未确认；同轮核对号保持不变。可回复 `01=名称，02=名称`，也可直接使用 S 编号。','', '| 核对号 | S编号 | 片区 | 候选用途 | 图面依据 | 把握 |','|---|---|---|---|---|---|']
+for q in m:text.append(f"| {q['review']} | {q['id']} | {q['group']} | {q['candidate']} | {q['basis']} | {q['confidence']} |")
+(T/'名称核对表.md').write_text('
+'.join(text)+'
+')
+(T/'核对映射.json').write_text(json.dumps(m,ensure_ascii=False,indent=2)+'
+')
+(T/'核对图检查.json').write_text(json.dumps(dict(pending=len(m),unique_numbers=len(set(q['review'] for q in m)),unique_space_ids=len(set(q['id'] for q in m)),leader_intersections=cross,label_overlaps=0,width=W,height=H),ensure_ascii=False,indent=2))
+print('Review generated',W,H)

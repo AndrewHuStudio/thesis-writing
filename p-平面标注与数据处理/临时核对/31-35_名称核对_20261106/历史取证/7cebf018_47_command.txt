@@ -1,0 +1,6 @@
+python - <<'PY'
+from PIL import Image
+im=Image.open('p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/32_青岛大学附属医院东区病房综合楼_原图.jpg')
+im.rotate(180,expand=True).resize((2436,3344)).save('/tmp/outpatient32-review/文字方向.png')
+im.crop((350,2350,1050,2900)).resize((1400,1100)).save('/tmp/outpatient32-review/原向底部.png')
+PY

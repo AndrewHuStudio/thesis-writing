@@ -1,0 +1,3468 @@
+{
+  "geometry_changes": [
+    {
+      "space": "S027",
+      "reason": "原图下排诊室前存在连续公共走道，补足旧轮廓遗漏，沿用原编号",
+      "added_polygon_px": [
+        [
+          431.03,
+          687.56
+        ],
+        [
+          493.24,
+          687.56
+        ],
+        [
+          493.24,
+          850.56
+        ],
+        [
+          431.03,
+          850.56
+        ]
+      ]
+    },
+    {
+      "retired_space": {
+        "id": "S023",
+        "name": "药房东侧公共通道（支段）",
+        "type": "corridor",
+        "level": "open_space",
+        "scope": "public_service",
+        "polygon_px": [
+          [
+            925.76,
+            949.85
+          ],
+          [
+            976.12,
+            949.85
+          ],
+          [
+            1073.88,
+            949.85
+          ],
+          [
+            1073.88,
+            948.36
+          ],
+          [
+            995.37,
+            948.36
+          ],
+          [
+            925.76,
+            948.36
+          ]
+        ],
+        "area_ratio": 0.0001205
+      },
+      "merged_into": [
+        "S024",
+        "S025"
+      ],
+      "reason": "旧差集产生1.49px宽边界条，非独立空间；S023退役不复用，名称固定核对映射不受影响"
+    }
+  ],
+  "relation_corrections": [
+    {
+      "before": {
+        "id": "R008",
+        "source": "S016",
+        "target": "S025",
+        "type": "access"
+      },
+      "reason": "改为经相邻前厅/空间到达；旧关系跨过了另一个已标注空间"
+    },
+    {
+      "before": {
+        "id": "R009",
+        "source": "S016",
+        "target": "S024",
+        "type": "access"
+      },
+      "reason": "改为经相邻前厅/空间到达；旧关系跨过了另一个已标注空间"
+    },
+    {
+      "before": {
+        "id": "R020",
+        "source": "S078",
+        "target": "S065",
+        "type": "access"
+      },
+      "reason": "S078 入口首先进入 S077，原关系跨过了 S077"
+    },
+    {
+      "before": {
+        "id": "R029",
+        "source": "S149",
+        "target": "S126",
+        "type": "access"
+      },
+      "reason": "改为经相邻前厅/空间到达；旧关系跨过了另一个已标注空间"
+    },
+    {
+      "before": {
+        "id": "R054",
+        "source": "S123",
+        "target": "S103",
+        "type": "access"
+      },
+      "reason": "门洞实际开向 S126；西侧 S103 一侧为连续隔墙"
+    },
+    {
+      "before": {
+        "id": "R055",
+        "source": "S122",
+        "target": "S103",
+        "type": "access"
+      },
+      "reason": "门洞实际开向 S126；西侧 S103 一侧为连续隔墙"
+    },
+    {
+      "before": {
+        "id": "R056",
+        "source": "S121",
+        "target": "S103",
+        "type": "access"
+      },
+      "reason": "门洞实际开向 S126；西侧 S103 一侧为连续隔墙"
+    },
+    {
+      "before": {
+        "id": "R057",
+        "source": "S120",
+        "target": "S103",
+        "type": "access"
+      },
+      "reason": "门洞实际开向 S126；西侧 S103 一侧为连续隔墙"
+    },
+    {
+      "before": {
+        "id": "R058",
+        "source": "S119",
+        "target": "S103",
+        "type": "access"
+      },
+      "reason": "门洞实际开向 S126；西侧 S103 一侧为连续隔墙"
+    },
+    {
+      "before": {
+        "id": "R059",
+        "source": "S118",
+        "target": "S103",
+        "type": "access"
+      },
+      "reason": "门洞实际开向 S126；西侧 S103 一侧为连续隔墙"
+    },
+    {
+      "before": {
+        "id": "R060",
+        "source": "S117",
+        "target": "S103",
+        "type": "access"
+      },
+      "reason": "门洞实际开向 S126；西侧 S103 一侧为连续隔墙"
+    },
+    {
+      "before": {
+        "id": "R061",
+        "source": "S116",
+        "target": "S103",
+        "type": "access"
+      },
+      "reason": "门洞实际开向 S126；西侧 S103 一侧为连续隔墙"
+    },
+    {
+      "before": {
+        "id": "R064",
+        "source": "S136",
+        "target": "S126",
+        "type": "access"
+      },
+      "reason": "S136 上侧双扇门开向 S100，非 S126"
+    },
+    {
+      "retired": {
+        "id": "E10",
+        "source": null,
+        "target": "S103",
+        "type": "entrance",
+        "name": "放射影像区南侧入口",
+        "entrance_type": "public",
+        "position_px": [
+          925.76,
+          1447.74
+        ]
+      },
+      "reason": "该门位在 S002 与 S103 室内分界，保留 R023 的室内连接；E10 退役不复用"
+    },
+    {
+      "retired": {
+        "id": "R025",
+        "source": "S126",
+        "target": "S002",
+        "type": "access"
+      },
+      "reason": "S126 与 S002 中间隔着放射影像区和房间，原图不支持直接连接；R025退役不复用"
+    }
+  ],
+  "observed_openings": [
+    {
+      "relation_id": "R082",
+      "source": "S151",
+      "target": "S001",
+      "crop": "A",
+      "crop_position": [
+        102,
+        466
+      ],
+      "observed_position_px": [
+        1287.0,
+        271.0
+      ],
+      "position_px": [
+        1288.65,
+        271.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.65,
+      "kind": "door",
+      "opening_id": "P001"
+    },
+    {
+      "relation_id": "R083",
+      "source": "S152",
+      "target": "S001",
+      "crop": "A",
+      "crop_position": [
+        172,
+        467
+      ],
+      "observed_position_px": [
+        1286.5,
+        306.0
+      ],
+      "position_px": [
+        1288.65,
+        306.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 2.15,
+      "kind": "door",
+      "opening_id": "P002"
+    },
+    {
+      "relation_id": "R084",
+      "source": "S006",
+      "target": "S007",
+      "crop": "A",
+      "crop_position": [
+        139,
+        110
+      ],
+      "observed_position_px": [
+        1465.0,
+        289.5
+      ],
+      "position_px": [
+        1465.0,
+        290.44
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.94,
+      "kind": "door",
+      "opening_id": "P003"
+    },
+    {
+      "relation_id": "R085",
+      "source": "S009",
+      "target": "S007",
+      "crop": "A",
+      "crop_position": [
+        307,
+        111
+      ],
+      "observed_position_px": [
+        1464.5,
+        373.5
+      ],
+      "position_px": [
+        1464.5,
+        373.42
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.08,
+      "kind": "door",
+      "opening_id": "P004"
+    },
+    {
+      "relation_id": "R086",
+      "source": "S005",
+      "target": "S007",
+      "crop": "A",
+      "crop_position": [
+        186,
+        155
+      ],
+      "observed_position_px": [
+        1442.5,
+        313.0
+      ],
+      "position_px": [
+        1442.7,
+        313.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.2,
+      "kind": "door",
+      "opening_id": "P005"
+    },
+    {
+      "relation_id": "R087",
+      "source": "S008",
+      "target": "S007",
+      "crop": "A",
+      "crop_position": [
+        275,
+        155
+      ],
+      "observed_position_px": [
+        1442.5,
+        357.5
+      ],
+      "position_px": [
+        1442.7,
+        357.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.2,
+      "kind": "door",
+      "opening_id": "P006"
+    },
+    {
+      "relation_id": "R088",
+      "source": "S011",
+      "target": "S001",
+      "crop": "A",
+      "crop_position": [
+        609,
+        535
+      ],
+      "observed_position_px": [
+        1252.5,
+        524.5
+      ],
+      "position_px": [
+        1252.5,
+        520.86
+      ],
+      "max_polygon_distance_px": 2.22,
+      "projection_shift_px": 3.64,
+      "kind": "door",
+      "opening_id": "P007"
+    },
+    {
+      "relation_id": "R089",
+      "source": "S011",
+      "target": "S012",
+      "crop": "A",
+      "crop_position": [
+        693,
+        493
+      ],
+      "observed_position_px": [
+        1273.5,
+        566.5
+      ],
+      "position_px": [
+        1273.84,
+        566.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.34,
+      "kind": "door",
+      "opening_id": "P008"
+    },
+    {
+      "relation_id": "R090",
+      "source": "S012",
+      "target": "S014",
+      "crop": "A",
+      "crop_position": [
+        725,
+        451
+      ],
+      "observed_position_px": [
+        1294.5,
+        582.5
+      ],
+      "position_px": [
+        1294.5,
+        582.35
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.15,
+      "kind": "door",
+      "opening_id": "P009"
+    },
+    {
+      "relation_id": "R081",
+      "source": "S014",
+      "target": "S015",
+      "crop": "A",
+      "crop_position": [
+        1046,
+        383
+      ],
+      "observed_position_px": [
+        1328.5,
+        743.0
+      ],
+      "position_px": [
+        1328.65,
+        743.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.15,
+      "kind": "door",
+      "opening_id": "P010"
+    },
+    {
+      "relation_id": "R007",
+      "source": "S019",
+      "target": "S016",
+      "crop": "A",
+      "crop_position": [
+        1463,
+        880
+      ],
+      "observed_position_px": [
+        1080.0,
+        951.5
+      ],
+      "position_px": [
+        1080.0,
+        948.36
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 3.14,
+      "kind": "door",
+      "opening_id": "P011"
+    },
+    {
+      "relation_id": "R091",
+      "source": "S020",
+      "target": "S016",
+      "crop": "A",
+      "crop_position": [
+        1374,
+        510
+      ],
+      "observed_position_px": [
+        1265.0,
+        907.0
+      ],
+      "position_px": [
+        1265.0,
+        906.87
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.13,
+      "kind": "door",
+      "opening_id": "P012"
+    },
+    {
+      "relation_id": "R092",
+      "source": "S021",
+      "target": "S016",
+      "crop": "A",
+      "crop_position": [
+        1374,
+        403
+      ],
+      "observed_position_px": [
+        1318.5,
+        907.0
+      ],
+      "position_px": [
+        1318.5,
+        906.87
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.13,
+      "kind": "door",
+      "opening_id": "P013"
+    },
+    {
+      "relation_id": "R093",
+      "source": "S022",
+      "target": "S016",
+      "crop": "A",
+      "crop_position": [
+        1374,
+        311
+      ],
+      "observed_position_px": [
+        1364.5,
+        907.0
+      ],
+      "position_px": [
+        1364.5,
+        906.87
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.13,
+      "kind": "door",
+      "opening_id": "P014"
+    },
+    {
+      "relation_id": "R094",
+      "source": "S017",
+      "target": "S016",
+      "crop": "A",
+      "crop_position": [
+        1353,
+        1070
+      ],
+      "observed_position_px": [
+        985.0,
+        896.5
+      ],
+      "position_px": [
+        985.0,
+        896.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.0,
+      "kind": "door",
+      "opening_id": "P015"
+    },
+    {
+      "relation_id": "R095",
+      "source": "S018",
+      "target": "S016",
+      "crop": "A",
+      "crop_position": [
+        1353,
+        920
+      ],
+      "observed_position_px": [
+        1060.0,
+        896.5
+      ],
+      "position_px": [
+        1060.0,
+        896.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.0,
+      "kind": "door",
+      "opening_id": "P016"
+    },
+    {
+      "relation_id": "R009",
+      "source": "S024",
+      "target": "S017",
+      "crop": "A",
+      "crop_position": [
+        1456,
+        1108
+      ],
+      "observed_position_px": [
+        966.0,
+        948.0
+      ],
+      "position_px": [
+        966.0,
+        948.36
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.36,
+      "kind": "door",
+      "opening_id": "P017"
+    },
+    {
+      "relation_id": "R008",
+      "source": "S025",
+      "target": "S018",
+      "crop": "A",
+      "crop_position": [
+        1456,
+        1007
+      ],
+      "observed_position_px": [
+        1016.5,
+        948.0
+      ],
+      "position_px": [
+        1016.5,
+        948.36
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.36,
+      "kind": "door",
+      "opening_id": "P018"
+    },
+    {
+      "relation_id": "R096",
+      "source": "S026",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        125,
+        781
+      ],
+      "observed_position_px": [
+        429.5,
+        277.5
+      ],
+      "position_px": [
+        431.77,
+        277.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 2.27,
+      "kind": "door",
+      "opening_id": "P019"
+    },
+    {
+      "relation_id": "R097",
+      "source": "S028",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        60,
+        650
+      ],
+      "observed_position_px": [
+        495.0,
+        245.0
+      ],
+      "position_px": [
+        493.24,
+        245.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.76,
+      "kind": "door",
+      "opening_id": "P020"
+    },
+    {
+      "relation_id": "R098",
+      "source": "S029",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        178,
+        782
+      ],
+      "observed_position_px": [
+        429.0,
+        304.0
+      ],
+      "position_px": [
+        431.77,
+        304.0
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 2.77,
+      "kind": "door",
+      "opening_id": "P021"
+    },
+    {
+      "relation_id": "R099",
+      "source": "S030",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        230,
+        650
+      ],
+      "observed_position_px": [
+        495.0,
+        330.0
+      ],
+      "position_px": [
+        493.24,
+        330.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.76,
+      "kind": "door",
+      "opening_id": "P022"
+    },
+    {
+      "relation_id": "R100",
+      "source": "S031",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        327,
+        782
+      ],
+      "observed_position_px": [
+        429.0,
+        378.5
+      ],
+      "position_px": [
+        431.77,
+        378.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 2.77,
+      "kind": "door",
+      "opening_id": "P023"
+    },
+    {
+      "relation_id": "R101",
+      "source": "S032",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        292,
+        650
+      ],
+      "observed_position_px": [
+        495.0,
+        361.0
+      ],
+      "position_px": [
+        493.24,
+        361.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.76,
+      "kind": "door",
+      "opening_id": "P024"
+    },
+    {
+      "relation_id": "R102",
+      "source": "S033",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        446,
+        782
+      ],
+      "observed_position_px": [
+        429.0,
+        438.0
+      ],
+      "position_px": [
+        431.77,
+        438.0
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 2.77,
+      "kind": "door",
+      "opening_id": "P025"
+    },
+    {
+      "relation_id": "R103",
+      "source": "S034",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        569,
+        782
+      ],
+      "observed_position_px": [
+        429.0,
+        499.5
+      ],
+      "position_px": [
+        431.77,
+        499.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 2.77,
+      "kind": "door",
+      "opening_id": "P026"
+    },
+    {
+      "relation_id": "R104",
+      "source": "S035",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        813,
+        778
+      ],
+      "observed_position_px": [
+        431.0,
+        621.5
+      ],
+      "position_px": [
+        431.77,
+        621.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.77,
+      "kind": "door",
+      "opening_id": "P027"
+    },
+    {
+      "relation_id": "R105",
+      "source": "S036",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        602,
+        590
+      ],
+      "observed_position_px": [
+        525.0,
+        516.0
+      ],
+      "position_px": [
+        525.0,
+        518.64
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 2.64,
+      "kind": "door",
+      "opening_id": "P028"
+    },
+    {
+      "relation_id": "R106",
+      "source": "S036",
+      "target": "S044",
+      "crop": "B",
+      "crop_position": [
+        946,
+        600
+      ],
+      "observed_position_px": [
+        520.0,
+        688.0
+      ],
+      "position_px": [
+        520.0,
+        687.56
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.44,
+      "kind": "door",
+      "opening_id": "P029"
+    },
+    {
+      "relation_id": "R107",
+      "source": "S037",
+      "target": "S039",
+      "crop": "B",
+      "crop_position": [
+        714,
+        282
+      ],
+      "observed_position_px": [
+        679.0,
+        572.0
+      ],
+      "position_px": [
+        676.17,
+        572.0
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 2.83,
+      "kind": "door",
+      "opening_id": "P030"
+    },
+    {
+      "relation_id": "R108",
+      "source": "S040",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        676,
+        420
+      ],
+      "observed_position_px": [
+        610.0,
+        553.0
+      ],
+      "position_px": [
+        610.0,
+        552.72
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.28,
+      "kind": "door",
+      "opening_id": "P031"
+    },
+    {
+      "relation_id": "R109",
+      "source": "S041",
+      "target": "S039",
+      "crop": "B",
+      "crop_position": [
+        755,
+        284
+      ],
+      "observed_position_px": [
+        678.0,
+        592.5
+      ],
+      "position_px": [
+        676.17,
+        592.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.83,
+      "kind": "door",
+      "opening_id": "P032"
+    },
+    {
+      "relation_id": "R109",
+      "source": "S041",
+      "target": "S039",
+      "crop": "B",
+      "crop_position": [
+        853,
+        260
+      ],
+      "observed_position_px": [
+        690.0,
+        641.5
+      ],
+      "position_px": [
+        690.0,
+        644.59
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 3.09,
+      "kind": "door",
+      "opening_id": "P033"
+    },
+    {
+      "relation_id": "R110",
+      "source": "S042",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        883,
+        778
+      ],
+      "observed_position_px": [
+        431.0,
+        656.5
+      ],
+      "position_px": [
+        431.77,
+        656.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.77,
+      "kind": "door",
+      "opening_id": "P034"
+    },
+    {
+      "relation_id": "R111",
+      "source": "S043",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        1008,
+        778
+      ],
+      "observed_position_px": [
+        431.0,
+        719.0
+      ],
+      "position_px": [
+        431.03,
+        719.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.03,
+      "kind": "door",
+      "opening_id": "P035"
+    },
+    {
+      "relation_id": "R112",
+      "source": "S045",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        1091,
+        778
+      ],
+      "observed_position_px": [
+        431.0,
+        760.5
+      ],
+      "position_px": [
+        431.03,
+        760.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.03,
+      "kind": "door",
+      "opening_id": "P036"
+    },
+    {
+      "relation_id": "R113",
+      "source": "S047",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        1210,
+        778
+      ],
+      "observed_position_px": [
+        431.0,
+        820.0
+      ],
+      "position_px": [
+        431.03,
+        820.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.03,
+      "kind": "door",
+      "opening_id": "P037"
+    },
+    {
+      "relation_id": "R114",
+      "source": "S046",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        1105,
+        652
+      ],
+      "observed_position_px": [
+        494.0,
+        767.5
+      ],
+      "position_px": [
+        493.24,
+        767.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.76,
+      "kind": "door",
+      "opening_id": "P038"
+    },
+    {
+      "relation_id": "R115",
+      "source": "S048",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1268,
+        620
+      ],
+      "observed_position_px": [
+        510.0,
+        849.0
+      ],
+      "position_px": [
+        510.0,
+        849.82
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.82,
+      "kind": "door",
+      "opening_id": "P039"
+    },
+    {
+      "relation_id": "R116",
+      "source": "S049",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1268,
+        559
+      ],
+      "observed_position_px": [
+        540.5,
+        849.0
+      ],
+      "position_px": [
+        540.5,
+        849.82
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.82,
+      "kind": "door",
+      "opening_id": "P040"
+    },
+    {
+      "relation_id": "R117",
+      "source": "S050",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1268,
+        497
+      ],
+      "observed_position_px": [
+        571.5,
+        849.0
+      ],
+      "position_px": [
+        571.5,
+        849.82
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.82,
+      "kind": "door",
+      "opening_id": "P041"
+    },
+    {
+      "relation_id": "R118",
+      "source": "S053",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1362,
+        605
+      ],
+      "observed_position_px": [
+        517.5,
+        896.0
+      ],
+      "position_px": [
+        517.5,
+        896.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.5,
+      "kind": "door",
+      "opening_id": "P042"
+    },
+    {
+      "relation_id": "R119",
+      "source": "S054",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1362,
+        510
+      ],
+      "observed_position_px": [
+        565.0,
+        896.0
+      ],
+      "position_px": [
+        565.0,
+        896.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.5,
+      "kind": "door",
+      "opening_id": "P043"
+    },
+    {
+      "relation_id": "R120",
+      "source": "S055",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1362,
+        422
+      ],
+      "observed_position_px": [
+        609.0,
+        896.0
+      ],
+      "position_px": [
+        609.0,
+        896.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.5,
+      "kind": "door",
+      "opening_id": "P044"
+    },
+    {
+      "relation_id": "R121",
+      "source": "S056",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1362,
+        343
+      ],
+      "observed_position_px": [
+        648.5,
+        896.0
+      ],
+      "position_px": [
+        648.5,
+        896.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.5,
+      "kind": "door",
+      "opening_id": "P045"
+    },
+    {
+      "relation_id": "R122",
+      "source": "S057",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1362,
+        236
+      ],
+      "observed_position_px": [
+        702.0,
+        896.0
+      ],
+      "position_px": [
+        702.0,
+        896.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.5,
+      "kind": "door",
+      "opening_id": "P046"
+    },
+    {
+      "relation_id": "R123",
+      "source": "S058",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1362,
+        134
+      ],
+      "observed_position_px": [
+        753.0,
+        896.0
+      ],
+      "position_px": [
+        753.0,
+        896.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.5,
+      "kind": "door",
+      "opening_id": "P047"
+    },
+    {
+      "relation_id": "R010",
+      "source": "S039",
+      "target": "S002",
+      "crop": "B",
+      "crop_position": [
+        1100,
+        174
+      ],
+      "observed_position_px": [
+        733.0,
+        765.0
+      ],
+      "position_px": [
+        732.46,
+        765.0
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.54,
+      "kind": "door",
+      "opening_id": "P048"
+    },
+    {
+      "relation_id": "R124",
+      "source": "S039",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1268,
+        260
+      ],
+      "observed_position_px": [
+        690.0,
+        849.0
+      ],
+      "position_px": [
+        690.0,
+        849.82
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.82,
+      "kind": "door",
+      "opening_id": "P049"
+    },
+    {
+      "relation_id": "R014",
+      "source": "S051",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1454,
+        773
+      ],
+      "observed_position_px": [
+        433.5,
+        942.0
+      ],
+      "position_px": [
+        434.0,
+        942.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.5,
+      "kind": "door",
+      "opening_id": "P050"
+    },
+    {
+      "relation_id": "R011",
+      "source": "S039",
+      "target": "S027",
+      "crop": "B",
+      "crop_position": [
+        675,
+        324
+      ],
+      "observed_position_px": [
+        658.0,
+        552.5
+      ],
+      "position_px": [
+        658.0,
+        552.72
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.22,
+      "kind": "open_passage",
+      "opening_id": "P051"
+    },
+    {
+      "relation_id": "R013",
+      "source": "S027",
+      "target": "S052",
+      "crop": "B",
+      "crop_position": [
+        1271,
+        720
+      ],
+      "observed_position_px": [
+        460.0,
+        850.5
+      ],
+      "position_px": [
+        460.0,
+        850.56
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.06,
+      "kind": "open_passage",
+      "opening_id": "P052"
+    },
+    {
+      "relation_id": "R125",
+      "source": "S061",
+      "target": "S059",
+      "crop": "C",
+      "crop_position": [
+        151,
+        246
+      ],
+      "observed_position_px": [
+        1727.0,
+        295.5
+      ],
+      "position_px": [
+        1726.35,
+        295.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.65,
+      "kind": "door",
+      "opening_id": "P053"
+    },
+    {
+      "relation_id": "R126",
+      "source": "S062",
+      "target": "S059",
+      "crop": "C",
+      "crop_position": [
+        244,
+        246
+      ],
+      "observed_position_px": [
+        1727.0,
+        342.0
+      ],
+      "position_px": [
+        1726.35,
+        342.0
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.65,
+      "kind": "door",
+      "opening_id": "P054"
+    },
+    {
+      "relation_id": "R127",
+      "source": "S064",
+      "target": "S059",
+      "crop": "C",
+      "crop_position": [
+        315,
+        246
+      ],
+      "observed_position_px": [
+        1727.0,
+        377.5
+      ],
+      "position_px": [
+        1726.35,
+        377.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.65,
+      "kind": "door",
+      "opening_id": "P055"
+    },
+    {
+      "relation_id": "R016",
+      "source": "S066",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        450,
+        246
+      ],
+      "observed_position_px": [
+        1727.0,
+        445.0
+      ],
+      "position_px": [
+        1726.35,
+        445.0
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.65,
+      "kind": "open_passage",
+      "opening_id": "P056"
+    },
+    {
+      "relation_id": "R128",
+      "source": "S067",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        579,
+        246
+      ],
+      "observed_position_px": [
+        1727.0,
+        509.5
+      ],
+      "position_px": [
+        1726.35,
+        509.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.65,
+      "kind": "door",
+      "opening_id": "P057"
+    },
+    {
+      "relation_id": "R129",
+      "source": "S070",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        684,
+        246
+      ],
+      "observed_position_px": [
+        1727.0,
+        562.0
+      ],
+      "position_px": [
+        1726.35,
+        562.0
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.65,
+      "kind": "door",
+      "opening_id": "P058"
+    },
+    {
+      "relation_id": "R130",
+      "source": "S071",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        775,
+        246
+      ],
+      "observed_position_px": [
+        1727.0,
+        607.5
+      ],
+      "position_px": [
+        1726.35,
+        607.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.65,
+      "kind": "door",
+      "opening_id": "P059"
+    },
+    {
+      "relation_id": "R131",
+      "source": "S073",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        881,
+        246
+      ],
+      "observed_position_px": [
+        1727.0,
+        660.5
+      ],
+      "position_px": [
+        1726.35,
+        660.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.65,
+      "kind": "door",
+      "opening_id": "P060"
+    },
+    {
+      "relation_id": "R132",
+      "source": "S075",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        1007,
+        246
+      ],
+      "observed_position_px": [
+        1727.0,
+        723.5
+      ],
+      "position_px": [
+        1726.35,
+        723.5
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.65,
+      "kind": "door",
+      "opening_id": "P061"
+    },
+    {
+      "relation_id": "R020",
+      "source": "S078",
+      "target": "S077",
+      "crop": "C",
+      "crop_position": [
+        1098,
+        117
+      ],
+      "observed_position_px": [
+        1791.5,
+        769.0
+      ],
+      "position_px": [
+        1792.27,
+        769.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.77,
+      "kind": "door",
+      "opening_id": "P062"
+    },
+    {
+      "relation_id": "R133",
+      "source": "S060",
+      "target": "S059",
+      "crop": "C",
+      "crop_position": [
+        169,
+        382
+      ],
+      "observed_position_px": [
+        1659.0,
+        304.5
+      ],
+      "position_px": [
+        1660.44,
+        304.5
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.44,
+      "kind": "door",
+      "opening_id": "P063"
+    },
+    {
+      "relation_id": "R133",
+      "source": "S060",
+      "target": "S059",
+      "crop": "C",
+      "crop_position": [
+        183,
+        520
+      ],
+      "observed_position_px": [
+        1590.0,
+        311.5
+      ],
+      "position_px": [
+        1590.0,
+        311.18
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.32,
+      "kind": "door",
+      "opening_id": "P064"
+    },
+    {
+      "relation_id": "R134",
+      "source": "S069",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        704,
+        380
+      ],
+      "observed_position_px": [
+        1660.0,
+        572.0
+      ],
+      "position_px": [
+        1660.44,
+        572.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.44,
+      "kind": "door",
+      "opening_id": "P065"
+    },
+    {
+      "relation_id": "R134",
+      "source": "S069",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        618,
+        531
+      ],
+      "observed_position_px": [
+        1584.5,
+        529.0
+      ],
+      "position_px": [
+        1584.5,
+        529.01
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.01,
+      "kind": "door",
+      "opening_id": "P066"
+    },
+    {
+      "relation_id": "R135",
+      "source": "S074",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        932,
+        315
+      ],
+      "observed_position_px": [
+        1692.5,
+        686.0
+      ],
+      "position_px": [
+        1692.5,
+        684.6
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.4,
+      "kind": "door",
+      "opening_id": "P067"
+    },
+    {
+      "relation_id": "R136",
+      "source": "S074",
+      "target": "S076",
+      "crop": "C",
+      "crop_position": [
+        1041,
+        350
+      ],
+      "observed_position_px": [
+        1675.0,
+        740.5
+      ],
+      "position_px": [
+        1675.0,
+        740.91
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.41,
+      "kind": "door",
+      "opening_id": "P068"
+    },
+    {
+      "relation_id": "R137",
+      "source": "S072",
+      "target": "S076",
+      "crop": "C",
+      "crop_position": [
+        1138,
+        380
+      ],
+      "observed_position_px": [
+        1660.0,
+        789.0
+      ],
+      "position_px": [
+        1660.44,
+        789.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.44,
+      "kind": "door",
+      "opening_id": "P069"
+    },
+    {
+      "relation_id": "R138",
+      "source": "S079",
+      "target": "S080",
+      "crop": "C",
+      "crop_position": [
+        1240,
+        380
+      ],
+      "observed_position_px": [
+        1660.0,
+        840.0
+      ],
+      "position_px": [
+        1660.44,
+        840.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.44,
+      "kind": "door",
+      "opening_id": "P070"
+    },
+    {
+      "relation_id": "R139",
+      "source": "S080",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        1246,
+        310
+      ],
+      "observed_position_px": [
+        1695.0,
+        843.0
+      ],
+      "position_px": [
+        1704.88,
+        843.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 9.88,
+      "kind": "door",
+      "opening_id": "P071"
+    },
+    {
+      "relation_id": "R019",
+      "source": "S083",
+      "target": "S082",
+      "crop": "C",
+      "crop_position": [
+        1292,
+        246
+      ],
+      "observed_position_px": [
+        1727.0,
+        866.0
+      ],
+      "position_px": [
+        1726.35,
+        866.0
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.65,
+      "kind": "door",
+      "opening_id": "P072"
+    },
+    {
+      "relation_id": "R140",
+      "source": "S089",
+      "target": "S082",
+      "crop": "C",
+      "crop_position": [
+        1376,
+        275
+      ],
+      "observed_position_px": [
+        1712.5,
+        908.0
+      ],
+      "position_px": [
+        1712.5,
+        908.35
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.35,
+      "kind": "door",
+      "opening_id": "P073"
+    },
+    {
+      "relation_id": "R141",
+      "source": "S088",
+      "target": "S082",
+      "crop": "C",
+      "crop_position": [
+        1390,
+        445
+      ],
+      "observed_position_px": [
+        1627.5,
+        915.0
+      ],
+      "position_px": [
+        1627.85,
+        915.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.35,
+      "kind": "door",
+      "opening_id": "P074"
+    },
+    {
+      "relation_id": "R142",
+      "source": "S092",
+      "target": "S082",
+      "crop": "C",
+      "crop_position": [
+        1500,
+        445
+      ],
+      "observed_position_px": [
+        1627.5,
+        970.0
+      ],
+      "position_px": [
+        1627.85,
+        970.0
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.35,
+      "kind": "door",
+      "opening_id": "P075"
+    },
+    {
+      "relation_id": "R143",
+      "source": "S087",
+      "target": "S082",
+      "crop": "C",
+      "crop_position": [
+        1390,
+        567
+      ],
+      "observed_position_px": [
+        1566.5,
+        915.0
+      ],
+      "position_px": [
+        1569.34,
+        915.0
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 2.84,
+      "kind": "door",
+      "opening_id": "P076"
+    },
+    {
+      "relation_id": "R144",
+      "source": "S091",
+      "target": "S082",
+      "crop": "C",
+      "crop_position": [
+        1500,
+        563
+      ],
+      "observed_position_px": [
+        1568.5,
+        970.0
+      ],
+      "position_px": [
+        1569.34,
+        970.0
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.84,
+      "kind": "door",
+      "opening_id": "P077"
+    },
+    {
+      "relation_id": "R145",
+      "source": "S086",
+      "target": "S082",
+      "crop": "C",
+      "crop_position": [
+        1390,
+        700
+      ],
+      "observed_position_px": [
+        1500.0,
+        915.0
+      ],
+      "position_px": [
+        1500.0,
+        908.35
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 6.65,
+      "kind": "door",
+      "opening_id": "P078"
+    },
+    {
+      "relation_id": "R146",
+      "source": "S085",
+      "target": "S082",
+      "crop": "C",
+      "crop_position": [
+        1390,
+        752
+      ],
+      "observed_position_px": [
+        1474.0,
+        915.0
+      ],
+      "position_px": [
+        1474.0,
+        908.35
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 6.65,
+      "kind": "door",
+      "opening_id": "P079"
+    },
+    {
+      "relation_id": "R147",
+      "source": "S084",
+      "target": "S082",
+      "crop": "C",
+      "crop_position": [
+        1390,
+        863
+      ],
+      "observed_position_px": [
+        1418.5,
+        915.0
+      ],
+      "position_px": [
+        1418.5,
+        908.35
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 6.65,
+      "kind": "door",
+      "opening_id": "P080"
+    },
+    {
+      "relation_id": "R148",
+      "source": "S013",
+      "target": "S001",
+      "crop": "C",
+      "crop_position": [
+        613,
+        744
+      ],
+      "observed_position_px": [
+        1478.0,
+        526.5
+      ],
+      "position_px": [
+        1478.0,
+        522.35
+      ],
+      "max_polygon_distance_px": 3.705,
+      "projection_shift_px": 4.155,
+      "kind": "door",
+      "opening_id": "P081"
+    },
+    {
+      "relation_id": "R149",
+      "source": "S013",
+      "target": "S082",
+      "crop": "C",
+      "crop_position": [
+        1259,
+        886
+      ],
+      "observed_position_px": [
+        1407.0,
+        849.5
+      ],
+      "position_px": [
+        1407.0,
+        852.79
+      ],
+      "max_polygon_distance_px": 3.705,
+      "projection_shift_px": 3.285,
+      "kind": "door",
+      "opening_id": "P082"
+    },
+    {
+      "relation_id": "R018",
+      "source": "S016",
+      "target": "S082",
+      "crop": "C",
+      "crop_position": [
+        1325,
+        916
+      ],
+      "observed_position_px": [
+        1392.0,
+        882.5
+      ],
+      "position_px": [
+        1387.16,
+        882.5
+      ],
+      "max_polygon_distance_px": 0.745,
+      "projection_shift_px": 4.845,
+      "kind": "door",
+      "opening_id": "P083"
+    },
+    {
+      "relation_id": "R150",
+      "source": "S063",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        328,
+        380
+      ],
+      "observed_position_px": [
+        1660.0,
+        384.0
+      ],
+      "position_px": [
+        1660.44,
+        389.72
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 5.737,
+      "kind": "door",
+      "opening_id": "P084"
+    },
+    {
+      "relation_id": "R151",
+      "source": "S068",
+      "target": "S066",
+      "crop": "C",
+      "crop_position": [
+        508,
+        65
+      ],
+      "observed_position_px": [
+        1817.5,
+        474.0
+      ],
+      "position_px": [
+        1817.5,
+        474.92
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.92,
+      "kind": "door",
+      "opening_id": "P085"
+    },
+    {
+      "relation_id": "R152",
+      "source": "S081",
+      "target": "S077",
+      "crop": "C",
+      "crop_position": [
+        1158,
+        142
+      ],
+      "observed_position_px": [
+        1779.0,
+        799.0
+      ],
+      "position_px": [
+        1779.0,
+        798.7
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.3,
+      "kind": "door",
+      "opening_id": "P086"
+    },
+    {
+      "relation_id": "R153",
+      "source": "S081",
+      "target": "S065",
+      "crop": "C",
+      "crop_position": [
+        1190,
+        246
+      ],
+      "observed_position_px": [
+        1727.0,
+        815.0
+      ],
+      "position_px": [
+        1726.35,
+        815.0
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.65,
+      "kind": "door",
+      "opening_id": "P087"
+    },
+    {
+      "relation_id": "R030",
+      "source": "S101",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        157,
+        251
+      ],
+      "observed_position_px": [
+        1591.66,
+        1373.41
+      ],
+      "position_px": [
+        1590.08,
+        1373.41
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.576,
+      "kind": "door",
+      "opening_id": "P088"
+    },
+    {
+      "relation_id": "R030",
+      "source": "S101",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        415,
+        251
+      ],
+      "observed_position_px": [
+        1591.66,
+        1510.47
+      ],
+      "position_px": [
+        1590.08,
+        1510.47
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.576,
+      "kind": "door",
+      "opening_id": "P089"
+    },
+    {
+      "relation_id": "R031",
+      "source": "S111",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        635,
+        251
+      ],
+      "observed_position_px": [
+        1591.66,
+        1627.34
+      ],
+      "position_px": [
+        1590.08,
+        1627.34
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.576,
+      "kind": "door",
+      "opening_id": "P090"
+    },
+    {
+      "relation_id": "R032",
+      "source": "S113",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        727,
+        251
+      ],
+      "observed_position_px": [
+        1591.66,
+        1676.22
+      ],
+      "position_px": [
+        1590.08,
+        1676.22
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.576,
+      "kind": "door",
+      "opening_id": "P091"
+    },
+    {
+      "relation_id": "R033",
+      "source": "S124",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        774,
+        251
+      ],
+      "observed_position_px": [
+        1591.66,
+        1701.19
+      ],
+      "position_px": [
+        1590.08,
+        1701.19
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.576,
+      "kind": "door",
+      "opening_id": "P092"
+    },
+    {
+      "relation_id": "R034",
+      "source": "S125",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        888,
+        251
+      ],
+      "observed_position_px": [
+        1591.66,
+        1761.75
+      ],
+      "position_px": [
+        1590.08,
+        1761.75
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.576,
+      "kind": "door",
+      "opening_id": "P093"
+    },
+    {
+      "relation_id": "R035",
+      "source": "S127",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        1006,
+        251
+      ],
+      "observed_position_px": [
+        1591.66,
+        1824.44
+      ],
+      "position_px": [
+        1590.08,
+        1824.44
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.576,
+      "kind": "door",
+      "opening_id": "P094"
+    },
+    {
+      "relation_id": "R036",
+      "source": "S137",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        1189,
+        251
+      ],
+      "observed_position_px": [
+        1591.66,
+        1921.66
+      ],
+      "position_px": [
+        1590.08,
+        1921.66
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.576,
+      "kind": "door",
+      "opening_id": "P095"
+    },
+    {
+      "relation_id": "R037",
+      "source": "S140",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        1310,
+        251
+      ],
+      "observed_position_px": [
+        1591.66,
+        1985.94
+      ],
+      "position_px": [
+        1590.08,
+        1985.94
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.576,
+      "kind": "door",
+      "opening_id": "P096"
+    },
+    {
+      "relation_id": "R038",
+      "source": "S148",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        1362,
+        251
+      ],
+      "observed_position_px": [
+        1591.66,
+        2013.56
+      ],
+      "position_px": [
+        1590.08,
+        2013.56
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.576,
+      "kind": "door",
+      "opening_id": "P097"
+    },
+    {
+      "relation_id": "R039",
+      "source": "S150",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        1452,
+        251
+      ],
+      "observed_position_px": [
+        1591.66,
+        2061.38
+      ],
+      "position_px": [
+        1590.08,
+        2061.38
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.576,
+      "kind": "door",
+      "opening_id": "P098"
+    },
+    {
+      "relation_id": "R040",
+      "source": "S099",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        129,
+        337
+      ],
+      "observed_position_px": [
+        1545.97,
+        1358.53
+      ],
+      "position_px": [
+        1544.16,
+        1358.53
+      ],
+      "max_polygon_distance_px": 2.225,
+      "projection_shift_px": 1.804,
+      "kind": "door",
+      "opening_id": "P099"
+    },
+    {
+      "relation_id": "R041",
+      "source": "S099",
+      "target": "S098",
+      "crop": "D",
+      "crop_position": [
+        86,
+        447
+      ],
+      "observed_position_px": [
+        1487.53,
+        1335.69
+      ],
+      "position_px": [
+        1487.14,
+        1335.69
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.391,
+      "kind": "door",
+      "opening_id": "P100"
+    },
+    {
+      "relation_id": "R043",
+      "source": "S096",
+      "target": "S102",
+      "crop": "D",
+      "crop_position": [
+        172,
+        925
+      ],
+      "observed_position_px": [
+        1233.59,
+        1381.38
+      ],
+      "position_px": [
+        1233.59,
+        1381.05
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.325,
+      "kind": "door",
+      "opening_id": "P101"
+    },
+    {
+      "relation_id": "R044",
+      "source": "S097",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        364,
+        675
+      ],
+      "observed_position_px": [
+        1366.41,
+        1483.38
+      ],
+      "position_px": [
+        1366.41,
+        1482.56
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.815,
+      "kind": "door",
+      "opening_id": "P102"
+    },
+    {
+      "relation_id": "R045",
+      "source": "S102",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        364,
+        957
+      ],
+      "observed_position_px": [
+        1216.59,
+        1483.38
+      ],
+      "position_px": [
+        1216.59,
+        1482.56
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.815,
+      "kind": "door",
+      "opening_id": "P103"
+    },
+    {
+      "relation_id": "R046",
+      "source": "S095",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        364,
+        1148
+      ],
+      "observed_position_px": [
+        1115.12,
+        1483.38
+      ],
+      "position_px": [
+        1115.12,
+        1482.56
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.815,
+      "kind": "door",
+      "opening_id": "P104"
+    },
+    {
+      "relation_id": "R047",
+      "source": "S110",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        654,
+        455
+      ],
+      "observed_position_px": [
+        1483.28,
+        1637.44
+      ],
+      "position_px": [
+        1483.28,
+        1636.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.767,
+      "kind": "door",
+      "opening_id": "P105"
+    },
+    {
+      "relation_id": "R048",
+      "source": "S109",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        654,
+        613
+      ],
+      "observed_position_px": [
+        1399.34,
+        1637.44
+      ],
+      "position_px": [
+        1399.34,
+        1636.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.767,
+      "kind": "door",
+      "opening_id": "P106"
+    },
+    {
+      "relation_id": "R049",
+      "source": "S108",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        654,
+        793
+      ],
+      "observed_position_px": [
+        1303.72,
+        1637.44
+      ],
+      "position_px": [
+        1303.72,
+        1636.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.767,
+      "kind": "door",
+      "opening_id": "P107"
+    },
+    {
+      "relation_id": "R050",
+      "source": "S107",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        654,
+        982
+      ],
+      "observed_position_px": [
+        1203.31,
+        1637.44
+      ],
+      "position_px": [
+        1203.31,
+        1636.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.767,
+      "kind": "door",
+      "opening_id": "P108"
+    },
+    {
+      "relation_id": "R051",
+      "source": "S106",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        654,
+        1040
+      ],
+      "observed_position_px": [
+        1172.5,
+        1637.44
+      ],
+      "position_px": [
+        1172.5,
+        1636.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 0.767,
+      "kind": "door",
+      "opening_id": "P109"
+    },
+    {
+      "relation_id": "R052",
+      "source": "S105",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        503,
+        1271
+      ],
+      "observed_position_px": [
+        1049.78,
+        1557.22
+      ],
+      "position_px": [
+        1046.48,
+        1557.22
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 3.301,
+      "kind": "door",
+      "opening_id": "P110"
+    },
+    {
+      "relation_id": "R053",
+      "source": "S112",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        610,
+        1274
+      ],
+      "observed_position_px": [
+        1048.19,
+        1614.06
+      ],
+      "position_px": [
+        1046.48,
+        1614.06
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.707,
+      "kind": "door",
+      "opening_id": "P111"
+    },
+    {
+      "relation_id": "R054",
+      "source": "S123",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        957,
+        389
+      ],
+      "observed_position_px": [
+        1518.34,
+        1798.41
+      ],
+      "position_px": [
+        1518.34,
+        1799.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.264,
+      "kind": "door",
+      "opening_id": "P112"
+    },
+    {
+      "relation_id": "R055",
+      "source": "S122",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        957,
+        493
+      ],
+      "observed_position_px": [
+        1463.09,
+        1798.41
+      ],
+      "position_px": [
+        1463.09,
+        1799.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.264,
+      "kind": "door",
+      "opening_id": "P113"
+    },
+    {
+      "relation_id": "R056",
+      "source": "S121",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        957,
+        594
+      ],
+      "observed_position_px": [
+        1409.44,
+        1798.41
+      ],
+      "position_px": [
+        1409.44,
+        1799.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.264,
+      "kind": "door",
+      "opening_id": "P114"
+    },
+    {
+      "relation_id": "R057",
+      "source": "S120",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        957,
+        705
+      ],
+      "observed_position_px": [
+        1350.47,
+        1798.41
+      ],
+      "position_px": [
+        1350.47,
+        1799.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.264,
+      "kind": "door",
+      "opening_id": "P115"
+    },
+    {
+      "relation_id": "R058",
+      "source": "S119",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        957,
+        803
+      ],
+      "observed_position_px": [
+        1298.41,
+        1798.41
+      ],
+      "position_px": [
+        1298.41,
+        1799.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.264,
+      "kind": "door",
+      "opening_id": "P116"
+    },
+    {
+      "relation_id": "R059",
+      "source": "S118",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        957,
+        909
+      ],
+      "observed_position_px": [
+        1242.09,
+        1798.41
+      ],
+      "position_px": [
+        1242.09,
+        1799.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.264,
+      "kind": "door",
+      "opening_id": "P117"
+    },
+    {
+      "relation_id": "R060",
+      "source": "S117",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        957,
+        1052
+      ],
+      "observed_position_px": [
+        1166.12,
+        1798.41
+      ],
+      "position_px": [
+        1166.12,
+        1799.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.264,
+      "kind": "door",
+      "opening_id": "P118"
+    },
+    {
+      "relation_id": "R061",
+      "source": "S116",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        957,
+        1171
+      ],
+      "observed_position_px": [
+        1102.91,
+        1798.41
+      ],
+      "position_px": [
+        1102.91,
+        1799.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.264,
+      "kind": "door",
+      "opening_id": "P119"
+    },
+    {
+      "relation_id": "R154",
+      "source": "S115",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        957,
+        1293
+      ],
+      "observed_position_px": [
+        1038.09,
+        1798.41
+      ],
+      "position_px": [
+        1038.09,
+        1799.67
+      ],
+      "max_polygon_distance_px": 0.74,
+      "projection_shift_px": 1.264,
+      "kind": "door",
+      "opening_id": "P120"
+    },
+    {
+      "relation_id": "R062",
+      "source": "S115",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        780,
+        1232
+      ],
+      "observed_position_px": [
+        1070.5,
+        1704.38
+      ],
+      "position_px": [
+        1070.5,
+        1701.87
+      ],
+      "max_polygon_distance_px": 2.22,
+      "projection_shift_px": 2.505,
+      "kind": "door",
+      "opening_id": "P121"
+    },
+    {
+      "relation_id": "R063",
+      "source": "S114",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        780,
+        1371
+      ],
+      "observed_position_px": [
+        996.66,
+        1704.38
+      ],
+      "position_px": [
+        996.66,
+        1701.87
+      ],
+      "max_polygon_distance_px": 2.22,
+      "projection_shift_px": 2.505,
+      "kind": "door",
+      "opening_id": "P122"
+    },
+    {
+      "relation_id": "R064",
+      "source": "S136",
+      "target": "S100",
+      "crop": "D",
+      "crop_position": [
+        1191,
+        337
+      ],
+      "observed_position_px": [
+        1545.97,
+        1922.72
+      ],
+      "position_px": [
+        1544.16,
+        1922.72
+      ],
+      "max_polygon_distance_px": 2.225,
+      "projection_shift_px": 1.804,
+      "kind": "door",
+      "opening_id": "P123"
+    },
+    {
+      "relation_id": "R065",
+      "source": "S135",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1254,
+        453
+      ],
+      "observed_position_px": [
+        1484.34,
+        1956.19
+      ],
+      "position_px": [
+        1484.34,
+        1954.52
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.668,
+      "kind": "door",
+      "opening_id": "P124"
+    },
+    {
+      "relation_id": "R066",
+      "source": "S134",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1254,
+        558
+      ],
+      "observed_position_px": [
+        1428.56,
+        1956.19
+      ],
+      "position_px": [
+        1428.56,
+        1954.52
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.668,
+      "kind": "door",
+      "opening_id": "P125"
+    },
+    {
+      "relation_id": "R067",
+      "source": "S133",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1254,
+        668
+      ],
+      "observed_position_px": [
+        1370.12,
+        1956.19
+      ],
+      "position_px": [
+        1370.12,
+        1954.52
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.668,
+      "kind": "door",
+      "opening_id": "P126"
+    },
+    {
+      "relation_id": "R068",
+      "source": "S132",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1254,
+        776
+      ],
+      "observed_position_px": [
+        1312.75,
+        1956.19
+      ],
+      "position_px": [
+        1312.75,
+        1954.52
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.668,
+      "kind": "door",
+      "opening_id": "P127"
+    },
+    {
+      "relation_id": "R069",
+      "source": "S131",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1076,
+        861
+      ],
+      "observed_position_px": [
+        1267.59,
+        1861.62
+      ],
+      "position_px": [
+        1267.59,
+        1861.91
+      ],
+      "max_polygon_distance_px": 0.745,
+      "projection_shift_px": 0.28,
+      "kind": "door",
+      "opening_id": "P128"
+    },
+    {
+      "relation_id": "R070",
+      "source": "S130",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1254,
+        972
+      ],
+      "observed_position_px": [
+        1208.62,
+        1956.19
+      ],
+      "position_px": [
+        1208.62,
+        1954.52
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.668,
+      "kind": "door",
+      "opening_id": "P129"
+    },
+    {
+      "relation_id": "R071",
+      "source": "S129",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1076,
+        1062
+      ],
+      "observed_position_px": [
+        1160.81,
+        1861.62
+      ],
+      "position_px": [
+        1160.81,
+        1861.91
+      ],
+      "max_polygon_distance_px": 0.745,
+      "projection_shift_px": 0.28,
+      "kind": "door",
+      "opening_id": "P130"
+    },
+    {
+      "relation_id": "R026",
+      "source": "S147",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1343,
+        576
+      ],
+      "observed_position_px": [
+        1419.0,
+        2003.47
+      ],
+      "position_px": [
+        1419.0,
+        2003.42
+      ],
+      "max_polygon_distance_px": 1.48,
+      "projection_shift_px": 0.049,
+      "kind": "door",
+      "opening_id": "P131"
+    },
+    {
+      "relation_id": "R155",
+      "source": "S147",
+      "target": "S146",
+      "crop": "D",
+      "crop_position": [
+        1457,
+        646
+      ],
+      "observed_position_px": [
+        1381.81,
+        2064.03
+      ],
+      "position_px": [
+        1381.97,
+        2064.03
+      ],
+      "max_polygon_distance_px": 1.48,
+      "projection_shift_px": 0.158,
+      "kind": "door",
+      "opening_id": "P132"
+    },
+    {
+      "relation_id": "R073",
+      "source": "S146",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1345,
+        687
+      ],
+      "observed_position_px": [
+        1360.03,
+        2004.53
+      ],
+      "position_px": [
+        1360.03,
+        2003.42
+      ],
+      "max_polygon_distance_px": 1.48,
+      "projection_shift_px": 1.111,
+      "kind": "open_passage",
+      "opening_id": "P133"
+    },
+    {
+      "relation_id": "R074",
+      "source": "S145",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1345,
+        777
+      ],
+      "observed_position_px": [
+        1312.22,
+        2004.53
+      ],
+      "position_px": [
+        1312.22,
+        2003.42
+      ],
+      "max_polygon_distance_px": 1.48,
+      "projection_shift_px": 1.111,
+      "kind": "door",
+      "opening_id": "P134"
+    },
+    {
+      "relation_id": "R075",
+      "source": "S144",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1345,
+        872
+      ],
+      "observed_position_px": [
+        1261.75,
+        2004.53
+      ],
+      "position_px": [
+        1261.75,
+        2003.42
+      ],
+      "max_polygon_distance_px": 1.48,
+      "projection_shift_px": 1.111,
+      "kind": "door",
+      "opening_id": "P135"
+    },
+    {
+      "relation_id": "R076",
+      "source": "S143",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1345,
+        966
+      ],
+      "observed_position_px": [
+        1211.81,
+        2004.53
+      ],
+      "position_px": [
+        1211.81,
+        2003.42
+      ],
+      "max_polygon_distance_px": 1.48,
+      "projection_shift_px": 1.111,
+      "kind": "door",
+      "opening_id": "P136"
+    },
+    {
+      "relation_id": "R077",
+      "source": "S142",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1345,
+        1073
+      ],
+      "observed_position_px": [
+        1154.97,
+        2004.53
+      ],
+      "position_px": [
+        1154.97,
+        2003.42
+      ],
+      "max_polygon_distance_px": 1.48,
+      "projection_shift_px": 1.111,
+      "kind": "door",
+      "opening_id": "P137"
+    },
+    {
+      "relation_id": "R078",
+      "source": "S141",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1345,
+        1151
+      ],
+      "observed_position_px": [
+        1113.53,
+        2004.53
+      ],
+      "position_px": [
+        1113.53,
+        2003.42
+      ],
+      "max_polygon_distance_px": 1.48,
+      "projection_shift_px": 1.111,
+      "kind": "door",
+      "opening_id": "P138"
+    },
+    {
+      "relation_id": "R029",
+      "source": "S149",
+      "target": "S139",
+      "crop": "D",
+      "crop_position": [
+        1440,
+        1340
+      ],
+      "observed_position_px": [
+        1013.12,
+        2055.0
+      ],
+      "position_px": [
+        1013.12,
+        2055.28
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.28,
+      "kind": "door",
+      "opening_id": "P139"
+    },
+    {
+      "relation_id": "R027",
+      "source": "S138",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1246,
+        1462
+      ],
+      "observed_position_px": [
+        948.31,
+        1951.94
+      ],
+      "position_px": [
+        948.31,
+        1952.3
+      ],
+      "max_polygon_distance_px": 0.745,
+      "projection_shift_px": 0.358,
+      "kind": "door",
+      "opening_id": "P140"
+    },
+    {
+      "relation_id": "R021",
+      "source": "S100",
+      "target": "S103",
+      "crop": "D",
+      "crop_position": [
+        423,
+        337
+      ],
+      "observed_position_px": [
+        1545.97,
+        1514.72
+      ],
+      "position_px": [
+        1545.64,
+        1514.72
+      ],
+      "max_polygon_distance_px": 0.745,
+      "projection_shift_px": 0.324,
+      "kind": "door",
+      "opening_id": "P141"
+    },
+    {
+      "relation_id": "R022",
+      "source": "S100",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1019,
+        337
+      ],
+      "observed_position_px": [
+        1545.97,
+        1831.34
+      ],
+      "position_px": [
+        1545.64,
+        1831.34
+      ],
+      "max_polygon_distance_px": 0.745,
+      "projection_shift_px": 0.324,
+      "kind": "door",
+      "opening_id": "P142"
+    },
+    {
+      "relation_id": "R024",
+      "source": "S094",
+      "target": "S002",
+      "crop": "D",
+      "crop_position": [
+        185,
+        1501
+      ],
+      "observed_position_px": [
+        927.59,
+        1388.28
+      ],
+      "position_px": [
+        925.76,
+        1388.28
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.834,
+      "kind": "door",
+      "opening_id": "P143"
+    },
+    {
+      "relation_id": "R023",
+      "source": "S103",
+      "target": "S002",
+      "crop": "D",
+      "crop_position": [
+        310,
+        1501
+      ],
+      "observed_position_px": [
+        927.59,
+        1454.69
+      ],
+      "position_px": [
+        925.76,
+        1454.69
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 1.834,
+      "kind": "door",
+      "opening_id": "P144"
+    },
+    {
+      "relation_id": "R042",
+      "source": "S098",
+      "target": "S104",
+      "crop": "D",
+      "crop_position": [
+        289,
+        487
+      ],
+      "observed_position_px": [
+        1466.28,
+        1443.53
+      ],
+      "position_px": [
+        1466.28,
+        1443.29
+      ],
+      "max_polygon_distance_px": 0.0,
+      "projection_shift_px": 0.241,
+      "kind": "open_passage",
+      "opening_id": "P145"
+    },
+    {
+      "relation_id": "R028",
+      "source": "S139",
+      "target": "S126",
+      "crop": "D",
+      "crop_position": [
+        1248,
+        1350
+      ],
+      "observed_position_px": [
+        1007.81,
+        1953.0
+      ],
+      "position_px": [
+        1007.81,
+        1952.3
+      ],
+      "max_polygon_distance_px": 0.745,
+      "projection_shift_px": 0.705,
+      "kind": "open_passage",
+      "opening_id": "P146"
+    }
+  ],
+  "unlocated_conceptual": [
+    {
+      "relation_id": "R156",
+      "source": "S007",
+      "target": "S065",
+      "reason": "布局推断：卫生间前厅与感染门诊侧公共通道衔接，小开口分辨率不足"
+    },
+    {
+      "relation_id": "R001",
+      "source": "S001",
+      "target": "S010",
+      "reason": "连续大厅分区"
+    },
+    {
+      "relation_id": "R002",
+      "source": "S001",
+      "target": "S002",
+      "reason": "大厅与医疗街连续"
+    },
+    {
+      "relation_id": "R003",
+      "source": "S010",
+      "target": "S002",
+      "reason": "候药大厅与医疗街连续"
+    },
+    {
+      "relation_id": "R004",
+      "source": "S016",
+      "target": "S002",
+      "reason": "配套通道接医疗街"
+    },
+    {
+      "relation_id": "R079",
+      "source": "S059",
+      "target": "S065",
+      "reason": "同一公共通道因单环轮廓分段"
+    },
+    {
+      "relation_id": "R017",
+      "source": "S065",
+      "target": "S082",
+      "reason": "感染门诊公共通道连续"
+    }
+  ]
+}

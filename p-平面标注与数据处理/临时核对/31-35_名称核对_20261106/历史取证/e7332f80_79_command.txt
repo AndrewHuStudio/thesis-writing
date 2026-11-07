@@ -1,0 +1,15 @@
+rg --files /System/Library/Fonts /Library/Fonts | rg 'Ping|STHei|Song|Arial|Hiragino|苹|黑体' | head -30
+cat > /tmp/outpatient34-review/ocr.swift <<'SWIFT'
+import Foundation
+import Vision
+import AppKit
+let url=URL(fileURLWithPath:CommandLine.arguments[1])
+let request=VNRecognizeTextRequest()
+request.recognitionLevel = .accurate
+request.recognitionLanguages = ["zh-Hans", "en-US"]
+request.usesLanguageCorrection = false
+let handler=VNImageRequestHandler(url:url,options:[:])
+try handler.perform([request])
+for r in request.results ?? [] {if let t=r.topCandidates(1).first {print(t.string)}}
+SWIFT
+swift /tmp/outpatient34-review/ocr.swift /tmp/outpatient34-review/妇产小字.png

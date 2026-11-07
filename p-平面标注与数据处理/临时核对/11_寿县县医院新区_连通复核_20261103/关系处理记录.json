@@ -1,0 +1,610 @@
+{
+  "space_count": 194,
+  "relations": {
+    "entrance": 26,
+    "access": 215,
+    "service": 10,
+    "shared_wall": 24
+  },
+  "opening_count": 211,
+  "removed": {
+    "R001": "西北交通核南侧为整墙；实际门在东侧通向住院药房。",
+    "R014": "两个交通核／前室间未见直接门，不能仅凭相邻添加。",
+    "R035": "备餐S030西侧未见穿向职工餐厅的门；保留其东侧实际入口。",
+    "R043": "化验S058北侧为墙；实际门开向工作人员通道S062。",
+    "R049": "检查S068西侧未见门；实际入口在东北侧S062。",
+    "R051": "感染东交通核南侧整墙；实际出口在东侧医街。",
+    "R071": "X光与控制之间未见人员门；各自由工作人员通道进入。",
+    "R082": "CR与控制区之间未见门；共墙不能替代人员可达。",
+    "R083": "第二间CR北侧同样未见人员门。",
+    "R084": "DR北侧未见人员门。",
+    "R097": "片库南侧为墙；实际门在北侧影像中通道。",
+    "R099": "准备区卫生间门向右开至胃肠透视，不直接向左开至准备室。",
+    "R102": "DSA与控制S092共墙处为工作台／观察界面，未见人员门。",
+    "R103": "胃肠透视与控制S092共墙未见人员门。",
+    "R107": "东北楼梯与东侧通道之间隔着设备房，改为经办公门厅连接。",
+    "R174": "急诊西楼梯与候诊区之间隔着挂号S171，未见直接门；列为主要连接待核。",
+    "R193": "男更衣与卫生间之间未辨明人员门；该内部细节本轮不细究。",
+    "R194": "女更衣与卫生间之间未辨明人员门；该内部细节本轮不细究。",
+    "R195": "手续区东侧为边墙；主要通路经上部西侧通道S014进入医街。",
+    "R197": "电梯前室S013南门先进入S014，不直接跨过它进入医街。",
+    "R199": "东交通核与医街之间为电梯井边界；实际经门厅S001及职工餐厅S032。",
+    "R201": "营养食堂与中轴医街之间隔着职工餐厅，不能跨房直接连通。",
+    "R204": "透视西侧为墙；实际经影像北通道S080。",
+    "R206": "取片登记面向医街为服务界面，人员入口经护办／中通道。",
+    "R207": "影像中通道西侧隔着取片登记，不能跨过登记区直接连医街。",
+    "R209": "阅片办公通道西侧为阅片房，不直接通向医街。",
+    "R210": "阅片房北侧未见门；实际门在东侧接阅片办公通道。",
+    "R214": "急诊输液东侧为墙；实际经输液中心或西侧急诊后通道。",
+    "R216": "贵重物品库西侧为墙；门开向东侧西药房。"
+  },
+  "added_access": [
+    {
+      "id": "R252",
+      "source": "S002",
+      "target": "S008",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P187",
+          "kind": "door",
+          "position_px": [
+            476,
+            405
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R253",
+      "source": "S008",
+      "target": "S009",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P188",
+          "kind": "door",
+          "position_px": [
+            885,
+            438
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R254",
+      "source": "S011",
+      "target": "S013",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P189",
+          "kind": "door",
+          "position_px": [
+            1072,
+            338
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R255",
+      "source": "S013",
+      "target": "S014",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P190",
+          "kind": "door",
+          "position_px": [
+            1045,
+            455
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R256",
+      "source": "S001",
+      "target": "S195",
+      "type": "access"
+    },
+    {
+      "id": "R257",
+      "source": "S001",
+      "target": "S009",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P191",
+          "kind": "door",
+          "position_px": [
+            912,
+            285
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R258",
+      "source": "S001",
+      "target": "S010",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P192",
+          "kind": "door",
+          "position_px": [
+            981,
+            285
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R259",
+      "source": "S001",
+      "target": "S026",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P193",
+          "kind": "door",
+          "position_px": [
+            1392,
+            283
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R260",
+      "source": "S001",
+      "target": "S011",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P194",
+          "kind": "door",
+          "position_px": [
+            1025,
+            285
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R261",
+      "source": "S072",
+      "target": "S062",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P195",
+          "kind": "door",
+          "position_px": [
+            1066,
+            1219
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R262",
+      "source": "S088",
+      "target": "S089",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P196",
+          "kind": "door",
+          "position_px": [
+            1819,
+            1332
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R263",
+      "source": "S086",
+      "target": "S087",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P197",
+          "kind": "door",
+          "position_px": [
+            1685,
+            1270
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R264",
+      "source": "S082",
+      "target": "S083",
+      "type": "access"
+    },
+    {
+      "id": "R265",
+      "source": "S096",
+      "target": "S094",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P198",
+          "kind": "door",
+          "position_px": [
+            1540,
+            1483
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R266",
+      "source": "S084",
+      "target": "S091",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P199",
+          "kind": "door",
+          "position_px": [
+            1470,
+            1339
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R267",
+      "source": "S091",
+      "target": "S094",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P200",
+          "kind": "door",
+          "position_px": [
+            1482,
+            1463
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R268",
+      "source": "S091",
+      "target": "S100",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P201",
+          "kind": "door",
+          "position_px": [
+            1470,
+            1579
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R269",
+      "source": "S107",
+      "target": "S109",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P202",
+          "kind": "door",
+          "position_px": [
+            1418,
+            1728
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R270",
+      "source": "S105",
+      "target": "S109",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P203",
+          "kind": "door",
+          "position_px": [
+            1437,
+            1711
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R271",
+      "source": "S162",
+      "target": "S167",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P204",
+          "kind": "door",
+          "position_px": [
+            625,
+            2574
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R272",
+      "source": "S159",
+      "target": "S173",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P205",
+          "kind": "door",
+          "position_px": [
+            746,
+            2476
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R273",
+      "source": "S175",
+      "target": "S159",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P206",
+          "kind": "door",
+          "position_px": [
+            802,
+            2639
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R274",
+      "source": "S180",
+      "target": "S177",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P207",
+          "kind": "door",
+          "position_px": [
+            1416,
+            2264
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R275",
+      "source": "S177",
+      "target": "S191",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P208",
+          "kind": "door",
+          "position_px": [
+            1436,
+            2576
+          ]
+        },
+        {
+          "id": "P209",
+          "kind": "door",
+          "position_px": [
+            1660,
+            2576
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R276",
+      "source": "S190",
+      "target": "S192",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P210",
+          "kind": "door",
+          "position_px": [
+            1685,
+            2663
+          ]
+        },
+        {
+          "id": "P211",
+          "kind": "door",
+          "position_px": [
+            1685,
+            2874
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R277",
+      "source": "S191",
+      "target": "S192",
+      "type": "access"
+    }
+  ],
+  "concepts": [
+    {
+      "relation": {
+        "id": "R003",
+        "source": "S016",
+        "target": "S014",
+        "type": "access"
+      },
+      "note": "女卫经北侧共用入口前区通向S014；分间门扇与无障碍设施线叠压，保存整体可达，不给分间造门位。"
+    },
+    {
+      "relation": {
+        "id": "R004",
+        "source": "S017",
+        "target": "S014",
+        "type": "access"
+      },
+      "note": "男卫同由北侧卫生间入口前区接S014，男女内部精细路线不逐项拆分，不定位不清楚的小门。"
+    },
+    {
+      "relation": {
+        "id": "R017",
+        "source": "S020",
+        "target": "S025",
+        "type": "access"
+      },
+      "note": "更衣间按手续区内侧可达保留；小门被字样遮挡，不定位。"
+    },
+    {
+      "relation": {
+        "id": "R018",
+        "source": "S021",
+        "target": "S025",
+        "type": "access"
+      },
+      "note": "相邻更衣间同按手续区内侧可达保留；不虚构门位。"
+    },
+    {
+      "relation": {
+        "id": "R038",
+        "source": "S040",
+        "target": "S041",
+        "type": "access"
+      },
+      "note": "东北楼梯南端踏步面向餐饮东侧通道S041，按完整楼梯前区组织作布局推断；内部踏步和小门不细分、不定位。"
+    },
+    {
+      "relation": {
+        "id": "R117",
+        "source": "S109",
+        "target": "S106",
+        "type": "access"
+      },
+      "note": "阅片办公通道与东侧通道在拐角处连续，无实体门槛，按分区概念连接。"
+    },
+    {
+      "relation": {
+        "id": "R131",
+        "source": "S125",
+        "target": "S126",
+        "type": "access"
+      },
+      "note": "儿科公共卫生间入口前区面向候诊通道；内部便器与无障碍间分隔不细化，保留概念可达。"
+    },
+    {
+      "relation": {
+        "id": "R143",
+        "source": "S126",
+        "target": "S127",
+        "type": "access"
+      },
+      "note": "儿科候诊区与西侧工作人员通道在柱间连续，图上未见实体隔墙。"
+    },
+    {
+      "relation": {
+        "id": "R164",
+        "source": "S166",
+        "target": "S173",
+        "type": "access"
+      },
+      "note": "护士站按半开放功能单元保存可达；不追问柜台小门。"
+    },
+    {
+      "relation": {
+        "id": "R179",
+        "source": "S153",
+        "target": "S147",
+        "type": "access"
+      },
+      "note": "输液护士站与输液区为半开放工作界面，保留概念可达。"
+    },
+    {
+      "relation": {
+        "id": "R180",
+        "source": "S157",
+        "target": "S159",
+        "type": "access"
+      },
+      "note": "急诊护士站与输液区为半开放工作界面，保留概念可达。"
+    },
+    {
+      "relation": {
+        "id": "R182",
+        "source": "S178",
+        "target": "S194",
+        "type": "access"
+      },
+      "note": "工作人员卫生间入口前区与药房工作人员通道连续，内部小门本轮不细分。"
+    },
+    {
+      "relation": {
+        "id": "R189",
+        "source": "S189",
+        "target": "S194",
+        "type": "access"
+      },
+      "note": "药房东南楼梯面向设备房南侧的工作人员通道前区，按布局推断连通；门位不清。"
+    },
+    {
+      "relation": {
+        "id": "R208",
+        "source": "S105",
+        "target": "S195",
+        "type": "access"
+      },
+      "note": "影像南通道向西直接延续至取片等候／医街，无实体分隔，保存概念连通。"
+    },
+    {
+      "relation": {
+        "id": "R213",
+        "source": "S158",
+        "target": "S195",
+        "type": "access"
+      },
+      "note": "急诊输液楼梯南侧踏步落向电梯厅／医街，按布局推断连通，不将踏步中点冒充门。"
+    },
+    {
+      "relation": {
+        "id": "R256",
+        "source": "S001",
+        "target": "S195",
+        "type": "access"
+      },
+      "note": "弧形门厅与中轴连廊在电梯井之间连续，虚拟功能区边界不冒充门洞。"
+    },
+    {
+      "relation": {
+        "id": "R264",
+        "source": "S082",
+        "target": "S083",
+        "type": "access"
+      },
+      "note": "东北楼梯南端面向办公门厅，按出入口前区组织推断连接，不跨越设备房。"
+    },
+    {
+      "relation": {
+        "id": "R277",
+        "source": "S191",
+        "target": "S192",
+        "type": "access"
+      },
+      "note": "西药取药与中药取药的工作人员后场在转角连续，保存概念连接。"
+    }
+  ],
+  "opening_boundary_review": []
+}

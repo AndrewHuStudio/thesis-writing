@@ -1,0 +1,9 @@
+python - <<'PY'
+p='/tmp/outpatient30-review/build_annotation.py'
+s=open(p).read().replace("'大更间／出入院支持用房'","'出入院支持用房'").replace('(1900+68*math.cos','(1970+68*math.cos')
+open(p,'w').write(s)
+PY
+uv run --with pymupdf --with shapely --with pillow python /tmp/outpatient30-review/build_annotation.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py normalize p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py render p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json --output p-写作过程/标注试样/30_佛山市禅城区中心医院/标注.svg
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py summary p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json --output p-写作过程/标注试样/30_佛山市禅城区中心医院/标注说明.md

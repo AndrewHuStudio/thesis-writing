@@ -1,0 +1,10 @@
+python - <<'PY'
+from PIL import Image
+from pathlib import Path
+im=Image.open('/tmp/outpatient34-review/标注.svg.png')
+print(im.size)
+# Quick Look scales proportionally but may use a square transparent canvas.
+w=2444;h=3260+122.2+35
+print('bbox',im.getbbox())
+im.thumbnail((1400,1800));im.save('/tmp/outpatient34-review/34_标注检查_全图.png')
+PY

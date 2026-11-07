@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-10-31T04:54:32.837Z",
+  "ordinal": 37,
+  "type": "response_item",
+  "payload": {
+    "type": "custom_tool_call",
+    "id": "ctc_056ec7d5587ff2d4016ae574873ccc8198a959ac9a589dcad2",
+    "status": "completed",
+    "call_id": "call_afbaaa2a3b714ca2991e07917a008e1e",
+    "name": "exec",
+    "input": "text(await tools.exec_command({cmd:\"python - <<'PY'\\nfrom PIL import Image,ImageDraw,ImageFont\\nim=Image.open('/tmp/outpatient39-review/原图_阅读方向.png')\\nregions={'A_后勤':(150,350,1730,865),'B_急诊医技上部':(150,850,1445,1240),'C_急诊超声':(150,1120,1445,1695),'D_门诊儿科':(300,1670,1345,2110)}\\nfor n,b in regions.items():\\n q=im.crop(b).resize(((b[2]-b[0])*2,(b[3]-b[1])*2))\\n q.save('/tmp/outpatient39-review/'+n+'.png')\\nprint(regions)\\nPY\",\"max_output_tokens\":1000}));\nfor(const path of [\"/tmp/outpatient39-review/A_后勤.png\",\"/tmp/outpatient39-review/B_急诊医技上部.png\"]) image((await tools.view_image({path})).image_url);\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a1904e-acce-76c1-bae9-10d0947bdfdc",
+      "create_time": 1793422471.2440367
+    }
+  }
+}

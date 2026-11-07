@@ -1,0 +1,12 @@
+python - <<'PY'
+from pathlib import Path
+import cairosvg
+p=Path('p-写作过程/标注试样/31_暨南大学附属第一医院综合楼工程/标注.svg')
+s=p.read_text().replace('Arial, PingFang SC, Microsoft YaHei, sans-serif','Arial Unicode MS, sans-serif')
+p.write_text(s)
+cairosvg.svg2png(bytestring=s.encode(),write_to='/tmp/outpatient31-review/annotation-preview.png')
+from PIL import Image
+im=Image.open('/tmp/outpatient31-review/annotation-preview.png')
+im.resize((1222,round(im.height/2))).save('/tmp/outpatient31-review/annotation-overview.png')
+im.crop((870,380,1520,780)).resize((1300,800)).save('/tmp/outpatient31-review/annotation-dense.png')
+PY

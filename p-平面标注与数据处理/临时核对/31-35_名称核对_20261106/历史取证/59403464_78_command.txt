@@ -1,0 +1,6 @@
+python3 - <<'PY'
+p='/tmp/outpatient33-review/build_annotation.py'
+s=open(p).read().replace('box(1764,801,2156,853)','box(1764,801,2159,854)').replace('box(1994,854,2215,899)','box(1994,853,2215,899)')
+open(p,'w').write(s)
+PY
+uv run --with pymupdf --with shapely python /tmp/outpatient33-review/build_annotation.py

@@ -1,0 +1,17 @@
+python - <<'PY'
+from pathlib import Path
+p=Path('/tmp/outpatient30-review/build_annotation.py');s=p.read_text().replace("unk('rad_exam4',(883,845,1032,975),I,'CR检查室／影像检查室','短英文标识疑似CR，与CT成排','中')", "known('rad_exam4','CT','imaging',(883,845,1032,975),I)")
+p.write_text(s)
+p=Path('/tmp/outpatient30-review/make_review.py');s=p.read_text()
+s=s.replace("d.text((50,105),'标注草稿｜32项待确认", "d.text((50,105),f'标注草稿｜{len(qs)}项待确认")
+s=s.replace("'标注草稿，32项待确认。编号", "f'标注草稿，{len(qs)}项待确认。编号")
+s=s.replace("29、31请一并说明是否露天或挑空、不计室内面积；30请说明平台用途及能否步入。", "28、30请一并说明是否露天或挑空、不计室内面积；29请说明平台用途及能否步入。")
+p.write_text(s)
+p=Path('p-写作过程/标注试样/30_佛山市禅城区中心医院/标注说明.md')
+s=p.read_text();Path('/tmp/outpatient30-review/md-scope-notes.txt').write_text(s[s.index('**本图范围：**'):])
+PY
+uv run --with pymupdf --with shapely --with pillow python /tmp/outpatient30-review/build_annotation.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py normalize p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py render p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json --output p-写作过程/标注试样/30_佛山市禅城区中心医院/标注.svg
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py summary p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json --output p-写作过程/标注试样/30_佛山市禅城区中心医院/标注说明.md
+uv run --with shapely --with pillow python /tmp/outpatient30-review/make_review.py

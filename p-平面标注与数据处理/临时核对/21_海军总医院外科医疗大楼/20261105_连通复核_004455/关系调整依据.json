@@ -1,0 +1,816 @@
+[
+  {
+    "action": "correct",
+    "old": {
+      "id": "R011",
+      "source": "S005",
+      "target": "S025",
+      "type": "access"
+    },
+    "new": {
+      "id": "R011",
+      "source": "S005",
+      "target": "S057",
+      "type": "access"
+    },
+    "reason": "第五间观察室的北门直接通办公前通道，未穿过前四间观察室前通道。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R012",
+      "source": "S020",
+      "target": "S014",
+      "type": "service"
+    },
+    "new": {
+      "id": "R012",
+      "source": "S020",
+      "target": "S155",
+      "type": "service"
+    },
+    "reason": "收费窗口前为补齐的后勤通道；服务联系不代替人员通行。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R013",
+      "source": "S021",
+      "target": "S014",
+      "type": "service"
+    },
+    "new": {
+      "id": "R013",
+      "source": "S021",
+      "target": "S155",
+      "type": "service"
+    },
+    "reason": "药房柜台朝向补齐的通道，原大厅关系跨过该通道。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R014",
+      "source": "S034",
+      "target": "S032",
+      "type": "access"
+    },
+    "new": {
+      "id": "R014",
+      "source": "S034",
+      "target": "S014",
+      "type": "access"
+    },
+    "reason": "骨科北门开向急诊大厅；向中部通道需经过外科，分步建连。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R019",
+      "source": "S046",
+      "target": "S032",
+      "type": "access"
+    },
+    "new": {
+      "id": "R019",
+      "source": "S046",
+      "target": "S048",
+      "type": "access"
+    },
+    "reason": "贵宾室的可见东门通急诊东侧通道。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R053",
+      "source": "S072",
+      "target": "S073",
+      "type": "access"
+    },
+    "new": {
+      "id": "R053",
+      "source": "S073",
+      "target": "S076",
+      "type": "access"
+    },
+    "reason": "咖啡楼梯南门进入当前S076所含的前室通行区，不跨楼梯西侧实墙。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R059",
+      "source": "S083",
+      "target": "S084",
+      "type": "access"
+    },
+    "new": {
+      "id": "R059",
+      "source": "S083",
+      "target": "S157",
+      "type": "access"
+    },
+    "reason": "体检候诊廊先经西侧过道，再接内部通道。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R077",
+      "source": "S081",
+      "target": "S083",
+      "type": "access"
+    },
+    "new": {
+      "id": "R077",
+      "source": "S081",
+      "target": "S075",
+      "type": "access"
+    },
+    "reason": "抽血北门前属补齐的候诊及导医开放区，未跨过耳鼻喉房间。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R116",
+      "source": "S134",
+      "target": "S117",
+      "type": "access"
+    },
+    "new": {
+      "id": "R116",
+      "source": "S134",
+      "target": "S158",
+      "type": "access"
+    },
+    "reason": "污物间南门先接后勤小通道。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R117",
+      "source": "S138",
+      "target": "S117",
+      "type": "access"
+    },
+    "new": {
+      "id": "R117",
+      "source": "S138",
+      "target": "S158",
+      "type": "access"
+    },
+    "reason": "库房西门先接后勤小通道。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R123",
+      "source": "S141",
+      "target": "S151",
+      "type": "access"
+    },
+    "new": {
+      "id": "R123",
+      "source": "S141",
+      "target": "S117",
+      "type": "access"
+    },
+    "reason": "医办的西南门朝向主通道，原东侧通道关系跨过卫生间。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R100",
+      "source": "S131",
+      "target": "S117",
+      "type": "access"
+    },
+    "new": {
+      "id": "R100",
+      "source": "S131",
+      "target": "S125",
+      "type": "access"
+    },
+    "reason": "点痣西侧门进入相邻皮护S125，并非越过其直接进入主通道。"
+  },
+  {
+    "action": "correct",
+    "old": {
+      "id": "R101",
+      "source": "S130",
+      "target": "S117",
+      "type": "access"
+    },
+    "new": {
+      "id": "R101",
+      "source": "S130",
+      "target": "S125",
+      "type": "access"
+    },
+    "reason": "激光S130的西侧门进入皮护S125，按实际房间顺序建连。"
+  },
+  {
+    "action": "remove",
+    "old": {
+      "id": "R029",
+      "source": "S059",
+      "target": "S061",
+      "type": "access"
+    },
+    "reason": "值班S059未见清楚通会议区的门，属本轮不细究的内部支持房间。"
+  },
+  {
+    "action": "remove",
+    "old": {
+      "id": "R060",
+      "source": "S084",
+      "target": "S101",
+      "type": "access"
+    },
+    "reason": "S084与S101之间不能直接穿越卫生间；移除跨中间空间的连接。"
+  },
+  {
+    "action": "remove",
+    "old": {
+      "id": "R066",
+      "source": "S149",
+      "target": "S151",
+      "type": "access"
+    },
+    "reason": "整形厅与东侧通道之间有连续墙线；可经主通道到达，不保留无依据捷径。"
+  },
+  {
+    "action": "remove",
+    "old": {
+      "id": "R067",
+      "source": "S117",
+      "target": "S151",
+      "type": "access"
+    },
+    "reason": "主通道与东侧处置通道的门线归属列K04-A待确认，不把卫生间门误作通道门。"
+  },
+  {
+    "action": "remove",
+    "old": {
+      "id": "R068",
+      "source": "S116",
+      "target": "S113",
+      "type": "access"
+    },
+    "reason": "首长门厅到公共楼梯核跨过S115；S115的对外连接列K02待确认。"
+  },
+  {
+    "action": "remove",
+    "old": {
+      "id": "R083",
+      "source": "S111",
+      "target": "S083",
+      "type": "access"
+    },
+    "reason": "煤表间S111不直接面对候诊廊，原连接跨过开水间S110。"
+  },
+  {
+    "action": "remove",
+    "old": {
+      "id": "R105",
+      "source": "S123",
+      "target": "S117",
+      "type": "access"
+    },
+    "reason": "护发S123的直接入口列K03，不把邻接当作门。"
+  },
+  {
+    "action": "remove",
+    "old": {
+      "id": "R107",
+      "source": "S128",
+      "target": "S117",
+      "type": "access"
+    },
+    "reason": "纹眉S128的直接入口列K03，不把邻接当作门。"
+  },
+  {
+    "action": "remove",
+    "old": {
+      "id": "R121",
+      "source": "S147",
+      "target": "S151",
+      "type": "access"
+    },
+    "reason": "处理室S147的直接入口列K04，暂不认定直通东侧通道。"
+  },
+  {
+    "action": "remove",
+    "old": {
+      "id": "R111",
+      "source": "S122",
+      "target": "S117",
+      "type": "access"
+    },
+    "reason": "更衣S122朝主通道的门未清楚显示，本轮不细究内部工作人员支持细节。"
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R155",
+      "source": "S014",
+      "target": "S155",
+      "type": "access"
+    }
+  },
+  {
+    "action": "concept_evidence",
+    "relation": "R155",
+    "source": "S014",
+    "target": "S155",
+    "reason": "急诊大厅与后勤通道南端图面连续。"
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R156",
+      "source": "S022",
+      "target": "S155",
+      "type": "access"
+    }
+  },
+  {
+    "action": "concept_evidence",
+    "relation": "R156",
+    "source": "S022",
+    "target": "S155",
+    "reason": "收费药房外侧通道与检验前通道连续。"
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R157",
+      "source": "S014",
+      "target": "S022",
+      "type": "access"
+    }
+  },
+  {
+    "action": "concept_evidence",
+    "relation": "R157",
+    "source": "S014",
+    "target": "S022",
+    "reason": "检验前通道的南端向大厅开放。"
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R158",
+      "source": "S156",
+      "target": "S066",
+      "type": "access"
+    }
+  },
+  {
+    "action": "concept_evidence",
+    "relation": "R158",
+    "source": "S156",
+    "target": "S066",
+    "reason": "西侧交通厅南端连续进入住院大厅。"
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R159",
+      "source": "S039",
+      "target": "S025",
+      "type": "access"
+    }
+  },
+  {
+    "action": "concept_evidence",
+    "relation": "R159",
+    "source": "S039",
+    "target": "S025",
+    "reason": "布局推断：护士站南侧工作入口接候诊周边通道；不标精确门位。"
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R160",
+      "source": "S084",
+      "target": "S157",
+      "type": "access"
+    }
+  },
+  {
+    "action": "concept_evidence",
+    "relation": "R160",
+    "source": "S084",
+    "target": "S157",
+    "reason": "体检内部通道南端经西侧过道延续。"
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R161",
+      "source": "S101",
+      "target": "S097",
+      "type": "access"
+    }
+  },
+  {
+    "action": "concept_evidence",
+    "relation": "R161",
+    "source": "S101",
+    "target": "S097",
+    "reason": "检查区小过道北端与卫生间外侧共用前区连续，不推断厕位内部路线。"
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R162",
+      "source": "S117",
+      "target": "S158",
+      "type": "access"
+    }
+  },
+  {
+    "action": "concept_evidence",
+    "relation": "R162",
+    "source": "S117",
+    "target": "S158",
+    "reason": "整形后勤小通道接主通道北侧支段。"
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R163",
+      "source": "S028",
+      "target": "S014",
+      "type": "service"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R164",
+      "source": "S039",
+      "target": "S026",
+      "type": "service"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R165",
+      "source": "S069",
+      "target": "S066",
+      "type": "service"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R166",
+      "source": "S078",
+      "target": "S077",
+      "type": "service"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R167",
+      "source": "S009",
+      "target": "S010",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R168",
+      "source": "S008",
+      "target": "S007",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R169",
+      "source": "S016",
+      "target": "S155",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R170",
+      "source": "S017",
+      "target": "S155",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R171",
+      "source": "S018",
+      "target": "S155",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R172",
+      "source": "S019",
+      "target": "S155",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R173",
+      "source": "S020",
+      "target": "S155",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R174",
+      "source": "S021",
+      "target": "S022",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R175",
+      "source": "S024",
+      "target": "S022",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R176",
+      "source": "S023",
+      "target": "S022",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R177",
+      "source": "S029",
+      "target": "S032",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R178",
+      "source": "S030",
+      "target": "S032",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R179",
+      "source": "S031",
+      "target": "S032",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R180",
+      "source": "S034",
+      "target": "S033",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R181",
+      "source": "S036",
+      "target": "S035",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R182",
+      "source": "S037",
+      "target": "S048",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R183",
+      "source": "S040",
+      "target": "S039",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R184",
+      "source": "S041",
+      "target": "S039",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R185",
+      "source": "S055",
+      "target": "S066",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R186",
+      "source": "S056",
+      "target": "S066",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R187",
+      "source": "S049",
+      "target": "S057",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R188",
+      "source": "S050",
+      "target": "S057",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R189",
+      "source": "S014",
+      "target": "S156",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R190",
+      "source": "S068",
+      "target": "S156",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R191",
+      "source": "S068",
+      "target": "S066",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R192",
+      "source": "S067",
+      "target": "S070",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R193",
+      "source": "S071",
+      "target": "S070",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R194",
+      "source": "S076",
+      "target": "S066",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R195",
+      "source": "S075",
+      "target": "S066",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R196",
+      "source": "S077",
+      "target": "S076",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R197",
+      "source": "S097",
+      "target": "S112",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R198",
+      "source": "S084",
+      "target": "S112",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R199",
+      "source": "S117",
+      "target": "S066",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R200",
+      "source": "S139",
+      "target": "S158",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R201",
+      "source": "S117",
+      "target": "S116",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R202",
+      "source": "S038",
+      "target": "S048",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R203",
+      "source": "S044",
+      "target": "S047",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add",
+    "new": {
+      "id": "R204",
+      "source": "S043",
+      "target": "S047",
+      "type": "access"
+    }
+  }
+]

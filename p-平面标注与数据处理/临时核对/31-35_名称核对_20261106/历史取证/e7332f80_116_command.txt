@@ -1,0 +1,29 @@
+python - <<'PY'
+p='/tmp/outpatient34-review/build_annotation.py'
+s=open(p).read()
+old="add('public_hall','门诊大厅','hall',[(393,1455),(1183,1455),(1183,1538),(1067,1538),(1067,1615),(1183,1615),(1183,1924),(1067,1924),(1067,1890),(995,1916),(995,2003),(1067,2003),(1067,2154),(884,2154),(393,1635)],'open_space')"
+new="""hall_outline=Polygon([(393,1455),(1183,1455),(1183,1538),(1067,1538),(1067,1615),(1183,1615),(1183,1924),(1067,1924),(1067,1890),(995,1916),(995,2003),(1067,2003),(1067,2154),(884,2154),(393,1635)])
+from math import cos,sin,pi
+guide=Polygon([(780+62*cos(i*pi/8),1730+62*sin(i*pi/8)) for i in range(16)])
+def outline(poly):return [[round(x,3),round(y,3)] for x,y in poly.exterior.coords[:-1]]
+add('public_hall','门诊大厅（北部）','hall',outline(hall_outline.intersection(box(0,0,2444,1730)).difference(guide)),'open_space')
+add('public_guide','导诊','service',outline(guide),'semi_open_space')
+add('public_hallsouth','门诊大厅（南部）','hall',outline(hall_outline.intersection(box(0,1730,2444,3260)).difference(guide)),'open_space')"""
+assert old in s;s=s.replace(old,new)
+s=s.replace("hall=Polygon(spaces[next(i for i,s in enumerate(spaces) if s['id']==lookup['public_hall'])]['polygon_px'])","hall=hall_outline")
+s=s.replace("access('public_wait','public_hall');access('public_shop','public_hall');access('public_core','public_hall');access('public_stair','public_hall');access('public_entrance','public_hall');access('public_rest','public_hall');service('public_desk','public_rest')","access('public_wait','public_hall');access('public_shop','public_hall');access('public_core','public_hall');access('public_core','public_hallsouth');access('public_hall','public_hallsouth');service('public_guide','public_hall');service('public_guide','public_hallsouth');access('public_stair','public_hallsouth');access('public_entrance','public_hallsouth');access('public_rest','public_hallsouth');service('public_desk','public_rest')")
+open(p,'w').write(s)
+PY
+uv run --with pymupdf --with shapely python /tmp/outpatient34-review/build_annotation.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py normalize p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py render p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json --output p-写作过程/标注试样/34_青岛市中心医院综合病房楼/标注.svg
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py summary p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json --output p-写作过程/标注试样/34_青岛市中心医院综合病房楼/标注说明.md
+python - <<'PY'
+from pathlib import Path
+p=Path('p-写作过程/标注试样/34_青岛市中心医院综合病房楼/标注.svg')
+s=p.read_text().replace('门诊平面结构化标注','34 青岛市中心医院综合病房楼 · 一层标注草稿')
+p.write_text(s)
+# A square temporary outer canvas prevents Quick Look from cropping the portrait SVG.
+Path('/tmp/outpatient34-review/完整检查.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" width="3418" height="3418" viewBox="0 0 3418 3418"><rect width="3418" height="3418" fill="white"/><g transform="translate(487 0)">'+s+'</g></svg>')
+PY
+qlmanage -t -s 4500 -o /tmp/outpatient34-review /tmp/outpatient34-review/完整检查.svg

@@ -1,0 +1,693 @@
+[
+  {
+    "action": "delete_space",
+    "space_id": "S076"
+  },
+  {
+    "action": "delete_space",
+    "space_id": "S029"
+  },
+  {
+    "action": "update_geometry",
+    "space_id": "S265"
+  },
+  {
+    "action": "update_space",
+    "space_id": "S265",
+    "before": {
+      "name": "收费处",
+      "type": "registration",
+      "level": "semi_open_space"
+    },
+    "after": {
+      "name": "挂号收费医保新农合",
+      "type": "registration",
+      "level": "semi_open_space"
+    }
+  },
+  {
+    "action": "rewire_merged_space",
+    "before": {
+      "id": "R281",
+      "source": "S107",
+      "target": "S266",
+      "type": "service"
+    },
+    "after": {
+      "id": "R281",
+      "source": "S107",
+      "target": "S265",
+      "type": "service"
+    }
+  },
+  {
+    "action": "rewire_merged_space",
+    "before": {
+      "id": "R282",
+      "source": "S107",
+      "target": "S267",
+      "type": "service"
+    },
+    "after": {
+      "id": "R282",
+      "source": "S107",
+      "target": "S265",
+      "type": "service"
+    }
+  },
+  {
+    "action": "rewire_merged_space",
+    "before": {
+      "id": "R408",
+      "source": "S266",
+      "target": "S263",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P210",
+          "kind": "door",
+          "position_px": [
+            717.06,
+            1828.55
+          ]
+        }
+      ]
+    },
+    "after": {
+      "id": "R408",
+      "source": "S265",
+      "target": "S263",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P210",
+          "kind": "door",
+          "position_px": [
+            717.06,
+            1828.55
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "action": "merge_space",
+    "removed": "S266",
+    "retained": "S265"
+  },
+  {
+    "action": "merge_space",
+    "removed": "S267",
+    "retained": "S265"
+  },
+  {
+    "action": "update_space",
+    "space_id": "S215",
+    "before": {
+      "name": "胃肠",
+      "type": "imaging",
+      "level": "room"
+    },
+    "after": {
+      "name": "设备间",
+      "type": "building_services",
+      "level": "room"
+    }
+  },
+  {
+    "action": "update_space",
+    "space_id": "S083",
+    "before": {
+      "name": "清洁治疗",
+      "type": "treatment",
+      "level": "room"
+    },
+    "after": {
+      "name": "清创室",
+      "type": "treatment",
+      "level": "room"
+    }
+  },
+  {
+    "action": "update_space",
+    "space_id": "S260",
+    "before": {
+      "name": "卫生间",
+      "type": "toilet",
+      "level": "room"
+    },
+    "after": {
+      "name": "操作间",
+      "type": "examination",
+      "level": "room"
+    }
+  },
+  {
+    "action": "update_space",
+    "space_id": "S262",
+    "before": {
+      "name": "卫生间前室",
+      "type": "vestibule",
+      "level": "room"
+    },
+    "after": {
+      "name": "操作间",
+      "type": "examination",
+      "level": "room"
+    }
+  },
+  {
+    "action": "update_space",
+    "space_id": "S218",
+    "before": {
+      "name": "医技通道",
+      "type": "corridor",
+      "level": "open_space"
+    },
+    "after": {
+      "name": "庭院",
+      "type": "courtyard",
+      "level": "open_space"
+    }
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R223",
+      "source": "S218",
+      "target": "S189",
+      "type": "access"
+    },
+    "reason": "用户指定庭院不与房间连通"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R227",
+      "source": "S218",
+      "target": "S224",
+      "type": "access"
+    },
+    "reason": "用户指定庭院不与房间连通"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R420",
+      "source": "S322",
+      "target": "S218",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P236",
+          "kind": "door",
+          "position_px": [
+            1204.32,
+            2077.61
+          ]
+        }
+      ]
+    },
+    "reason": "用户指定庭院不与房间连通"
+  },
+  {
+    "action": "update_geometry",
+    "space_id": "S159"
+  },
+  {
+    "action": "update_geometry",
+    "space_id": "S164"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R162",
+      "source": "S144",
+      "target": "S161",
+      "type": "access"
+    },
+    "reason": "用户确认 MRI／机房不通西侧等候通道"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R163",
+      "source": "S144",
+      "target": "S162",
+      "type": "access"
+    },
+    "reason": "用户确认 MRI／机房不通西侧等候通道"
+  },
+  {
+    "action": "add_opening",
+    "relation_id": "R156",
+    "opening": {
+      "id": "P246",
+      "kind": "door",
+      "position_px": [
+        1939,
+        1553.95
+      ]
+    },
+    "reason": "用户确认 MRI 右下侧门；原图门洞近似定位"
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R429",
+      "source": "S161",
+      "target": "S162",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_opening",
+    "relation_id": "R175",
+    "opening": {
+      "id": "P247",
+      "kind": "door",
+      "position_px": [
+        1917.13,
+        2056
+      ]
+    },
+    "reason": "用户确认库房右上门，原有点位已对应此门"
+  },
+  {
+    "action": "update_geometry",
+    "space_id": "S345"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R170",
+      "source": "S164",
+      "target": "S177",
+      "type": "access"
+    },
+    "reason": "用户确认通过前室／通道，不直接跨房连通"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R180",
+      "source": "S173",
+      "target": "S176",
+      "type": "access"
+    },
+    "reason": "用户确认通过前室／通道，不直接跨房连通"
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R430",
+      "source": "S173",
+      "target": "S164",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R431",
+      "source": "S177",
+      "target": "S345",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_opening",
+    "relation_id": "R431",
+    "opening": {
+      "id": "P248",
+      "kind": "door",
+      "position_px": [
+        1793.72,
+        1620
+      ]
+    },
+    "reason": "打印出片左下门通合用前室"
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R432",
+      "source": "S345",
+      "target": "S179",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R433",
+      "source": "S345",
+      "target": "S178",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R434",
+      "source": "S179",
+      "target": "S180",
+      "type": "access"
+    }
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R339",
+      "source": "S337",
+      "target": "S339",
+      "type": "access"
+    },
+    "reason": "经中间缓冲／走道到达，不能跳过中间节点"
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R435",
+      "source": "S340",
+      "target": "S339",
+      "type": "access"
+    }
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R206",
+      "source": "S188",
+      "target": "S199",
+      "type": "access"
+    },
+    "reason": "更衣室右侧门实际接东侧通道 S189，再接 S188"
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R206",
+      "source": "S189",
+      "target": "S199",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_opening",
+    "relation_id": "R206",
+    "opening": {
+      "id": "P249",
+      "kind": "door",
+      "position_px": [
+        1536,
+        2026.52
+      ]
+    },
+    "reason": "用户确认更衣室右侧门，图面可辨"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R190",
+      "source": "S189",
+      "target": "S214",
+      "type": "access"
+    },
+    "reason": "不通东侧／上侧走廊，改经内部 S207／S217"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R191",
+      "source": "S189",
+      "target": "S215",
+      "type": "access"
+    },
+    "reason": "不通东侧／上侧走廊，改经内部 S207／S217"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R192",
+      "source": "S189",
+      "target": "S216",
+      "type": "access"
+    },
+    "reason": "不通东侧／上侧走廊，改经内部 S207／S217"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R213",
+      "source": "S190",
+      "target": "S205",
+      "type": "access"
+    },
+    "reason": "不通东侧／上侧走廊，改经内部 S207／S217"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R214",
+      "source": "S190",
+      "target": "S206",
+      "type": "access"
+    },
+    "reason": "不通东侧／上侧走廊，改经内部 S207／S217"
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R436",
+      "source": "S207",
+      "target": "S217",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R437",
+      "source": "S217",
+      "target": "S214",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R438",
+      "source": "S217",
+      "target": "S216",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R439",
+      "source": "S215",
+      "target": "S214",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R440",
+      "source": "S215",
+      "target": "S216",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R441",
+      "source": "S207",
+      "target": "S205",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_opening",
+    "relation_id": "R441",
+    "opening": {
+      "id": "P250",
+      "kind": "door",
+      "position_px": [
+        1329.85,
+        1723
+      ]
+    },
+    "reason": "会诊示教门在下侧"
+  },
+  {
+    "action": "add_opening",
+    "relation_id": "R217",
+    "opening": {
+      "id": "P251",
+      "kind": "door",
+      "position_px": [
+        1306.44,
+        1816
+      ]
+    },
+    "reason": "主任室上侧门"
+  },
+  {
+    "action": "add_opening",
+    "relation_id": "R218",
+    "opening": {
+      "id": "P252",
+      "kind": "door",
+      "position_px": [
+        1274,
+        1578.69
+      ]
+    },
+    "reason": "卫生间左下侧门"
+  },
+  {
+    "action": "add_opening",
+    "relation_id": "R219",
+    "opening": {
+      "id": "P253",
+      "kind": "door",
+      "position_px": [
+        1258,
+        1578.69
+      ]
+    },
+    "reason": "下侧卫生间同侧入口"
+  },
+  {
+    "action": "remove_relation",
+    "relation": {
+      "id": "R115",
+      "source": "S110",
+      "target": "S115",
+      "type": "access"
+    },
+    "reason": "主入口面向下方门诊大厅，原边跨到西侧走廊"
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R115",
+      "source": "S107",
+      "target": "S115",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R442",
+      "source": "S265",
+      "target": "S256",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R443",
+      "source": "S256",
+      "target": "S259",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R444",
+      "source": "S259",
+      "target": "S258",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R445",
+      "source": "S259",
+      "target": "S261",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R446",
+      "source": "S235",
+      "target": "S257",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R447",
+      "source": "S235",
+      "target": "S262",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R448",
+      "source": "S262",
+      "target": "S260",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_relation",
+    "relation": {
+      "id": "R449",
+      "source": "S289",
+      "target": "S290",
+      "type": "access"
+    }
+  },
+  {
+    "action": "add_opening",
+    "relation_id": "R449",
+    "opening": {
+      "id": "P254",
+      "kind": "door",
+      "position_px": [
+        1006,
+        2380
+      ]
+    },
+    "reason": "用户确认卫生间朝左进入 120 指挥中心"
+  },
+  {
+    "action": "update_space",
+    "space_id": "S271",
+    "before": {
+      "name": "急诊通道",
+      "type": "corridor",
+      "level": "open_space"
+    },
+    "after": {
+      "name": "合用前室",
+      "type": "vestibule",
+      "level": "open_space"
+    }
+  },
+  {
+    "action": "deduplicate_relation",
+    "removed": "R281",
+    "retained": "R280"
+  },
+  {
+    "action": "deduplicate_relation",
+    "removed": "R282",
+    "retained": "R280"
+  }
+]

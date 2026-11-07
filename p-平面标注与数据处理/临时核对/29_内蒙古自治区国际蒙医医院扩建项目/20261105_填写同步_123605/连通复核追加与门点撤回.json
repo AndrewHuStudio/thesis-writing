@@ -1,0 +1,139 @@
+{
+  "relations": [
+    {
+      "relation_id": "R230",
+      "source": "S095",
+      "target": "S094",
+      "type": "access",
+      "reading_position": [
+        1451,
+        1387
+      ],
+      "basis": "图面门洞"
+    },
+    {
+      "relation_id": "R231",
+      "source": "S095",
+      "target": "S090",
+      "type": "access",
+      "reading_position": [
+        1435,
+        1313
+      ],
+      "basis": "图面门洞"
+    },
+    {
+      "relation_id": "R232",
+      "source": "S099",
+      "target": "S096",
+      "type": "access",
+      "reading_position": [
+        1518,
+        1014
+      ],
+      "basis": "图面门洞"
+    },
+    {
+      "relation_id": "R233",
+      "source": "S134",
+      "target": "S222",
+      "type": "access",
+      "reading_position": [
+        1933,
+        1303
+      ],
+      "basis": "图面门洞"
+    },
+    {
+      "relation_id": "R234",
+      "source": "S095",
+      "target": "S096",
+      "type": "access",
+      "reading_position": null,
+      "basis": "布局推断：同一功能块中的开放前室／服务工作区连续；未定位门位。"
+    },
+    {
+      "relation_id": "R235",
+      "source": "S096",
+      "target": "S105",
+      "type": "access",
+      "reading_position": null,
+      "basis": "布局推断：同一功能块中的开放前室／服务工作区连续；未定位门位。"
+    },
+    {
+      "relation_id": "R236",
+      "source": "S065",
+      "target": "S077",
+      "type": "access",
+      "reading_position": null,
+      "basis": "布局推断：同一功能块中的开放前室／服务工作区连续；未定位门位。"
+    },
+    {
+      "relation_id": "R237",
+      "source": "S222",
+      "target": "S126",
+      "type": "access",
+      "reading_position": null,
+      "basis": "布局推断：同一功能块中的开放前室／服务工作区连续；未定位门位。"
+    },
+    {
+      "relation_id": "R238",
+      "source": "S222",
+      "target": "S131",
+      "type": "access",
+      "reading_position": null,
+      "basis": "布局推断：同一功能块中的开放前室／服务工作区连续；未定位门位。"
+    },
+    {
+      "relation_id": "R239",
+      "source": "S105",
+      "target": "S108",
+      "type": "service",
+      "reading_position": null,
+      "basis": "用户确认药房服务柜台，面向连续公共大厅。"
+    },
+    {
+      "relation_id": "R240",
+      "source": "S053",
+      "target": "S052",
+      "type": "service",
+      "reading_position": null,
+      "basis": "用户确认登记取片服务，面向检查区南侧公共大厅。"
+    }
+  ],
+  "withdrawn_internal_door_points": [
+    {
+      "id": "P027",
+      "kind": "door",
+      "position_px": [
+        1340,
+        1118
+      ]
+    },
+    {
+      "id": "P028",
+      "kind": "door",
+      "position_px": [
+        1279,
+        1118
+      ]
+    },
+    {
+      "id": "P029",
+      "kind": "door",
+      "position_px": [
+        1188,
+        1118
+      ]
+    },
+    {
+      "id": "P030",
+      "kind": "door",
+      "position_px": [
+        1140,
+        1110
+      ]
+    }
+  ],
+  "reason": "控制区域内部门不能挂到另一侧公共走廊的access上；待K06确认。"
+}

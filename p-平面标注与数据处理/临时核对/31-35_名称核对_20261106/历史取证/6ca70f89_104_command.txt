@@ -1,0 +1,7 @@
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py validate 'p-写作过程/标注试样/35_阳春京伦妇产医院/annotation.json' --allow-incomplete --check-dir && python - <<'PY'
+import cairosvg
+from pathlib import Path
+p=Path('p-写作过程/标注试样/35_阳春京伦妇产医院/标注.svg')
+cairosvg.svg2png(url=str(p),write_to='/tmp/outpatient35-review/35_SVG检查.png')
+print('SVG rendered to PNG')
+PY

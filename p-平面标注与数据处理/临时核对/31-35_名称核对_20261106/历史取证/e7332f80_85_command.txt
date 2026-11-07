@@ -1,0 +1,86 @@
+cat > /tmp/outpatient34-review/make_review.py <<'PY'
+from pathlib import Path
+import json, math
+from PIL import Image, ImageDraw, ImageFont
+from shapely.geometry import LineString
+T=Path('/tmp/outpatient34-review')
+P=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/34_青岛市中心医院综合病房楼')
+data=json.loads((P/'annotation.json').read_text());todo=json.loads((T/'review-map.json').read_text())
+byid={s['id']:s for s in data['spaces']}
+FONT='/System/Library/Fonts/STHeiti Medium.ttc'
+def font(n):return ImageFont.truetype(FONT,n)
+def lines(draw,text,xy,width,size,color='#263449',spacing=10):
+    f=font(size);x,y=xy;row=''
+    for ch in text:
+        if draw.textlength(row+ch,font=f)>width and row:
+            draw.text((x,y),row,font=f,fill=color);y+=size+spacing;row=ch
+        else:row+=ch
+    if row:draw.text((x,y),row,font=f,fill=color);y+=size+spacing
+    return y
+im=Image.open(P/data['image']['file']).convert('RGB')
+W,H=4004,3470;ox,oy=780,135
+out=Image.new('RGB',(W,H),'#f5f7fa');d=ImageDraw.Draw(out)
+d.text((55,30),'34｜青岛市中心医院综合病房楼 · 一层核对总图',font=font(42),fill='#162b42')
+d.text((55,86),'标注草稿 · 3 个待确认空间 · 按 01、02、03 回复，可分批确认',font=font(27),fill='#8c4a05')
+out.paste(im,(ox,oy));d=ImageDraw.Draw(out)
+colors=['#b3266b','#176f9d','#92590a']
+# 所有引线留在同一妇产片区；02 的末段沿妇科等候区接入，避免穿过同排诊室。
+routes=[[(730,835),(780+616,835)],[(730,1000),(780+470,900),(780+891,900),(780+891,880)],[(730,1165),(780+493,1165)]]
+boxes=[(35,755,730,915),(35,920,730,1080),(35,1085,730,1245)]
+# 坐标路线、边栏位置 y 均以原图基准，叠加统一 oy。
+line_geoms=[]
+for i,(r,c,route,b) in enumerate(zip(todo,colors,routes,boxes),1):
+    s=byid[r['id']];points=[(ox+x,oy+y) for x,y in s['polygon_px']]
+    d.polygon(points,outline=c,width=5)
+    xs=[p[0] for p in points];ys=[p[1] for p in points]
+    d.rounded_rectangle((min(xs)+3,min(ys)+3,min(xs)+49,min(ys)+40),6,fill=c)
+    d.text((min(xs)+8,min(ys)+5),f'{i:02d}',font=font(26),fill='white')
+    rr=[(x,y+oy) for x,y in route];line_geoms.append(LineString(rr));d.line(rr,fill=c,width=4)
+    tx,ty=rr[-1];d.ellipse((tx-5,ty-5,tx+5,ty+5),fill=c)
+    x1,y1,x2,y2=b;y1+=oy;y2+=oy
+    d.rounded_rectangle((x1,y1,x2,y2),14,fill='white',outline=c,width=3)
+    d.text((x1+20,y1+14),f'{i:02d}｜{r["id"]} 名称未确认',font=font(31),fill=c)
+    yy=lines(d,'候选：'+' / '.join(r['candidate'])+'（'+r['confidence']+'把握）',(x1+20,y1+55),x2-x1-40,26)
+    lines(d,r['evidence'],(x1+20,yy+2),x2-x1-40,23,spacing=5)
+for i,a in enumerate(line_geoms):
+    for b in line_geoms[i+1:]:assert not a.intersects(b),'leader crossing'
+x=3275
+d.rounded_rectangle((x,oy+705,3965,oy+1320),14,fill='white',outline='#ccd5e0',width=2)
+y=oy+730
+y=lines(d,'读取说明',(x+25,y),640,34,'#162b42',12)
+y=lines(d,'妇产科片区从上到下，同排从左到右。01 与 02 在同一排，03 在其下方。',(x+25,y+20),640,29,spacing=14)
+y=lines(d,'候选仅用于核对；核心 JSON 中三项仍为 unknown。',(x+25,y+25),640,29,'#8c4a05',14)
+y=lines(d,'可按 01=名称，02=名称，03=名称 回复，也可直接使用 S 编号。',(x+25,y+25),640,29,spacing=14)
+lines(d,'范围：本图一层；妇产科门诊、药房、外科门诊、输液、急诊／急救及公共支持。未将综合病房楼名称解释为住院病区。',(x+25,y+25),640,27,spacing=12)
+d.text((55,H-50),'原图完整居中保留；彩框及引线为临时核对叠加层。原图未修改。',font=font(26),fill='#52677b')
+out.save(T/'34_核对总图.png')
+# 密集小字补充：同一原图局部，保留整体相对关系及连续核对编号。
+box=(450,790,1090,1195);scale=3
+local=im.crop(box).resize(((box[2]-box[0])*scale,(box[3]-box[1])*scale))
+zoom=Image.new('RGB',(3100,1450),'#f5f7fa');dz=ImageDraw.Draw(zoom)
+dz.text((35,25),'34｜妇产科待确认空间局部放大（补充总图）',font=font(40),fill='#162b42')
+zoom.paste(local,(40,120));dz=ImageDraw.Draw(zoom)
+for i,(r,c) in enumerate(zip(todo,colors),1):
+    s=byid[r['id']];pts=[(40+(x-box[0])*scale,120+(y-box[1])*scale) for x,y in s['polygon_px']]
+    dz.polygon(pts,outline=c,width=7)
+    x=min(p[0] for p in pts);y=min(p[1] for p in pts)
+    dz.rounded_rectangle((x+5,y+5,x+90,y+63),8,fill=c)
+    dz.text((x+18,y+9),f'{i:02d}',font=font(43),fill='white')
+    yy=150+(i-1)*360
+    yy=lines(dz,f'{i:02d}｜{r["id"]}',(2010,yy),1030,42,c)
+    yy=lines(dz,'候选：'+' / '.join(r['candidate']),(2010,yy+14),1030,35)
+    yy=lines(dz,r['evidence'],(2010,yy+14),1030,31,spacing=14)
+    lines(dz,'把握：'+r['confidence']+'；请确认名称或给出可接受的较粗用途。',(2010,yy+14),1030,31,c)
+dz.text((40,1380),'可分批回复：01=名称，02=名称，03=名称。未回复项继续保留 unknown。',font=font(33),fill='#52677b')
+zoom.save(T/'34_妇产科核对放大.png')
+print('review ids:',[r['id'] for r in todo]);print('leader crossings: 0')
+PY
+python - <<'PY'
+p='/tmp/outpatient34-review/build_annotation.py'
+s=open(p).read().replace("for k in ['e_change1','e_change2','e_doctor','e_director']:access(k,'e_staffcorridor')","for k in ['e_change1','e_change2','e_doctor']:access(k,'e_staffcorridor')
+access('e_director','e_doctor')")
+open(p,'w').write(s)
+PY
+uv run --with pymupdf --with shapely python /tmp/outpatient34-review/build_annotation.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py normalize p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json
+uv run --with pymupdf --with shapely python /tmp/outpatient34-review/make_review.py

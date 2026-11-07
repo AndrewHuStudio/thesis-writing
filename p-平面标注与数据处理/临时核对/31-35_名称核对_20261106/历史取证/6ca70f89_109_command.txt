@@ -1,0 +1,9 @@
+ls /opt/homebrew/lib/libcairo.2.dylib /usr/local/lib/libcairo.2.dylib /opt/miniconda3/lib/libcairo.2.dylib 2>/dev/null; uv run --with pymupdf --with shapely python - <<'PY'
+import pymupdf
+from pathlib import Path
+p=Path('p-写作过程/标注试样/35_阳春京伦妇产医院/标注.svg')
+doc=pymupdf.open(p)
+print(doc[0].rect)
+doc[0].get_pixmap(alpha=False).save('/tmp/outpatient35-review/35_SVG检查.png')
+print('SVG rasterized')
+PY

@@ -1,0 +1,166 @@
+{
+  "name_items": [
+    {
+      "review_id": "01",
+      "space_id": "S007",
+      "status": "pending"
+    },
+    {
+      "review_id": "02",
+      "space_id": "S008",
+      "status": "pending"
+    },
+    {
+      "review_id": "03",
+      "space_id": "S016",
+      "status": "pending"
+    },
+    {
+      "review_id": "04",
+      "space_id": "S017",
+      "status": "pending"
+    },
+    {
+      "review_id": "05",
+      "space_id": "S067",
+      "status": "pending"
+    },
+    {
+      "review_id": "06",
+      "space_id": "S084",
+      "status": "pending"
+    },
+    {
+      "review_id": "07",
+      "space_id": "S095",
+      "status": "pending"
+    },
+    {
+      "review_id": "08",
+      "space_id": "S100",
+      "status": "pending"
+    },
+    {
+      "review_id": "09",
+      "space_id": "S101",
+      "status": "pending"
+    },
+    {
+      "review_id": "10",
+      "space_id": "S102",
+      "status": "pending"
+    },
+    {
+      "review_id": "11",
+      "space_id": "S103",
+      "status": "pending"
+    },
+    {
+      "review_id": "12",
+      "space_id": "S104",
+      "status": "pending"
+    },
+    {
+      "review_id": "13",
+      "space_id": "S105",
+      "status": "pending"
+    },
+    {
+      "review_id": "14",
+      "space_id": "S106",
+      "status": "pending"
+    },
+    {
+      "review_id": "15",
+      "space_id": "S107",
+      "status": "pending"
+    },
+    {
+      "review_id": "16",
+      "space_id": "S108",
+      "status": "pending"
+    }
+  ],
+  "connectivity_items": [],
+  "checks": {
+    "connectivity_reviewed": true,
+    "visual_reviewed": true
+  },
+  "connectivity_review_notes": {
+    "date": "2026-11-06",
+    "evidence": "本图原图及01—13分区放大图，逐门人工判读。",
+    "scope": "沿用118节点概念层级，不细分交通核内部。主要功能区连接已复核；无用户连接确认记录。",
+    "conceptual_connections": [
+      {
+        "relation_id": "R014",
+        "reason": "高温灭菌与检查包装之间无完整实体隔墙，南侧连续。"
+      },
+      {
+        "relation_id": "R028",
+        "reason": "军人住院门厅与西侧服务通道在交通核西侧连续。"
+      },
+      {
+        "relation_id": "R038",
+        "reason": "住院服务通道南端与医疗大厅连续。"
+      },
+      {
+        "relation_id": "R090",
+        "reason": "护士站工作带西端绕过柜台与候诊区相接，布局推断，无定位门洞。"
+      },
+      {
+        "relation_id": "R093",
+        "reason": "咨询柜台背后与候诊区连续，布局推断，无定位门洞。"
+      },
+      {
+        "relation_id": "R103",
+        "reason": "扶梯厅西边为虚线概念边界，连接大厅西区。"
+      },
+      {
+        "relation_id": "R104",
+        "reason": "医疗大厅西、东区在扶梯南北两侧连续。"
+      },
+      {
+        "relation_id": "R107",
+        "reason": "医疗大厅西区与普通住院门厅连续。"
+      },
+      {
+        "relation_id": "R110",
+        "reason": "ATM北侧虚线边界向医疗大厅开放，布局推断。"
+      },
+      {
+        "relation_id": "R111",
+        "reason": "扶梯厅东边为虚线概念边界，连接大厅东区。"
+      }
+    ],
+    "not_required": [
+      "S039女卫、S020拆包间与S021仓库的内部连接未见清晰开口；保留空间，不以共墙补边。",
+      "S095设备小间内部连接及交通核内部小间门位本轮不细究。",
+      "S080清洗间与S081之间未见门洞，撤回旧R073；小间内部连接本轮不细究。",
+      "S086南侧为实墙，撤回旧R081；保留西侧独立外门E13，不为接入主网络补边。",
+      "S026与S025之间未见人员门洞，撤回旧R027；S026保留向S047的可见门。",
+      "东南空白虚线范围缺少功能和边界标注，未新增室内节点或假想外部总节点。"
+    ]
+  },
+  "visual_review_notes": {
+    "date": "2026-11-06",
+    "full_plan": true,
+    "dense_regions": [
+      "供应北",
+      "供应南",
+      "住院北",
+      "静配北",
+      "静配南",
+      "门诊南",
+      "大厅东"
+    ],
+    "opening_labels_visible": true,
+    "source_image_preserved": true,
+    "note": "113处定位门洞已逐区对照原图；SVG全图及密集局部经渲染目检。核对号01—16保持原映射，名称仍待用户填写。"
+  },
+  "image_signature": {
+    "file": "33_西京医院住院二部翻建工程_原图.jpg",
+    "width": 2532,
+    "height": 3028,
+    "sha256": "15150c953bcb193e8a234799e1de640a8835d7ceef4c1a403b43f261fa78c21d"
+  }
+}

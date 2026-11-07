@@ -1,0 +1,4 @@
+which rsvg-convert; which magick; which inkscape; python - <<'PY'
+from PIL import Image
+im=Image.open('/tmp/outpatient32-review/标注.svg.png');print(im.size)
+PY

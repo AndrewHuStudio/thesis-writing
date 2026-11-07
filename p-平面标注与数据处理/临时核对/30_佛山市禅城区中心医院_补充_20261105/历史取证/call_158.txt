@@ -1,0 +1,5 @@
+python - <<'PY'
+p='/tmp/outpatient30-review/make_review.py';s=open(p).read().replace("assert len(qs)==32 and len({q['number'] for q in qs})==33", "assert len(qs)==len({q['number'] for q in qs})==len([s for s in data['spaces'] if s['type']=='unknown'])")
+open(p,'w').write(s)
+PY
+uv run --with shapely --with pillow python /tmp/outpatient30-review/make_review.py

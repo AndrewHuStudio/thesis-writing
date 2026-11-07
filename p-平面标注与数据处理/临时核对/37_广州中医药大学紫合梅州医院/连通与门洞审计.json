@@ -1,0 +1,1801 @@
+{
+  "added_spaces": [
+    {
+      "space_id": "S087",
+      "reason": "原图专家门诊西侧小房组东、南侧灰色通道，北接药房后场通道。"
+    },
+    {
+      "space_id": "S088",
+      "reason": "原图儿科门诊东端至急诊的连续灰色公共空间，并沿矩形留白区西、东侧衔接。"
+    },
+    {
+      "space_id": "S089",
+      "reason": "原图妇科配套房组南侧、输液西侧连续灰色通道，南接放射科内部交通。"
+    },
+    {
+      "space_id": "S090",
+      "reason": "原图药房西侧交通核前的灰色通道，向南接药房后场通道。"
+    },
+    {
+      "space_id": "S084",
+      "reason": "原编号通道补齐多边形留白东侧的连续灰色通行带。"
+    },
+    {
+      "space_id": "S091",
+      "reason": "原图留观南侧、东侧的连续灰色通道，绕过南侧交通核和多边形留白区。"
+    },
+    {
+      "space_id": "S085",
+      "reason": "补齐卫生间与南端长条房之间通道，以及东南楼梯北侧前室。"
+    },
+    {
+      "space_id": "S020",
+      "reason": "补齐两南侧电梯之间实际连续的中央门厅西半通道。"
+    }
+  ],
+  "removed_relations": [
+    {
+      "id": "R049",
+      "source": "S046",
+      "target": "S053",
+      "type": "service",
+      "reason": "服务窗口位于候药大厅侧，校正其服务对象；关系编号保留。"
+    },
+    {
+      "id": "R050",
+      "source": "S047",
+      "target": "S053",
+      "type": "service",
+      "reason": "服务窗口位于候药大厅侧，校正其服务对象；关系编号保留。"
+    },
+    {
+      "id": "R033",
+      "source": "S054",
+      "target": "S067",
+      "type": "access",
+      "reason": "专家门诊北侧先经独立楼梯交通核；未见该空间对的直接开口。"
+    },
+    {
+      "id": "R034",
+      "source": "S053",
+      "target": "S067",
+      "type": "access",
+      "reason": "后场通道与专家门诊之间是诊室组，未见穿越这些小房的直接公共开口。"
+    },
+    {
+      "id": "R026",
+      "source": "S057",
+      "target": "S084",
+      "type": "access",
+      "reason": "留观西侧门通往配套房组S058；公共通行改由北侧急诊走道及南侧新补通道。"
+    },
+    {
+      "id": "R028",
+      "source": "S084",
+      "target": "S060",
+      "type": "access",
+      "reason": "留观南侧交通核东向门通往新补S091，校正原空间对。"
+    },
+    {
+      "id": "R064",
+      "source": "S013",
+      "target": "S011",
+      "type": "access",
+      "reason": "仅共墙，不增加人员可达关系；商铺外门另作建筑接口。"
+    },
+    {
+      "id": "R081",
+      "source": "S043",
+      "target": "S044",
+      "type": "access",
+      "reason": "仅相邻，无直接通行证据。"
+    }
+  ],
+  "relation_evidence": [
+    {
+      "relation_id": "R001",
+      "source": "S020",
+      "target": "S021",
+      "basis": "布局推断／连续功能空间",
+      "reason": "同一大厅的概念分区，无实体隔墙，不造门点。"
+    },
+    {
+      "relation_id": "R002",
+      "source": "S020",
+      "target": "S019",
+      "basis": "原图可见开口",
+      "reason": "大厅与候药区连续开敞。"
+    },
+    {
+      "relation_id": "R003",
+      "source": "S020",
+      "target": "S022",
+      "basis": "布局推断／连续功能空间",
+      "reason": "导诊为半开放柜台，仅记录工作人员可达的概念联系。"
+    },
+    {
+      "relation_id": "R004",
+      "source": "S021",
+      "target": "S022",
+      "basis": "布局推断／连续功能空间",
+      "reason": "导诊为半开放柜台，不以服务窗口生成门点。"
+    },
+    {
+      "relation_id": "R005",
+      "source": "S020",
+      "target": "S023",
+      "basis": "布局推断／连续功能空间",
+      "reason": "交通核整体包含扶梯入口；不把电梯门或扶梯端点当房间间门洞。"
+    },
+    {
+      "relation_id": "R006",
+      "source": "S021",
+      "target": "S023",
+      "basis": "布局推断／连续功能空间",
+      "reason": "交通核东侧扶梯向大厅开放，内部路线不细分。"
+    },
+    {
+      "relation_id": "R007",
+      "source": "S020",
+      "target": "S024",
+      "basis": "原图可见开口",
+      "reason": "西侧电梯前室北向双扇门。"
+    },
+    {
+      "relation_id": "R008",
+      "source": "S021",
+      "target": "S025",
+      "basis": "原图可见开口",
+      "reason": "东侧电梯前室北向门。"
+    },
+    {
+      "relation_id": "R010",
+      "source": "S019",
+      "target": "S012",
+      "basis": "原图可见开口",
+      "reason": "自助银行朝大厅的门。"
+    },
+    {
+      "relation_id": "R011",
+      "source": "S019",
+      "target": "S014",
+      "basis": "原图可见开口",
+      "reason": "花店朝大厅的双扇门。"
+    },
+    {
+      "relation_id": "R012",
+      "source": "S019",
+      "target": "S016",
+      "basis": "原图可见开口",
+      "reason": "便利店朝大厅的门。"
+    },
+    {
+      "relation_id": "R013",
+      "source": "S019",
+      "target": "S002",
+      "basis": "布局推断／连续功能空间",
+      "reason": "电梯直接面向候药大厅；交通核内部电梯门不作P点。"
+    },
+    {
+      "relation_id": "R056",
+      "source": "S007",
+      "target": "S003",
+      "basis": "原图可见开口",
+      "reason": "卫生间朝南门洞。"
+    },
+    {
+      "relation_id": "R057",
+      "source": "S007",
+      "target": "S004",
+      "basis": "原图可见开口",
+      "reason": "北侧房组朝厅门洞，保留功能块粒度。"
+    },
+    {
+      "relation_id": "R058",
+      "source": "S007",
+      "target": "S005",
+      "basis": "原图可见开口",
+      "reason": "北侧交通核南向门。"
+    },
+    {
+      "relation_id": "R059",
+      "source": "S019",
+      "target": "S007",
+      "basis": "原图可见开口",
+      "reason": "开放办公西侧出入口。"
+    },
+    {
+      "relation_id": "R060",
+      "source": "S019",
+      "target": "S008",
+      "basis": "原图可见开口",
+      "reason": "收费东端房组南向门。"
+    },
+    {
+      "relation_id": "R061",
+      "source": "S019",
+      "target": "S001",
+      "basis": "布局推断／连续功能空间",
+      "reason": "西北空白区在斜向端部与大厅衔接，通行边界不清，先保留概念连接。"
+    },
+    {
+      "relation_id": "R062",
+      "source": "S001",
+      "target": "S010",
+      "basis": "原图可见开口",
+      "reason": "斜向楼梯东南侧开口。"
+    },
+    {
+      "relation_id": "R063",
+      "source": "S011",
+      "target": "S019",
+      "basis": "布局推断／连续功能空间",
+      "reason": "商铺东侧经过银行旁连续空隙进入大厅；不补虚构门点。"
+    },
+    {
+      "relation_id": "R064",
+      "source": "S013",
+      "target": "S011",
+      "basis": "布局推断／连续功能空间",
+      "reason": "两商铺共墙无门证据不足，撤回此临时关系。"
+    },
+    {
+      "relation_id": "R065",
+      "source": "S017",
+      "target": "S018",
+      "basis": "原图可见开口",
+      "reason": "西端楼梯交通核向南侧前室开口。"
+    },
+    {
+      "relation_id": "R066",
+      "source": "S018",
+      "target": "S019",
+      "basis": "原图可见开口",
+      "reason": "西侧公共入口内侧前室向大厅开口。"
+    },
+    {
+      "relation_id": "R067",
+      "source": "S019",
+      "target": "S045",
+      "basis": "原图可见开口",
+      "reason": "药房西侧卫生间朝候药区北向门。"
+    },
+    {
+      "relation_id": "R014",
+      "source": "S021",
+      "target": "S028",
+      "basis": "原图可见开口",
+      "reason": "儿科门诊内走道与中央大厅连续。"
+    },
+    {
+      "relation_id": "R015",
+      "source": "S021",
+      "target": "S030",
+      "basis": "原图可见开口",
+      "reason": "妇科门诊内走道与中央大厅连续。"
+    },
+    {
+      "relation_id": "R016",
+      "source": "S021",
+      "target": "S032",
+      "basis": "原图可见开口",
+      "reason": "妇科侧卫生间西向门。"
+    },
+    {
+      "relation_id": "R017",
+      "source": "S028",
+      "target": "S027",
+      "basis": "原图可见开口",
+      "reason": "北侧交通核向儿科内走道开门。"
+    },
+    {
+      "relation_id": "R018",
+      "source": "S028",
+      "target": "S029",
+      "basis": "布局推断／连续功能空间",
+      "reason": "电梯直接开向儿科内走道，不单列电梯门。"
+    },
+    {
+      "relation_id": "R068",
+      "source": "S028",
+      "target": "S088",
+      "basis": "原图可见开口",
+      "reason": "儿科内走道东端连续衔接公共区。"
+    },
+    {
+      "relation_id": "R069",
+      "source": "S030",
+      "target": "S031",
+      "basis": "原图可见开口",
+      "reason": "妇科走道东端连续进入儿科输液前通道。"
+    },
+    {
+      "relation_id": "R019",
+      "source": "S031",
+      "target": "S034",
+      "basis": "原图可见开口",
+      "reason": "儿科输液东侧门通往成人输液功能块前通道。"
+    },
+    {
+      "relation_id": "R070",
+      "source": "S030",
+      "target": "S033",
+      "basis": "原图可见开口",
+      "reason": "妇科南侧配套组北面向内部横向通道开门。"
+    },
+    {
+      "relation_id": "R071",
+      "source": "S030",
+      "target": "S089",
+      "basis": "原图可见开口",
+      "reason": "妇科内部走道南延。"
+    },
+    {
+      "relation_id": "R072",
+      "source": "S033",
+      "target": "S089",
+      "basis": "原图可见开口",
+      "reason": "南侧配套房组朝南门。"
+    },
+    {
+      "relation_id": "R073",
+      "source": "S034",
+      "target": "S089",
+      "basis": "原图可见开口",
+      "reason": "成人输液西侧门。"
+    },
+    {
+      "relation_id": "R020",
+      "source": "S034",
+      "target": "S084",
+      "basis": "布局推断／连续功能空间",
+      "reason": "成人输液功能块东端连公共区；边界包含前厅，保留概念关系，不定位不清楚的小门。"
+    },
+    {
+      "relation_id": "R074",
+      "source": "S035",
+      "target": "S055",
+      "basis": "原图可见开口",
+      "reason": "输液南侧配套组朝放射科北侧公共横向通道开门。"
+    },
+    {
+      "relation_id": "R075",
+      "source": "S089",
+      "target": "S055",
+      "basis": "原图可见开口",
+      "reason": "连接通道连续进入放射科内部交通。"
+    },
+    {
+      "relation_id": "R076",
+      "source": "S088",
+      "target": "S039",
+      "basis": "原图可见开口",
+      "reason": "东北公共区与急诊走道连续。"
+    },
+    {
+      "relation_id": "R077",
+      "source": "S088",
+      "target": "S084",
+      "basis": "原图可见开口",
+      "reason": "矩形留白东侧通道南延。"
+    },
+    {
+      "relation_id": "R021",
+      "source": "S039",
+      "target": "S037",
+      "basis": "原图可见开口",
+      "reason": "急诊北侧综合交通核朝南的门。"
+    },
+    {
+      "relation_id": "R022",
+      "source": "S039",
+      "target": "S038",
+      "basis": "原图可见开口",
+      "reason": "卫生间交通核东侧门。"
+    },
+    {
+      "relation_id": "R078",
+      "source": "S088",
+      "target": "S038",
+      "basis": "原图可见开口",
+      "reason": "卫生间交通核西侧门通向东北侧公共通道。"
+    },
+    {
+      "relation_id": "R023",
+      "source": "S039",
+      "target": "S084",
+      "basis": "原图可见开口",
+      "reason": "急诊南侧走道与公共通道衔接。"
+    },
+    {
+      "relation_id": "R024",
+      "source": "S039",
+      "target": "S040",
+      "basis": "布局推断／连续功能空间",
+      "reason": "急诊与住院门厅连续，整体功能边界不对应实体门。"
+    },
+    {
+      "relation_id": "R025",
+      "source": "S040",
+      "target": "S041",
+      "basis": "原图可见开口",
+      "reason": "住院门厅与南侧交通核间门。"
+    },
+    {
+      "relation_id": "R079",
+      "source": "S039",
+      "target": "S042",
+      "basis": "原图可见开口",
+      "reason": "急救区与急诊南侧走道间可见门洞。"
+    },
+    {
+      "relation_id": "R080",
+      "source": "S042",
+      "target": "S063",
+      "basis": "布局推断／连续功能空间",
+      "reason": "急救区南侧经核前室进入交通核；边界间通道短小，不定位内部路线。"
+    },
+    {
+      "relation_id": "R081",
+      "source": "S043",
+      "target": "S044",
+      "basis": "布局推断／连续功能空间",
+      "reason": "值班中心与下方房组未见内部直通，撤回该临时关系。"
+    },
+    {
+      "relation_id": "R082",
+      "source": "S057",
+      "target": "S058",
+      "basis": "原图可见开口",
+      "reason": "急诊留观西侧门通向配套房组。"
+    },
+    {
+      "relation_id": "R083",
+      "source": "S057",
+      "target": "S039",
+      "basis": "原图可见开口",
+      "reason": "留观北侧门通向急诊通道。"
+    },
+    {
+      "relation_id": "R084",
+      "source": "S057",
+      "target": "S091",
+      "basis": "原图可见开口",
+      "reason": "留观南侧东端门通往公共通道。"
+    },
+    {
+      "relation_id": "R085",
+      "source": "S084",
+      "target": "S058",
+      "basis": "原图可见开口",
+      "reason": "留观西侧房组朝公共通道门。"
+    },
+    {
+      "relation_id": "R027",
+      "source": "S084",
+      "target": "S059",
+      "basis": "布局推断／连续功能空间",
+      "reason": "电梯面向公共通道，不单列电梯内部开口。"
+    },
+    {
+      "relation_id": "R086",
+      "source": "S091",
+      "target": "S060",
+      "basis": "原图可见开口",
+      "reason": "留观南侧交通核东向门。"
+    },
+    {
+      "relation_id": "R087",
+      "source": "S084",
+      "target": "S061",
+      "basis": "原图可见开口",
+      "reason": "留观南侧房组东向门。"
+    },
+    {
+      "relation_id": "R088",
+      "source": "S091",
+      "target": "S063",
+      "basis": "原图可见开口",
+      "reason": "东南公共通道北端接综合交通核前室。"
+    },
+    {
+      "relation_id": "R089",
+      "source": "S091",
+      "target": "S084",
+      "basis": "原图可见开口",
+      "reason": "留观南侧通道连续接多边形留白西侧通道。"
+    },
+    {
+      "relation_id": "R041",
+      "source": "S084",
+      "target": "S082",
+      "basis": "布局推断／连续功能空间",
+      "reason": "肠道门诊西侧内部走道连接公共区，轮廓未精确贴合局部门扇，保留概念关系。"
+    },
+    {
+      "relation_id": "R042",
+      "source": "S084",
+      "target": "S083",
+      "basis": "布局推断／连续功能空间",
+      "reason": "发热门诊西侧有朝公共通道的入口；内部候诊边界含小间，不定位不清楚的门。"
+    },
+    {
+      "relation_id": "R043",
+      "source": "S080",
+      "target": "S081",
+      "basis": "布局推断／连续功能空间",
+      "reason": "VIP大厅与交通核前室连续；内部电梯门不细分。"
+    },
+    {
+      "relation_id": "R040",
+      "source": "S080",
+      "target": "S084",
+      "basis": "原图可见开口",
+      "reason": "VIP大厅东向门。"
+    },
+    {
+      "relation_id": "R029",
+      "source": "S046",
+      "target": "S053",
+      "basis": "原图可见开口",
+      "reason": "中药房南侧朝后场通道双扇门。"
+    },
+    {
+      "relation_id": "R030",
+      "source": "S047",
+      "target": "S053",
+      "basis": "原图可见开口",
+      "reason": "西药房南侧朝后场通道双扇门。"
+    },
+    {
+      "relation_id": "R031",
+      "source": "S053",
+      "target": "S054",
+      "basis": "原图可见开口",
+      "reason": "药房后场通道东端门。"
+    },
+    {
+      "relation_id": "R032",
+      "source": "S054",
+      "target": "S020",
+      "basis": "原图可见开口",
+      "reason": "西侧通道与中央公共厅连续。"
+    },
+    {
+      "relation_id": "R035",
+      "source": "S054",
+      "target": "S068",
+      "basis": "原图可见开口",
+      "reason": "专家门诊北侧楼梯东向门。"
+    },
+    {
+      "relation_id": "R090",
+      "source": "S068",
+      "target": "S067",
+      "basis": "原图可见开口",
+      "reason": "楼梯前室向专家门诊内部交通开放。"
+    },
+    {
+      "relation_id": "R091",
+      "source": "S054",
+      "target": "S067",
+      "basis": "原图可见开口",
+      "reason": "专家门诊东向两处门。"
+    },
+    {
+      "relation_id": "R092",
+      "source": "S067",
+      "target": "S069",
+      "basis": "原图可见开口",
+      "reason": "专家门诊南侧房组朝内部走道门。"
+    },
+    {
+      "relation_id": "R093",
+      "source": "S069",
+      "target": "S070",
+      "basis": "原图可见开口",
+      "reason": "南侧卫生间朝专家内部走道门。"
+    },
+    {
+      "relation_id": "R036",
+      "source": "S054",
+      "target": "S071",
+      "basis": "原图可见开口",
+      "reason": "西南楼梯东向门。"
+    },
+    {
+      "relation_id": "R094",
+      "source": "S053",
+      "target": "S087",
+      "basis": "原图可见开口",
+      "reason": "后场通道向西南内通道门。"
+    },
+    {
+      "relation_id": "R095",
+      "source": "S087",
+      "target": "S064",
+      "basis": "原图可见开口",
+      "reason": "西南小房组朝内通道门。"
+    },
+    {
+      "relation_id": "R096",
+      "source": "S087",
+      "target": "S065",
+      "basis": "原图可见开口",
+      "reason": "西南大房北向门。"
+    },
+    {
+      "relation_id": "R097",
+      "source": "S053",
+      "target": "S090",
+      "basis": "原图可见开口",
+      "reason": "药房西侧通道与后场通道连续。"
+    },
+    {
+      "relation_id": "R098",
+      "source": "S090",
+      "target": "S050",
+      "basis": "原图可见开口",
+      "reason": "药房西侧楼梯前室门。"
+    },
+    {
+      "relation_id": "R099",
+      "source": "S054",
+      "target": "S051",
+      "basis": "原图可见开口",
+      "reason": "药房东侧综合交通核东向门。"
+    },
+    {
+      "relation_id": "R100",
+      "source": "S053",
+      "target": "S052",
+      "basis": "原图可见开口",
+      "reason": "药房东侧配套房组南向门。"
+    },
+    {
+      "relation_id": "R101",
+      "source": "S020",
+      "target": "S048",
+      "basis": "原图可见开口",
+      "reason": "药房东侧楼梯核朝中央厅西边缘的门。"
+    },
+    {
+      "relation_id": "R102",
+      "source": "S048",
+      "target": "S049",
+      "basis": "原图可见开口",
+      "reason": "卫生间朝交通核前室开门。"
+    },
+    {
+      "relation_id": "R037",
+      "source": "S021",
+      "target": "S056",
+      "basis": "原图可见开口",
+      "reason": "放射科西侧交通核朝大厅开门。"
+    },
+    {
+      "relation_id": "R053",
+      "source": "S086",
+      "target": "S056",
+      "basis": "原图可见开口",
+      "reason": "综合交通核南侧朝公共通道门。"
+    },
+    {
+      "relation_id": "R051",
+      "source": "S021",
+      "target": "S086",
+      "basis": "原图可见开口",
+      "reason": "中央大厅向东翼内侧通道连续。"
+    },
+    {
+      "relation_id": "R052",
+      "source": "S086",
+      "target": "S085",
+      "basis": "原图可见开口",
+      "reason": "内侧通道与医技南侧通道连续。"
+    },
+    {
+      "relation_id": "R054",
+      "source": "S086",
+      "target": "S074",
+      "basis": "原图可见开口",
+      "reason": "南侧卫生间西向门。"
+    },
+    {
+      "relation_id": "R055",
+      "source": "S086",
+      "target": "S075",
+      "basis": "原图可见开口",
+      "reason": "南侧楼梯西向门。"
+    },
+    {
+      "relation_id": "R038",
+      "source": "S055",
+      "target": "S084",
+      "basis": "原图可见开口",
+      "reason": "放射科东侧门。"
+    },
+    {
+      "relation_id": "R039",
+      "source": "S055",
+      "target": "S085",
+      "basis": "原图可见开口",
+      "reason": "放射科南侧朝外通道门。"
+    },
+    {
+      "relation_id": "R103",
+      "source": "S085",
+      "target": "S076",
+      "basis": "布局推断／连续功能空间",
+      "reason": "电梯前室开向南侧通道，不单列电梯内部开口。"
+    },
+    {
+      "relation_id": "R104",
+      "source": "S085",
+      "target": "S077",
+      "basis": "原图可见开口",
+      "reason": "南侧卫生间东向门。"
+    },
+    {
+      "relation_id": "R105",
+      "source": "S085",
+      "target": "S078",
+      "basis": "原图可见开口",
+      "reason": "南端长条房西向门。"
+    },
+    {
+      "relation_id": "R106",
+      "source": "S085",
+      "target": "S079",
+      "basis": "布局推断／连续功能空间",
+      "reason": "东南楼梯北侧前室接南侧通道，内部楼梯入口不细分。"
+    },
+    {
+      "relation_id": "R107",
+      "source": "S020",
+      "target": "S026",
+      "basis": "原图可见开口",
+      "reason": "中央南侧留白区北面双扇门；空间功能待确认。"
+    },
+    {
+      "relation_id": "R108",
+      "source": "S021",
+      "target": "S026",
+      "basis": "原图可见开口",
+      "reason": "中央南侧留白区北面东半双扇门；空间功能待确认。"
+    }
+  ],
+  "opening_audit": [
+    {
+      "opening_id": "P001",
+      "relation_id": "R007",
+      "source": "S020",
+      "target": "S024",
+      "upright_position": [
+        1280,
+        1076
+      ],
+      "evidence": "西侧电梯前室北向双扇门。",
+      "endpoint_boundary_distance_px": {
+        "S020": 0.0,
+        "S024": 0.0
+      }
+    },
+    {
+      "opening_id": "P002",
+      "relation_id": "R008",
+      "source": "S021",
+      "target": "S025",
+      "upright_position": [
+        1490,
+        1076
+      ],
+      "evidence": "东侧电梯前室北向门。",
+      "endpoint_boundary_distance_px": {
+        "S021": 1.0,
+        "S025": 0.0
+      }
+    },
+    {
+      "opening_id": "P003",
+      "relation_id": "R010",
+      "source": "S019",
+      "target": "S012",
+      "upright_position": [
+        678,
+        672
+      ],
+      "evidence": "自助银行朝大厅的门。",
+      "endpoint_boundary_distance_px": {
+        "S019": 5.493,
+        "S012": 2.311
+      }
+    },
+    {
+      "opening_id": "P004",
+      "relation_id": "R011",
+      "source": "S019",
+      "target": "S014",
+      "upright_position": [
+        622,
+        739
+      ],
+      "evidence": "花店朝大厅的双扇门。",
+      "endpoint_boundary_distance_px": {
+        "S019": 3.505,
+        "S014": 0.43
+      }
+    },
+    {
+      "opening_id": "P005",
+      "relation_id": "R012",
+      "source": "S019",
+      "target": "S016",
+      "upright_position": [
+        567,
+        804
+      ],
+      "evidence": "便利店朝大厅的门。",
+      "endpoint_boundary_distance_px": {
+        "S019": 0.341,
+        "S016": 0.812
+      }
+    },
+    {
+      "opening_id": "P006",
+      "relation_id": "R016",
+      "source": "S021",
+      "target": "S032",
+      "upright_position": [
+        1595,
+        840
+      ],
+      "evidence": "妇科侧卫生间西向门。",
+      "endpoint_boundary_distance_px": {
+        "S021": 0.0,
+        "S032": 0.0
+      }
+    },
+    {
+      "opening_id": "P007",
+      "relation_id": "R019",
+      "source": "S031",
+      "target": "S034",
+      "upright_position": [
+        2050.5,
+        755
+      ],
+      "evidence": "儿科输液东侧门通往成人输液功能块前通道。",
+      "endpoint_boundary_distance_px": {
+        "S031": 0.5,
+        "S034": 0.5
+      }
+    },
+    {
+      "opening_id": "P008",
+      "relation_id": "R021",
+      "source": "S039",
+      "target": "S037",
+      "upright_position": [
+        2367,
+        641
+      ],
+      "evidence": "急诊北侧综合交通核朝南的门。",
+      "endpoint_boundary_distance_px": {
+        "S039": 0.035,
+        "S037": 0.035
+      }
+    },
+    {
+      "opening_id": "P009",
+      "relation_id": "R022",
+      "source": "S039",
+      "target": "S038",
+      "upright_position": [
+        2480,
+        780
+      ],
+      "evidence": "卫生间交通核东侧门。",
+      "endpoint_boundary_distance_px": {
+        "S039": 1.0,
+        "S038": 0.0
+      }
+    },
+    {
+      "opening_id": "P010",
+      "relation_id": "R025",
+      "source": "S040",
+      "target": "S041",
+      "upright_position": [
+        2938,
+        880
+      ],
+      "evidence": "住院门厅与南侧交通核间门。",
+      "endpoint_boundary_distance_px": {
+        "S040": 6.074,
+        "S041": 4.924
+      }
+    },
+    {
+      "opening_id": "P011",
+      "relation_id": "R029",
+      "source": "S046",
+      "target": "S053",
+      "upright_position": [
+        633,
+        1181
+      ],
+      "evidence": "中药房南侧朝后场通道双扇门。",
+      "endpoint_boundary_distance_px": {
+        "S046": 1.0,
+        "S053": 1.0
+      }
+    },
+    {
+      "opening_id": "P012",
+      "relation_id": "R030",
+      "source": "S047",
+      "target": "S053",
+      "upright_position": [
+        1040,
+        1181
+      ],
+      "evidence": "西药房南侧朝后场通道双扇门。",
+      "endpoint_boundary_distance_px": {
+        "S047": 1.0,
+        "S053": 1.0
+      }
+    },
+    {
+      "opening_id": "P013",
+      "relation_id": "R030",
+      "source": "S047",
+      "target": "S053",
+      "upright_position": [
+        790,
+        1181
+      ],
+      "evidence": "西药房南侧朝后场通道双扇门。",
+      "endpoint_boundary_distance_px": {
+        "S047": 1.0,
+        "S053": 1.0
+      }
+    },
+    {
+      "opening_id": "P014",
+      "relation_id": "R031",
+      "source": "S053",
+      "target": "S054",
+      "upright_position": [
+        1154,
+        1194
+      ],
+      "evidence": "药房后场通道东端门。",
+      "endpoint_boundary_distance_px": {
+        "S053": 1.0,
+        "S054": 1.0
+      }
+    },
+    {
+      "opening_id": "P015",
+      "relation_id": "R035",
+      "source": "S054",
+      "target": "S068",
+      "upright_position": [
+        1154,
+        1227
+      ],
+      "evidence": "专家门诊北侧楼梯东向门。",
+      "endpoint_boundary_distance_px": {
+        "S054": 1.0,
+        "S068": 1.0
+      }
+    },
+    {
+      "opening_id": "P016",
+      "relation_id": "R039",
+      "source": "S055",
+      "target": "S085",
+      "upright_position": [
+        2128,
+        1274
+      ],
+      "evidence": "放射科南侧朝外通道门。",
+      "endpoint_boundary_distance_px": {
+        "S055": 0.0,
+        "S085": 1.0
+      }
+    },
+    {
+      "opening_id": "P017",
+      "relation_id": "R040",
+      "source": "S080",
+      "target": "S084",
+      "upright_position": [
+        2452.5,
+        1335
+      ],
+      "evidence": "VIP大厅东向门。",
+      "endpoint_boundary_distance_px": {
+        "S080": 0.5,
+        "S084": 0.5
+      }
+    },
+    {
+      "opening_id": "P018",
+      "relation_id": "R057",
+      "source": "S007",
+      "target": "S004",
+      "upright_position": [
+        875,
+        532
+      ],
+      "evidence": "北侧房组朝厅门洞，保留功能块粒度。",
+      "endpoint_boundary_distance_px": {
+        "S007": 1.0,
+        "S004": 0.0
+      }
+    },
+    {
+      "opening_id": "P019",
+      "relation_id": "R057",
+      "source": "S007",
+      "target": "S004",
+      "upright_position": [
+        935,
+        532
+      ],
+      "evidence": "北侧房组朝厅门洞，保留功能块粒度。",
+      "endpoint_boundary_distance_px": {
+        "S007": 1.0,
+        "S004": 0.0
+      }
+    },
+    {
+      "opening_id": "P020",
+      "relation_id": "R058",
+      "source": "S007",
+      "target": "S005",
+      "upright_position": [
+        1022,
+        532
+      ],
+      "evidence": "北侧交通核南向门。",
+      "endpoint_boundary_distance_px": {
+        "S007": 1.0,
+        "S005": 1.0
+      }
+    },
+    {
+      "opening_id": "P021",
+      "relation_id": "R059",
+      "source": "S019",
+      "target": "S007",
+      "upright_position": [
+        752,
+        586
+      ],
+      "evidence": "开放办公西侧出入口。",
+      "endpoint_boundary_distance_px": {
+        "S019": 4.0,
+        "S007": 2.0
+      }
+    },
+    {
+      "opening_id": "P022",
+      "relation_id": "R060",
+      "source": "S019",
+      "target": "S008",
+      "upright_position": [
+        1127,
+        650
+      ],
+      "evidence": "收费东端房组南向门。",
+      "endpoint_boundary_distance_px": {
+        "S019": 0.0,
+        "S008": 0.0
+      }
+    },
+    {
+      "opening_id": "P023",
+      "relation_id": "R067",
+      "source": "S019",
+      "target": "S045",
+      "upright_position": [
+        582,
+        932
+      ],
+      "evidence": "药房西侧卫生间朝候药区北向门。",
+      "endpoint_boundary_distance_px": {
+        "S019": 0.0,
+        "S045": 0.0
+      }
+    },
+    {
+      "opening_id": "P024",
+      "relation_id": "R072",
+      "source": "S033",
+      "target": "S089",
+      "upright_position": [
+        1772,
+        841
+      ],
+      "evidence": "南侧配套房组朝南门。",
+      "endpoint_boundary_distance_px": {
+        "S033": 0.0,
+        "S089": 1.0
+      }
+    },
+    {
+      "opening_id": "P025",
+      "relation_id": "R072",
+      "source": "S033",
+      "target": "S089",
+      "upright_position": [
+        1815,
+        841
+      ],
+      "evidence": "南侧配套房组朝南门。",
+      "endpoint_boundary_distance_px": {
+        "S033": 0.0,
+        "S089": 1.0
+      }
+    },
+    {
+      "opening_id": "P026",
+      "relation_id": "R073",
+      "source": "S034",
+      "target": "S089",
+      "upright_position": [
+        1896,
+        820
+      ],
+      "evidence": "成人输液西侧门。",
+      "endpoint_boundary_distance_px": {
+        "S034": 0.0,
+        "S089": 1.0
+      }
+    },
+    {
+      "opening_id": "P027",
+      "relation_id": "R074",
+      "source": "S035",
+      "target": "S055",
+      "upright_position": [
+        2030,
+        942
+      ],
+      "evidence": "输液南侧配套组朝放射科北侧公共横向通道开门。",
+      "endpoint_boundary_distance_px": {
+        "S035": 1.0,
+        "S055": 2.0
+      }
+    },
+    {
+      "opening_id": "P028",
+      "relation_id": "R078",
+      "source": "S088",
+      "target": "S038",
+      "upright_position": [
+        2310,
+        815
+      ],
+      "evidence": "卫生间交通核西侧门通向东北侧公共通道。",
+      "endpoint_boundary_distance_px": {
+        "S088": 0.0,
+        "S038": 0.0
+      }
+    },
+    {
+      "opening_id": "P029",
+      "relation_id": "R082",
+      "source": "S057",
+      "target": "S058",
+      "upright_position": [
+        2309.5,
+        982
+      ],
+      "evidence": "急诊留观西侧门通向配套房组。",
+      "endpoint_boundary_distance_px": {
+        "S057": 0.5,
+        "S058": 0.5
+      }
+    },
+    {
+      "opening_id": "P030",
+      "relation_id": "R083",
+      "source": "S057",
+      "target": "S039",
+      "upright_position": [
+        2490,
+        876
+      ],
+      "evidence": "留观北侧门通向急诊通道。",
+      "endpoint_boundary_distance_px": {
+        "S057": 1.0,
+        "S039": 1.0
+      }
+    },
+    {
+      "opening_id": "P031",
+      "relation_id": "R084",
+      "source": "S057",
+      "target": "S091",
+      "upright_position": [
+        2600,
+        1037.5
+      ],
+      "evidence": "留观南侧东端门通往公共通道。",
+      "endpoint_boundary_distance_px": {
+        "S057": 0.5,
+        "S091": 0.5
+      }
+    },
+    {
+      "opening_id": "P032",
+      "relation_id": "R085",
+      "source": "S084",
+      "target": "S058",
+      "upright_position": [
+        2268,
+        970
+      ],
+      "evidence": "留观西侧房组朝公共通道门。",
+      "endpoint_boundary_distance_px": {
+        "S084": 1.0,
+        "S058": 0.0
+      }
+    },
+    {
+      "opening_id": "P033",
+      "relation_id": "R085",
+      "source": "S084",
+      "target": "S058",
+      "upright_position": [
+        2268,
+        1011
+      ],
+      "evidence": "留观西侧房组朝公共通道门。",
+      "endpoint_boundary_distance_px": {
+        "S084": 1.0,
+        "S058": 0.0
+      }
+    },
+    {
+      "opening_id": "P034",
+      "relation_id": "R087",
+      "source": "S084",
+      "target": "S061",
+      "upright_position": [
+        2421,
+        1150
+      ],
+      "evidence": "留观南侧房组东向门。",
+      "endpoint_boundary_distance_px": {
+        "S084": 1.0,
+        "S061": 1.0
+      }
+    },
+    {
+      "opening_id": "P035",
+      "relation_id": "R091",
+      "source": "S054",
+      "target": "S067",
+      "upright_position": [
+        1154,
+        1300
+      ],
+      "evidence": "专家门诊东向两处门。",
+      "endpoint_boundary_distance_px": {
+        "S054": 1.0,
+        "S067": 1.0
+      }
+    },
+    {
+      "opening_id": "P036",
+      "relation_id": "R091",
+      "source": "S054",
+      "target": "S067",
+      "upright_position": [
+        1154,
+        1370
+      ],
+      "evidence": "专家门诊东向两处门。",
+      "endpoint_boundary_distance_px": {
+        "S054": 1.0,
+        "S067": 1.0
+      }
+    },
+    {
+      "opening_id": "P037",
+      "relation_id": "R092",
+      "source": "S067",
+      "target": "S069",
+      "upright_position": [
+        920,
+        1385
+      ],
+      "evidence": "专家门诊南侧房组朝内部走道门。",
+      "endpoint_boundary_distance_px": {
+        "S067": 1.0,
+        "S069": 1.0
+      }
+    },
+    {
+      "opening_id": "P038",
+      "relation_id": "R092",
+      "source": "S067",
+      "target": "S069",
+      "upright_position": [
+        996,
+        1385
+      ],
+      "evidence": "专家门诊南侧房组朝内部走道门。",
+      "endpoint_boundary_distance_px": {
+        "S067": 1.0,
+        "S069": 1.0
+      }
+    },
+    {
+      "opening_id": "P039",
+      "relation_id": "R093",
+      "source": "S069",
+      "target": "S070",
+      "upright_position": [
+        1053,
+        1420
+      ],
+      "evidence": "南侧卫生间朝专家内部走道门。",
+      "endpoint_boundary_distance_px": {
+        "S069": 2.0,
+        "S070": 0.0
+      }
+    },
+    {
+      "opening_id": "P040",
+      "relation_id": "R094",
+      "source": "S053",
+      "target": "S087",
+      "upright_position": [
+        583,
+        1206
+      ],
+      "evidence": "后场通道向西南内通道门。",
+      "endpoint_boundary_distance_px": {
+        "S053": 1.0,
+        "S087": 0.0
+      }
+    },
+    {
+      "opening_id": "P041",
+      "relation_id": "R095",
+      "source": "S087",
+      "target": "S064",
+      "upright_position": [
+        575,
+        1225
+      ],
+      "evidence": "西南小房组朝内通道门。",
+      "endpoint_boundary_distance_px": {
+        "S087": 0.0,
+        "S064": 1.0
+      }
+    },
+    {
+      "opening_id": "P042",
+      "relation_id": "R095",
+      "source": "S087",
+      "target": "S064",
+      "upright_position": [
+        575,
+        1285
+      ],
+      "evidence": "西南小房组朝内通道门。",
+      "endpoint_boundary_distance_px": {
+        "S087": 0.0,
+        "S064": 1.0
+      }
+    },
+    {
+      "opening_id": "P043",
+      "relation_id": "R096",
+      "source": "S087",
+      "target": "S065",
+      "upright_position": [
+        540,
+        1333
+      ],
+      "evidence": "西南大房北向门。",
+      "endpoint_boundary_distance_px": {
+        "S087": 1.0,
+        "S065": 0.0
+      }
+    },
+    {
+      "opening_id": "P044",
+      "relation_id": "R099",
+      "source": "S054",
+      "target": "S051",
+      "upright_position": [
+        1154,
+        1095
+      ],
+      "evidence": "药房东侧综合交通核东向门。",
+      "endpoint_boundary_distance_px": {
+        "S054": 1.0,
+        "S051": 1.0
+      }
+    },
+    {
+      "opening_id": "P045",
+      "relation_id": "R100",
+      "source": "S053",
+      "target": "S052",
+      "upright_position": [
+        1110,
+        1181
+      ],
+      "evidence": "药房东侧配套房组南向门。",
+      "endpoint_boundary_distance_px": {
+        "S053": 1.0,
+        "S052": 1.0
+      }
+    },
+    {
+      "opening_id": "P046",
+      "relation_id": "R101",
+      "source": "S020",
+      "target": "S048",
+      "upright_position": [
+        1189,
+        1020
+      ],
+      "evidence": "药房东侧楼梯核朝中央厅西边缘的门。",
+      "endpoint_boundary_distance_px": {
+        "S020": 1.0,
+        "S048": 1.0
+      }
+    },
+    {
+      "opening_id": "P047",
+      "relation_id": "R102",
+      "source": "S048",
+      "target": "S049",
+      "upright_position": [
+        1153,
+        985
+      ],
+      "evidence": "卫生间朝交通核前室开门。",
+      "endpoint_boundary_distance_px": {
+        "S048": 0.0,
+        "S049": 1.0
+      }
+    },
+    {
+      "opening_id": "P048",
+      "relation_id": "R104",
+      "source": "S085",
+      "target": "S077",
+      "upright_position": [
+        2111,
+        1407
+      ],
+      "evidence": "南侧卫生间东向门。",
+      "endpoint_boundary_distance_px": {
+        "S085": 0.0,
+        "S077": 1.0
+      }
+    },
+    {
+      "opening_id": "P049",
+      "relation_id": "R105",
+      "source": "S085",
+      "target": "S078",
+      "upright_position": [
+        2138,
+        1405
+      ],
+      "evidence": "南端长条房西向门。",
+      "endpoint_boundary_distance_px": {
+        "S085": 0.0,
+        "S078": 0.0
+      }
+    },
+    {
+      "opening_id": "P050",
+      "relation_id": "R107",
+      "source": "S020",
+      "target": "S026",
+      "upright_position": [
+        1350,
+        1121
+      ],
+      "evidence": "中央南侧留白区北面双扇门；空间功能待确认。",
+      "endpoint_boundary_distance_px": {
+        "S020": 1.0,
+        "S026": 1.0
+      }
+    },
+    {
+      "opening_id": "P051",
+      "relation_id": "R108",
+      "source": "S021",
+      "target": "S026",
+      "upright_position": [
+        1400,
+        1120
+      ],
+      "evidence": "中央南侧留白区北面东半双扇门；空间功能待确认。",
+      "endpoint_boundary_distance_px": {
+        "S021": 2.0,
+        "S026": 2.0
+      }
+    }
+  ],
+  "unlocated_connections": [
+    {
+      "relation_id": "R002",
+      "position_rejected": [
+        1150,
+        760
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R014",
+      "position_rejected": [
+        1595,
+        548
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R015",
+      "position_rejected": [
+        1595,
+        650
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R017",
+      "position_rejected": [
+        1608,
+        532
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R023",
+      "position_rejected": [
+        2301,
+        864
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R032",
+      "position_rejected": [
+        1229.5,
+        1060
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R036",
+      "position_rejected": [
+        1154,
+        1485
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R037",
+      "position_rejected": [
+        1555.5,
+        1010
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R038",
+      "position_rejected": [
+        2209,
+        1120
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R051",
+      "position_rejected": [
+        1535,
+        1035
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R052",
+      "position_rejected": [
+        1595,
+        1220
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R053",
+      "position_rejected": [
+        1595,
+        1160
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R054",
+      "position_rejected": [
+        1595,
+        1370
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R055",
+      "position_rejected": [
+        1595,
+        1470
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R056",
+      "position_rejected": [
+        809,
+        532
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R062",
+      "position_rejected": [
+        614,
+        573
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R065",
+      "position_rejected": [
+        408,
+        860
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R066",
+      "position_rejected": [
+        492,
+        905
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R068",
+      "position_rejected": [
+        2190,
+        570
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R069",
+      "position_rejected": [
+        1895.5,
+        650
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R070",
+      "position_rejected": [
+        1815,
+        735
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R071",
+      "position_rejected": [
+        1883,
+        735
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R075",
+      "position_rejected": [
+        1883,
+        944
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R076",
+      "position_rejected": [
+        2345,
+        682
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R077",
+      "position_rejected": [
+        2300,
+        845
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R079",
+      "position_rejected": [
+        2747,
+        875.5
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R086",
+      "position_rejected": [
+        2421.5,
+        1091
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R088",
+      "position_rejected": [
+        2706,
+        1075
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R089",
+      "position_rejected": [
+        2437,
+        1088
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R090",
+      "position_rejected": [
+        1100,
+        1244
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R097",
+      "position_rejected": [
+        565,
+        1182
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    },
+    {
+      "relation_id": "R098",
+      "position_rejected": [
+        546,
+        1160
+      ],
+      "reason": "目检后保留概念连接；连续分区或核内路线不作为实体门洞。"
+    }
+  ],
+  "geometric_cleanup": {
+    "pair": [
+      "S018",
+      "S019"
+    ],
+    "removed_overlap_px2": 0.11692307692304946,
+    "reason": "清除旧草稿遗留的不足1像素面积边界碎片。"
+  }
+}

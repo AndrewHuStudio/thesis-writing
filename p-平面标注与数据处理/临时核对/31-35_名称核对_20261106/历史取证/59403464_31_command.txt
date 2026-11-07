@@ -1,0 +1,8 @@
+mkdir -p /tmp/outpatient33-review; sips -g pixelWidth -g pixelHeight p-写作过程/标注试样/33_西京医院住院二部翻建工程/33_西京医院住院二部翻建工程_原图.jpg; uv run --with pillow --with pymupdf --with shapely python - <<'PY'
+from PIL import Image
+from pathlib import Path
+p=Path('p-写作过程/标注试样/33_西京医院住院二部翻建工程/33_西京医院住院二部翻建工程_原图.jpg')
+im=Image.open(p);print(im.size)
+for name,box in [('上左',(250,380,1660,1260)),('上右',(1640,380,2340,1260)),('中部',(270,1230,1520,2160)),('下部',(270,2110,2330,2670))]:
+ im.crop(box).resize(((box[2]-box[0])*2,(box[3]-box[1])*2)).save('/tmp/outpatient33-review/'+name+'.png')
+PY

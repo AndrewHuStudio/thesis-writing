@@ -1,0 +1,654 @@
+{
+  "scope": "逐房间粗轮廓；不把缺名、缺门位当作不通，不以全图连通为目标",
+  "added_relations": [
+    {
+      "relation_id": "R247",
+      "source": "S130",
+      "target": "S089",
+      "basis": "可见门洞",
+      "reason": "原图无障碍卫生间南向门接南侧公共带。",
+      "has_localized_opening": true
+    },
+    {
+      "relation_id": "R248",
+      "source": "S138",
+      "target": "S089",
+      "basis": "图面连续",
+      "reason": "儿科输液西侧前区左缘与妇科南侧连接通道连续；两者为粗轮廓分段，无实体门。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R249",
+      "source": "S138",
+      "target": "S031",
+      "basis": "可见门洞",
+      "reason": "儿科输液大室西侧有明确门扇，通向西侧前区。",
+      "has_localized_opening": true
+    },
+    {
+      "relation_id": "R250",
+      "source": "S175",
+      "target": "S054",
+      "basis": "可见门洞",
+      "reason": "专家门诊南排卫生间东侧门朝公共通道。",
+      "has_localized_opening": true
+    },
+    {
+      "relation_id": "R251",
+      "source": "S255",
+      "target": "S080",
+      "basis": "可见门洞",
+      "reason": "VIP卫生间南向门通向内部大厅；不经北侧诊室。",
+      "has_localized_opening": true
+    },
+    {
+      "relation_id": "R252",
+      "source": "S077",
+      "target": "S085",
+      "basis": "可见门洞",
+      "reason": "医技东南侧卫生间东向门开向公共通道。",
+      "has_localized_opening": true
+    },
+    {
+      "relation_id": "R253",
+      "source": "S009",
+      "target": "S007",
+      "basis": "布局推断",
+      "reason": "收费工作带与背后的开放办公构成工作人员后场，按柜台/办公组织推断可达；不增加大厅穿柜台关系。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R254",
+      "source": "S032",
+      "target": "S089",
+      "basis": "布局推断",
+      "reason": "妇科侧卫生间经南侧共用前区接公共带；粗轮廓内未逐个表达前室转折，保留概念连接。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R255",
+      "source": "S045",
+      "target": "S019",
+      "basis": "布局推断",
+      "reason": "药房西侧卫生间向北侧候药公共区组织出入；入口前区可辨，但精确门位不清。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R256",
+      "source": "S049",
+      "target": "S048",
+      "basis": "布局推断",
+      "reason": "药房东侧卫生间组共用前区接楼梯交通核前区；不推断穿过另一卫生间。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R257",
+      "source": "S186",
+      "target": "S055",
+      "basis": "布局推断",
+      "reason": "放射科中部卫生间右/南侧的前区通向内部交通；定位范围不够可靠，仅记概念关系。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R258",
+      "source": "S207",
+      "target": "S056",
+      "basis": "交通核整体",
+      "reason": "同一交通核内被粗轮廓分开的楼梯局部，与整体核内前区相接；不定位内部路线。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R259",
+      "source": "S208",
+      "target": "S056",
+      "basis": "布局推断",
+      "reason": "原图卫生间前区朝交通核内公共前室；具体门位不清，不通过楼梯墙体造门。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R260",
+      "source": "S209",
+      "target": "S056",
+      "basis": "布局推断",
+      "reason": "交通核南部卫生间上侧与共用核前区组织出入；具体分隔小门不清。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R261",
+      "source": "S210",
+      "target": "S086",
+      "basis": "布局推断",
+      "reason": "医技南侧卫生间的西侧前区面向东翼公共通道；门位不清，保留概念连接。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R262",
+      "source": "S211",
+      "target": "S085",
+      "basis": "布局推断",
+      "reason": "东南卫生间中部单元面向东侧公用前区/通道，入口细节未清晰表达。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R263",
+      "source": "S219",
+      "target": "S039",
+      "basis": "交通核面向通道",
+      "reason": "急诊斜向电梯交通核直接面对急诊通道；电梯内部门不另作房间门洞。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R264",
+      "source": "S038",
+      "target": "S232",
+      "basis": "布局推断",
+      "reason": "急诊卫生间旁交通核南端前区直接朝连续公共通道，内部楼梯路线不细分。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R265",
+      "source": "S238",
+      "target": "S038",
+      "basis": "布局推断",
+      "reason": "急诊西侧房组上缘的共用前区与交通核北端前区相接；按布局组织记录，不穿过实体楼梯墙。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R266",
+      "source": "S238",
+      "target": "S241",
+      "basis": "共用前区连续",
+      "reason": "两粗轮廓之间的实际共用前区连续；P028为该组真正的西侧对外入口。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R267",
+      "source": "S236",
+      "target": "S238",
+      "basis": "布局推断",
+      "reason": "急诊北侧左卫生间经其下方共用前区出入，前区部分包含于S238粗范围；不定位隐藏小门。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R268",
+      "source": "S237",
+      "target": "S038",
+      "basis": "布局推断",
+      "reason": "急诊北侧右卫生间朝交通核北侧共用前室出入；该前区在粗轮廓中并入交通核。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R269",
+      "source": "S240",
+      "target": "S232",
+      "basis": "布局推断",
+      "reason": "急诊核东南侧房组/卫生间前区南向公共通道组织出入；不推定具体功能或门位。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R270",
+      "source": "S247",
+      "target": "S084",
+      "basis": "布局推断",
+      "reason": "留观南侧小卫生间西侧入口前区面向东部通道；保持粗轮廓，门位不清。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R271",
+      "source": "S250",
+      "target": "S091",
+      "basis": "图面连续及布局推断",
+      "reason": "东侧配套房组前公共带，经交通核南侧短前区接留观南侧通道；图面连续，短前区未另成节点。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R272",
+      "source": "S044",
+      "target": "S250",
+      "basis": "布局推断",
+      "reason": "东侧房组最上间门口朝西侧公共带；沿图面房组通行组织记录，门心不定位。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R273",
+      "source": "S248",
+      "target": "S250",
+      "basis": "布局推断",
+      "reason": "东侧房组中间单元西侧门口面向公共带；其独立外门继续保留。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R274",
+      "source": "S249",
+      "target": "S250",
+      "basis": "布局推断",
+      "reason": "东侧房组下方单元的门口朝公共带；无可靠门心，不画红点。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R275",
+      "source": "S263",
+      "target": "S082",
+      "basis": "布局推断",
+      "reason": "肠道门诊卫生间经南/东侧共用前区接内部走道；不把共墙或设施当人员门。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R276",
+      "source": "S143",
+      "target": "S034",
+      "basis": "图面连续",
+      "reason": "成人输液前区与输液大室在原图中连续，粗轮廓拆开后漏记连接；此分界不对应实体门。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R277",
+      "source": "S133",
+      "target": "S089",
+      "basis": "可见门洞",
+      "reason": "妇科南侧卫生间组的左单元南向门朝公共带。",
+      "has_localized_opening": true
+    },
+    {
+      "relation_id": "R277",
+      "source": "S133",
+      "target": "S089",
+      "basis": "可见门洞",
+      "reason": "同组右单元另有南向门；一个空间对保留一条关系，分别记录两道门。",
+      "has_localized_opening": true
+    },
+    {
+      "relation_id": "R278",
+      "source": "S021",
+      "target": "S089",
+      "basis": "图面连续",
+      "reason": "卫生间南侧公共带向西连续接中央公共门厅，补齐粗轮廓交界的连接。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R279",
+      "source": "S040",
+      "target": "S233",
+      "basis": "图面连续",
+      "reason": "急诊东端公共带与住院门厅连续，二者粗轮廓分段不是实体隔墙。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R280",
+      "source": "S053",
+      "target": "S067",
+      "basis": "可见门洞",
+      "reason": "药房后场通道南侧开门进入专家门诊西侧纵向通道；该窄通道已从诊室排中单独保留。",
+      "has_localized_opening": true
+    },
+    {
+      "relation_id": "R281",
+      "source": "S055",
+      "target": "S085",
+      "basis": "图面连续",
+      "reason": "放射科中部纵向内通道南端与医技外通道连续，原粗块门位转挂小房后遗漏此主通道关系。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R282",
+      "source": "S084",
+      "target": "S270",
+      "basis": "布局推断",
+      "reason": "北侧肠道门诊共用前区西端朝东部公共通道组织出入；局部粗轮廓含前室，不定位不清楚的小门。",
+      "has_localized_opening": false
+    },
+    {
+      "relation_id": "R283",
+      "source": "S088",
+      "target": "S232",
+      "basis": "图面连续",
+      "reason": "急诊卫生间组西侧窄公共带在南端接急诊横向公共通道，图面连续，不把分段边界当门。",
+      "has_localized_opening": false
+    }
+  ],
+  "corrected_openings": [
+    {
+      "opening_id": "P006",
+      "before": {
+        "id": "R016",
+        "source": "S021",
+        "target": "S129",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P006",
+            "kind": "door",
+            "position_px": [
+              1644,
+              1595
+            ]
+          }
+        ]
+      },
+      "reason": "原西侧点落在共墙；实际南向门进入卫生间南侧公共带，保留P006编号并更正端点/位置。"
+    }
+  ],
+  "retired_openings": [
+    {
+      "opening_id": "P140",
+      "before": {
+        "id": "R219",
+        "source": "S238",
+        "target": "S088",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P140",
+            "kind": "door",
+            "position_px": [
+              1702.0,
+              2310.0
+            ]
+          }
+        ]
+      },
+      "reason": "原点在西侧实体墙上；实际西侧入口已由P028记录。经共用前区到S238，不再保存虚构的第二道门。",
+      "retained_actual_opening": "P028"
+    }
+  ],
+  "classification_corrections": [
+    {
+      "space_id": "S097",
+      "before": {
+        "id": "S097",
+        "name": "收费东侧配套连接通道",
+        "type": "corridor",
+        "scope": "public_service",
+        "level": "open_space",
+        "polygon_px": [
+          [
+            1930.0,
+            1112.0
+          ],
+          [
+            1930.0,
+            1092.0
+          ],
+          [
+            1880.0,
+            1092.0
+          ],
+          [
+            1834.0,
+            1092.0
+          ],
+          [
+            1834.0,
+            1112.0
+          ],
+          [
+            1894.0,
+            1112.0
+          ]
+        ],
+        "area_ratio": 0.00085816
+      },
+      "reason": "放大原图可见内部横向实体分隔；不能继续把整条残余范围视为贯通走道。保留粗范围及编号，功能unknown。"
+    },
+    {
+      "space_id": "S134",
+      "before": {
+        "id": "S134",
+        "name": "妇科南侧配套连接通道",
+        "type": "corridor",
+        "scope": "ordinary_outpatient",
+        "level": "open_space",
+        "polygon_px": [
+          [
+            1724.0,
+            1686.0
+          ],
+          [
+            1724.0,
+            1749.0
+          ],
+          [
+            1724.0,
+            1777.0
+          ],
+          [
+            1724.0,
+            1807.0
+          ],
+          [
+            1724.0,
+            1870.0
+          ],
+          [
+            1748.0,
+            1870.0
+          ],
+          [
+            1748.0,
+            1686.0
+          ]
+        ],
+        "area_ratio": 0.00197376
+      },
+      "reason": "原图该白色窄区两端有分隔/家具界面，不能证明是贯通走道；保留独立粗轮廓，恢复unknown。"
+    },
+    {
+      "space_id": "S137",
+      "before": {
+        "id": "S137",
+        "name": "儿科输液前通道",
+        "type": "corridor",
+        "scope": "ordinary_outpatient",
+        "level": "open_space",
+        "polygon_px": [
+          [
+            1846.0,
+            1896.0
+          ],
+          [
+            1814.0,
+            1896.0
+          ],
+          [
+            1814.0,
+            1922.0
+          ],
+          [
+            1814.0,
+            1950.0
+          ],
+          [
+            1814.0,
+            2050.0
+          ],
+          [
+            1846.0,
+            2050.0
+          ]
+        ],
+        "area_ratio": 0.0022026
+      },
+      "reason": "原图该白色窄区两端有分隔/家具界面，不能证明是贯通走道；保留独立粗轮廓，恢复unknown。"
+    },
+    {
+      "space_id": "S207",
+      "before": {
+        "id": "S207",
+        "name": "卫生间",
+        "type": "toilet",
+        "scope": "medical_technology",
+        "level": "room",
+        "polygon_px": [
+          [
+            1477.0,
+            1603.0
+          ],
+          [
+            1559.0,
+            1603.0
+          ],
+          [
+            1559.0,
+            1556.0
+          ],
+          [
+            1477.0,
+            1556.0
+          ]
+        ],
+        "area_ratio": 0.00172257
+      },
+      "reason": "原图该长条内是楼梯／交通核构造，原卫生间类别不成立；不将梯段当作卫生间房间。"
+    }
+  ],
+  "geometry_corrections": [
+    {
+      "space_id": "S089",
+      "before": [
+        [
+          1642.0,
+          1871.0
+        ],
+        [
+          1642.0,
+          1686.0
+        ],
+        [
+          1619.0,
+          1686.0
+        ],
+        [
+          1619.0,
+          1722.0
+        ],
+        [
+          1619.0,
+          1870.0
+        ],
+        [
+          1619.0,
+          1871.0
+        ],
+        [
+          1540.0,
+          1871.0
+        ],
+        [
+          1540.0,
+          1895.0
+        ],
+        [
+          1749.0,
+          1895.0
+        ],
+        [
+          1749.0,
+          1871.0
+        ]
+      ],
+      "reason": "补齐卫生间南侧图面明确的连续公共带；避开既有房间/核心边界，未拆新空间、未重排编号。"
+    }
+  ],
+  "removed_relations": [
+    {
+      "before": {
+        "id": "R069",
+        "source": "S030",
+        "target": "S137",
+        "type": "access"
+      },
+      "reason": "逐房间拆分后该边由几何邻近转挂至S134/S137，回看原图无直接通行证据；不将共墙或家具界面视为门。"
+    },
+    {
+      "before": {
+        "id": "R070",
+        "source": "S030",
+        "target": "S134",
+        "type": "access"
+      },
+      "reason": "逐房间拆分后该边由几何邻近转挂至S134/S137，回看原图无直接通行证据；不将共墙或家具界面视为门。"
+    }
+  ],
+  "new_openings": [
+    {
+      "relation_id": "R247",
+      "id": "P155",
+      "kind": "door",
+      "position_px": [
+        1619,
+        1668
+      ],
+      "evidence": "原图无障碍卫生间南向门接南侧公共带。"
+    },
+    {
+      "relation_id": "R249",
+      "id": "P156",
+      "kind": "door",
+      "position_px": [
+        1727,
+        1950
+      ],
+      "evidence": "儿科输液大室西侧有明确门扇，通向西侧前区。"
+    },
+    {
+      "relation_id": "R250",
+      "id": "P157",
+      "kind": "door",
+      "position_px": [
+        1074,
+        1154
+      ],
+      "evidence": "专家门诊南排卫生间东侧门朝公共通道。"
+    },
+    {
+      "relation_id": "R251",
+      "id": "P158",
+      "kind": "door",
+      "position_px": [
+        1178,
+        2398
+      ],
+      "evidence": "VIP卫生间南向门通向内部大厅；不经北侧诊室。"
+    },
+    {
+      "relation_id": "R252",
+      "id": "P159",
+      "kind": "door",
+      "position_px": [
+        1166,
+        2110
+      ],
+      "evidence": "医技东南侧卫生间东向门开向公共通道。"
+    },
+    {
+      "relation_id": "R277",
+      "id": "P160",
+      "kind": "door",
+      "position_px": [
+        1643,
+        1705
+      ],
+      "evidence": "妇科南侧卫生间组的左单元南向门朝公共带。"
+    },
+    {
+      "relation_id": "R277",
+      "id": "P161",
+      "kind": "door",
+      "position_px": [
+        1643,
+        1735
+      ],
+      "evidence": "同组右单元另有南向门；一个空间对保留一条关系，分别记录两道门。"
+    },
+    {
+      "relation_id": "R280",
+      "id": "P162",
+      "kind": "door",
+      "position_px": [
+        1277.5,
+        792
+      ],
+      "evidence": "药房后场通道南侧开门进入专家门诊西侧纵向通道；该窄通道已从诊室排中单独保留。"
+    }
+  ]
+}

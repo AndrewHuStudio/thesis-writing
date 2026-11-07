@@ -1,0 +1,18 @@
+uv run --with pymupdf --with shapely --with pillow python /tmp/outpatient34-review/make_review.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py render p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json --output p-写作过程/标注试样/34_青岛市中心医院综合病房楼/标注.svg
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py summary p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json --output p-写作过程/标注试样/34_青岛市中心医院综合病房楼/标注说明.md
+python - <<'PY'
+from pathlib import Path
+import cairosvg
+P=Path('p-写作过程/标注试样/34_青岛市中心医院综合病房楼')
+s=(P/'标注.svg').read_text().replace('门诊平面结构化标注','34 青岛市中心医院综合病房楼 · 一层标注草稿')
+(P/'标注.svg').write_text(s)
+cairosvg.svg2png(bytestring=s.encode(),write_to='/tmp/outpatient34-review/34_标注检查.png')
+from PIL import Image
+im=Image.open('/tmp/outpatient34-review/34_标注检查.png')
+im.resize((1222,im.height//2)).save('/tmp/outpatient34-review/34_标注检查_全图.png')
+head=122.2
+for name,b in [('妇产标注',(450,690,1090,1350)),('外科标注',(1830,695,2180,1355)),('急诊标注',(1170,1910,2170,2230))]:
+ box=(b[0],round(b[1]+head),b[2],round(b[3]+head))
+ im.crop(box).resize(((b[2]-b[0])*2,(b[3]-b[1])*2)).save('/tmp/outpatient34-review/'+name+'.png')
+PY

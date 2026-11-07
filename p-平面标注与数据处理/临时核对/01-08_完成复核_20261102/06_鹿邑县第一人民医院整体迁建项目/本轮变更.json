@@ -1,0 +1,120 @@
+[
+  {
+    "removed_relation": {
+      "id": "R248",
+      "source": "S062",
+      "target": "S057",
+      "type": "access"
+    }
+  },
+  {
+    "excluded_space": {
+      "id": "S060",
+      "name": "卫生间",
+      "type": "toilet",
+      "level": "room",
+      "scope": "public_service",
+      "polygon_px": [
+        [
+          749,
+          1828
+        ],
+        [
+          804,
+          1828
+        ],
+        [
+          804,
+          1873
+        ],
+        [
+          749,
+          1873
+        ]
+      ],
+      "area_ratio": 0.00033415
+    }
+  },
+  {
+    "excluded_space": {
+      "id": "S062",
+      "name": "西侧封闭连接廊",
+      "type": "corridor",
+      "level": "open_space",
+      "scope": "public_service",
+      "polygon_px": [
+        [
+          973,
+          1830
+        ],
+        [
+          1625,
+          1830
+        ],
+        [
+          1625,
+          1874
+        ],
+        [
+          973,
+          1874
+        ]
+      ],
+      "area_ratio": 0.00387314
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R386",
+      "source": "S065",
+      "target": "S063",
+      "type": "access"
+    }
+  },
+  {
+    "added_opening": {
+      "id": "P277",
+      "kind": "door",
+      "position_px": [
+        1822,
+        2068
+      ]
+    },
+    "relation": "R386"
+  },
+  {
+    "added_relation": {
+      "id": "R387",
+      "source": "S065",
+      "target": "S064",
+      "type": "access"
+    }
+  },
+  {
+    "added_opening": {
+      "id": "P278",
+      "kind": "door",
+      "position_px": [
+        2118,
+        2068
+      ]
+    },
+    "relation": "R387"
+  },
+  {
+    "added_relation": {
+      "id": "R388",
+      "source": "S111",
+      "target": "S120",
+      "type": "access"
+    }
+  },
+  {
+    "added_relation": {
+      "id": "R389",
+      "source": "S057",
+      "target": "S058",
+      "type": "access"
+    }
+  }
+]

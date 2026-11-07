@@ -1,0 +1,2 @@
+const r = await tools.exec_command({cmd:"pwd && rg -n '27_|54项目|原图入库' /Users/hushili/.codex/memories/MEMORY.md && cat /Users/hushili/.codex/skills/using-superpowers/SKILL.md && cat /Users/hushili/.codex/skills/outpatient-plan-annotation/SKILL.md","max_output_tokens":9500});text(r.output);
+text(ALL_TOOLS.filter(x=>/title|rename.*chat|chat.*rename/i.test(x.name+" "+x.description)).map(x=>({name:x.name,description:x.description.slice(0,140)})));

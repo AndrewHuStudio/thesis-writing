@@ -1,0 +1,135 @@
+cat > /tmp/outpatient30-review/make_review.py <<'PY'
+from pathlib import Path
+import json,math,textwrap
+from PIL import Image,ImageDraw,ImageFont
+from shapely.geometry import Polygon,LineString
+T=Path('/tmp/outpatient30-review');R=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/30_佛山市禅城区中心医院')
+qs=json.loads((T/'review-map.json').read_text());data=json.loads((R/'annotation.json').read_text())
+FONT='/System/Library/Fonts/STHeiti Medium.ttc'
+def ft(n):return ImageFont.truetype(FONT,n)
+def group(q):
+ k=q['key']
+ if k.startswith('office'):return ('医护办公','#0f766e')
+ if k.startswith('shop'):return ('公共服务','#9333a4')
+ if k.startswith('admission'):return ('出入院手续','#a45a06')
+ if k.startswith('south_'):return ('电梯厅旁用房','#4f5ea8')
+ if k in ['pool','pool_platform','garden']:return ('庭院水景','#916123')
+ if k=='infusion_small':return ('输液支持','#b12a52')
+ return ('放射科','#245fbd')
+def wrap(s,font,width):
+ lines=['']
+ for c in s:
+  if d.textlength(lines[-1]+c,font=font)>width:lines.append(c)
+  else:lines[-1]+=c
+ return lines
+scale=1.5; ox=920;oy=210;W=5506;H=5290
+base=Image.open(R/data['image']['file']).convert('RGB')
+im=Image.new('RGB',(W,H),'#f7f9fc');d=ImageDraw.Draw(im)
+d.text((50,35),'30｜佛山市禅城区中心医院 · 名称核对总图',font=ft(48),fill='#18314c')
+d.text((50,105),'标注草稿｜33项待确认｜按原图上到下、相邻横带内从左到右读取｜可按 01=名称 分批回复',font=ft(29),fill='#455469')
+d.text((50,152),'原图完整居中、保持原朝向。彩框内仅显示核对号；候选不作为已确认名称。',font=ft(26),fill='#67778a')
+im.paste(base.resize((3666,4890),Image.Resampling.LANCZOS),(ox,oy))
+# Side groups retain the same increasing number order as the plan. Each contiguous run is visually separated by colour.
+for q in qs:
+ p=Polygon(q['polygon_px']);q['side']='left' if p.centroid.x<1180 else 'right'
+# Left/right anchors lie inside each frame near its top boundary. Increasing anchors guarantee noncrossing fan-outs.
+lines=[];label_rects=[]
+for side in ['left','right']:
+ seq=[q for q in qs if q['side']==side];prev=-1
+ for q in seq:
+  p=Polygon(q['polygon_px']);l,t,r,b=p.bounds
+  y=max(t+8,prev+5)
+  assert y<b-3,(q['number'],y,b)
+  z=p.intersection(LineString([(-1,y),(2445,y)]))
+  if z.is_empty:y=p.representative_point().y;z=p.intersection(LineString([(-1,y),(2445,y)]))
+  zbound=z.bounds;x=zbound[0] if side=='left' else zbound[2]
+  q['anchor']=[x,y];prev=y
+ # Space labels around the true source positions with enough height to read every candidate and reason.
+ heights=[]
+ for q in seq:
+  title=ft(30);cf=ft(25);bf=ft(22)
+  ca=wrap('候选：'+q['candidates'],cf,735)
+  ba=wrap('依据：'+q['basis']+'；把握'+q['confidence'],bf,735)
+  heights.append(43+len(ca)*31+len(ba)*27+18)
+ centers=[];last=230
+ for q,h in zip(seq,heights):
+  yy=max(oy+q['anchor'][1]*scale,last+h/2)
+  centers.append(yy);last=yy+h/2+12
+ if last>H-130:
+  shift=last-(H-130);centers=[c-shift for c in centers]
+ for q,h,cy in zip(seq,heights,centers):
+  name,color=group(q);x,y=q['anchor'];start=(ox+x*scale,oy+y*scale)
+  spine=ox-33 if side=='left' else ox+3666+33
+  endx=810 if side=='left' else 4696
+  points=[start,(spine,start[1]),(endx,cy)]
+  # Exact noncrossing proof is checked below for every pair of leaders.
+  lines.append((q['number'],LineString(points)))
+  d.line(points,fill='white',width=7)
+  d.line(points,fill=color,width=3)
+  d.ellipse((start[0]-5,start[1]-5,start[0]+5,start[1]+5),fill=color,outline='white',width=1)
+  lx=25 if side=='left' else 4696;rx=810 if side=='left' else W-25
+  top=round(cy-h/2);bottom=round(cy+h/2)
+  d.rounded_rectangle((lx,top,rx,bottom),radius=10,fill='white',outline=color,width=3)
+  d.rectangle((lx,top+10,lx+7,bottom-10),fill=color)
+  d.text((lx+19,top+10),q['number']+'｜'+q['id']+'  '+name,font=ft(30),fill=color)
+  yy=top+50
+  for s in wrap('候选：'+q['candidates'],ft(25),735):d.text((lx+19,yy),s,font=ft(25),fill='#263b50');yy+=31
+  for s in wrap('依据：'+q['basis']+'；把握'+q['confidence'],ft(22),735):d.text((lx+19,yy),s,font=ft(22),fill='#65778b');yy+=27
+  label_rects.append((q['number'],side,top,bottom))
+# Frames are drawn after leaders, so every target stays clear.
+for q in qs:
+ name,color=group(q);p=Polygon(q['polygon_px']);pts=[(ox+x*scale,oy+y*scale) for x,y in q['polygon_px']]
+ d.line(pts+[pts[0]],fill=color,width=5)
+ pnt=p.representative_point();cx=ox+pnt.x*scale;cy=oy+pnt.y*scale
+ # Use a small badge at a frame corner to retain the room's printed text.
+ l,t,r,b=p.bounds;cx=ox+(l+min(22,(r-l)/2))*scale;cy=oy+(t+min(22,(b-t)/2))*scale
+ sz=42
+ d.rounded_rectangle((cx-sz/2,cy-19,cx+sz/2,cy+19),radius=5,fill='white',outline=color,width=2)
+ d.text((cx,cy),q['number'],font=ft(29),fill=color,anchor='mm')
+# Detect any crossing; no visual-only claim is substituted for this check.
+cross=[]
+for i,(a,la) in enumerate(lines):
+ for b,lb in lines[i+1:]:
+  if not la.intersection(lb).is_empty:cross.append([a,b])
+for side in ['left','right']:
+ rects=[r for r in label_rects if r[1]==side]
+ for a,b in zip(rects,rects[1:]):assert a[3]<b[2],(a,b)
+assert len(qs)==33 and len({q['number'] for q in qs})==33
+(T/'leader-check.json').write_text(json.dumps(dict(count=len(qs),crossings=cross,labels=label_rects),ensure_ascii=False,indent=2))
+assert not cross,cross
+im.save(T/'30_名称核对总图.png')
+im.resize((2202,2116),Image.Resampling.LANCZOS).save(T/'review-overview-preview.png')
+# Three spatial zoom sheets supplement the full overview. Numbers remain unchanged.
+for nm,crop in [('A_放射科与医护办公',(1170,300,2160,1300)),('B_公共服务与出入院',(560,400,1120,1330)),('C_庭院水景与输液',(1170,1280,1770,1760))]:
+ l,t,r,b=crop;ss=2.5;ci=base.crop(crop).resize((round((r-l)*ss),round((b-t)*ss)),Image.Resampling.LANCZOS)
+ out=Image.new('RGB',(ci.width,ci.height+120),'white');out.paste(ci,(0,120));dd=ImageDraw.Draw(out)
+ dd.text((20,18),'30号核对局部 '+nm,font=ft(35),fill='#18314c')
+ dd.text((20,70),'核对号与总图完全一致；保留原图朝向。',font=ft(25),fill='#687a8c')
+ inc=[]
+ for q in qs:
+  p=Polygon(q['polygon_px'])
+  if not box_intersects:=False:pass
+  if not p.intersects(__import__('shapely').geometry.box(*crop)):continue
+  if not (l<=p.centroid.x<=r and t<=p.centroid.y<=b):continue
+  inc.append(q['number']);color=group(q)[1]
+  pts=[((x-l)*ss,(y-t)*ss+120) for x,y in q['polygon_px']]
+  dd.line(pts+[pts[0]],fill=color,width=5)
+  px,py=p.representative_point().coords[0];xx=(px-l)*ss;yy=(py-t)*ss+120
+  dd.rounded_rectangle((xx-30,yy-24,xx+30,yy+24),radius=6,fill='white',outline=color,width=3)
+  dd.text((xx,yy),q['number'],font=ft(37),fill=color,anchor='mm')
+ out.save(T/('30_核对局部_'+nm+'.png'))
+ print(nm,','.join(inc))
+# A text companion is convenient for copying names and answering in batches.
+text=['# 30号名称核对清单','', '标注草稿，33项待确认。编号按原图朝向的相邻横带自上而下，同排从左到右。', '', '回复示例：01=示教室，02=医办；可分批，未答项继续unknown。候选只是供核对的猜测。', '', '|核对号|S编号|用途候选|图面依据|把握|','|---|---|---|---|---|']
+for q in qs:text.append('|'+ '|'.join([q['number'],q['id'],q['candidates'],q['basis'],q['confidence']])+'|')
+text+=['','30、32请一并说明是否露天或挑空、不计室内面积；31请说明平台用途及能否步入。','', '所有核对对应关系仅存在此临时目录，核心JSON保持unknown，不保存问答或推断过程。']
+(T/'30_名称核对清单.md').write_text('
+'.join(text)+'
+')
+print('review generated',im.size,'crossings',cross,'left/right',[(s,len([q for q in qs if q['side']==s])) for s in ['left','right']])
+PY
+python - <<'PY'
+p='/tmp/outpatient30-review/make_review.py';s=open(p).read().replace('  if not box_intersects:=False:pass
+','');open(p,'w').write(s)
+PY
+uv run --with shapely --with pillow python /tmp/outpatient30-review/make_review.py

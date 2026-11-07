@@ -1,0 +1,164 @@
+cat > /tmp/outpatient31-review/build31.py <<'PY'
+from pathlib import Path
+from PIL import Image
+import json, hashlib, sys
+from shapely.geometry import Polygon, box
+from shapely.ops import unary_union
+ROOT=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/31_暨南大学附属第一医院综合楼工程')
+TMP=Path('/tmp/outpatient31-review')
+SRC=ROOT/'31_暨南大学附属第一医院综合楼工程_原图.jpg'
+spaces=[];meta=[];key={}
+def rect(a): return list(box(*a).exterior.coords)[:-1]
+def add(k,name,typ,shape,scope='public_service',level='room',candidate=None,basis=None,confidence=None,side=None,ay=None):
+ p=rect(shape) if len(shape)==4 and isinstance(shape[0],(int,float)) else shape
+ sid=f'S{len(spaces)+1:03d}'
+ key[k]=sid
+ # Polygon boundaries are stored in the unchanged original image coordinate system.
+ orig=[[round(2444-y*2444/1500,2),round(x*3260/2000,2)] for x,y in p]
+ s=dict(id=sid,name=name,type=typ,level=level,scope=scope,polygon_px=orig)
+ spaces.append(s)
+ m=dict(id=sid,key=k,upright_polygon=p)
+ if typ=='unknown':m.update(candidate=candidate or '无可靠候选',basis=basis or '文字不可辨；不据相邻用途定名',confidence=confidence or '低',side=side,anchor_y=ay)
+ meta.append(m)
+ return sid
+def unk(k,shape,candidate,basis,confidence='中',side='left',ay=None,scope='public_service',level='room'):
+ return add(k,'名称未确认','unknown',shape,scope,level,candidate,basis,confidence,side,ay)
+def core(k,name,shape,scope='building_support'):return add(k,name,'vertical_core',shape,scope,'core_block')
+def corr(k,name,shape,scope='public_service'):return add(k,name,'corridor',shape,scope,'open_space')
+# A: northern pharmacy and staff rooms. Read the plan in its upright orientation.
+unk('fire',(244,285,294,350),'消防控制室／消防监控室','靠外墙的小房，字形近“消防…室”','中','left',307,scope='building_support')
+for k,a in [('office_a',(294,285,346,350)),('office_b',(346,285,398,350)),('office_c',(398,285,449,350))]:add(k,'办公','office',a,'staff_support')
+add('male_change','男更','staff_support',(449,285,501,350),'staff_support')
+add('female_change','女更','staff_support',(501,285,553,350),'staff_support')
+unk('24h',(553,285,655,350),'二十四小时药房／二十四小时售药','文字可读“二十四小时…”，位于药房上侧','中高','left',335,scope='pharmacy')
+core('nw_stair','楼梯间',(655,285,738,350))
+add('nw_f_toilet','女卫生间','toilet',(738,285,774,350),'staff_support','functional_block')
+add('nw_m_toilet','男卫生间','toilet',(774,285,813,350),'staff_support','functional_block')
+corr('north_corr','北侧通道',(244,350,813,384))
+add('cn_pharmacy','中药房','pharmacy',(244,384,449,476),'pharmacy','functional_block')
+unk('pharmacy_hall',(449,384,696,585),'取药大厅／医疗大厅','大排座椅，毗邻中西药房；原字较糊','中','left',391,level='open_space')
+unk('iv_service',(696,384,774,476),'静脉输液配置中心／输液配液中心','房名末部似“配置中心”，位于药房旁','低','left',411,scope='pharmacy')
+unk('small_north',(774,384,813,432),'设备间／诊室','小房名称字团不可稳定辨认','低','left',430,scope='building_support')
+add('west_pharmacy','西药房','pharmacy',(244,476,449,585),'pharmacy','functional_block')
+unk('discharge_pharm',(696,476,774,585),'出院取药／出院药房','字形近“出院…药”，毗邻药房大厅','中','left',500,scope='pharmacy')
+# B: north entrance and inpatient/public service zone.
+core('doctor_core','医生入口电梯厅及电梯组',(813,285,948,425))
+unk('inpatient_desk',(948,285,1020,350),'住院办理处／住院预约处','房名首尾似“住院…处”，近医生入口','低','right',291,scope='inpatient_service')
+core('ne_stair','楼梯间',(1020,285,1125,333))
+unk('community',(1125,285,1226,350),'社区医疗中心／社区服务中心','L形服务座椅，房名末部似“中心”','低','right',312,scope='public_service')
+unk('comprehensive',(1226,285,1331,350),'综合服务／综合管理','房名首字似“综合…”，无明确设备','低','right',332)
+unk('stair_small',(1072,333,1125,350),'更衣／设备间','楼梯南侧独立狭小格间，文字很小','低','right',343,scope='building_support')
+corr('ne_stair_front','楼梯前区',(1020,333,1072,350))
+corr('ne_corr','北侧公共通道',[(948,350),(1331,350),(1331,384),(1226,384),(1226,476),(1199,476),(1199,384),(948,384)])
+unk('management',[(948,384),(1020,384),(1020,476),(913,476),(913,425),(948,425)],'管理房／管理用房','房名似“管理房”，入口接北侧通道','低','right',446,scope='staff_support')
+for k,a in [('office_d',(1020,384,1073,476)),('office_e',(1073,384,1125,476)),('office_f',(1125,384,1199,476))]:add(k,'办公','office',a,'staff_support')
+add('ne_toilets','男女卫生间','toilet',(1226,384,1331,476),'public_service','functional_block')
+add('finance','财务','office',(913,476,1020,538),'inpatient_service')
+unk('customer_service',(1020,476,1125,538),'客服中心／客服服务台','字形似“客服中心”，下沿为连续柜台','中','right',490,scope='inpatient_service',level='semi_open_space')
+unk('admission',(1125,476,1199,538),'出入院手续办理／出入院服务','柜台后文字似“出入院手续办理”','中高','right',512,scope='inpatient_service',level='semi_open_space')
+unk('health_advice',(1226,476,1331,538),'健康咨询中心／健康管理中心','房名末部为“中心”，内侧有服务座椅','中','right',533,level='functional_block')
+corr('admission_hall','住院服务大厅',[(1020,538),(1199,538),(1199,476),(1226,476),(1226,538),(1331,538),(1331,585),(1020,585)],'inpatient_service')
+core('finance_lifts','电梯组',(913,538,1020,585))
+# C: northern middle garden/core and detached northeast area.
+unk('north_garden',(774,432,856,538),'采光中庭／室内景观区','树冠图案和周边框线；室内外属性待定','中','left',535,level='open_space')
+core('north_garden_lifts','电梯组',(774,538,856,585))
+corr('central_north','中部北侧通道',(856,425,913,585))
+unk('platform',[(1331,313),(1664,313),(1664,430),(1751,430),(1751,585),(1331,585)],'室外平台／一层预留空间','大面积空白边界接独立交通核，范围性质不明','低','right',570,scope='undetermined_boundary',level='open_space')
+core('detached_core','独立楼梯及电梯交通核',(1664,313,1751,430))
+# D: central atrium group and transition to public hall.
+unk('mid_garden_w',(774,585,856,696),'采光中庭／室内景观区','树冠图案；是否露天或挑空待确认','中','right',598,level='open_space')
+unk('middle_strip',(856,585,913,682),'公共休息廊／交通设施','条带状图案叠有模糊名称，不能据此认定通行','低','right',626,level='functional_block')
+unk('mid_garden_e',(913,585,1020,696),'采光中庭／室内景观区','树冠和框线；与左侧同类图式','中','right',656,level='open_space')
+unk('east_strip',(1020,585,1125,682),'步行楼梯／自动扶梯','密集平行线，未读到明确文字','低','right',678,level='core_block')
+core('mid_lifts_w','电梯组',(774,696,856,744))
+core('mid_core_e','楼梯及电梯交通核',(913,696,1020,790))
+corr('central_south','中部南侧通道',[(856,682),(913,682),(913,790),(1020,790),(1020,696),(1125,696),(1125,806),(1260,806),(1260,850),(913,850),(856,850)])
+# Main hall excludes the explicit southern atrium void and the escalator footprint.
+add('medical_hall','医疗大厅','hall',[(1125,585),(1331,585),(1350,610),(1371,655),(1382,700),(1388,740),(1380,784),(1360,824),(1331,850),(1260,850),(1260,806),(1125,806)],'public_service','open_space')
+core('hall_escalator','自动扶梯',(1125,806,1260,850))
+# E: imaging west and waiting/preparation rooms.
+add('image_office','办公','office',(244,585,287,628),'imaging')
+unk('equipment_small',(287,585,331,628),'设备间／器械间','两行房名不可辨，紧邻影像检查区','低','left',600,scope='imaging')
+unk('dsa_control',(331,585,369,650),'控制室／操作间','狭长格间内有控制台图示，邻接大设备室','中','left',620,scope='imaging')
+unk('dsa',(369,585,449,690),'DSA检查室／X光检查室','大型C形设备符号，末端字样似DSA','中','left',651,scope='imaging')
+# Thin connected west circulation drawn as one non-overlapping concept node.
+p=unary_union([box(244,628,331,650),box(321,650,369,850),box(244,804,321,850)])
+if p.geom_type!='Polygon':
+ p=unary_union([box(244,628,331,650),box(321,628,331,650),box(321,650,369,850),box(244,804,321,850)])
+corr('imaging_w_corr','影像科西侧通道及污物出口前区',list(p.exterior.coords)[:-1],'imaging')
+add('imaging_toilets','男女卫生间','toilet',(244,650,321,690),'imaging','functional_block')
+core('imaging_w_core','楼梯及电梯交通核',(244,690,321,804))
+add('xray_1','X光','imaging',(369,690,449,770),'imaging')
+add('xray_2','X光','imaging',(369,770,449,850),'imaging')
+unk('equipment_image',(449,585,486,650),'设备辅间／设备机房','原字首部似“设备”，末字不可辨','低','left',672,scope='imaging')
+unk('film_delivery',(486,585,553,650),'发片室／洗片室','房名末部似“片室”，位于影像候诊旁','中','left',692,scope='imaging')
+add('nurse','护士站','nurse_station',(553,585,588,650),'imaging','semi_open_space')
+add('imaging_wait','影像科候诊区','hall',[(588,585),(774,585),(774,708),(486,708),(486,650),(588,650)],'imaging','open_space')
+corr('imaging_e_corr','影像检查通道',(449,650,486,850),'imaging')
+add('prep_dr','准备间','patient_preparation',(486,708,553,744),'imaging')
+add('prep_ct','准备间','patient_preparation',(553,708,613,744),'imaging')
+add('image_equipment','设备机房','building_services',(613,708,682,744),'imaging')
+add('prep_mr','准备间','patient_preparation',(682,708,774,744),'imaging')
+add('dr','DR','imaging',(486,744,553,817),'imaging')
+add('ct','CT','imaging',(553,744,655,817),'imaging')
+add('mr','MR','imaging',(655,744,774,817),'imaging')
+add('control','控制室','service_work_area',(486,817,774,850),'imaging','functional_block')
+# F: southern staff/support rooms and retail edge.
+corr('south_corr','医务走廊',(244,850,774,882),'staff_support')
+add('south_toilets','男女卫生间','toilet',(244,882,294,958),'staff_support','functional_block')
+add('director','主任办','office',(294,882,346,958),'imaging')
+add('south_office','办公','office',(346,882,398,958),'imaging')
+add('nurse_office','护理办','office',(398,882,449,958),'imaging')
+add('pacs','PACS','service_work_area',[(449,882),(501,882),(501,958),(476,949),(449,932)],'imaging')
+add('film_issue','发片室','service_work_area',[(501,882),(553,882),(553,958),(501,958)],'imaging')
+unk('film_store',(553,882,597,958),'储片室／洗片室','房名似“…片室”，夹在发片与阅片用房之间','低','left',915,scope='imaging')
+add('readfilm','阅片室','service_work_area',(597,882,655,958),'imaging')
+add('south_f_change','女更衣','staff_support',(655,882,714,958),'staff_support')
+add('south_m_change','男更衣','staff_support',(714,882,774,958),'staff_support')
+core('south_curved_stair','楼梯间',[(774,744),(813,744),(813,774),(806,800),(790,812),(790,850),(774,850)])
+add('foyer','门厅','hall',[(813,744),(856,744),(856,850),(913,850),(913,936),(774,936),(774,850),(790,850),(790,812),(806,800),(813,774)],'public_service','open_space')
+add('secondary_vestibule','次入口门斗','entrance',(774,936,913,958),'public_service')
+for k,name,a in [('barber','理发',(913,850,965,958)),('florist','鲜花',(965,850,1020,958)),('bank','银行',(1020,850,1073,958)),('shop','超市',(1073,850,1125,958))]:add(k,name,'retail_service',a,'public_service')
+add('southern_void','中庭上空','courtyard',[(1125,850),(1331,850),(1305,883),(1271,912),(1232,935),(1185,951),(1145,958),(1125,958)],'public_service','open_space')
+# Explicit conceptual access only where a door or a continuous open region is visible.
+rels=[];pairs=set()
+def rel(a,b,typ='access'):
+ a,b=key[a],key[b];p=(min(a,b),max(a,b),typ)
+ if p in pairs:return
+ pairs.add(p);rels.append(dict(id=f'R{len(rels)+1:03d}',source=a,target=b,type=typ))
+for a in ['fire','office_a','office_b','office_c','male_change','female_change','24h','nw_stair','nw_f_toilet','nw_m_toilet','cn_pharmacy']:
+ rel(a,'north_corr')
+rel('north_corr','pharmacy_hall');rel('pharmacy_hall','cn_pharmacy');rel('pharmacy_hall','west_pharmacy');rel('north_corr','doctor_core')
+for a in ['iv_service','discharge_pharm']:rel(a,'pharmacy_hall')
+rel('small_north','doctor_core')
+for a in ['inpatient_desk','community','comprehensive','management','office_d','office_e','office_f','ne_toilets']:
+ rel(a,'ne_corr')
+rel('doctor_core','ne_corr');rel('ne_stair_front','ne_corr');rel('ne_stair','ne_stair_front')
+rel('doctor_core','central_north');rel('central_north','finance');rel('finance','admission_hall');rel('ne_corr','admission_hall')
+for a in ['customer_service','admission']:rel(a,'admission_hall','service')
+rel('health_advice','admission_hall');rel('admission_hall','medical_hall')
+rel('central_north','north_garden_lifts');rel('central_south','mid_core_e');rel('central_south','mid_lifts_w');rel('central_south','foyer');rel('central_south','medical_hall');rel('medical_hall','hall_escalator');rel('central_south','hall_escalator')
+for a in ['image_office','equipment_small','dsa_control','dsa','imaging_toilets','imaging_w_core','xray_1','xray_2']:rel(a,'imaging_w_corr')
+rel('equipment_image','imaging_e_corr');rel('film_delivery','imaging_wait');rel('nurse','imaging_wait','service');rel('imaging_e_corr','imaging_wait')
+for a in ['dr','ct','mr']:rel(a,'control')
+rel('control','south_corr');rel('imaging_e_corr','south_corr');rel('imaging_w_corr','south_corr')
+for a in ['south_toilets','director','south_office','nurse_office','pacs','film_issue','film_store','readfilm','south_f_change','south_m_change']:rel(a,'south_corr')
+rel('south_corr','foyer');rel('south_curved_stair','foyer');rel('foyer','secondary_vestibule')
+for a in ['barber','florist','bank','shop']:rel(a,'central_south')
+# Deliberately no access is inferred through a garden, void, shared wall or platform.
+# Only record shared walls with clearly drawn solid partitions.
+for a,b in [('office_a','office_b'),('office_b','office_c'),('office_c','male_change'),('male_change','female_change'),('female_change','24h'),('cn_pharmacy','west_pharmacy'),('office_d','office_e'),('office_e','office_f'),('xray_1','xray_2'),('dr','ct'),('ct','mr'),('director','south_office'),('south_office','nurse_office'),('film_store','readfilm')]:rel(a,b,'shared_wall')
+for eid,name,typ,pt,target in [('E001','主入口','main',(1388,740),'medical_hall'),('E002','次入口','secondary',(845,958),'secondary_vestibule'),('E003','医生入口','staff',(880,285),'doctor_core'),('E004','污物出口','waste_exit',(244,827),'imaging_w_corr')]:
+ x,y=pt;rels.append(dict(id=eid,name=name,type='entrance',source=None,target=key[target],entrance_type=typ,position_px=[round(2444-y*2444/1500,2),round(x*3260/2000,2)]))
+data=dict(image=dict(file=SRC.name,width=2444,height=3260),spaces=spaces,relations=rels)
+(ROOT/'annotation.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'
+')
+(TMP/'layout.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'
+')
+(TMP/'keys.json').write_text(json.dumps(key,ensure_ascii=False,indent=2)+'
+')
+(TMP/'source-sha256.txt').write_text(hashlib.sha256(SRC.read_bytes()).hexdigest()+'
+')
+print('spaces',len(spaces),'pending',sum(s['type']=='unknown' for s in spaces),'relations',len(rels))
+PY
+uv run --with shapely --with pillow python /tmp/outpatient31-review/build31.py

@@ -1,0 +1,15 @@
+python - <<'PY'
+p='/tmp/outpatient30-review/build_annotation.py';s=open(p).read()
+s=s.replace("unk('south_small1',(1260,1358,1325,1420),P,'配电间／设备用房','嵌入电梯厅旁的小房间，设备类字样不清','低')", "known('south_small1','残厕','toilet',(1260,1358,1325,1420),P)")
+s=s.replace("'库房／设备用房','同组下方小房间，字形疑似库房'", "'库房／保洁用房','残厕下方的小房间，字形模糊，疑似库房'")
+open(p,'w').write(s)
+p='/tmp/outpatient30-review/make_review.py';s=open(p).read().replace('33项待确认','32项待确认').replace('len(qs)==33','len(qs)==32').replace("d.text((50,105),'标注草稿｜33项待确认", "d.text((50,105),'标注草稿｜32项待确认")
+s=s.replace("30、32请一并说明是否露天或挑空、不计室内面积；31请说明平台用途及能否步入。", "29、31请一并说明是否露天或挑空、不计室内面积；30请说明平台用途及能否步入。")
+s=s.replace("  px,py=p.representative_point().coords[0];xx=(px-l)*ss;yy=(py-t)*ss+120", "  pl,pt,pr,pb=p.bounds;px=pl+min(20,(pr-pl)/2);py=pt+min(20,(pb-pt)/2);xx=(px-l)*ss;yy=(py-t)*ss+120")
+open(p,'w').write(s)
+PY
+uv run --with pymupdf --with shapely --with pillow python /tmp/outpatient30-review/build_annotation.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py normalize p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py render p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json --output p-写作过程/标注试样/30_佛山市禅城区中心医院/标注.svg
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py summary p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json --output p-写作过程/标注试样/30_佛山市禅城区中心医院/标注说明.md
+uv run --with shapely --with pillow python /tmp/outpatient30-review/make_review.py

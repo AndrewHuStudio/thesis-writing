@@ -1,0 +1,7 @@
+python - <<'PY'
+from PIL import Image
+im=Image.open('p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/32_青岛大学附属医院东区病房综合楼_原图.jpg').rotate(-90,expand=True)
+im.save('/tmp/outpatient32-review/转正参考.png')
+for n,b in [('A',(350,300,1350,1150)),('B',(1350,300,2250,1150)),('C',(2250,300,3050,1150)),('D',(350,1150,1500,2100)),('E',(1500,1150,2250,2100)),('F',(2250,1150,3120,2100))]:
+ im.crop(b).resize(((b[2]-b[0])*2,(b[3]-b[1])*2)).save('/tmp/outpatient32-review/'+n+'.png')
+PY

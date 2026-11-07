@@ -1,0 +1,127 @@
+{
+  "name_answers": {
+    "S019": {
+      "review_id": "12",
+      "space_id": "S019",
+      "candidate": "财务科／现金业务室",
+      "alternative": "财务或现金业务用房",
+      "basis": "补图1可辨“财务科／现金…”；后半房名仍模糊，两个候选共用文字依据。把握：中。",
+      "answer": "财务科"
+    },
+    "S020": {
+      "review_id": "13",
+      "space_id": "S020",
+      "candidate": "档案",
+      "alternative": "档案或储藏用房",
+      "basis": "补图1字形较原图清楚，但两字尚不能可靠排除其他读法；候选共用字形与相邻财务房依据。把握：中。",
+      "answer": "储藏"
+    },
+    "S022": {
+      "review_id": "14",
+      "space_id": "S022",
+      "candidate": "医保稽核室",
+      "alternative": "医保管理用房",
+      "basis": "补图1可辨医保业务语境，具体中间文字仍有歧义；两个候选共用文字和窗口后台位置依据。把握：中。",
+      "answer": "医保调解室"
+    },
+    "S023": {
+      "review_id": "15",
+      "space_id": "S023",
+      "candidate": "医保办",
+      "alternative": "—",
+      "basis": "补图1文字可辨，已同步JSON/SVG；为图面辨认，不视为用户确认。把握：高。",
+      "answer": "病案存储"
+    },
+    "S028": {
+      "review_id": "17",
+      "space_id": "S028",
+      "candidate": "存款室（保险柜）",
+      "alternative": "清款室（保险柜）",
+      "basis": "补图1可辨“…款室（保险柜）”，首字仍不够确定；两候选共用该字形线索，不据业务常识确定。把握：中。",
+      "answer": "保险柜"
+    },
+    "S029": {
+      "review_id": "18",
+      "space_id": "S029",
+      "candidate": "病历审核",
+      "alternative": "—",
+      "basis": "补图1文字可辨，已同步JSON/SVG；为图面辨认，不视为用户确认。把握：高。",
+      "answer": "病历审核"
+    },
+    "S034": {
+      "review_id": "19",
+      "space_id": "S034",
+      "candidate": "侧翼门厅",
+      "alternative": "门厅",
+      "basis": "补图1显示侧翼外门与大厅衔接，正式房名仍未完整读清；两候选共用布局依据。把握：中。",
+      "answer": "侧翼门厅（通往医技楼）"
+    },
+    "S055": {
+      "review_id": "22",
+      "space_id": "S055",
+      "candidate": "门诊采集／接收存放",
+      "alternative": "门诊器材存放",
+      "basis": "补图2的房名似含“门诊…／…存放”，具体业务词仍有歧义；备选只据存放字样及长条房布局推测。把握：低。",
+      "answer": "门诊检验"
+    },
+    "S066": {
+      "review_id": "33",
+      "space_id": "S066",
+      "candidate": "暂无可靠候选",
+      "alternative": "诊疗辅助房",
+      "basis": "补图5的两字仍不能可靠释读，窄房及内部隔断可见；备选仅依片区功能推测，缺乏房间级证据。把握：低。",
+      "answer": "X光储藏"
+    },
+    "S076": {
+      "review_id": "40",
+      "space_id": "S076",
+      "candidate": "EICU前室",
+      "alternative": "EICU出入口通行区",
+      "basis": "补图2显示这里是EICU至缓冲S079之间的连续通行分片，没有明确房名；两候选共用连续布局依据。把握：中。",
+      "answer": "和外部房间直接合并"
+    },
+    "S111": {
+      "review_id": "57",
+      "space_id": "S111",
+      "candidate": "配药／药房",
+      "alternative": "取药／药房",
+      "basis": "补图2、5中“／药房”可辨，前半两字仍不够清楚；两候选共用后半文字和房间设施依据。把握：中。",
+      "answer": "诊室"
+    },
+    "S096": {
+      "review_id": "60",
+      "space_id": "S096",
+      "candidate": "办公休息室",
+      "alternative": "工作人员休息室",
+      "basis": "此次补图未充分覆盖该房，仍沿用原图字形候选；两候选共用桌椅和洗手设施依据。把握：中。",
+      "answer": "办公室"
+    },
+    "S109": {
+      "review_id": "63",
+      "space_id": "S109",
+      "candidate": "暂无可靠候选",
+      "alternative": "交通核辅助小间",
+      "basis": "补图2仅见狭小边界，未见可确认的厕位或原名；撤回原卫生间标签。备选仅依相邻交通核推测，缺乏房间级证据。把握：低。",
+      "answer": "不是一个房间，和外部的走廊合并"
+    }
+  },
+  "k01_answer": "094室室收费  098厕所前室 和外面的走廊连接",
+  "merge_map": {
+    "S076": "S072",
+    "S109": "S083"
+  },
+  "removed_relations": [
+    {
+      "id": "R065",
+      "source": "S072",
+      "target": "S072",
+      "type": "access"
+    }
+  ],
+  "source_hashes_before": {
+    "标注.svg": "ca5e1a15581d571558a3c78c1983dbf5e9bb20fd8b6554247ea6ab75297c0f6a",
+    "annotation.json": "c96ebd27232d1b47e75ab1b4b2e663221c86f9207c8aa54d4483bd37f37ec9dc",
+    "标注说明.md": "2ebecac12d75651cdb5730d42e217067238cb9088f310089bfededfccf6be7f9",
+    "26_济南军区总医院门诊综合楼_原图.jpg": "c8fb10c505ccc7fd9f6f4aa59cbc54b17b04583f8a389c51bb0c124c34ead42e"
+  }
+}

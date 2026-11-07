@@ -1,0 +1,215 @@
+*** Begin Patch
+*** Add File: /tmp/outpatient35-review/build_annotation.py
++from pathlib import Path
++import json, hashlib
++from shapely.geometry import Polygon
++
++ROOT=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/35_阳春京伦妇产医院')
++TMP=Path('/tmp/outpatient35-review')
++SOURCE=ROOT/'35_阳春京伦妇产医院_原图.jpg'
++spaces=[]; meta={}; rels=[]
++def rect(x1,y1,x2,y2): return [(x1,y1),(x2,y1),(x2,y2),(x1,y2)]
++def add(key,name,typ,poly,level='room',scope='ordinary_outpatient',legend=None):
++    sid=f'S{len(spaces)+1:03d}'
++    spaces.append(dict(id=sid,name=name,type=typ,level=level,scope=scope,polygon_px=poly))
++    meta[key]=dict(id=sid,legend=legend)
++    return sid
++def box(key,name,typ,x1,y1,x2,y2,**kw): return add(key,name,typ,rect(x1,y1,x2,y2),**kw)
++def unknown(key,poly,**kw): return add(key,'名称未确认','unknown',poly,**kw)
++
++# Upright reading coordinates; saved JSON is converted back to the untouched JPEG.
++# Each local group is numbered top-to-bottom and left-to-right.
++add('oxygen','胎监兼氧吧','examination',[(400,540),(410,512),(440,495),(495,495),(495,575),(555,575),(555,675),(400,675)],legend=4)
++box('oxygen_wc','卫生间','toilet',495,495,555,555,scope='public_service',legend=5)
++box('us','B超室','examination',610,495,694,625,legend=3)
++unknown('bay',rect(694,495,855,625),level='semi_open_space',scope='outpatient_observation')
++box('dispensing_charge','发药收费室','registration',694,560,735,625,scope='outpatient_observation',legend=11)
++# The resuscitation/infusion bay and the small cashier room have distinct footprints.
++spaces[3]['polygon_px']=[(694,495),(855,495),(855,625),(735,625),(735,560),(694,560)]
++add('infusion','输液、留观','observation',[(855,495),(1180,495),(1215,505),(1240,530),(1250,560),(1250,690),(1185,690),(1185,725),(1145,725),(1145,750),(1185,750),(1185,808),(1250,808),(1250,690),(855,690)],level='functional_block',scope='outpatient_observation',legend=22)
++# Infusion's east tail is not a separate room; use a simple polygon without a retraced edge.
++spaces[-1]['polygon_px']=[(855,495),(1180,495),(1215,505),(1240,530),(1250,560),(1250,808),(1185,808),(1185,750),(1145,750),(1145,725),(1185,725),(1185,690),(855,690)]
++add('north_front','诊疗前侧通道','corridor',[(555,495),(610,495),(610,625),(855,625),(855,690),(555,690)],level='open_space',scope='public_service')
++add('nw_stair','西北楼梯交通核','vertical_core',[(400,675),(555,675),(555,750),(460,750),(460,812),(400,812)],level='core_block',scope='public_service')
++box('waterbar','水吧台','retail_service',460,750,555,812,level='semi_open_space',scope='public_service',legend=24)
++box('obstetric','产科','consultation',610,690,690,812,legend=6)
++box('gynecology','妇科','consultation',690,690,835,812,legend=7)
++add('rest','休息室','staff_support',[(835,690),(880,690),(880,755),(930,755),(930,812),(835,812)],scope='staff_support',legend=8)
++box('staff_wc','卫生间','toilet',930,755,974,812,scope='staff_support',legend=5)
++add('north_back','诊疗后侧通道','corridor',[(880,690),(1090,690),(1090,812),(974,812),(974,755),(880,755)],level='open_space',scope='staff_support')
++add('preparation','配液室','medication_preparation',[(1090,690),(1185,690),(1185,725),(1145,725),(1145,808),(1090,808)],scope='outpatient_observation',legend=9)
++box('clean_north','清洁室','staff_support',1145,750,1185,808,scope='outpatient_observation',legend=10)
++unknown('gray_north',rect(610,812,1035,994),level='functional_block',scope='public_service')
++box('west_wc1','卫生间','toilet',400,812,448,860,scope='staff_support',legend=5)
++box('west_wc2','卫生间','toilet',448,812,500,860,scope='staff_support',legend=5)
++box('changing1','更衣室','staff_support',400,860,448,906,scope='staff_support',legend=12)
++box('changing2','更衣室','staff_support',448,860,500,906,scope='staff_support',legend=12)
++add('staff_corridor','后勤通道及更衣前厅','corridor',[(500,812),(555,812),(555,939),(495,939),(495,1127),(465,1127),(465,939),(400,939),(400,906),(500,906)],level='open_space',scope='staff_support')
++box('changing3','更衣室','staff_support',400,939,465,999,scope='staff_support',legend=12)
++box('clean_west','清洁室','staff_support',495,939,555,999,scope='staff_support',legend=10)
++box('duty_west','值班室','staff_support',400,999,465,1058,scope='staff_support',legend=13)
++box('decoction','煎药室','medication_preparation',495,999,555,1058,scope='pharmacy_support',legend=15)
++box('tea_west','茶水间','staff_support',400,1058,465,1127,scope='staff_support',legend=14)
++box('cool_store','荫凉房','storage',495,1058,555,1127,scope='pharmacy_support',legend=16)
++box('meeting','会议室','office',400,1127,555,1244,scope='staff_support',legend=17)
++add('supplies','耗材间','storage',[(400,1244),(555,1244),(555,1318),(435,1318),(410,1305),(400,1280)],scope='pharmacy_support',legend=18)
++box('chinese_pharm','中药房','pharmacy',610,994,814,1127,scope='pharmacy_support',legend=19)
++box('chinese_window','发药窗口（中药房）','pharmacy_counter',814,994,881,1127,level='semi_open_space',scope='public_service',legend=21)
++box('western_pharm','西药房','pharmacy',610,1127,814,1318,scope='pharmacy_support',legend=20)
++box('western_window','发药窗口（西药房）','pharmacy_counter',814,1127,881,1318,level='semi_open_space',scope='public_service',legend=21)
++box('west_corridor','西侧通道','corridor',555,690,610,2057,level='open_space',scope='public_service')
++box('public_wc_n','卫生间','toilet',1118,867,1177,994,level='functional_block',scope='public_service',legend=5)
++add('north_lobby','门厅北侧通道','corridor',[(1185,808),(1250,808),(1250,860),(1900,810),(1925,820),(1935,845),(1935,994),(1177,994),(1177,867),(1035,867),(1035,812),(1090,812),(1090,808)],level='open_space',scope='public_service')
++box('wc_passage','卫生间西侧通道','corridor',1035,867,1118,994,level='open_space',scope='public_service')
++box('pharm_wait','取药前通道','corridor',881,994,1035,1318,level='open_space',scope='public_service')
++add('vip','VIP接待室','service',[(1035,1105),(1180,1105),(1180,1180),(1100,1180),(1100,1225),(1035,1225)],scope='public_service',legend=23)
++add('vip_lift','VIP接待区电梯交通核','vertical_core',[(1100,1180),(1180,1180),(1180,1318),(1035,1318),(1035,1225),(1100,1225)],level='core_block',scope='public_service')
++unknown('gray_south',rect(610,1318,976,1490),level='functional_block',scope='public_service')
++box('court_pass','灰色区域东侧通道','corridor',976,1318,1035,1490,level='open_space',scope='public_service')
++# Main lobby is contiguous, but its north and south parts are divided at open
++# cross-sections to represent nearby rooms with hole-free polygons.
++add('lobby','门厅','hall',[(1035,994),(1935,994),(1905,1270),(1905,1310),(1920,1340),(1950,1355),(2270,1355),(2270,1465),(2180,1465),(2180,1490),(2000,1490),(2000,1480),(1808,1480),(1808,1490),(1250,1490),(1035,1490),(1035,1318),(1180,1318),(1180,1105),(1035,1105)],level='open_space',scope='public_service',legend=1)
++
++# Southwest imaging / outpatient group, followed by the southeast service group.
++add('image_wc','卫生间','toilet',[(400,1530),(410,1505),(440,1490),(490,1490),(490,1540),(400,1540)],scope='imaging',legend=5)
++box('image_change1','更衣室','staff_support',490,1490,555,1540,scope='imaging',legend=12)
++box('image_change2','更衣室','staff_support',400,1540,555,1590,scope='imaging',legend=12)
++box('film','储片','storage',610,1490,694,1550,scope='imaging',legend=30)
++box('waste','污物打包间','waste_handling',694,1490,775,1550,scope='imaging',legend=29)
++add('imaging_north_corr','影像北侧通道','corridor',[(775,1490),(1088,1490),(1088,1590),(610,1590),(610,1550),(775,1550)],level='open_space',scope='imaging')
++box('sw_core','西南楼梯及电梯交通核','vertical_core',400,1590,555,1830,level='core_block',scope='public_service')
++box('ct','CT室','imaging',610,1590,825,1788,scope='imaging',legend=28)
++box('dr','DR室','imaging',825,1590,975,1788,scope='imaging',legend=27)
++box('mammography','钼靶','imaging',975,1590,1088,1788,scope='imaging',legend=26)
++box('image_work','影像工作通道','corridor',610,1788,1088,1870,level='open_space',scope='imaging')
++box('image_wait','候诊区','hall',1088,1490,1250,1870,level='open_space',scope='imaging',legend=25)
++add('fire','消防控制室','building_control',[(400,1830),(555,1830),(555,2057),(440,2057),(415,2045),(400,2015)],scope='building_services',legend=33)
++unknown('office_inner',rect(610,1870,714,1952),scope='staff_support')
++box('duty_sw','值班室','staff_support',744,1870,825,1952,scope='staff_support',legend=13)
++add('doctor_office','医生办公室','office',[(714,1870),(744,1870),(744,1952),(744,2057),(610,2057),(610,1952),(714,1952)],scope='staff_support',legend=32)
++box('director','主任办公室','office',744,1952,825,2057,scope='staff_support',legend=31)
++box('outpatient_corr','诊室前通道','corridor',825,1870,1250,1950,level='open_space',scope='ordinary_outpatient')
++box('consult1','诊室','consultation',825,1950,925,2057,legend=34)
++box('consult2','诊室','consultation',925,1950,1030,2057,legend=34)
++box('consult3','诊室','consultation',1030,1950,1125,2057,legend=34)
++box('tea_south','茶水间','staff_support',1125,1950,1250,2010,scope='public_service',legend=35)
++box('mother','母婴室','service',1125,2010,1250,2057,scope='public_service',legend=36)
++
++box('wc_se1','卫生间','toilet',1405,1490,1450,1557,scope='public_service',legend=5)
++box('wc_se2','卫生间','toilet',1450,1490,1497,1557,scope='public_service',legend=5)
++box('accessible','无障碍卫生间','toilet',1497,1490,1558,1557,scope='public_service',legend=37)
++box('wc_se_front','卫生间前厅','corridor',1405,1557,1558,1593,level='open_space',scope='public_service')
++add('central_lift','门厅东侧电梯交通核','vertical_core',[(1558,1490),(1670,1490),(1670,1707),(1585,1707),(1585,1667),(1520,1667),(1520,1593),(1558,1593)],level='core_block',scope='public_service')
++unknown('support_cells',[(1450,1648),(1520,1648),(1520,1667),(1585,1667),(1585,1707),(1450,1707)],level='functional_block',scope='building_services')
++unknown('long_room',rect(1450,1707,1670,1785),scope='building_services')
++add('lobby_south','门厅南侧区域','hall',[(1250,1490),(1405,1490),(1405,1593),(1520,1593),(1520,1648),(1450,1648),(1450,1785),(1670,1785),(1670,1945),(1470,1945),(1470,2057),(1250,2057)],level='open_space',scope='public_service',legend=1)
++box('east_link','门厅东侧通道','corridor',1670,1490,1808,1707,level='open_space',scope='public_service')
++add('east_core','东侧楼梯及电梯交通核','vertical_core',[(1808,1480),(2000,1480),(2000,1585),(2160,1585),(2160,1640),(2055,1640),(2055,1685),(2010,1685),(2010,1707),(1808,1707)],level='core_block',scope='public_service')
++box('admission','出入院办理','registration',2000,1490,2155,1585,level='semi_open_space',scope='inpatient_support',legend=38)
++add('files','资料室','storage',[(2180,1465),(2270,1465),(2230,1585),(2180,1585)],scope='inpatient_support',legend=39)
++add('electrical','配电房','building_services',[(1670,1707),(2010,1707),(2010,1685),(2055,1685),(2055,1640),(2160,1640),(2160,1810),(2130,1900),(2100,1990),(2060,2030),(2025,2057),(1670,2057)],scope='building_services',legend=40)
++unknown('sink_room',rect(1470,1945,1540,1990),scope='public_service')
++box('small_lift','南侧电梯交通核','vertical_core',1470,1990,1540,2057,level='core_block',scope='public_service')
++box('consult_se1','诊室','consultation',1540,1945,1605,2057,legend=34)
++box('consult_se2','诊室','consultation',1605,1945,1670,2057,legend=34)
++
++# Visible door/opening relations. No adjacency-to-access conversion.
++def relate(a,b,typ='access'):
++    sa=meta[a]['id'];sb=meta[b]['id']
++    if any(r['source'] in (sa,sb) and r['target'] in (sa,sb) and r['type']==typ for r in rels): return
++    rels.append(dict(id=f'R{1+sum(r["type"]!="entrance" for r in rels):03d}',source=sa,target=sb,type=typ))
++def links(a,bs,typ='access'):
++    for b in bs.split(): relate(a,b,typ)
++links('north_front','oxygen us obstetric gynecology west_corridor infusion dispensing_charge')
++links('oxygen','oxygen_wc')
++links('bay','dispensing_charge infusion')
++links('nw_stair','west_corridor')
++links('waterbar','west_corridor')
++links('north_back','rest preparation infusion')
++links('rest','staff_wc')
++links('north_lobby','clean_north preparation infusion lobby wc_passage public_wc_n')
++links('wc_passage','lobby')
++links('staff_corridor','west_wc1 west_wc2 changing1 changing2 changing3 clean_west duty_west decoction tea_west cool_store west_corridor')
++links('west_corridor','meeting supplies chinese_pharm western_pharm imaging_north_corr image_work sw_core fire image_change1 image_change2')
++links('image_change1','image_wc')
++links('chinese_pharm','chinese_window')
++links('western_pharm','western_window')
++links('pharm_wait','chinese_window western_window','service')
++links('pharm_wait','wc_passage lobby court_pass')
++links('court_pass','lobby')
++links('vip','lobby')
++links('vip_lift','lobby')
++links('imaging_north_corr','film waste image_wait')
++links('image_work','ct dr mammography image_wait doctor_office')
++links('image_wait','lobby lobby_south')
++links('doctor_office','office_inner duty_sw director')
++links('outpatient_corr','consult1 consult2 consult3 tea_south mother west_corridor lobby_south')
++links('lobby_south','lobby wc_se_front central_lift long_room consult_se1 consult_se2')
++links('wc_se_front','wc_se1 wc_se2 accessible')
++links('central_lift','east_link')
++links('east_link','lobby east_core')
++links('admission','lobby')
++links('admission','lobby','service')
++links('long_room','lobby_south')
++# Only clear shared partitions are recorded, separately from access.
++for a,b in [('oxygen','oxygen_wc'),('oxygen','nw_stair'),('obstetric','gynecology'),('gynecology','rest'),('rest','staff_wc'),('preparation','clean_north'),('west_wc1','west_wc2'),('west_wc1','changing1'),('west_wc2','changing2'),('changing1','changing2'),('changing3','duty_west'),('duty_west','tea_west'),('clean_west','decoction'),('decoction','cool_store'),('meeting','supplies'),('chinese_pharm','western_pharm'),('chinese_pharm','chinese_window'),('western_pharm','western_window'),('vip','vip_lift'),('film','waste'),('ct','dr'),('dr','mammography'),('image_change2','sw_core'),('sw_core','fire'),('doctor_office','director'),('doctor_office','office_inner'),('doctor_office','duty_sw'),('director','duty_sw'),('consult1','consult2'),('consult2','consult3'),('consult3','tea_south'),('consult3','mother'),('tea_south','mother'),('wc_se1','wc_se2'),('wc_se2','accessible'),('central_lift','support_cells'),('support_cells','long_room'),('central_lift','long_room'),('consult_se1','consult_se2'),('consult_se1','small_lift'),('sink_room','small_lift')]: relate(a,b,'shared_wall')
++
++def entrance(key,name,kind,xy):
++    rels.append(dict(id=f'E{1+sum(r["type"]=="entrance" for r in rels):02d}',source=None,target=meta[key]['id'],type='entrance',name=name,entrance_type=kind,position_px=xy))
++entrance('lobby_south','门厅主入口','main',(1350,2057))
++entrance('north_front','上侧西通道入口','secondary',(580,495))
++entrance('infusion','输液留观区外门','secondary',(1055,495))
++entrance('north_lobby','门厅上侧外门（西）','secondary',(1525,839))
++entrance('north_lobby','门厅上侧外门（东）','secondary',(1660,828))
++entrance('lobby','门厅右侧外门','secondary',(1910,1295))
++entrance('west_corridor','西侧通道下端入口','secondary',(580,2057))
++entrance('nw_stair','西北楼梯外门','stair_exit',(400,707))
++entrance('sw_core','西南楼梯外门','stair_exit',(400,1740))
++entrance('fire','消防控制室外门','service',(515,2057))
++entrance('electrical','配电房斜边外门','service',(2145,1848))
++
++review=[
++ ('bay','抢救室 / 输液留观床位区','疑似图例2；见床位及半围合边界','中等',(760,495),'left',350),
++ ('gray_north','露天庭院 / 室内绿化中庭','树木与天窗状网格；需确认室内外','用途中等，室内外低',(610,900),'left',820),
++ ('gray_south','露天或挑空中庭 / 室内空间','灰底与网格；东侧另有白色通道','低',(610,1400),'left',1390),
++ ('office_inner','医护休息室 / 储藏室','位于医生办公室内侧，无功能字样','低',(610,1900),'left',1930),
++ ('support_cells','设备支持用房 / 库房组','电梯核西南侧小隔间，文字缺失','低',(1450,1670),'right',1550),
++ ('long_room','设备用房 / 库房','电梯核下侧狭长房间，有独立门','低',(1450,1750),'right',1760),
++ ('sink_room','清洁间 / 卫生间','小房间角部见疑似水池','低',(1470,1970),'right',2060),
++]
++
++# Inspect geometry before any files in the project are written.
++errors=[]
++for i,a in enumerate(spaces):
++    pa=Polygon(a['polygon_px'])
++    if not pa.is_valid: errors.append((a['id'],'invalid'))
++    for b in spaces[i+1:]:
++        area=pa.intersection(Polygon(b['polygon_px'])).area
++        if area>1: errors.append((a['id'],b['id'],area))
++if errors:
++    print(json.dumps(errors,ensure_ascii=False,indent=2));raise SystemExit(1)
++
++data=dict(image=dict(file=SOURCE.name,width=2444,height=3260),spaces=[],relations=[])
++for s in spaces:
++    saved=dict(s);saved['polygon_px']=[[2444-y,x] for x,y in s['polygon_px']]
++    data['spaces'].append(saved)
++for r in rels:
++    saved=dict(r)
++    if 'position_px' in saved:
++        x,y=saved['position_px'];saved['position_px']=[2444-y,x]
++    data['relations'].append(saved)
++(ROOT/'annotation.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'
+')
++(TMP/'upright-data.json').write_text(json.dumps(dict(image=dict(file='upright.png',width=3260,height=2444),spaces=spaces,relations=rels),ensure_ascii=False,indent=2)+'
+')
++mapping=[]
++for i,(key,candidate,basis,confidence,anchor,side,ly) in enumerate(review,1):
++    mapping.append(dict(number=f'{i:02d}',key=key,id=meta[key]['id'],candidates=candidate,basis=basis,confidence=confidence,anchor=anchor,side=side,label_y=ly))
++(TMP/'review-map.json').write_text(json.dumps(mapping,ensure_ascii=False,indent=2)+'
+')
++(TMP/'source-sha256.txt').write_text(hashlib.sha256(SOURCE.read_bytes()).hexdigest()+'
+')
++(TMP/'legend-map.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'
+')
++print(json.dumps(dict(spaces=len(spaces),relations=len(rels),pending=[(r['number'],r['id']) for r in mapping]),ensure_ascii=False))
+*** End Patch

@@ -1,0 +1,34 @@
+python3 - <<'PY'
+p='/tmp/outpatient33-review/build_annotation.py'
+s=open(p).read()
+s=s.replace("e=bykey['public_medical_e'];poly=Polygon(e['polygon_px']).difference", "e=bykey['public_medical_e'];poly=unary_union([Polygon(e['polygon_px']),box(1988,2040,2145,2113)]).difference")
+s=s.replace("'cssd_west_corridor','cssd_cleaner1'","'cssd_west_corridor','cssd_cleaner1'")
+s=s.replace(";rel('cssd_west_corridor','cssd_cleaner1')",'')
+s=s.replace(" cssd_cleaner2 cssd_water cssd_sterile_store cssd_dressing'"," cssd_dressing'")
+s=s.replace(";rel('cssd_west_corridor','cssd_center_core')",'')
+s=s.replace(";rel('cssd_dirtycart','cssd_west_vest')",'')
+s=s.replace(";rel('cssd_sterile_store','cssd_issue')",'')
+s=s.replace(";rel('ip_fchange','ip_ftoilet_n')",'')
+s=s.replace(";rel('pivas_review','pivas_pack','service')",'')
+s=s.replace("public_gift public_toilet public_se_core public_atm public_convenience civilian_hall'","public_gift public_toilet civilian_hall'")
+s=s.replace("rel('public_medical_e','public_e_vest');", "star('public_medical_e','public_e_vest public_se_core public_atm');")
+s=s.replace("[456,1085],'cssd_reception'","[456,910],'cssd_receiving'")
+# 首轮尚无用户确认，按西翼相邻房间顺序分配编号后固定。
+s=s.replace("data={'image':", "ordered_keys=['cssd_nw_core','cssd_meeting','cssd_office1','cssd_toilet','cssd_store','cssd_office2','cssd_receiving','cssd_duty']
+old_to_new={}
+ordered=[bykey[k] for k in ordered_keys]+[q for q in spaces if q not in [bykey[k] for k in ordered_keys]]
+for i,q in enumerate(ordered,1):
+ old=q['id'];new=f'S{i:03d}';old_to_new[old]=new;q['id']=new
+spaces=ordered
+for r in relations:
+ if r['source'] is not None:r['source']=old_to_new[r['source']]
+ r['target']=old_to_new[r['target']]
+for q in review:q['id']=old_to_new[q['id']]
+data={'image':")
+open(p,'w').write(s)
+PY
+uv run --with pymupdf --with shapely python /tmp/outpatient33-review/build_annotation.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py normalize p-写作过程/标注试样/33_西京医院住院二部翻建工程/annotation.json
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py render p-写作过程/标注试样/33_西京医院住院二部翻建工程/annotation.json --output p-写作过程/标注试样/33_西京医院住院二部翻建工程/标注.svg
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py summary p-写作过程/标注试样/33_西京医院住院二部翻建工程/annotation.json --output p-写作过程/标注试样/33_西京医院住院二部翻建工程/标注说明.md
+qlmanage -t -s 3400 -o /tmp/outpatient33-review p-写作过程/标注试样/33_西京医院住院二部翻建工程/标注.svg

@@ -1,0 +1,11 @@
+python - <<'PY'
+p='/tmp/outpatient34-review/make_review.py'
+s=open(p).read().replace('候选仅用于核对；核心 JSON 中三项仍为 unknown。','候选仅用于核对；核心 JSON 中三项仍保留为未确认。')
+open(p,'w').write(s)
+PY
+uv run --with pymupdf --with shapely --with pillow python /tmp/outpatient34-review/make_review.py
+python - <<'PY'
+from PIL import Image
+im=Image.open('/tmp/outpatient34-review/34_核对总图.png')
+im.crop((0,820,4004,1480)).resize((3003,495)).save('/tmp/outpatient34-review/核对总图密集检查.png')
+PY

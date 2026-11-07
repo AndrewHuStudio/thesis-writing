@@ -1,0 +1,36 @@
+python - <<'PY'
+p='/tmp/outpatient34-review/build_annotation.py';s=open(p).read()
+s=s.replace("SCOPE='outpatient_infusion'
+add('i_children'", "SCOPE='outpatient_infusion'
+add('i_link','输液区连接通道','corridor',(1378,1455,1430,1667),'open_space')
+add('i_children'")
+s=s.replace("[(1378,1455),(1430,1455),(1430,1796)","[(1378,1667),(1430,1667),(1430,1796)")
+s=s.replace("access('e_corridor','public_wait');access('e_corridor','i_children');access('e_corridor','public_core')","access('i_link','public_wait');access('i_link','i_children');access('i_link','e_corridor')")
+open(p,'w').write(s)
+PY
+uv run --with pymupdf --with shapely python /tmp/outpatient34-review/build_annotation.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py normalize p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py render p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json --output p-写作过程/标注试样/34_青岛市中心医院综合病房楼/标注.svg
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py summary p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json --output p-写作过程/标注试样/34_青岛市中心医院综合病房楼/标注说明.md
+python - <<'PY'
+from pathlib import Path
+p=Path('p-写作过程/标注试样/34_青岛市中心医院综合病房楼/标注.svg')
+s=p.read_text().replace('门诊平面结构化标注','34 青岛市中心医院综合病房楼 · 一层标注草稿')
+p.write_text(s)
+Path('/tmp/outpatient34-review/完整检查.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" width="3418" height="3418" viewBox="0 0 3418 3418"><rect width="3418" height="3418" fill="white"/><g transform="translate(487 0)">'+s+'</g></svg>')
+p=Path('p-写作过程/标注试样/34_青岛市中心医院综合病房楼/标注说明.md')
+s=p.read_text().replace('# 平面标注概览','# 34 青岛市中心医院综合病房楼｜一层标注草稿')
+s+='''
+**楼层与范围：**原图明确标注“一层平面图”。只标注本张可见建筑内的概念空间、北侧四块绿化及内庭院绿化；外围道路、停车、树阵、尺寸线和楼外部门文字不作为室内空间。未扩展至其他楼层或其他医院图纸。
+
+**功能范围：**妇科／产科门诊（gynecology_obstetrics_outpatient）、门诊药房（outpatient_pharmacy）、外科门诊（surgical_outpatient）、普通输液（outpatient_infusion）、急诊／急救（emergency）以及公共服务与交通支持（public_service）分别记录。X光、脑电、心电、B超、采血／化验按本图归属急诊支持。未见明确住院病房区，不因项目名含“综合病房楼”而把整张图标作住院。产科观察室按图面妇产门诊片区记录，不等同住院病房。
+
+**概念边界：**交通核按楼梯、电梯符号整体记录；不描述内部精确路线。护士站、导诊及开放商店按概念服务区域圈定。门诊大厅因包含独立导诊区域而分为南、北两个连续开放节点，此分区不是实体隔墙。中、西药发放与对应药房合并，柜台联系采用 service；不据此推断人员穿行。没有依据的可达关系暂不记录，未记关系不等于不可达。
+
+**待确认项依据：**S010 候选为白带检查室／治疗室，字形及邻近功能仅提供低把握参考；S015 候选为诊室，把握中；S024 候选为药流室／治疗室，把握低。候选不写入核心 JSON 的确定名称或类别。核对号与 S 编号的映射仅保存在临时核对材料中。
+
+**当前状态：**标注草稿，3 项名称未确认。相对面积按已标注室内轮廓归一化，绿化不参与；不代表实测使用面积。外围绿化不作穷尽式计数。原图保持原文件内容。名称确认后仍须同步 JSON、SVG、MD，并按 Skill 运行正式完成校验及目视检查。
+'''
+p.write_text(s)
+PY
+qlmanage -t -s 4500 -o /tmp/outpatient34-review /tmp/outpatient34-review/完整检查.svg

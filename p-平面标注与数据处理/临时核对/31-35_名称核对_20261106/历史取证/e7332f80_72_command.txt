@@ -1,0 +1,13 @@
+python - <<'PY'
+p='/tmp/outpatient34-review/build_annotation.py'
+s=open(p).read().replace("[(616,880),(913,880),(913,814),(1070,814),(1070,932),(913,932),(493,932),(493,932),(616,932)]","[(616,880),(913,880),(913,814),(1070,814),(1070,932),(616,932)]")
+s=s.replace("access('e_mix','i_children');access('e_mix','i_adult')","access('e_mix','i_children')")
+open(p,'w').write(s)
+from PIL import Image
+im=Image.open('p-写作过程/标注试样/34_青岛市中心医院综合病房楼/34_青岛市中心医院综合病房楼_原图.jpg')
+im.crop((1950,1920,2165,2220)).resize((860,1200)).save('/tmp/outpatient34-review/急诊右下.png')
+PY
+uv run --with pymupdf --with shapely python /tmp/outpatient34-review/build_annotation.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py normalize p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py render p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json --output p-写作过程/标注试样/34_青岛市中心医院综合病房楼/标注.svg
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py summary p-写作过程/标注试样/34_青岛市中心医院综合病房楼/annotation.json --output p-写作过程/标注试样/34_青岛市中心医院综合病房楼/标注说明.md

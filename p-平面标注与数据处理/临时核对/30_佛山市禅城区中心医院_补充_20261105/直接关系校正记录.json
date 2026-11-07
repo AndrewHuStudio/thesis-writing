@@ -1,0 +1,100 @@
+{
+  "retired": [
+    {
+      "id": "R005",
+      "source": "S010",
+      "target": "S024",
+      "type": "access"
+    },
+    {
+      "id": "R006",
+      "source": "S008",
+      "target": "S024",
+      "type": "access"
+    },
+    {
+      "id": "R009",
+      "source": "S029",
+      "target": "S024",
+      "type": "access"
+    },
+    {
+      "id": "R010",
+      "source": "S026",
+      "target": "S024",
+      "type": "access"
+    },
+    {
+      "id": "R033",
+      "source": "S053",
+      "target": "S040",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P024",
+          "kind": "door",
+          "position_px": [
+            1203,
+            1060
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R095",
+      "source": "S075",
+      "target": "S088",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P056",
+          "kind": "door",
+          "position_px": [
+            1278,
+            1745
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R119",
+      "source": "S085",
+      "target": "S089",
+      "type": "access"
+    }
+  ],
+  "added": [
+    [
+      "R120",
+      "S010",
+      "S019"
+    ],
+    [
+      "R121",
+      "S008",
+      "S018"
+    ],
+    [
+      "R122",
+      "S029",
+      "S028"
+    ],
+    [
+      "R123",
+      "S026",
+      "S027"
+    ],
+    [
+      "R124",
+      "S063",
+      "S073"
+    ],
+    [
+      "R125",
+      "S073",
+      "S072"
+    ]
+  ],
+  "corrected": "R083 target changed from S059 to S016",
+  "basis": "影像检查室通过独立更衣间进入候诊通道；输液支持房间分别向大厅与交通核开门，实墙不构成直接相通；庭院路径按连续布局推断。"
+}

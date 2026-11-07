@@ -1,0 +1,38 @@
+cat > /tmp/outpatient32-review/refine.py <<'PY'
+from pathlib import Path
+from shapely.geometry import Polygon
+import json
+P=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼')
+a=json.loads((P/'annotation.json').read_text());D={s['id']:s for s in a['spaces']}
+redirect={k:'S029' for k in ['S063','S070','S098','S141','S146','S179']}
+redirect['S109']='S104'
+for sid in ['S114','S119']:
+ p=Polygon(D[sid]['polygon_px'])
+ opts=[]
+ for s in a['spaces']:
+  if s['id']==sid or s['id'] in redirect or s['type']!='hall' or s['id'] in ['S114','S119']:continue
+  q=Polygon(s['polygon_px']);u=p.union(q)
+  if u.geom_type=='Polygon' and not u.interiors and p.intersection(q).length>1:
+   opts.append((p.intersection(q).length,s['id'],u))
+ _,target,u=max(opts,key=lambda z:z[0]);D[target]['polygon_px']=[list(v) for v in list(u.exterior.coords)[:-1]];redirect[sid]=target
+ print('Merge',sid,target)
+a['spaces']=[s for s in a['spaces'] if s['id'] not in redirect]
+# 删除像素缝和轮廓外三角形的关系，不把人为几何缺口编成通行证据。
+rels=[];seen=set()
+for r in a['relations']:
+ if r['type']!='entrance' and (r['source'] in ['S063','S070','S098','S141','S146','S179','S109'] or r['target'] in ['S063','S070','S098','S141','S146','S179','S109']):continue
+ for k in ['source','target']:
+  if r[k] in redirect:r[k]=redirect[r[k]]
+ if r['source']==r['target']:continue
+ key=(r['id'],) if r['type']=='entrance' else tuple(sorted([r['source'],r['target']]))+(r['type'],)
+ if key in seen:continue
+ seen.add(key);rels.append(r)
+a['relations']=rels
+(P/'annotation.json').write_text(json.dumps(a,ensure_ascii=False,indent=2)+'
+')
+print('Spaces',len(a['spaces']),'relations',len(rels),'pending',sum(s['type']=='unknown' for s in a['spaces']))
+PY
+uv run --with shapely python /tmp/outpatient32-review/refine.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py normalize p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/annotation.json
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py render p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/annotation.json --output p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/标注.svg
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py summary p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/annotation.json --output p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/标注说明.md

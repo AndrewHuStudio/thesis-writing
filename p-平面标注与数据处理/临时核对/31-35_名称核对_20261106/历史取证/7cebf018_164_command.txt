@@ -1,0 +1,10 @@
+python - <<'PY'
+p='/tmp/outpatient32-review/check.py';s=open(p).read().replace('183 个空间／区域不等于183间房，其中43个','174 个空间／区域不等于174间房，其中34个');open(p,'w').write(s)
+PY
+uv run --with pymupdf --with pillow python /tmp/outpatient32-review/check.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py validate p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/annotation.json --allow-incomplete --check-dir > /tmp/outpatient32-review/草稿校验.json
+python - <<'PY'
+import json
+from pathlib import Path
+p=Path('/tmp/outpatient32-review');a=json.loads((p/'草稿校验.json').read_text());print({k:v for k,v in a.items() if k!='pending_name_ids'});print((p/'核对图检查.json').read_text())
+PY

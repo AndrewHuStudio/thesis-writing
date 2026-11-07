@@ -1,0 +1,11 @@
+python - <<'PY'
+from pathlib import Path
+import json
+p=Path('/tmp/outpatient31-review/build31.py');s=p.read_text().replace("'left',651,scope='imaging'","'left',632,scope='imaging'").replace("'left',672,scope='imaging'","'left',640,scope='imaging'").replace("'left',692,scope='imaging'","'left',648,scope='imaging'");p.write_text(s)
+p=Path('/tmp/outpatient31-review/layout.json');m=json.loads(p.read_text())
+for a in m:
+ if a['key'] in {'dsa','equipment_image','film_delivery'}:a['anchor_y']={'dsa':632,'equipment_image':640,'film_delivery':648}[a['key']]
+p.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'
+')
+PY
+uv run --with shapely --with pillow python /tmp/outpatient31-review/review31.py

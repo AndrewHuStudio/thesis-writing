@@ -1,0 +1,418 @@
+{
+  "name_items": [
+    {
+      "review_id": "01",
+      "space_id": "S003",
+      "status": "pending",
+      "candidate_name": "备餐间",
+      "alternative_name": "厨房配套用房",
+      "evidence": "邻接主厨房，原图无房名；两候选均仅据餐饮后勤位置推测。低"
+    },
+    {
+      "review_id": "02",
+      "space_id": "S018",
+      "status": "pending",
+      "candidate_name": "电梯前室",
+      "alternative_name": "发热门诊配套用房",
+      "evidence": "北侧电梯、东侧楼梯及中间白色前区可辨；前室判断较强，具体原名未标。中"
+    },
+    {
+      "review_id": "03",
+      "space_id": "S019",
+      "status": "pending",
+      "candidate_name": "影像检查及配套区",
+      "alternative_name": "CT检查及配套区",
+      "evidence": "可见大型影像设备及配套小间；支持影像用途，不能据图确认具体设备类型。中"
+    },
+    {
+      "review_id": "04",
+      "space_id": "S020",
+      "status": "pending",
+      "candidate_name": "内庭院",
+      "alternative_name": "景观中庭",
+      "evidence": "方框内有景观状符号，与10号相似；两候选共用此依据，仍需区分庭院与室内设施。中"
+    },
+    {
+      "review_id": "05",
+      "space_id": "S021",
+      "status": "pending",
+      "candidate_name": "医护配套用房",
+      "alternative_name": "更衣／卫生配套区",
+      "evidence": "西侧医护厅旁有多间小房及卫生设施；无法确认整组具体名称。低"
+    },
+    {
+      "review_id": "06",
+      "space_id": "S025",
+      "status": "pending",
+      "candidate_name": "洗衣房配套用房",
+      "alternative_name": "库房",
+      "evidence": "位于西交通核与洗衣房之间，无房名和明确家具；两候选仅据片区推测。低"
+    },
+    {
+      "review_id": "07",
+      "space_id": "S033",
+      "status": "pending",
+      "candidate_name": "高压氧舱配套用房",
+      "alternative_name": "候诊／准备区",
+      "evidence": "可见通往住院大厅、高压氧舱的门；可达性较明确，用途缺乏文字。低"
+    },
+    {
+      "review_id": "08",
+      "space_id": "S042",
+      "status": "pending",
+      "candidate_name": "设备／库区配套用房",
+      "alternative_name": "管理用房",
+      "evidence": "在库区与设备电梯厅旁，可见小房分隔；无足够用途证据。低"
+    },
+    {
+      "review_id": "09",
+      "space_id": "S053",
+      "status": "pending",
+      "candidate_name": "药房配套用房",
+      "alternative_name": "药库",
+      "evidence": "位于药房西北侧，两间小房南侧开门；两候选均仅据药房背景，未见房名。低"
+    },
+    {
+      "review_id": "10",
+      "space_id": "S057",
+      "status": "pending",
+      "candidate_name": "内庭院",
+      "alternative_name": "景观中庭",
+      "evidence": "与04号有相似方框景观符号；需确认用途，庭院一经确定即排除面积。中"
+    },
+    {
+      "review_id": "11",
+      "space_id": "S068",
+      "status": "pending",
+      "candidate_name": "内院",
+      "alternative_name": "备用用房",
+      "evidence": "急救中央大块空白空间，未见名称或明确家具；不能仅凭空白判作庭院。低"
+    },
+    {
+      "review_id": "12",
+      "space_id": "S069",
+      "status": "pending",
+      "candidate_name": "通道",
+      "alternative_name": "庭院／采光带",
+      "evidence": "候药厅南侧狭长白色带，两端构造仍模糊；两候选不能由长条形状区分，另见K03。低"
+    }
+  ],
+  "connectivity_items": [
+    {
+      "review_id": "K01",
+      "source": "S017",
+      "target": "S015",
+      "status": "pending",
+      "question": "医护厅是否经东侧缓冲小间进入特殊发热门诊？",
+      "reason": "缓冲小间门的贯通路径不清，未建立跨区access。"
+    },
+    {
+      "review_id": "K02",
+      "source": "S029",
+      "target": "S031",
+      "status": "pending",
+      "question": "住院药房是否经北侧人员口直接接住院大厅？",
+      "reason": "西侧服务柜台清楚，北侧人员门不清，当前只记service。"
+    },
+    {
+      "review_id": "K03",
+      "source": "S069",
+      "target": "S067",
+      "status": "pending",
+      "question": "S069是否为可通行的长条空间，东接大厅、西接S060？",
+      "reason": "需结合12号用途判断长条空间可达性，未仅凭相邻补边。"
+    }
+  ],
+  "checks": {
+    "connectivity_reviewed": true,
+    "visual_reviewed": true
+  },
+  "mapping_source": "沿用2026-10-31首轮固定01—12映射；当前MD无已填写答案。",
+  "review_scope": "73节点功能区级；不逐室拆分内部小间；独立外门不通过室外总节点互连。",
+  "not_required_details": [
+    "发热门诊、影像科、儿科、办公区等功能块内小房间路线不继续拆分。",
+    "庭院候选先核实用途；一旦确认为庭院或挑空直接排除面积，无须再次问顶盖。"
+  ],
+  "relation_changes": {
+    "deleted": {
+      "R013": "东交通核经独立电梯前室S018接入特殊发热门诊，原直接跨前室边删除。",
+      "R034": "北楼梯S051可见门朝西侧室外；东侧为背墙，删除无门依据的大厅直连。"
+    },
+    "added": [
+      {
+        "relation_id": "R058",
+        "source": "S006",
+        "target": "S008",
+        "type": "access",
+        "reason": "布局推断：包间功能块经北侧小前室接餐饮入口厅，不细分内部小门。"
+      },
+      {
+        "relation_id": "R059",
+        "source": "S006",
+        "target": "S009",
+        "type": "access",
+        "reason": "布局推断：第二包间上侧前室通向餐饮入口厅，保留功能块级连接。"
+      },
+      {
+        "relation_id": "R060",
+        "source": "S007",
+        "target": "S002",
+        "type": "access",
+        "reason": "卫生间东侧两处可见开门。"
+      },
+      {
+        "relation_id": "R061",
+        "source": "S033",
+        "target": "S032",
+        "type": "access",
+        "reason": "高压氧舱北侧配套单元与舱室之间可见门。"
+      },
+      {
+        "relation_id": "R062",
+        "source": "S041",
+        "target": "S045",
+        "type": "access",
+        "reason": "设备电梯厅南侧双扇门通影像内部走道。"
+      },
+      {
+        "relation_id": "R063",
+        "source": "S039",
+        "target": "S042",
+        "type": "access",
+        "reason": "库区南侧配套单元东侧可见门。"
+      },
+      {
+        "relation_id": "R064",
+        "source": "S065",
+        "target": "S066",
+        "type": "access",
+        "reason": "图面连续：候药厅东缘与大厅扶梯西侧片区无分隔。"
+      },
+      {
+        "relation_id": "R065",
+        "source": "S065",
+        "target": "S067",
+        "type": "access",
+        "reason": "图面连续：候药厅东缘与主大厅连续，原图无实体分隔。"
+      },
+      {
+        "relation_id": "R066",
+        "source": "S060",
+        "target": "S052",
+        "type": "access",
+        "reason": "布局推断：北端卫生间功能块包含入口小厅，向南接医护区公共通道。"
+      },
+      {
+        "relation_id": "R067",
+        "source": "S053",
+        "target": "S059",
+        "type": "access",
+        "reason": "药房北侧两间配套单元南侧可见门。"
+      },
+      {
+        "relation_id": "R068",
+        "source": "S060",
+        "target": "S061",
+        "type": "access",
+        "reason": "电梯门向东面医护通道。"
+      },
+      {
+        "relation_id": "R069",
+        "source": "S070",
+        "target": "S071",
+        "type": "access",
+        "reason": "西南楼梯东侧门接儿科门诊。"
+      },
+      {
+        "relation_id": "R070",
+        "source": "S062",
+        "target": "S067",
+        "type": "access",
+        "reason": "扶梯下侧梯口朝向主大厅。"
+      },
+      {
+        "relation_id": "R071",
+        "source": "S064",
+        "target": "S073",
+        "type": "access",
+        "reason": "东交通核南侧门直接接输液区北端。"
+      },
+      {
+        "relation_id": "R072",
+        "source": "S059",
+        "target": "S065",
+        "type": "service",
+        "reason": "长排取药柜台的服务界面在工作人员区与候药厅之间。"
+      },
+      {
+        "relation_id": "R073",
+        "source": "S015",
+        "target": "S018",
+        "type": "access",
+        "reason": "图面连续：特殊发热门诊走道东端进入独立电梯前室。"
+      },
+      {
+        "relation_id": "R074",
+        "source": "S018",
+        "target": "S016",
+        "type": "access",
+        "reason": "前室东侧门进入东楼梯，北侧电梯门另记开口。"
+      },
+      {
+        "relation_id": "R075",
+        "source": "S031",
+        "target": "S029",
+        "type": "service",
+        "reason": "住院药房西侧可见连续服务柜台；人员入口另列K02。"
+      },
+      {
+        "relation_id": "R076",
+        "source": "S019",
+        "target": "S022",
+        "type": "access",
+        "reason": "影像配套组西南侧可见门通普通发热门诊走道；用途仍保留unknown。"
+      },
+      {
+        "relation_id": "R077",
+        "source": "S017",
+        "target": "S021",
+        "type": "access",
+        "reason": "布局推断：西侧配套组北侧出入朝向医护厅；保留组级连接，不展开内部小间路线。"
+      }
+    ],
+    "corrected": {
+      "R043": "留观室南端两门直接接护士站所在前区S072，经R046接急救；纠正原跨节点边。",
+      "R044": "急救经东交通核北门接入，未把留观室与交通核共墙误当通路。",
+      "R048": "药房与取药工作人员区之间无分隔，改access；柜台service移至R072。",
+      "R049": "同R048，西药房与工作人员区连续。"
+    }
+  },
+  "layout_inferences": [
+    {
+      "relation_id": "R058",
+      "source": "S006",
+      "target": "S008",
+      "type": "access",
+      "reason": "布局推断：包间功能块经北侧小前室接餐饮入口厅，不细分内部小门。"
+    },
+    {
+      "relation_id": "R059",
+      "source": "S006",
+      "target": "S009",
+      "type": "access",
+      "reason": "布局推断：第二包间上侧前室通向餐饮入口厅，保留功能块级连接。"
+    },
+    {
+      "relation_id": "R066",
+      "source": "S060",
+      "target": "S052",
+      "type": "access",
+      "reason": "布局推断：北端卫生间功能块包含入口小厅，向南接医护区公共通道。"
+    },
+    {
+      "relation_id": "R077",
+      "source": "S017",
+      "target": "S021",
+      "type": "access",
+      "reason": "布局推断：西侧配套组北侧出入朝向医护厅；保留组级连接，不展开内部小间路线。"
+    }
+  ],
+  "conceptual_relations": [
+    {
+      "id": "R002",
+      "source": "S006",
+      "target": "S010"
+    },
+    {
+      "id": "R012",
+      "source": "S022",
+      "target": "S023"
+    },
+    {
+      "id": "R021",
+      "source": "S029",
+      "target": "S034"
+    },
+    {
+      "id": "R039",
+      "source": "S050",
+      "target": "S066"
+    },
+    {
+      "id": "R040",
+      "source": "S066",
+      "target": "S067"
+    },
+    {
+      "id": "R046",
+      "source": "S058",
+      "target": "S072"
+    },
+    {
+      "id": "R048",
+      "source": "S054",
+      "target": "S059"
+    },
+    {
+      "id": "R049",
+      "source": "S055",
+      "target": "S059"
+    },
+    {
+      "id": "R058",
+      "source": "S006",
+      "target": "S008"
+    },
+    {
+      "id": "R059",
+      "source": "S006",
+      "target": "S009"
+    },
+    {
+      "id": "R064",
+      "source": "S065",
+      "target": "S066"
+    },
+    {
+      "id": "R065",
+      "source": "S065",
+      "target": "S067"
+    },
+    {
+      "id": "R066",
+      "source": "S060",
+      "target": "S052"
+    },
+    {
+      "id": "R073",
+      "source": "S015",
+      "target": "S018"
+    },
+    {
+      "id": "R077",
+      "source": "S017",
+      "target": "S021"
+    }
+  ],
+  "image_signature": {
+    "file": "40_云浮市郁南县中医院_原图.jpg",
+    "width": 2192,
+    "height": 3316,
+    "sha256": "223163e3d7efb85099cc9056aa47e94f63540a6894b5de40e60676f19a6206d0"
+  },
+  "visual_evidence": [
+    "20261107_标注连通补充/SVG_全图.png",
+    "20261107_标注连通补充/SVG_门诊急救密集区.png",
+    "20261107_标注连通补充/SVG_餐饮发热门诊.png",
+    "20261107_标注连通补充/12项局部图_目检汇总.png",
+    "20261107_标注连通补充/MD_房名填写_阅读预览.png",
+    "20261107_标注连通补充/MD_连通填写_阅读预览.png"
+  ],
+  "semantic_review_notes": [
+    "逐区审阅原图及坐标局部；64个定位开口在对应两端边界内，端点距离异常0。",
+    "65条access中50条有定位、15条无定位概念连接；不以室外总节点合并不同建筑。",
+    "北楼梯S051为独立外门，不为全图连通而跨背墙补边。",
+    "住院药房只记service，人员唯一入口待K02；S069用途和两端连接待12/K03。",
+    "房名候选不等于确认，当前12项均保持unknown，庭院面积待名称确认后同步。"
+  ]
+}

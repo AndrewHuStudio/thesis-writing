@@ -1,0 +1,35 @@
+python - <<'PY'
+from pathlib import Path
+import json
+p=Path('p-写作过程/标注试样/31_暨南大学附属第一医院综合楼工程/标注说明.md')
+s=p.read_text().replace('# 平面标注概览','# 31 暨南大学附属第一医院综合楼工程｜一层标注草稿',1)
+insert='''
+**楼层与范围：**原图标题为“一层平面图”。本次仅标注当前图中的一层主体、右上独立交通核及待核对的东北空白区域；下缘其他图纸轴网片段、室外道路和外围绿化不纳入。药房、影像科、住院服务、公共服务、医务支持和建筑支持分别以 `scope` 记录，不统称普通门诊。新编号按正向阅读图面的相邻片区从上到下、同排从左到右建立；JSON 坐标始终使用未旋转原图的 2444×3260 像素坐标。
+
+**边界与面积的草稿限制：**S091“中庭上空”按明确的挑空区域保留轮廓，不参与室内面积。S037、S042、S044 三处树冠区域尚未确认露天、挑空或室内属性；S040 东北空白区域的室内外性质及是否纳入范围也未确定。这四项暂按 `unknown` 保留并参与草稿面积归一化，确认后须重新计算，当前相对面积不能视为最终室内面积比例。
+
+**关系精度：**只记录可辨门口、开口或连续开放区域支持的概念可达；服务柜台另记服务联系，共墙另记共墙。未确认庭院及条带状区域不推断穿行，东北空白区域不与独立交通核虚构连通。准备间等门口不清的房间不补猜测关系；未记录的联系不表示不可达或训练负例。四个入口仅作为各自直接相连空间的外部接口。
+
+**当前状态：**91 个空间／区域中有 26 项名称、用途或范围性质未确认；本图是标注草稿，尚未完成。SVG 实际显示全部 S 编号和名称；待确认区域显示“名称未确认”。核对号与候选依据只保存在 `/tmp/outpatient31-review` 的临时核对材料中，不写入核心 JSON；后续分批确认保留当前 S 编号及本轮 01—26 映射。
+'''
+s=s.replace('
+
+未完成：', '
+'+insert+'
+未完成：',1)
+s=s.replace('室内非重叠标注区域的 `area_ratio` 合计为 1；绿化不参与。','草稿中暂列室内的非重叠标注区域 `area_ratio` 合计为 1；已明确的中庭上空及绿化不参与。')
+p.write_text(s)
+# Move supplemental badges into corners to leave original central room text visible.
+f=Path('/tmp/outpatient31-review/review31.py');r=f.read_text()
+r=r.replace("p=Polygon(m['upright_polygon']).representative_point();x=p.x*2;y=p.y*2
+ bd.rounded_rectangle((x-39,y-26,x+39,y+26),radius=8,fill='white',outline=c,width=3)
+ bd.text((x,y-1),m['review_no'],font=F(36),fill=c,anchor='mm')", "p=Polygon(m['upright_polygon']);xmin,ymin,xmax,ymax=p.bounds
+ x=(xmin+min(19,(xmax-xmin)/2))*2;y=(ymin+7)*2
+ if m['review_no']=='10':y=(ymax+12)*2
+ bd.rounded_rectangle((x-25,y-16,x+25,y+16),radius=5,fill='white',outline=c,width=2)
+ bd.text((x,y-1),m['review_no'],font=F(24),fill=c,anchor='mm')")
+f.write_text(r)
+PY
+uv run --with shapely --with pillow python /tmp/outpatient31-review/review31.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py validate 'p-写作过程/标注试样/31_暨南大学附属第一医院综合楼工程/annotation.json' --allow-incomplete --check-dir
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py validate 'p-写作过程/标注试样/31_暨南大学附属第一医院综合楼工程/annotation.json' --check-dir

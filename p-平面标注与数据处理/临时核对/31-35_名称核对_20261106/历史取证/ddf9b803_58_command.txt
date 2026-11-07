@@ -1,0 +1,11 @@
+python - <<'PY'
+from PIL import Image,ImageDraw,ImageFont
+im=Image.open('/tmp/outpatient31-review/overview.png').convert('RGB')
+d=ImageDraw.Draw(im)
+f=ImageFont.truetype('/System/Library/Fonts/Supplemental/Arial.ttf',14)
+for x in range(200,1801,50):
+ d.line((x,250,x,1100),fill=(200,210,220),width=1);d.text((x,250),str(x),font=f,fill='red')
+for y in range(280,1001,25):
+ d.line((220,y,1780,y),fill=(200,210,220),width=1);d.text((180,y),str(y),font=f,fill='red')
+im.crop((165,240,1800,1100)).save('/tmp/outpatient31-review/grid.png')
+PY

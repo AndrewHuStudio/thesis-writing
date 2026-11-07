@@ -1,0 +1,7 @@
+python - <<'PY'
+from PIL import Image,ImageDraw,ImageFont
+im=Image.open('/tmp/outpatient35-review/upright.png')
+for name,b in [('A',(370,470,1260,1325)),('B',(1000,480,1950,1380)),('C',(390,1460,1275,2080)),('D',(1380,1450,2285,2075)),('legend',(2330,200,3000,1380))]:
+ im.crop(b).resize(((b[2]-b[0])*2,(b[3]-b[1])*2)).save('/tmp/outpatient35-review/'+name+'.png')
+print('crops ready')
+PY

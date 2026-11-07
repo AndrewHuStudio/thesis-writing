@@ -1,0 +1,10 @@
+uv run --with pymupdf --with pillow python - <<'PY'
+import pymupdf
+from PIL import Image
+p='p-写作过程/标注试样/33_西京医院住院二部翻建工程/标注.svg'
+doc=pymupdf.open(p);print(doc[0].rect)
+pix=doc[0].get_pixmap(alpha=False);pix.save('/tmp/outpatient33-review/标注_完整预览.png')
+im=Image.open('/tmp/outpatient33-review/标注_完整预览.png')
+im.crop((250,2250,1490,2850)).resize((2480,1200)).save('/tmp/outpatient33-review/标注_南侧密集核验.png')
+im.resize((1266,1594)).save('/tmp/outpatient33-review/标注_缩略全图.png')
+PY
