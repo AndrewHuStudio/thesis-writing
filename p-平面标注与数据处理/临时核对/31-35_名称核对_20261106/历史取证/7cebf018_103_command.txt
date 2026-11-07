@@ -1,0 +1,13 @@
+python - <<'PY'
+p='/tmp/outpatient32-review/build.py';s=open(p).read();s=s.replace("'G','工作人员用房／门诊配套用房'","('I' if i==5 else 'G'),'工作人员用房／门诊配套用房'")
+# compute hall group before split
+s=s.replace("   if p.interiors:
+", "   group=next((grp for a,b,grp in [(0,797,'A'),(797,1188,'B'),(1188,1242,'C'),(1242,1602,'D'),(1602,1727,'E'),(1727,2150,'F'),(2150,2482,'G'),(2482,2707,'H'),(2707,2785,'I'),(2785,4000,'J')] if a<=y0<b),'J')
+   if p.interiors:
+")
+open(p,'w').write(s)
+PY
+uv run --with shapely --with pillow --with pymupdf python /tmp/outpatient32-review/build.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py normalize p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/annotation.json
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py render p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/annotation.json --output p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/标注.svg
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py summary p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/annotation.json --output p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/标注说明.md

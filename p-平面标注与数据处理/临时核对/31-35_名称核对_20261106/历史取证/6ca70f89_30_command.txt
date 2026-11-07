@@ -1,0 +1,9 @@
+mkdir -p /tmp/outpatient35-review && python - <<'PY'
+from PIL import Image
+from pathlib import Path
+p=Path('p-写作过程/标注试样/35_阳春京伦妇产医院/35_阳春京伦妇产医院_原图.jpg')
+im=Image.open(p)
+print(im.size)
+im.transpose(Image.Transpose.ROTATE_90).save('/tmp/outpatient35-review/upright.png')
+PY
+sed -n '1,240p' /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py

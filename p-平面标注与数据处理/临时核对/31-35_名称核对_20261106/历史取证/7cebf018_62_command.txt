@@ -1,0 +1,19 @@
+cat > /tmp/outpatient32-review/ocr.swift <<'SWIFT'
+import Cocoa
+import Vision
+let url = URL(fileURLWithPath:CommandLine.arguments[1])
+let im = NSImage(contentsOf:url)!
+var r = CGRect(origin:.zero,size:im.size)
+let cg=im.cgImage(forProposedRect:&r,context:nil,hints:nil)!
+let req=VNRecognizeTextRequest()
+req.recognitionLevel = .accurate
+req.recognitionLanguages = ["zh-Hans","en-US"]
+req.usesLanguageCorrection = false
+try VNImageRequestHandler(cgImage:cg).perform([req])
+for o in req.results ?? [] {
+ let b=o.boundingBox
+ print(String(format:"%.0f %.0f %.0f %.0f",b.minX*CGFloat(cg.width),(1-b.maxY)*CGFloat(cg.height),b.width*CGFloat(cg.width),b.height*CGFloat(cg.height)),o.topCandidates(1).first!.string)
+}
+SWIFT
+swift /tmp/outpatient32-review/ocr.swift p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/32_青岛大学附属医院东区病房综合楼_原图.jpg > /tmp/outpatient32-review/ocr.txt
+cat /tmp/outpatient32-review/ocr.txt

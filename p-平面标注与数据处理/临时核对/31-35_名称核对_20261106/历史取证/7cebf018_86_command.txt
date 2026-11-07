@@ -1,0 +1,213 @@
+cat > /tmp/outpatient32-review/build.py <<'PY'
+from pathlib import Path
+from PIL import Image
+from shapely.geometry import Polygon,box,LineString
+from shapely.ops import unary_union,split
+import json,hashlib
+ROOT=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼')
+TMP=Path('/tmp/outpatient32-review')
+SRC=ROOT/'32_青岛大学附属医院东区病房综合楼_原图.jpg'
+items=[];edges=[]
+def add(k,b,name=None,typ=None,level='room',scope='undetermined',group='A',candidate='无可靠候选',basis='房名像素不足，未见可区分用途的设备。',confidence='低',door=None):
+ p=box(*b) if len(b)==4 and isinstance(b[0],(int,float)) else Polygon(b)
+ it=dict(key=k,geom=p,name=name or '名称未确认',type=typ or 'unknown',level=level,scope=scope,group=group,candidate=candidate,basis=basis,confidence=confidence)
+ items.append(it)
+ if door:edges.append((k,door))
+ return it
+
+def core(k,b,g,door=None):return add(k,b,'楼梯及电梯交通核','vertical_core','core_block','hospital_support',g,door=door)
+def unk(k,b,g,c='无可靠候选',why='房名不可可靠辨读；缺少可区分用途的设施。',cf='低',door=None,level='room'):
+ return add(k,b,group=g,candidate=c,basis=why,confidence=cf,door=door,level=level)
+def corridor(k,b,g):return add(k,b,'走廊','corridor','open_space','public_circulation',g)
+# A：原图上部候诊与柜台片区。所有坐标均使用原图，原图不旋转。
+add('top_wait',(1400,249,1652,503),'候诊区','hall','open_space','public_service','A')
+unk('top_counter',[(1652,249),(1718,249),(1718,629),(1652,629),(1652,393),(1698,393),(1698,304),(1652,304)],'A','挂号收费区／取药服务区','狭长区面向大厅设连续柜台，后方有工作席；具体业务不可读。','中',level='functional_block')
+unk('top_room0',(1718,249,1912,305),'A','工作人员用房／设备用房','与交通核相邻，蓝色独立小房间，未见诊疗设备。')
+core('top_core',(1815,305,1912,429),'A','public_hall')
+unk('top_room1',(1652,304,1698,348),'A','工作人员用房／库房','柜台后方独立小间，房名不可读。')
+unk('top_room2',(1652,348,1698,393),'A','工作人员用房／库房','同一柜台区后的相邻小间。')
+unk('green_top',[(1145,315),(1280,315),(1310,330),(1320,360),(1320,1070),(1305,1100),(1280,1112),(1145,1112),(1115,1095),(1105,1070),(1105,360),(1118,330)],'A','露天／挑空中庭／室内景观庭院','绿色围合长条，无可读用途；室内外属性待确认。','中',level='functional_block')
+unk('top_small1',(1400,505,1457,581),'A','工作人员用房／库房','候诊区旁小房间，图中文字不清。',door='top_wait')
+unk('top_small2',(1457,505,1527,540),'A','工作人员用房／库房','相邻小间，未见确定业务设施。')
+unk('top_small3',(1457,540,1527,581),'A','工作人员用房／库房','相邻小间，未见确定业务设施。')
+unk('top_seat1',(1527,505,1592,629),'A','诊疗室／谈话室','内有四个大座席，不能据此认定病床。','低',door='top_wait')
+unk('top_seat2',(1592,505,1652,629),'A','诊疗室／谈话室','与左侧同形座席房间，功能文字不清。','低',door='top_wait')
+core('top_smallcore',(1400,581,1527,629),'A','public_hall')
+# B：左侧支援交通组和上部第二绿色围合区域。
+core('left_upper_core',(894,822,1025,1001),'B','public_hall')
+unk('green_upper2',[(1448,797),(1647,797),(1647,839),(1732,839),(1732,1035),(1647,1035),(1647,1077),(1448,1077),(1448,1035),(1415,1035),(1415,839),(1448,839)],'B','下沉庭院／中庭','绿色区域有折线，南北两侧可见踏步，室内外属性待核。','中',level='functional_block')
+unk('upper_toilet1',(894,1001,1025,1061),'B','卫生间','两相邻房间布局相似，局部隔断可见；洁具未辨清。','中')
+unk('upper_toilet2',(894,1061,1025,1121),'B','卫生间','与上一间成组，保留候选。','中')
+unk('upper_support',(894,1121,1025,1186),'B','工作人员用房／设备用房','交通核南侧独立房间，蓝色填色。',door='public_hall')
+# C：左侧医技上片区。先上后下，每排从左到右。
+unk('left_top_support',(385,1188,478,1240),'C','工作人员用房／设备用房','楼梯北侧的小间，无可读设备。',door='left_spine')
+core('left_core1',(385,1240,478,1364),'C','left_spine')
+for i,(x0,x1) in enumerate([(511,617),(617,725),(725,836)],1):
+ unk('exam_aux'+str(i),(x0,1240,x1,1311),'C','检查配套用房／工作人员用房','位于两间大型检查用房上方，业务文字不可读。',door='exam_corr1')
+corridor('exam_corr1',(510,1311,836,1364),'C')
+for i,(x0,x1) in enumerate([(511,641),(641,768)],1):
+ unk('mri'+str(i),(x0,1364,x1,1486),'C','MRI检查室／其他影像检查室','较大检查房与侧面小间成组；原字母疑似MRI，不能确认。','中',door='exam_corr1')
+for i,(y0,y1) in enumerate([(1364,1425),(1425,1486),(1486,1547),(1547,1607)],1):
+ unk('supportC'+str(i),(385,y0,478,y1),'C','工作人员用房／检查配套用房','医技侧后走廊上的独立小间，具体房名不清。',door='left_spine')
+unk('smallC1',(768,1364,836,1458),'C','控制室／工作人员用房','紧邻大型影像候选房，独立临大厅开口。',door='public_hall')
+unk('smallC2',(768,1458,836,1504),'C','库房／工作人员用房','同组窄小辅助间，未见可辨设备。',door='public_hall')
+for i,(x0,x1) in enumerate([(511,578),(578,641),(641,701),(701,768)],1):
+ unk('smallCbottom'+str(i),(x0,1486,x1,1556),'C','影像检查配套用房／工作人员用房','位于大型检查房下侧，房名文字不清。',door='exam_open1')
+unk('smallC3',(768,1504,836,1556),'C','工作人员用房／库房','蓝色小间，独立朝大厅开口。',door='public_hall')
+corridor('exam_open1',(510,1556,836,1604),'C')
+# D：右侧中部柜台及交通核片区。
+core('right_smallcore',(1400,1242,1528,1290),'D','public_hall')
+unk('right_pre',(1400,1290,1490,1330),'D','前室／设备用房','紧邻楼梯并有竖井，房名不可读。',door='right_counter')
+add('right_shaft',(1490,1290,1528,1330),'设备井','building_services','functional_block','hospital_support','D')
+for i,(x0,x1) in enumerate([(1528,1597),(1597,1658),(1658,1718)],1):
+ unk('right_small'+str(i),(x0,1242,x1,1330),'D','工作人员用房／办公','柜台区上侧蓝色小间，独立开口。',door='right_counter')
+core('right_edgecore1',(1855,1242,1912,1363),'D','public_hall')
+unk('green_mid',[(1140,1248),(1285,1248),(1310,1265),(1320,1290),(1320,1550),(1300,1580),(1275,1598),(1145,1598),(1115,1580),(1105,1550),(1105,1290),(1115,1260)],'D','露天／挑空中庭／室内景观庭院','绿色圆角围合区，没有确定的地面或开门证据。','中',level='functional_block')
+unk('right_counter',[(1400,1330),(1718,1330),(1718,1602),(1400,1602)],'D','药房／挂号收费工作区','大工作区朝东设连续柜台，外侧布候诊座椅。','中',level='functional_block',door='public_hall')
+for i,(y0,y1) in enumerate([(1602,1636),(1636,1680),(1680,1727)],1):
+ unk('right_coreaux'+str(i),(1400,y0,1466,y1),'D','工作人员用房／设备用房','交通核西侧三间小房，文字不能可靠辨认。',door='public_hall')
+core('right_maincore',[(1466,1602),(1788,1602),(1788,1681),(1831,1681),(1831,1727),(1466,1727)],'D','public_hall')
+unk('right_coresupport',[(1788,1602),(1912,1602),(1912,1727),(1831,1727),(1831,1681),(1788,1681)],'D','工作人员用房／交通核配套用房','L形蓝色房间，邻主交通核。',door='public_hall')
+# E：左侧医技中片区。
+for i,(y0,y1) in enumerate([(1607,1668),(1668,1728),(1728,1790),(1790,1856)],1):
+ unk('supportE'+str(i),(385,y0,478,y1),'E','工作人员用房／检查配套用房','连续后勤小间，具体房名不可读。',door='left_spine')
+for i,(x0,x1) in enumerate([(511,617),(617,725),(725,836)],1):
+ unk('dr1_'+str(i),(x0,1604,x1,1676),'E','DR检查室／其他影像检查室','三间相邻影像候选用房，原字母疑似DR。','中',door='exam_corr2')
+core('left_midcore',(894,1604,1025,1776),'E','public_hall')
+corridor('exam_corr2',(510,1676,836,1728),'E')
+unk('ct1',(511,1728,617,1855),'E','CT检查室','房内字母疑似CT，与另外两间同类房成组。','中',door='exam_corr2')
+unk('ct2',(617,1728,725,1855),'E','CT检查室','与左间同形，房内字母疑似CT。','中',door='exam_corr2')
+unk('ct3',(725,1728,836,1819),'E','CT检查室','原字母疑似CT，下侧附控制或设备小间。','中',door='exam_corr2')
+for i,(x0,x1) in enumerate([(725,766),(766,802),(802,836)],1):
+ unk('ctaux'+str(i),(x0,1819,x1,1855),'E','控制室／设备用房','CT候选房下侧窄小间；三者用途不能区分。')
+core('left_core2',(385,1856,478,1974),'E','left_spine')
+for i,(x0,x1) in enumerate([(511,617),(617,725),(725,836)],1):
+ unk('dr2_'+str(i),(x0,1898,x1,1974),'E','DR检查室／其他影像检查室','与北面同形三间，字母标注不清。','中',door='exam_corr3')
+corridor('exam_corr3',(510,1974,836,2030),'E')
+unk('supportE5',(385,1974,478,2030),'E','工作人员用房／库房','交通核南侧小间。',door='left_spine')
+unk('supportE6',(385,2030,478,2150),'E','工作人员用房／设备用房','侧走廊上较大蓝色房间，未见可读用途。',door='left_spine')
+for i,(x0,x1) in enumerate([(511,641),(641,768)],1):
+ unk('examE'+str(i),(x0,2030,x1,2128),'E','影像检查用房／医技配套用房','成组蓝色较大房间，周边为影像候选区域。',door='exam_corr3')
+for i,(y0,y1) in enumerate([(2030,2075),(2075,2128)],1):
+ unk('examEaux'+str(i),(768,y0,836,y1),'E','工作人员用房／库房','同组东侧小间，临大厅。',door='public_hall')
+# F：右侧独立大厅和交通核。
+for i,(y0,y1) in enumerate([(1787,1849),(1849,1909),(1909,1967)],1):
+ unk('lobby_side'+str(i),(1400,y0,1470,y1),'F','服务用房／办公','独立大厅西侧三间蓝色小房。',door='lobby_sidecorr')
+corridor('lobby_sidecorr',(1470,1787,1533,1967),'F')
+add('right_lobby',[(1533,1787),(1912,1787),(1912,1927),(1773,1957),(1533,1967)],'大厅','hall','open_space','public_service','F')
+core('right_lobbycore',(1400,1967,1533,2075),'F','public_hall')
+# G：左侧下部支持、柜台及候诊区。
+for i,(y0,y1) in enumerate([(2150,2210),(2210,2270),(2270,2331)],1):
+ unk('supportG'+str(i),(385,y0,478,y1),'G','工作人员用房／医技配套用房','侧后走廊独立房间，名称不可读。',door='left_spine')
+core('left_core3',(385,2331,478,2460),'G','left_spine')
+unk('green_low1',[(1140,1968),(1288,1968),(1310,1990),(1320,2020),(1320,2187),(1306,2208),(1136,2144),(1105,2125),(1105,2020),(1115,1988)],'F','露天／挑空中庭／室内景观庭院','绿色围合区域，底边斜线，室内外属性未辨清。','中',level='functional_block')
+unk('green_low2',[(1114,2208),(1299,2270),(1320,2290),(1320,2407),(1300,2438),(1270,2452),(1145,2452),(1115,2430),(1105,2408),(1105,2230)],'G','露天／挑空中庭／室内景观庭院','相邻同色围合区，无可读功能或室内地面证据。','中',level='functional_block')
+unk('serviceG1',[(511,2331),(554,2331),(554,2414),(511,2414)],'G','工作人员用房／库房','柜台区西侧小间，房名不清。',door='left_spine')
+unk('serviceG2',(554,2361,641,2414),'G','工作人员用房／办公','柜台旁小间，具体名称不清。')
+unk('serviceGmain',[(554,2331),(894,2331),(894,2414),(641,2414),(641,2361),(554,2361)],'G','挂号收费工作区／药房','朝上方候诊区设连续柜台，业务不可辨。','中',level='functional_block')
+unk('serviceG3',(894,2331,976,2375),'G','工作人员用房／库房','柜台区东侧两小间之一。')
+unk('serviceG4',(894,2375,976,2414),'G','工作人员用房／库房','柜台区东侧两小间之一。')
+unk('serviceG5',(976,2331,1025,2414),'G','工作人员用房／设备用房','条形边缘小间，房名不可读。',door='public_hall')
+for i,(y0,y1) in enumerate([(2460,2537),(2537,2600),(2600,2663),(2663,2725),(2725,2785)],1):
+ unk('supportGbottom'+str(i),(385,y0,478,y1),'G','工作人员用房／门诊配套用房','连续蓝色小间；没有可区分用途的设施。',door='left_spine')
+unk('green_plants1',(511,2537,766,2707),'G','露天中庭／室内绿化','矩形绿色区内画树，是否露天或挑空待确认。','中',level='functional_block')
+unk('green_plants2',(1143,1727,1284,1850),'F','露天中庭／室内绿化','独立方形区内画树；无法从图像确认室内外。','中',level='functional_block')
+# 右下交通核分组，北侧两个电梯纳入整体交通核。
+core('right_bottomcore',[(1400,2482),(1490,2482),(1490,2534),(1787,2534),(1787,2670),(1400,2670)],'H','public_hall')
+core('left_bottominnercore',(894,2610,1025,2707),'G','public_hall')
+unk('left_toiletG1',(894,2537,1025,2574),'G','卫生间','两相邻窄房位于交通核旁，疑似卫生间字样。','中',door='public_hall')
+unk('left_toiletG2',(894,2574,1025,2610),'G','卫生间','与上一间成对，洁具无法清楚分辨。','中',door='public_hall')
+unk('green_low3',[(1141,2537),(1282,2537),(1282,2568),(1295,2568),(1295,2738),(1278,2738),(1278,2784),(1150,2784),(1150,2738),(1134,2738),(1134,2568),(1141,2568)],'H','下沉庭院／中庭','绿色区两侧有踏步，内部折线可能为坡地或地形示意。','中',level='functional_block')
+# I：左下门诊小房，按两排从左至右。
+xs=[511,555,595,638,680,722,765,808,850,894]
+for i in range(9):
+ unk('consult_top'+str(i+1),(xs[i],2707,xs[i+1],2785),'I','诊室／检查室','同排重复小房，均朝下方走廊开门，符合门诊诊疗排布。','中',door='consult_corr')
+unk('consult_side',(894,2707,942,2785),'I','服务用房／工作人员用房','门诊排端蓝色小间，具体名称不可读。')
+corridor('consult_corr',(510,2785,1025,2833),'I')
+core('left_core4',(385,2785,478,2914),'I','left_spine')
+for i in range(9):
+ unk('consult_bottom'+str(i+1),(xs[i],2833,xs[i+1],2914),'I','诊室／检查室','另一排重复小房，均朝上方走廊开门。','中',door='consult_corr')
+# J：右下诊疗小房和端部支持小间。
+for i,(x0,x1) in enumerate([(1533,1578),(1578,1620),(1620,1662),(1662,1703),(1703,1745)],1):
+ unk('consult_right_top'+str(i),(x0,2707,x1,2785),'J','诊室／检查室','与左翼重复小房相同，朝下方候诊通道开门。','中',door='right_consultcorr')
+corridor('right_consultcorr',[(1745,2707),(1787,2707),(1787,2833),(1700,2833),(1700,2785),(1745,2785)],'J')
+unk('consult_right_b1',[(1533,2833),(1578,2833),(1578,2907),(1533,2914)],'J','诊室／检查室','南排小间，朝上方通道开门。','中',door='public_hall')
+unk('consult_right_b2',[(1578,2833),(1620,2833),(1620,2899),(1578,2907)],'J','诊室／检查室','南排小间，朝上方通道开门。','中',door='public_hall')
+unk('consult_right_b3',[(1620,2833),(1700,2833),(1700,2881),(1620,2899)],'J','诊室／检查室','南排较宽小间，具体科室不可辨。','中',door='public_hall')
+unk('consult_right_end',[(1700,2833),(1787,2833),(1787,2863),(1700,2881)],'J','工作人员用房／库房','蓝色端部支持房，具体名称不清。',door='right_consultcorr')
+# 后勤纵向走廊，沿图明确连续带。
+corridor('left_spine',(478,1188,510,2914),'C')
+# 所有现有房间及中庭轮廓扣除后，按开放空间的可见连续性记录大厅。
+# 大厅按图面上中下分段仅用于几何表达，不表示新增隔墙。
+domain=Polygon([(1025,248),(1912,248),(1912,1967),(1533,1967),(1533,2534),(1787,2534),(1787,2863),(1533,2914),(385,2914),(385,1188),(894,1188),(894,822),(1025,822)])
+used=unary_union([q['geom'] for q in items])
+remaining=domain.difference(used)
+# 分割线穿过围合区的内部投影，避免 JSON 不能表达的带孔大厅多边形。
+ys=[248,629,797,1112,1188,1330,1602,1727,1850,1967,2208,2452,2537,2707,2785,2914]
+for idx,(y0,y1) in enumerate(zip(ys,ys[1:]),1):
+ for side,(x0,x1) in enumerate([(385,1210),(1210,1912)]):
+  g=remaining.intersection(box(x0,y0,x1,y1))
+  parts=[g] if g.geom_type=='Polygon' else list(g.geoms) if hasattr(g,'geoms') else []
+  for j,p in enumerate(parts):
+   if p.geom_type!='Polygon' or p.area<10:continue
+   if p.interiors:raise ValueError('hall with holes')
+   group=next((grp for a,b,grp in [(0,797,'A'),(797,1188,'B'),(1188,1242,'C'),(1242,1602,'D'),(1602,1727,'E'),(1727,2150,'F'),(2150,2482,'G'),(2482,2707,'H'),(2707,2785,'I'),(2785,4000,'J')] if a<=y0<b),'J')
+   add(f'hall_{idx}_{side}_{j}',list(p.exterior.coords)[:-1],'大厅及候诊通道','hall','open_space','public_circulation',group)
+# 为首次分配编号，按相邻片区组织；片区内部逐排自左向右，现有无编号成果。
+# 行带宽限制为 18 像素，以真实房间上边界组织同排。
+items.sort(key=lambda q:(q['group'],round(q['geom'].bounds[1]/18),q['geom'].bounds[0],q['geom'].bounds[1]))
+lookup={}
+spaces=[]
+for i,q in enumerate(items,1):
+ q['id']=f'S{i:03d}';lookup[q['key']]=q
+ spaces.append(dict(id=q['id'],name=q['name'],type=q['type'],level=q['level'],scope=q['scope'],polygon_px=[[round(x,3),round(y,3)] for x,y in list(q['geom'].exterior.coords)[:-1]]))
+# 检查重叠，生成归一化占比。
+for i,a in enumerate(items):
+ for b in items[i+1:]:
+  if a['geom'].intersection(b['geom']).area>1:raise ValueError('overlap '+a['key']+' '+b['key'])
+total=sum(q['geom'].area for q in items)
+for s,q in zip(spaces,items):s['area_ratio']=round(q['geom'].area/total,8)
+# 可达只采用可见开口；大厅的几何分段有连续开放接缝时记录概念可达。
+rels=[];seen=set()
+def rel(a,b,t='access'):
+ if a==b:return
+ key=tuple(sorted([a,b]))+(t,)
+ if key in seen:return
+ seen.add(key);rels.append(dict(id=f'R{len(rels)+1:03d}',source=a,target=b,type=t))
+halls=[q for q in items if q['key'].startswith('hall_')]
+for i,a in enumerate(halls):
+ for b in halls[i+1:]:
+  if a['geom'].intersection(b['geom']).length>3:rel(a['id'],b['id'])
+def nearest_hall(q):return min(halls,key=lambda h:q['geom'].distance(h['geom']))
+for a,b in edges:
+ qa=lookup[a]
+ qb=nearest_hall(qa) if b=='public_hall' else lookup[b]
+ rel(qa['id'],qb['id'])
+# 走廊朝大厅或相邻开放通道的明确开口。
+for key in ['exam_corr1','exam_open1','exam_corr2','exam_corr3','consult_corr','lobby_sidecorr','right_consultcorr']:
+ q=lookup[key];rel(q['id'],nearest_hall(q)['id'])
+for key in ['exam_corr1','exam_open1','exam_corr2','exam_corr3','consult_corr']:
+ rel(lookup[key]['id'],lookup['left_spine']['id'])
+rel(lookup['lobby_sidecorr']['id'],lookup['right_lobby']['id'])
+# 仅标记五处位置及入口属性可由图面判断的外部接口，图内其他小开口暂不命名。
+for n,(name,typ,pos) in enumerate([('南侧门诊入口','outpatient',[1210,2914]),('东侧中部入口','building_entrance',[1533,2260]),('东侧大厅入口','building_entrance',[1715,1957]),('北侧入口','building_entrance',[1210,248]),('东侧上部入口','building_entrance',[1912,944])],1):
+ p=Polygon([(pos[0]-.1,pos[1]-.1),(pos[0]+.1,pos[1]-.1),(pos[0]+.1,pos[1]+.1),(pos[0]-.1,pos[1]+.1)])
+ target=lookup['right_lobby'] if n==3 else min(halls,key=lambda h:h['geom'].distance(p))
+ rels.append(dict(id=f'E{n:03d}',source=None,target=target['id'],type='entrance',name=name,entrance_type=typ,position_px=pos))
+# 大柜台只记服务联系；不得由柜台推断人员穿行。
+for k in ['top_counter','right_counter','serviceGmain']:
+ q=lookup[k];rel(q['id'],nearest_hall(q)['id'],'service')
+# 删除无法确知人员通行的柜台跨界 access，仅保留图左侧已见侧门的右柜台。
+# 对未知房间的关系只表达当前可见开口，不隐含患者或医护权限。
+data=dict(image=dict(file=SRC.name,width=2436,height=3344),spaces=spaces,relations=rels)
+(ROOT/'annotation.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'
+')
+pending=[q for q in items if q['type']=='unknown']
+for n,q in enumerate(pending,1):q['review']=f'{n:02d}'
+meta=[{k:v for k,v in q.items() if k!='geom'} | {'polygon_px':list(q['geom'].exterior.coords)[:-1]} for q in pending]
+(TMP/'核对映射.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'
+')
+(TMP/'build_stats.json').write_text(json.dumps(dict(spaces=len(spaces),unknown=len(pending),relations=len(rels),sha256=hashlib.sha256(SRC.read_bytes()).hexdigest(),hall_segments=len(halls)),ensure_ascii=False,indent=2))
+print((TMP/'build_stats.json').read_text())
+PY
+uv run --with shapely --with pillow --with pymupdf python /tmp/outpatient32-review/build.py

@@ -1,0 +1,223 @@
+cat > /tmp/outpatient34-review/build_annotation.py <<'PY'
+from pathlib import Path
+import json, hashlib
+from shapely.geometry import Polygon, box
+P=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/34_青岛市中心医院综合病房楼')
+T=Path('/tmp/outpatient34-review')
+spaces=[]; rel=[]; lookup={}; review=[]
+SCOPE='gynecology_obstetrics_outpatient'
+def add(key,name,typ,geom,level='room',scope=None,candidate=None,evidence=None,confidence=None):
+    if len(geom)==4 and isinstance(geom[0],(int,float)):
+        x1,y1,x2,y2=geom;geom=[(x1,y1),(x2,y1),(x2,y2),(x1,y2)]
+    sid=f'S{len(spaces)+1:03d}'
+    s=dict(id=sid,name=name,type=typ,level=level,scope=scope or SCOPE,polygon_px=geom)
+    spaces.append(s);lookup[key]=sid
+    if typ=='unknown':review.append(dict(id=sid,key=key,candidate=candidate,evidence=evidence,confidence=confidence))
+    return sid
+
+def access(a,b):
+    rel.append(dict(id=f'R{len(rel)+1:03d}',source=lookup[a],target=lookup[b],type='access'))
+def service(a,b):
+    rel.append(dict(id=f'R{len(rel)+1:03d}',source=lookup[a],target=lookup[b],type='service'))
+def wall(a,b):
+    rel.append(dict(id=f'R{len(rel)+1:03d}',source=lookup[a],target=lookup[b],type='shared_wall'))
+# A 妇产科片区：相邻上排、下排及配套逐层向下。
+add('g_teach','示教','education',(465,710,558,785))
+add('g_office','办公','office',(558,710,616,785))
+add('g_change1','更衣休息','staff_support',(616,710,689,785))
+add('g_change2','更衣休息','staff_support',(689,710,764,785))
+add('g_green1','北侧绿化（西）','landscape',(764,710,859,785),'landscape','public_service')
+add('g_core','妇产科北侧交通核','vertical_core',(859,694,974,785),'core_block','public_service')
+add('g_green2','北侧绿化（中西）','landscape',(974,710,1070,785),'landscape','public_service')
+add('g_corridor','医生通道','corridor',[(465,785),(1070,785),(1070,814),(493,814),(493,1175),(461,1175),(461,1019),(465,1019)],'open_space')
+add('g_endo','阴道镜／宫腔镜','examination',(493,814,616,932))
+add('g_small1','名称未确认','unknown',(616,814,666,880),candidate=['白带检查室','治疗室'],evidence='字形近“白…室”；紧邻阴道镜／宫腔镜和化验。',confidence='低')
+add('g_lab','化验','laboratory',(666,814,715,880))
+add('g_exam1','诊室','consultation',(715,814,766,880))
+add('g_exam2','诊室','consultation',(766,814,815,880))
+add('g_check1','检查','examination',(815,814,865,880))
+add('g_small2','名称未确认','unknown',(865,814,913,880),candidate=['诊室'],evidence='首字近“诊”，末字模糊；与同排诊室尺度相近。',confidence='中')
+add('g_wait','妇科等候区','hall',[(616,880),(913,880),(913,814),(1070,814),(1070,932),(913,932),(493,932),(493,932),(616,932)],'open_space')
+add('g_abort','人流','treatment',(493,932,616,1017))
+add('g_observe1','人流观察室','observation',(616,932,689,1059))
+add('g_observe2','产科观察室','observation',(689,932,764,1059))
+add('g_monitor','胎监室','examination',(764,932,839,1059))
+add('g_educate','宣教室','education',(839,932,913,1059))
+add('g_nurse1','护士站','nurse_station',(913,932,1070,991),'semi_open_space')
+add('g_prepare','准备','patient_preparation',(493,1017,556,1107))
+add('g_lowerleft','名称未确认','unknown',(493,1107,616,1175),candidate=['药流室','治疗室'],evidence='上邻人流及准备区；原字轮廓近“药流”，但字迹不足以确定。',confidence='低')
+add('g_iso1','诊室（隔离）','consultation',(616,1107,666,1175))
+add('g_iso2','检查（隔离）','examination',(666,1107,715,1175))
+add('g_check2','检查','examination',(715,1107,766,1175))
+add('g_exam3','诊室','consultation',(766,1107,815,1175))
+add('g_check3','检查','examination',(815,1107,865,1175))
+add('g_exam4','诊室','consultation',(865,1107,913,1175))
+add('g_nurse2','护士站','nurse_station',(913,997,1070,1042),'semi_open_space')
+add('g_wait2','产科等候区','hall',[(556,1017),(616,1017),(616,1059),(913,1059),(913,1042),(1070,1042),(1070,1175),(913,1175),(913,1107),(556,1107)],'open_space')
+add('g_corewest','西侧楼梯电梯核','vertical_core',(310,1019,461,1175),'core_block','public_service')
+add('g_toilet','西侧公共卫生间','toilet',(310,1220,427,1335),'functional_block','public_service')
+add('g_finance','财务','office',(461,1175,537,1254),scope='public_service')
+add('g_office2','办公','office',(537,1175,613,1254),scope='public_service')
+add('g_duty1','值班','staff_support',(613,1175,689,1254),scope='public_service')
+add('g_duty2','值班','staff_support',(689,1175,764,1254),scope='public_service')
+add('g_elevators','西侧电梯组','vertical_core',(764,1175,827,1335),'core_block','public_service')
+add('g_reg','挂号／收费','registration',(461,1254,764,1335),'functional_block','public_service')
+add('g_finance2','财务','office',(913,1175,990,1258),scope='public_service')
+add('g_office3','办公','office',(990,1175,1070,1258),scope='public_service')
+add('g_insurance','社保卡办理处','service',(913,1258,1070,1335),'semi_open_space','public_service')
+# B 门诊药房，逐排向下；发药柜台并入对应药房，以 service 记录对公共区的服务。
+SCOPE='outpatient_pharmacy'
+add('p_chinese','中药房／中药发放','pharmacy',[(1225,705),(1503,705),(1503,862),(1378,862),(1378,1019),(1225,1019)],'functional_block')
+add('p_precious','贵重药品','pharmacy',(1378,862,1503,1019))
+add('p_corridor','门诊药房东侧通道','corridor',(1503,705,1531,1338),'open_space','public_service')
+add('p_cash','收费','registration',(1225,1019,1353,1101),'semi_open_space')
+add('p_office','办公','office',(1378,1019,1503,1101))
+add('p_western','西药房／西药发放','pharmacy',[(1353,1019),(1378,1019),(1378,1101),(1503,1101),(1503,1338),(1225,1338),(1225,1101),(1353,1101)],'functional_block')
+# C 外科片区，北侧支持区、诊疗区及下方等候。
+SCOPE='surgical_outpatient'
+add('s_green1','北侧绿化（中东）','landscape',(1531,705,1631,785),'landscape','public_service')
+add('s_core','外科北侧交通核','vertical_core',(1631,687,1751,785),'core_block','public_service')
+add('s_green2','北侧绿化（东）','landscape',(1751,705,1850,785),'landscape','public_service')
+add('s_teach','示教','education',(1850,705,1928,785))
+add('s_office','办公','office',(1928,705,2003,785))
+add('s_change1','更衣休息','staff_support',(2003,705,2082,785))
+add('s_change2','更衣休息','staff_support',(2082,705,2160,785))
+add('s_link','外科北侧公共通道','corridor',(1531,785,1850,814),'open_space','public_service')
+add('s_topcorridor','外科北侧工作通道','corridor',(1850,785,2160,814),'open_space')
+add('s_leftcorridor','医生通道（西）','corridor',(1850,814,1878,1183),'open_space')
+add('s_rightcorridor','医生通道（东）','corridor',(2132,814,2160,1183),'open_space')
+add('s_endo','胃镜','examination',(1878,814,2002,866))
+add('s_surgery','门诊手术','treatment',(2002,814,2132,917))
+add('s_prepare','准备','patient_preparation',(1878,866,2002,917))
+for row,(y1,y2) in enumerate([(917,970),(970,1025),(1025,1078),(1078,1133),(1133,1183)],1):
+    for side,(x1,x2) in [('l',(1878,1944)),('r',(2066,2132))]:
+        add(f's_room{row}{side}','治疗' if row==5 else '诊室','treatment' if row==5 else 'consultation',(x1,y1,x2,y2))
+add('s_wait2','二次等候区','hall',(1944,917,2066,1183),'open_space')
+add('s_garden','内庭院绿化','landscape',[(1531,814),(1850,814),(1850,1180),(1683,1180),(1683,1343),(1605,1343),(1605,1180),(1531,1180)],'landscape','public_service')
+add('s_stair','内庭院西南侧楼梯','vertical_core',(1531,1180,1605,1343),'core_block','public_service')
+add('s_toilet','外科西侧公共卫生间','toilet',(1683,1180,1850,1343),'functional_block','public_service')
+add('s_nurse','护士站','nurse_station',(1976,1190,2030,1240),'semi_open_space')
+add('s_wait1','一次等候区','hall',[(1850,1183),(2160,1183),(2160,1343),(1850,1343),(1850,1240),(2030,1240),(2030,1190),(1976,1190),(1976,1240),(1850,1240)],'open_space')
+# D 公共等候、大厅与核心交通。
+SCOPE='public_service'
+add('public_wait','公共等候区','hall',[(1070,705),(1218,705),(1218,1343),(2160,1343),(2160,1455),(310,1455),(310,1335),(427,1335),(427,1220),(310,1220),(310,1175),(461,1175),(461,1335),(827,1335),(827,1175),(913,1175),(913,1335),(1070,1335)],'open_space')
+add('public_shop','开放式商店（鲜花、礼品）','retail_service',(1067,1538,1183,1615),'semi_open_space')
+add('public_hall','门诊大厅','hall',[(393,1455),(1183,1455),(1183,1538),(1067,1538),(1067,1615),(1183,1615),(1183,1924),(1067,1924),(1067,1890),(995,1916),(995,2003),(1067,2003),(1067,2154),(884,2154),(393,1635)],'open_space')
+add('public_core','中央楼梯电梯交通核','vertical_core',(1183,1455,1378,1924),'core_block')
+add('public_stair','门诊大厅南侧楼梯','vertical_core',[(995,1916),(1067,1890),(1067,2003),(995,2003)],'core_block')
+add('public_entrance','门诊入口门斗','entrance',[(567,1819),(711,1971),(661,2016),(517,1864)])
+add('public_rest','休闲、咖啡','retail_service',(1067,1924,1183,2154),'open_space')
+add('public_desk','服务台','service',(1067,2154,1183,2210),'semi_open_space')
+# E 输液片区，上排普通输液，再下排急诊输液及支持。
+SCOPE='outpatient_infusion'
+add('i_children','儿童输液','treatment',(1430,1463,1682,1667),'functional_block')
+add('i_mix','配液','medication_preparation',(1682,1463,1848,1545))
+add('i_adult','成人输液','treatment',[(1848,1463),(2155,1463),(2155,1667),(1682,1667),(1682,1627),(1848,1627)],'functional_block')
+add('i_injection1','肌注','treatment',(1682,1545,1738,1627))
+add('i_injection2','肌注','treatment',(1738,1545,1794,1627))
+add('i_atomize','雾化','treatment',(1794,1545,1848,1627))
+SCOPE='emergency'
+add('e_infusionchild','急诊儿童输液','treatment',(1430,1667,1524,1796),'functional_block')
+add('e_mix','配液','medication_preparation',(1524,1667,1616,1796))
+add('e_infusionadult','急诊成人输液','treatment',(1616,1667,1836,1796),'functional_block')
+add('e_surgery','手术','treatment',(1836,1667,1996,1837))
+add('e_vip1','VIP输液','treatment',(1996,1667,2074,1777))
+add('e_vip2','VIP输液','treatment',(2074,1667,2155,1777))
+add('e_corridor','急诊输液通道','corridor',[(1378,1455),(1430,1455),(1430,1796),(1836,1796),(1836,1930),(1785,1930),(1785,1837),(1430,1837),(1430,1930),(1378,1930)],'open_space')
+add('e_core','急诊东侧楼梯电梯核','vertical_core',(1996,1777,2155,1937),'core_block','public_service')
+add('e_lab','采血／化验','laboratory',(1430,1837,1606,1930))
+add('e_mtoilet','男卫','toilet',(1606,1837,1688,1930))
+add('e_ftoilet','女卫','toilet',(1688,1837,1785,1930))
+add('e_prepare','准备','patient_preparation',(1836,1837,1915,1937))
+add('e_disinfect','消毒','sterile_supply',(1915,1837,1996,1885))
+add('e_dispose','处置','treatment',(1915,1885,1996,1937))
+# F 急诊／急救下部，按本片区上排到下排。
+add('e_control','控制','building_control',(1183,1924,1241,1999))
+add('e_xray','X光','imaging',(1241,1924,1378,1999))
+add('e_pharmacy','急诊药房','pharmacy',(1430,1930,1526,1990))
+add('e_finance','财务','office',(1526,1930,1578,1990))
+add('e_office','办公','office',(1578,1930,1680,1990))
+add('e_cast','石膏室','treatment',(1680,1930,1785,1990))
+add('e_staffcorridor','急诊医护通道','corridor',[(1836,1937),(2155,1937),(2155,1960),(2032,1960),(2032,2104),(1990,2104),(1990,1960),(1836,1960)],'open_space')
+add('e_rescue2','抢救2','resuscitation',(1836,1960,1990,2078))
+add('e_change1','更衣值班','staff_support',(2032,1960,2155,2034))
+add('e_medcounter','取药','pharmacy_counter',(1430,1990,1526,2062),'semi_open_space')
+add('e_register','挂号、收费','registration',(1526,1990,1680,2062),'semi_open_space')
+add('e_eeg','脑电','examination',(1183,1999,1241,2062))
+add('e_ecg','心电','examination',(1241,1999,1306,2062))
+add('e_ultra','B超','examination',(1306,1999,1378,2062))
+add('e_change2','更衣值班','staff_support',(2032,2034,2155,2104))
+add('e_rescue1','抢救1','resuscitation',(1836,2078,1990,2210))
+add('e_doctor','医生办','office',(1990,2104,2070,2210))
+add('e_director','主任','office',(2070,2104,2155,2210))
+for j,(x1,x2) in enumerate([(1183,1235),(1235,1287),(1287,1338),(1338,1390),(1390,1441),(1441,1493),(1493,1545)],1):
+    add(f'e_consult{j}','诊室','consultation',(x1,2128,x2,2210))
+add('e_hall','急救大厅','hall',[(1378,1930),(1430,1930),(1430,2062),(1680,2062),(1680,1990),(1785,1990),(1785,1930),(1836,1930),(1836,2210),(1545,2210),(1545,2128),(1183,2128),(1183,2062),(1378,2062)],'open_space')
+# 补正大空间为无洞、有效的非重叠轮廓。外科等候区的护士站从上缘凹入，周围仍连续。
+spaces[next(i for i,s in enumerate(spaces) if s['id']==lookup['s_wait1'])]['polygon_px']=[(1850,1183),(1976,1183),(1976,1240),(2030,1240),(2030,1183),(2160,1183),(2160,1343),(1850,1343)]
+# 使门斗沿大厅斜边切齐；不改变原图。
+hall=Polygon(spaces[next(i for i,s in enumerate(spaces) if s['id']==lookup['public_hall'])]['polygon_px'])
+idx=next(i for i,s in enumerate(spaces) if s['id']==lookup['public_entrance'])
+poly=Polygon(spaces[idx]['polygon_px']).difference(hall)
+spaces[idx]['polygon_px']=[list(p) for p in poly.exterior.coords[:-1]]
+# 有依据的可达：门洞／开放空间连续，绝不按邻接批量生成。
+for k in ['g_teach','g_office','g_change1','g_change2','g_core']:
+    access(k,'g_corridor')
+access('g_corridor','public_wait');access('g_corridor','g_endo');access('g_corridor','g_prepare');access('g_corridor','g_corewest')
+for k in ['g_small1','g_lab','g_exam1','g_exam2','g_check1','g_small2','g_endo']:
+    access(k,'g_wait')
+access('g_wait','public_wait');access('g_nurse1','g_wait');access('g_abort','g_prepare');access('g_abort','g_wait2')
+for k in ['g_observe1','g_observe2','g_monitor','g_educate','g_lowerleft','g_iso1','g_iso2','g_check2','g_exam3','g_check3','g_exam4','g_nurse2']:
+    access(k,'g_wait2')
+access('g_wait2','public_wait');access('g_corewest','public_wait');access('g_toilet','public_wait')
+for k in ['g_finance','g_office2','g_duty1','g_duty2']:
+    access(k,'g_reg')
+service('g_reg','public_wait');access('g_elevators','public_wait')
+for k in ['g_finance2','g_office3']:access(k,'g_insurance')
+access('g_insurance','public_wait')
+for k in ['p_chinese','p_precious','p_office']:access(k,'p_corridor')
+access('p_chinese','p_cash');access('p_western','public_wait');access('p_corridor','public_wait')
+for k in ['p_chinese','p_cash','p_western']:service(k,'public_wait')
+access('p_corridor','s_link');access('s_core','s_link');access('s_link','s_topcorridor')
+for k in ['s_teach','s_office','s_change1','s_change2']:access(k,'s_topcorridor')
+for k in ['s_leftcorridor','s_rightcorridor']:access(k,'s_topcorridor');access(k,'s_wait1')
+access('s_endo','s_leftcorridor');access('s_surgery','s_rightcorridor');access('s_prepare','s_leftcorridor');access('s_surgery','s_wait2')
+for row in range(1,6):
+    for side in ['l','r']:access(f's_room{row}{side}','s_wait2')
+access('s_wait2','s_wait1');access('s_nurse','s_wait1');access('s_wait1','public_wait')
+access('s_stair','public_wait');access('s_toilet','public_wait')
+access('public_wait','public_hall');access('public_shop','public_hall');access('public_core','public_hall');access('public_stair','public_hall');access('public_entrance','public_hall');access('public_rest','public_hall');service('public_desk','public_rest')
+for k in ['i_children','i_adult']:access(k,'public_wait')
+access('i_children','i_adult')
+for k in ['i_injection1','i_injection2','i_atomize']:access(k,'i_adult')
+for k in ['i_injection1','i_injection2']:access('i_mix',k)
+access('e_corridor','public_wait');access('e_corridor','i_children');access('e_corridor','public_core')
+for k in ['e_infusionchild','e_infusionadult','e_lab','e_mtoilet','e_ftoilet','e_prepare','e_surgery']:access(k,'e_corridor')
+access('e_mix','i_children');access('e_mix','i_adult')
+for k in ['e_vip1','e_vip2']:access(k,'i_adult')
+access('e_prepare','e_surgery');access('e_disinfect','e_prepare');access('e_dispose','e_prepare')
+access('e_core','e_staffcorridor');access('e_staffcorridor','e_hall');access('e_corridor','e_hall');access('public_rest','e_hall');access('public_desk','e_hall')
+access('e_control','e_xray');access('e_xray','e_hall')
+for k in ['e_eeg','e_ecg','e_ultra','e_finance','e_office','e_cast','e_rescue1','e_rescue2']+[f'e_consult{j}' for j in range(1,8)]:access(k,'e_hall')
+for k in ['e_change1','e_change2','e_doctor','e_director']:access(k,'e_staffcorridor')
+service('e_pharmacy','e_medcounter');service('e_medcounter','e_hall');service('e_register','e_hall')
+# 少量明确共墙，和可达分别记录；未列关系不是负例。
+for a,b in [('g_change1','g_change2'),('g_observe1','g_observe2'),('g_monitor','g_educate'),('p_chinese','p_precious'),('s_change1','s_change2'),('s_endo','s_prepare'),('e_rescue1','e_rescue2'),('e_change1','e_change2')]:wall(a,b)
+for eid,name,typ,pos,target in [('E001','门诊入口','outpatient_main',[583,1933],'public_entrance'),('E002','急诊入口','emergency',[1602,2210],'e_hall'),('E003','急救入口','rescue',[1744,2210],'e_hall')]:
+    rel.append(dict(id=eid,source=None,target=lookup[target],type='entrance',name=name,entrance_type=typ,position_px=pos))
+# 暂存图面依据，只供延续草稿；不写入核心 JSON。
+(T/'review-map.json').write_text(json.dumps(review,ensure_ascii=False,indent=2))
+(T/'key-map.json').write_text(json.dumps(lookup,ensure_ascii=False,indent=2))
+data=dict(image=dict(file='34_青岛市中心医院综合病房楼_原图.jpg',width=2444,height=3260),spaces=spaces,relations=rel)
+(P/'annotation.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'
+')
+print('spaces',len(spaces),'relations',len(rel),'pending',len(review))
+for s in spaces:
+ p=Polygon(s['polygon_px'])
+ if not p.is_valid:print('INVALID',s['id'],s['name'])
+for i,a in enumerate(spaces):
+ for b in spaces[i+1:]:
+  pa,pb=Polygon(a['polygon_px']),Polygon(b['polygon_px'])
+  if pa.is_valid and pb.is_valid and pa.intersection(pb).area>1:print('OVERLAP',a['id'],b['id'],round(pa.intersection(pb).area,2))
+PY
+uv run --with pymupdf --with shapely python /tmp/outpatient34-review/build_annotation.py

@@ -1,0 +1,11 @@
+cp /tmp/outpatient30-review/ocr.swift /tmp/outpatient31-review/ocr.swift
+swift /tmp/outpatient31-review/ocr.swift /tmp/outpatient31-review/upright.png > /tmp/outpatient31-review/ocr.json
+python - <<'PY'
+from PIL import Image
+im=Image.open('/tmp/outpatient31-review/upright.png')
+for name,b in [('north',(365,430,2200,960)),('imaging',(365,930,1280,1440)),('south',(365,1370,2200,1600)),('public',(1250,925,2290,1565))]:
+ im.crop(b).resize(((b[2]-b[0])*2,(b[3]-b[1])*2)).save('/tmp/outpatient31-review/'+name+'.png')
+import json
+for a in json.load(open('/tmp/outpatient31-review/ocr.json')):
+ x,y,w,h=a['box'];print(f'{x*2000:.0f},{y*1500:.0f} {a["text"]}')
+PY

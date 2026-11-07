@@ -1,0 +1,95 @@
+from PIL import Image,ImageDraw,ImageFont
+from pathlib import Path
+from shapely.geometry import LineString,Polygon
+import json,hashlib
+D=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/33_西京医院住院二部翻建工程');T=Path('/tmp/outpatient33-review')
+data=json.loads((D/'annotation.json').read_text());qs=json.loads((T/'核对编号映射.json').read_text());spaces={s['id']:s for s in data['spaces']}
+fontfile='/System/Library/Fonts/STHeiti Medium.ttc'
+def font(size):return ImageFont.truetype(fontfile,size)
+W,H=4572,3550;OX,OY=1020,150
+im=Image.new('RGB',(W,H),'#f2f5fa');draw=ImageDraw.Draw(im)
+src=Image.open(D/data['image']['file']).convert('RGB');im.paste(src,(OX,OY))
+draw.text((45,25),'33｜西京医院住院二部翻建工程 · 一层标注草稿',font=font(44),fill='#162b48')
+draw.text((45,90),'16 项待确认｜先供应中心，再静配，最后南侧诊疗｜回复：01=名称，02=名称（可分批）',font=font(28),fill='#475569')
+def xy(p):return (OX+p[0],OY+p[1])
+# 同侧卡片从上到下连续；每条折线仅连接一个核对对象。
+paths={
+'01':[(-120,650),(420,650),(420,850),(458,850)],
+'02':[(-120,1000),(435,1000),(770,1000),(770,850),(741,850)],
+'03':[(-120,1200),(410,1200),(410,1255),(780,1255),(780,760),(801,760)],
+'04':[(-120,1430),(430,1430),(430,1350),(790,1350),(790,945),(801,945)],
+'05':[(2650,1670),(2370,1670),(2370,1330),(1490,1330),(1490,1690),(1480,1690)],
+'06':[(2650,2140),(2370,2140),(2370,2042),(1490,2042),(1490,2149),(1380,2149),(1380,2200),(1376,2200)],
+'07':[(-120,2335),(260,2335),(260,2258),(490,2258),(490,2400),(495,2400)],
+'08':[(-120,2530),(260,2530),(260,2672),(320,2672),(320,2634)],
+'09':[(-120,2695),(240,2695),(240,2720),(414,2720),(414,2634)],
+'10':[(-120,2850),(220,2850),(220,2765),(500,2765),(500,2634)],
+'11':[(-120,3015),(200,3015),(200,2900),(584,2900),(584,2634)],
+'12':[(2650,2530),(2400,2440),(667,2440),(667,2502)],
+'13':[(2650,2695),(2390,2454),(757,2454),(757,2502)],
+'14':[(2650,2850),(2380,2468),(844,2468),(844,2502)],
+'15':[(2650,3015),(2370,2482),(930,2482),(930,2502)],
+'16':[(2650,3240),(1220,3150),(1220,2580),(1139,2580)]
+}
+# 几何核验：引线之间没有交叉、接触或重合。
+cross=[]
+for i,(a,p) in enumerate(paths.items()):
+ for b,r in list(paths.items())[i+1:]:
+  if LineString(p).intersects(LineString(r)):cross.append((a,b))
+assert not cross,cross
+palette=['#7c3aed']*4+['#0369a1']*2+['#b91c5d']*10
+for q,color in zip(qs,palette):
+ q['color']=color;q['leader_source_px']=paths[q['number']]
+ p=[xy(v) for v in paths[q['number']]]
+ draw.line(p,fill='white',width=7,joint='curve');draw.line(p,fill=color,width=3,joint='curve')
+ x,y=p[-1];draw.ellipse((x-6,y-6,x+6,y+6),fill='white',outline=color,width=3)
+# 彩框、角标与侧栏候选。
+def wrap(txt,ft,maxw):
+ lines=['']
+ for c in txt:
+  if draw.textlength(lines[-1]+c,font=ft)>maxw:lines.append(c)
+  else:lines[-1]+=c
+ return lines
+shortbasis={
+'01':'邻卸货平台；框内为片区标题，无独立房名。',
+'02':'三字房名末字为“室”，位于办公室下方。',
+'03':'字形近“缓…间”，邻检查包装区。',
+'04':'字形近“蒸…间”，为窄长房间。',
+'05':'后半可读“及营养药品调配操作间”。',
+'06':'两行字形近“…胞毒…药品间”。',
+'07':'槽状及对角线符号，没有可读房名。',
+'16':'弧形柜台邻排椅，字形近“咨询前台”。'}
+for q in qs:
+ s=spaces[q['id']];color=q['color'];pts=[xy(v) for v in s['polygon_px']];draw.line(pts+[pts[0]],fill=color,width=5,joint='curve')
+ xs=[v[0] for v in pts];ys=[v[1] for v in pts];x=min(xs)+4;y=min(ys)+4
+ draw.rounded_rectangle((x,y,x+38,y+29),radius=4,fill=color);draw.text((x+4,y+2),q['number'],font=font(23),fill='white')
+ left=q['side']=='left';cx=25 if left else 3675;cy=OY+paths[q['number']][0][1];bw=870;bh=148
+ draw.rounded_rectangle((cx,cy-bh/2,cx+bw,cy+bh/2),radius=12,fill='white',outline=color,width=3)
+ draw.text((cx+18,cy-bh/2+10),f'{q["number"]}｜{q["id"]}  名称未确认',font=font(30),fill=color)
+ cand='候选：'+' ／ '.join(q['candidates'])
+ rows=wrap(cand,font(25),bw-36)
+ yy=cy-bh/2+51
+ for row in rows:draw.text((cx+18,yy),row,font=font(25),fill='#1e293b');yy+=30
+ basis=shortbasis.get(q['number'],'桌椅＋床／躺椅符号，未印独立房名。')
+ draw.text((cx+18,cy+32),f'依据：{basis}  把握：{q["confidence"]}',font=font(21),fill='#64748b')
+# 分组标题放在卡片前，原图保持完整居中。
+for x,y,t in [(30,OY+480,'A  消毒供应中心｜01—04'),(3675,OY+1490,'B  静配支持｜05—06'),(30,OY+2180,'C  南侧诊疗｜07—11'),(3675,OY+2340,'C  南侧诊疗（续）｜12—16')]:draw.text((x,y),t,font=font(30),fill='#334155')
+draw.text((45,H-55),'候选仅用于核对，核心 JSON 全部保持 unknown；核对编号与 S 编号已固定。原图未改动。',font=font(26),fill='#475569')
+im.save(T/'核对总图_高清.png')
+im.resize((2286,1775)).save(T/'核对总图_预览.png')
+(T/'核对编号映射.json').write_text(json.dumps(qs,ensure_ascii=False,indent=2)+'
+')
+(T/'引线核验.json').write_text(json.dumps({'pending':len(qs),'numbers':[q['number'] for q in qs],'unique_targets':len({q['id'] for q in qs}),'line_crossings':cross},ensure_ascii=False,indent=2))
+# 补充局部图：仍使用总图同一核对号，保留相邻背景。
+for title,crop,nums in [('供应中心_局部放大',(430,615,1160,1140),['01','02','03','04']),('南侧密集区_局部放大',(265,2128,1490,2655),[f'{i:02d}' for i in range(6,17)])]:
+ scale=2.4;ww=int((crop[2]-crop[0])*scale);hh=int((crop[3]-crop[1])*scale)
+ z=Image.new('RGB',(ww,hh+150),'white');z.paste(src.crop(crop).resize((ww,hh)),(0,110));dr=ImageDraw.Draw(z)
+ dr.text((24,20),'33号一层 · '+title.replace('_',' ')+'（沿用总图核对号）',font=font(32),fill='#162b48')
+ for q in qs:
+  if q['number'] not in nums:continue
+  p=[((x-crop[0])*scale,(y-crop[1])*scale+110) for x,y in spaces[q['id']]['polygon_px']]
+  dr.line(p+[p[0]],fill=q['color'],width=6,joint='curve');x=min(v[0] for v in p)+5;y=min(v[1] for v in p)+5
+  lab=q['number']+'｜'+q['id'];fw=dr.textlength(lab,font=font(26))+16
+  dr.rounded_rectangle((x,y,x+fw,y+37),radius=4,fill=q['color']);dr.text((x+8,y+4),lab,font=font(26),fill='white')
+ z.save(T/(title+'.png'))
+print('Review image:',W,H,'; pending:',len(qs),'; crossings:',len(cross))

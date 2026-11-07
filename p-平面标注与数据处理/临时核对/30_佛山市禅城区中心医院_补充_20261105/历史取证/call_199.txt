@@ -1,0 +1,28 @@
+python - <<'PY'
+from pathlib import Path
+p=Path('p-写作过程/标注试样/30_佛山市禅城区中心医院/标注说明.md');t=Path('/tmp/outpatient30-review')
+s=p.read_text().replace('# 平面标注概览','# 30_佛山市禅城区中心医院｜一层标注草稿')
+p.write_text(s+'
+'+(t/'md-scope-notes.txt').read_text())
+(t/'续作说明.txt').write_text('最终本轮待确认31项，对应关系以review-map.json及30_名称核对清单.md为准，01—31保持稳定。S046可读为CT、S061可读为残厕，已不在核对清单；全部S编号未改变。收到用户确认后按S编号修改现有annotation.json，再依次normalize/render/summary并补回md-scope-notes.txt中的范围和精度说明。不要重新运行build_annotation.py覆盖用户已确认名称；make_review.py也需要先读取剩余项并保持本轮核对号，不可重新编号。候选、依据和问答仅保留临时目录，不能加入核心JSON。原图SHA256见original-sha256.txt。
+')
+PY
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py validate p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json --allow-incomplete --check-dir
+uv run --with pymupdf --with shapely python - <<'PY'
+from pathlib import Path
+import json,hashlib,xml.etree.ElementTree as ET,pymupdf
+r=Path('p-写作过程/标注试样/30_佛山市禅城区中心医院');t=Path('/tmp/outpatient30-review')
+j=json.loads((r/'annotation.json').read_text());q=json.loads((t/'review-map.json').read_text());root=ET.parse(r/'标注.svg').getroot();ns={'s':'http://www.w3.org/2000/svg'}
+assert len(list(r.iterdir()))==4
+assert len(q)==31 and {a['id'] for a in q}=={s['id'] for s in j['spaces'] if s['type']=='unknown'}
+assert [a['number'] for a in q]==[f'{i:02d}' for i in range(1,32)]
+for s in j['spaces']:
+ g=root.find('.//s:g[@id="'+s['id']+'"]',ns);tx=''.join(e.text or '' for e in g.findall('.//s:text',ns))
+ assert s['id'] in tx and ('名称未确认' if s['type']=='unknown' else s['name']) in tx
+assert hashlib.sha256((r/j['image']['file']).read_bytes()).hexdigest()=='0282a8265264b9d119c6836a0c2a0ff903b9c9bd73e69527ba31c530bddf878d'
+assert not json.loads((t/'leader-check.json').read_text())['crossings']
+d=pymupdf.open(r/'标注.svg');p=d[0]
+p.get_pixmap(alpha=False).save(t/'annotation-full.png')
+p.get_pixmap(matrix=pymupdf.Matrix(2,2),clip=pymupdf.Rect(1200,420,2160,1400),alpha=False).save(t/'annotation-dense.png')
+print(json.dumps({'spaces':len(j['spaces']),'pending':len(q),'area_ratio_sum':sum(s.get('area_ratio',0) for s in j['spaces']),'files':4,'source_sha256_unchanged':True,'svg_visible_names_match':True,'review_map_match':True,'leader_crossings':0},ensure_ascii=False))
+PY

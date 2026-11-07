@@ -1,0 +1,8 @@
+ls /opt/homebrew/lib/libcairo* /usr/local/lib/libcairo* 2>/dev/null; uv run --with cairosvg --with pillow python - <<'PY'
+import cairosvg
+from pathlib import Path
+p=Path('p-写作过程/标注试样/33_西京医院住院二部翻建工程/标注.svg')
+cairosvg.svg2png(url=str(p),write_to='/tmp/outpatient33-review/标注_完整预览.png')
+from PIL import Image
+im=Image.open('/tmp/outpatient33-review/标注_完整预览.png');print(im.size)
+PY

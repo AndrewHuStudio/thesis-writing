@@ -1,0 +1,17 @@
+python - <<'PY'
+p='/tmp/outpatient32-review/build.py'
+s=open(p).read();s=s.replace("   if p.interiors:raise ValueError('hall with holes')", "   if p.interiors:
+    pending=[p]
+    while any(z.interiors for z in pending):
+     refined=[]
+     for z in pending:
+      if not z.interiors:refined.append(z);continue
+      hole=Polygon(z.interiors[0]);cy=hole.representative_point().y
+      refined.extend(list(split(z,LineString([(0,cy),(2436,cy)])).geoms))
+     pending=refined
+    for zz,z in enumerate(pending):
+     add(f'hall_{idx}_{side}_{j}_split{zz}',list(z.exterior.coords)[:-1],'大厅及候诊通道','hall','open_space','public_circulation',group if 'group' in locals() else 'A')
+    continue")
+open(p,'w').write(s)
+PY
+uv run --with shapely --with pillow --with pymupdf python /tmp/outpatient32-review/build.py

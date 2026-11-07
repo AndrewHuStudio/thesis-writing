@@ -1,0 +1,72 @@
+{
+  "confirmations": [
+    {
+      "review_id": "16",
+      "space_id": "S040",
+      "status": "confirmed",
+      "applied": true,
+      "source": "user_edited_markdown",
+      "evidence": "同步前备份/标注说明.md",
+      "answer": "户外的范围，可以不计入考量。",
+      "resolution": "excluded_outdoor",
+      "retired_space_id": "S040"
+    },
+    {
+      "review_id": "17",
+      "space_id": "S042",
+      "status": "confirmed",
+      "applied": true,
+      "source": "user_edited_markdown",
+      "evidence": "同步前备份/标注说明.md",
+      "answer": "和门厅的区域直接合并",
+      "context_answer": "17-20这个区域属于大厅的一部分，不需要和外部单独拆开",
+      "resolution": "merged",
+      "merged_into": "S048",
+      "confirmed_name": "门厅"
+    },
+    {
+      "review_id": "19",
+      "space_id": "S044",
+      "status": "confirmed",
+      "applied": true,
+      "source": "user_edited_markdown",
+      "evidence": "同步前备份/标注说明.md",
+      "answer": "和门厅的区域直接合并",
+      "context_answer": "17-20这个区域属于大厅的一部分，不需要和外部单独拆开",
+      "resolution": "merged",
+      "merged_into": "S049",
+      "confirmed_name": "门厅"
+    },
+    {
+      "review_id": "20",
+      "space_id": "S045",
+      "status": "confirmed",
+      "applied": true,
+      "source": "user_edited_markdown",
+      "evidence": "同步前备份/标注说明.md",
+      "answer": "和门厅的区域直接合并",
+      "context_answer": "17-20这个区域属于大厅的一部分，不需要和外部单独拆开",
+      "resolution": "merged",
+      "merged_into": "S049",
+      "confirmed_name": "门厅"
+    }
+  ],
+  "retired_relations": [],
+  "note": {
+    "date": "2026-11-06",
+    "archive": "确认同步_20261106_110828",
+    "review_ids": [
+      "16",
+      "17",
+      "19",
+      "20"
+    ],
+    "hall_partitions": [
+      "S048",
+      "S049",
+      "S085"
+    ],
+    "partition_reason": "门厅环绕独立交通核；保留已有无孔简单多边形分区，不新增空间号。",
+    "connectivity_reviewed": false
+  }
+}

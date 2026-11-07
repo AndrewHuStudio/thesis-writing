@@ -1,0 +1,455 @@
+{
+  "removed": [
+    {
+      "id": "R038",
+      "source": "S104",
+      "target": "S036",
+      "type": "access"
+    },
+    {
+      "id": "R039",
+      "source": "S045",
+      "target": "S089",
+      "type": "access"
+    },
+    {
+      "id": "R044",
+      "source": "S049",
+      "target": "S044",
+      "type": "access"
+    },
+    {
+      "id": "R046",
+      "source": "S051",
+      "target": "S044",
+      "type": "access"
+    },
+    {
+      "id": "R072",
+      "source": "S073",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R073",
+      "source": "S074",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R074",
+      "source": "S075",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R075",
+      "source": "S076",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R076",
+      "source": "S077",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R077",
+      "source": "S078",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R078",
+      "source": "S079",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R079",
+      "source": "S080",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R080",
+      "source": "S093",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R081",
+      "source": "S094",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R082",
+      "source": "S095",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R083",
+      "source": "S096",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R084",
+      "source": "S097",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R085",
+      "source": "S098",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R088",
+      "source": "S101",
+      "target": "S088",
+      "type": "access"
+    },
+    {
+      "id": "R095",
+      "source": "S098",
+      "target": "S103",
+      "type": "access"
+    }
+  ],
+  "removed_basis": {
+    "R038": "S104东侧外墙连续；从S089经既有门通医院街",
+    "R039": "S045与S089之间有更衣和卫生间，不是直接相邻开放区",
+    "CT": "检查室北墙连续，患者侧门落在控制室和注射室；保留南侧清楚门",
+    "DR": "中排检查与控制单元南墙连续，撤回直接向S088的批量边，保留工作人员侧清楚门",
+    "south_imaging": "备用检查单元北墙连续；胃肠机房无独立南侧门，经控制／准备单元概念组织"
+  },
+  "added": [
+    {
+      "id": "R244",
+      "source": "S001",
+      "target": "S010",
+      "type": "access",
+      "reason": "用户K02：可以直接进入"
+    },
+    {
+      "id": "R245",
+      "source": "S010",
+      "target": "S007",
+      "type": "access",
+      "reason": "布局推断：供应区东侧工作人员通道与交通核前通道在卫生间南侧衔接"
+    },
+    {
+      "id": "R246",
+      "source": "S006",
+      "target": "S007",
+      "type": "access",
+      "reason": "布局推断：供应电梯组朝东侧交通核前通道开门"
+    },
+    {
+      "id": "R247",
+      "source": "S011",
+      "target": "S007",
+      "type": "access",
+      "reason": "布局推断：供应卫生间通过其东侧交通前区组织进出"
+    },
+    {
+      "id": "R248",
+      "source": "S004",
+      "target": "S010",
+      "type": "access",
+      "reason": "布局推断：上排值班小间朝南侧内部通道"
+    },
+    {
+      "id": "R249",
+      "source": "S005",
+      "target": "S010",
+      "type": "access",
+      "reason": "布局推断：上排值班小间朝西侧内部通道"
+    },
+    {
+      "id": "R250",
+      "source": "S049",
+      "target": "S050",
+      "type": "access",
+      "reason": "布局推断：CT检查室与中央控制室组成检查单元"
+    },
+    {
+      "id": "R251",
+      "source": "S051",
+      "target": "S050",
+      "type": "access",
+      "reason": "布局推断：CT检查室与中央控制室组成检查单元"
+    },
+    {
+      "id": "R252",
+      "source": "S098",
+      "target": "S097",
+      "type": "access",
+      "reason": "布局推断：胃肠机与紧邻的控制室形成检查单元"
+    },
+    {
+      "id": "R253",
+      "source": "S098",
+      "target": "S099",
+      "type": "access",
+      "reason": "布局推断：胃肠机房通过紧邻灌肠准备间组织患者进入"
+    },
+    {
+      "id": "R254",
+      "source": "S057",
+      "target": "S045",
+      "type": "access",
+      "reason": "图面连续／明确门口"
+    },
+    {
+      "id": "R255",
+      "source": "S087",
+      "target": "S088",
+      "type": "access",
+      "reason": "图面连续／明确门口"
+    },
+    {
+      "id": "R256",
+      "source": "S123",
+      "target": "S128",
+      "type": "access",
+      "reason": "图面连续／明确门口"
+    },
+    {
+      "id": "R257",
+      "source": "S124",
+      "target": "S129",
+      "type": "access",
+      "reason": "图面连续／明确门口"
+    },
+    {
+      "id": "R258",
+      "source": "S111",
+      "target": "S113",
+      "type": "access",
+      "reason": "图面连续／明确门口"
+    },
+    {
+      "id": "R259",
+      "source": "S139",
+      "target": "S131",
+      "type": "access",
+      "reason": "布局推断：急诊护士站北侧工作区向内部通道开放"
+    }
+  ],
+  "new_openings": [
+    {
+      "id": "P092",
+      "kind": "door",
+      "position_px": [
+        832,
+        1276
+      ],
+      "relation_id": "R045",
+      "source": "S050",
+      "target": "S044"
+    },
+    {
+      "id": "P093",
+      "kind": "door",
+      "position_px": [
+        898,
+        1367
+      ],
+      "relation_id": "R050",
+      "source": "S051",
+      "target": "S057"
+    },
+    {
+      "id": "P094",
+      "kind": "door",
+      "position_px": [
+        1096,
+        1382
+      ],
+      "relation_id": "R254",
+      "source": "S057",
+      "target": "S045"
+    },
+    {
+      "id": "P095",
+      "kind": "door",
+      "position_px": [
+        610,
+        1614
+      ],
+      "relation_id": "R255",
+      "source": "S087",
+      "target": "S088"
+    },
+    {
+      "id": "P096",
+      "kind": "door",
+      "position_px": [
+        1096,
+        1734
+      ],
+      "relation_id": "R035",
+      "source": "S103",
+      "target": "S104"
+    },
+    {
+      "id": "P097",
+      "kind": "door",
+      "position_px": [
+        674,
+        1712
+      ],
+      "relation_id": "R090",
+      "source": "S093",
+      "target": "S103"
+    },
+    {
+      "id": "P098",
+      "kind": "door",
+      "position_px": [
+        867,
+        1712
+      ],
+      "relation_id": "R094",
+      "source": "S097",
+      "target": "S103"
+    },
+    {
+      "id": "P099",
+      "kind": "door",
+      "position_px": [
+        987,
+        1635
+      ],
+      "relation_id": "R086",
+      "source": "S099",
+      "target": "S088"
+    },
+    {
+      "id": "P100",
+      "kind": "door",
+      "position_px": [
+        1027,
+        1635
+      ],
+      "relation_id": "R087",
+      "source": "S100",
+      "target": "S088"
+    },
+    {
+      "id": "P101",
+      "kind": "door",
+      "position_px": [
+        606,
+        2360
+      ],
+      "relation_id": "R256",
+      "source": "S123",
+      "target": "S128"
+    },
+    {
+      "id": "P102",
+      "kind": "door",
+      "position_px": [
+        647,
+        2360
+      ],
+      "relation_id": "R257",
+      "source": "S124",
+      "target": "S129"
+    },
+    {
+      "id": "P103",
+      "kind": "door",
+      "position_px": [
+        533,
+        2120
+      ],
+      "relation_id": "R258",
+      "source": "S111",
+      "target": "S113"
+    }
+  ],
+  "inferred": [
+    {
+      "source": "S010",
+      "target": "S007",
+      "reason": "布局推断：供应区东侧工作人员通道与交通核前通道在卫生间南侧衔接"
+    },
+    {
+      "source": "S006",
+      "target": "S007",
+      "reason": "布局推断：供应电梯组朝东侧交通核前通道开门"
+    },
+    {
+      "source": "S011",
+      "target": "S007",
+      "reason": "布局推断：供应卫生间通过其东侧交通前区组织进出"
+    },
+    {
+      "source": "S004",
+      "target": "S010",
+      "reason": "布局推断：上排值班小间朝南侧内部通道"
+    },
+    {
+      "source": "S005",
+      "target": "S010",
+      "reason": "布局推断：上排值班小间朝西侧内部通道"
+    },
+    {
+      "source": "S049",
+      "target": "S050",
+      "reason": "布局推断：CT检查室与中央控制室组成检查单元"
+    },
+    {
+      "source": "S051",
+      "target": "S050",
+      "reason": "布局推断：CT检查室与中央控制室组成检查单元"
+    },
+    {
+      "source": "S098",
+      "target": "S097",
+      "reason": "布局推断：胃肠机与紧邻的控制室形成检查单元"
+    },
+    {
+      "source": "S098",
+      "target": "S099",
+      "reason": "布局推断：胃肠机房通过紧邻灌肠准备间组织患者进入"
+    },
+    {
+      "source": "S139",
+      "target": "S131",
+      "reason": "布局推断：急诊护士站北侧工作区向内部通道开放"
+    }
+  ],
+  "reviewed_major_groups": [
+    "住院服务及医院街主网络",
+    "供应人员通道与工作区入口",
+    "影像控制与检查单元、患者通道接口",
+    "急诊主环廊、内通道、药房及DSA",
+    "东侧门诊纵向通道、南通道、诊室与电梯厅"
+  ],
+  "not_required_details": [
+    "设备带S012用于灭菌物品流程，不据物流箭头建人员边",
+    "S033/S034、S158/S160及S162服务柜台保留service；柜台背部精确小门本轮不穷尽",
+    "S105—S108商铺朝南侧外廊；原图未绘独立门，保留无内向access，未记不作不通负例",
+    "S121窄小交通设施及其他小设备间内部路线不细究；不凭颜色造门",
+    "庭院节点保留独立轮廓，不以不计面积推断不相通"
+  ],
+  "retargeted": [
+    {
+      "id": "R035",
+      "source": "S103",
+      "old_target": "S104",
+      "new_target": "S089",
+      "opening": "P096",
+      "reason": "南侧工作人员通道的门落在中候诊区S089范围；S104经S089连续到达"
+    }
+  ]
+}

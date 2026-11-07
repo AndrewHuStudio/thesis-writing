@@ -1,0 +1,10 @@
+mkdir -p /tmp/outpatient32-review; python - <<'PY'
+from PIL import Image
+from pathlib import Path
+import hashlib
+p=Path('p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/32_青岛大学附属医院东区病房综合楼_原图.jpg')
+im=Image.open(p)
+print(im.size,hashlib.sha256(p.read_bytes()).hexdigest())
+im.rotate(90,expand=True).save('/tmp/outpatient32-review/转正参考.png')
+im.rotate(90,expand=True).resize((2200,1600)).save('/tmp/outpatient32-review/转正缩略.png')
+PY

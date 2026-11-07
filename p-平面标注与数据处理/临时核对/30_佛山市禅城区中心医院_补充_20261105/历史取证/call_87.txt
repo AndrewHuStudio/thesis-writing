@@ -1,0 +1,212 @@
+cat > /tmp/outpatient30-review/build_annotation.py <<'PY'
+from pathlib import Path
+import json, math, hashlib, importlib.util
+from shapely.geometry import Polygon, box, LineString
+from shapely.ops import split
+ROOT=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/30_佛山市禅城区中心医院')
+TMP=Path('/tmp/outpatient30-review')
+source=ROOT/'30_佛山市禅城区中心医院_原图.jpg'
+D=[]; by={}; edges=[]; qs={}
+def add(key,name,typ,coords,scope,level='room',candidate=None,basis=None,confidence=None):
+ if len(coords)==4 and isinstance(coords[0],(int,float)): coords=list(box(*coords).exterior.coords)[:-1]
+ p=Polygon(coords)
+ assert p.is_valid and p.area>0,key
+ s=dict(key=key,name=name,type=typ,polygon=coords,scope=scope,level=level)
+ D.append(s);by[key]=s
+ if typ=='unknown': qs[key]=dict(candidates=candidate or '未知用途',basis=basis or '图中文字无法可靠辨认',confidence=confidence or '低')
+ return s
+def known(k,n,t,c,scope,level='room'):return add(k,n,t,c,scope,level)
+def unk(k,c,scope,cand,basis,confidence='低',level='room'):return add(k,'名称未确认','unknown',c,scope,level,cand,basis,confidence)
+def rel(a,b,t='access'):edges.append((a,b,t))
+I='radiology';O='staff_office';P='public_service';A='admission_service';F='infusion';PH='pharmacy';C='public_circulation'
+# Upright working coordinates only; all exported points map back to the untouched original.
+# Radiology, divided by visible walls, not by axis lines.
+known('rad_west','放射科西侧通道','corridor',(355,715,420,1240),I,'open_space')
+unk('mr1',(420,715,585,842),I,'MR检查室／影像检查室','位于放射科；与中部设备间及更衣区成组，字形疑似MR','中')
+unk('mr2',(420,976,585,1106),I,'MR检查室／影像检查室','与上一间上下成对；仅有短英文房名，辨认不稳','中')
+unk('mr_machine',(420,842,513,976),I,'设备机房／控制室','夹在两间影像检查室之间，房名尾部疑似机房','中')
+known('change1','病人更衣室','patient_preparation',(513,842,585,910),I)
+known('change2','病人更衣室','patient_preparation',(513,910,585,976),I)
+known('rad_patient1','放射科候诊通道（一）','corridor',(585,715,642,1106),I,'open_space')
+known('dsa1','DSA心导管室','imaging',(642,715,818,842),I)
+known('dsa2','DSA心导管室','imaging',(642,976,818,1106),I)
+known('change3','病人更衣室','patient_preparation',(642,842,699,910),I)
+known('change4','病人更衣室','patient_preparation',(642,910,699,976),I)
+unk('rad_mid',(699,842,773,976),I,'设备机房／控制室','两间DSA之间的独立中间房；文字不能可靠辨认','中')
+known('staff_change','医护人员更衣室','staff_support',(773,842,818,976),I)
+known('rad_control','放射科控制通道','corridor',(818,715,883,1070),I,'open_space')
+unk('rad_exam3',(883,715,1032,845),I,'数字胃肠检查室／影像检查室','处于CT旁的检查房间，疑似数字胃肠字样','低')
+unk('rad_exam4',(883,845,1032,975),I,'CR检查室／影像检查室','短英文标识疑似CR，与CT成排','中')
+known('ct','CT','imaging',(883,975,1032,1106),I)
+known('rad_patient2','放射科候诊通道（二）','corridor',(1032,715,1094,1106),I,'open_space')
+unk('rad_exam5',(1094,715,1225,845),I,'X线检查室／透视室','与CR、CT隔通道相对，短房名字形不清','低')
+unk('rad_exam6',(1094,845,1225,975),I,'X线检查室／检查室','同列放射检查房间，房名不清','低')
+unk('rad_read',(1094,975,1225,1106),I,'拍片室／阅片室','末字似片，与检查室及控制通道相接','低')
+known('rad_east','放射科东侧通道','corridor',(1225,715,1280,1106),I,'open_space')
+unk('report1',(420,1106,550,1240),I,'登记发片／登记报告','靠近放射科入口，沿侧有连续服务座位，字样似登记及发片','中',level='functional_block')
+unk('report2',(1225,1106,1280,1240),I,'登记发片／服务工作区','另一入口侧窄服务区，柜台符号和文字模糊','低',level='functional_block')
+known('rad_wait1','放射科候诊区（一）','hall',(550,1106,818,1240),I,'open_space')
+known('rad_wait2','放射科候诊区（二）','hall',(1032,1106,1225,1240),I,'open_space')
+known('rad_core','放射科交通核','vertical_core',[(818,1070),(883,1070),(883,1106),(1032,1106),(1032,1240),(818,1240)],I,'core_block')
+# Staff wing at the right of the original image.
+known('office_core','医护办公区北端交通核','vertical_core',(510,285,665,405),O,'core_block')
+unk('office1',(355,318,456,452),O,'医护办公用房／值班用房','绿色医护办公片区，文字似较长人员用房名','低')
+unk('office2',(355,452,456,582),O,'医办／办公用房','图中文字疑似医办','中')
+unk('office3',(355,582,456,665),O,'示教／办公用房','房名两字模糊，属于同一办公片区','低')
+known('meeting','会议室','office',(510,452,665,582),O)
+unk('office4',(510,582,665,665),O,'休息室／值班室','会议室旁的较宽房间，字形疑似休息','中')
+unk('office5',(725,318,818,452),O,'库房／办公用房','右侧第一间医护用房；文字仅能辨认末字似房','低')
+unk('office6',(725,452,818,582),O,'阅片室／办公用房','房名疑似阅片，毗邻放射科医护通道','中')
+unk('office7',(725,582,818,665),O,'淋浴室／医护支持用房','文字疑似淋浴，位于更衣、卫生间附近','中')
+known('office_west','医护办公区西支通道','corridor',(456,318,510,665),O,'open_space')
+known('office_north','医护办公区北支通道','corridor',[(510,405),(665,405),(665,318),(725,318),(725,452),(510,452)],O,'open_space')
+known('office_main','医护走廊（西段）','corridor',[(665,452),(725,452),(725,665),(1128,665),(1128,612),(1185,612),(1185,665),(1280,665),(1280,715),(355,715),(355,665),(665,665)],O,'open_space')
+known('change_m1','男更衣','staff_support',(818,582,872,665),O)
+known('change_f1','女更衣','staff_support',(872,582,924,665),O)
+known('office_wc1','医护卫生间（西）','toilet',(924,582,990,665),O,'functional_block')
+known('office_stair1','医护办公区西楼梯','vertical_core',(990,582,1128,665),O,'core_block')
+unk('office8',(1185,582,1280,665),O,'值班室／医护支持用房','独立小房间位于医护入口走廊旁，房名疑似值班室','中')
+known('staff_entry','医护人员入口厅','entrance',(1280,612,1495,715),O,'open_space')
+known('office9','办公室','office',(1495,582,1590,665),O)
+known('office10','办公室','office',(1745,582,1855,665),O)
+known('change_m2','男更衣','staff_support',(1650,582,1700,665),O)
+known('change_f2','女更衣','staff_support',(1700,582,1745,665),O)
+known('office_wc2','医护卫生间（东）','toilet',(1855,582,1920,665),O,'functional_block')
+known('office_stair2','医护办公区东楼梯','vertical_core',(1920,582,2060,665),O,'core_block')
+known('office_east','医护走廊（东段）','corridor',[(1495,665),(1590,665),(1590,612),(1650,612),(1650,665),(2060,665),(2060,715),(1495,715)],O,'open_space')
+# VIP / public support wing.
+known('vip_core','VIP病房及医护人员电梯厅','vertical_core',(435,1358,818,1530),C,'core_block')
+known('dirty','污洗、污物','waste_handling',(510,1530,600,1580),P)
+known('support_core','公共服务区交通核','vertical_core',[(600,1530),(735,1530),(735,1640),(510,1640),(510,1580),(600,1580)],C,'core_block')
+known('support_wc','公共服务区卫生间','toilet',(735,1530,818,1640),P,'functional_block')
+unk('shop_top',(818,1530,973,1640),P,'病历服务／商业服务','紫色公共服务设施，门向下方通道；字样疑似病历','低')
+known('support_pass','公共服务设施通道','corridor',(510,1640,973,1702),P,'open_space')
+unk('shop1',(510,1702,665,1864),P,'便利店／保健服务','紫色独立服务房间；房名文字模糊','低')
+unk('shop2',(665,1702,818,1835),P,'鲜花礼品／便民零售','字形疑似鲜花、礼品，属于公共服务设施','中')
+known('bank','自助银行','retail_service',(818,1702,973,1835),P)
+# Admission services: readable main counter, unresolved supporting office names.
+unk('admission1',(818,1358,896,1485),A,'算账组／财务办公','首字与尾字疑似算、组；属于黄色出入院手续片区','中')
+unk('admission2',(896,1358,973,1485),A,'大更间／出入院支持用房','仅能判断为同排独立房间，具体字样无可靠结论','低')
+unk('admission3',(973,1358,1050,1485),A,'出入院办公室／出入院办理','文字可见出入院，后半部模糊','中')
+unk('admission4',(1050,1358,1130,1485),A,'出入院办理／出入院办公室','文字可见出入院，后半部模糊','中')
+unk('admission5',(1130,1358,1260,1485),A,'出入院预约／出入院服务','与手续柜台相连，后半部字样不清','低')
+known('admission_counter','出入院手续','service_work_area',[(818,1485),(1260,1485),(1260,1640),(973,1640),(973,1530),(818,1530)],A,'semi_open_space')
+# Inpatient elevators and toilets south of medical street.
+known('south_wc','公共卫生间','toilet',(1430,1358,1595,1485),P,'functional_block')
+known('south_core','病房电梯厅及楼梯','vertical_core',[(1325,1358),(1430,1358),(1430,1485),(1595,1485),(1595,1640),(1260,1640),(1260,1485),(1325,1485)],C,'core_block')
+unk('south_small1',(1260,1358,1325,1420),P,'配电间／设备用房','嵌入电梯厅旁的小房间，设备类字样不清','低')
+unk('south_small2',(1260,1420,1325,1485),P,'库房／设备用房','同组下方小房间，字形疑似库房','低')
+# Central infusion / pharmacy block.
+unk('garden',(1285,715,1495,950),P,'露天庭院／室内景观庭院','有树木、景观台及室外式楼梯；是否露天或挑空不能仅凭图面确定','中',level='functional_block')
+known('garden_pass','庭院通廊','corridor',(1285,950,1495,978),P,'open_space')
+unk('pool',[(1285,978),(1495,978),(1495,1240),(1448,1240),(1448,1180),(1440,1152),(1424,1132),(1392,1120),(1360,1132),(1340,1152),(1330,1180),(1330,1240),(1285,1240)],P,'景观水池／水景庭院','蓝色水面围绕白色平台；室内外属性及面积处理待确认','中',level='open_space')
+unk('pool_platform',[(1330,1240),(1330,1180),(1340,1152),(1360,1132),(1392,1120),(1424,1132),(1440,1152),(1448,1180),(1448,1240)],P,'亲水休闲平台／景观平台','白色弧形空间由医疗街开门进入，文字似亲水休闲平台','中',level='functional_block')
+known('infusion_hall','输液大厅','hall',[(1495,715),(1745,715),(1745,975),(1655,975),(1655,1240),(1495,1240)],F,'functional_block')
+known('nurse','护士站','nurse_station',(1655,975,1745,1106),F,'semi_open_space')
+known('treatment','处置室','treatment',(1655,1106,1745,1174),F)
+unk('infusion_small',(1655,1174,1745,1240),F,'治疗室／配药室','处置室旁独立小房，首字不清','低')
+known('pharmacy','药房、药库','pharmacy',(1745,715,1965,1106),PH,'functional_block')
+known('infusion_core','输液区病房电梯厅及楼梯','vertical_core',(1745,1106,1965,1240),C,'core_block')
+# Public halls; large furniture / seating remain within hall functional blocks.
+known('medical_street','医疗街','corridor',(510,1240,2215,1358),C,'open_space')
+known('pharmacy_wait','候药等候区（北）','hall',[(1965,715),(2215,715),(2215,1005),(2135,1005),(2135,1095),(1965,1095)],PH,'open_space')
+known('east_escalator','候药区扶梯','vertical_core',(2135,1005,2215,1095),C,'core_block')
+known('pharmacy_wait_south','候药等候区（南）','hall',(1965,1095,2215,1240),PH,'open_space')
+known('admission_hall','出入院大厅','hall',(973,1640,1430,1835),A,'functional_block')
+known('consult_counter','导医问询台','service',[(1720,1455),(1815,1368),(1882,1368),(1882,1438),(1795,1525),(1720,1525)],P,'semi_open_space')
+known('public_escalator','门诊大厅扶梯','vertical_core',(1595,1510,1665,1598),C,'core_block')
+known('public_pool','门诊大厅水景','landscape',[(1900+68*math.cos(i*math.pi/12),1595+68*math.sin(i*math.pi/12)) for i in range(24)],P,'landscape')
+known('public_garden','门诊大厅景观绿化','landscape',[(1430,1705),(1600,1705),(1610,1722),(1660,1710),(1700,1712),(1750,1735),(1798,1770),(1760,1785),(1700,1770),(1690,1818),(1430,1818)],P,'landscape')
+# Fill the remaining lobby by three spatially meaningful bands, subtracting islands.
+lobby=Polygon([(1595,1358),(2215,1358),(2215,1612),(1995,1835),(1430,1835),(1430,1640),(1595,1640)])
+for k in ['consult_counter','public_escalator','public_pool','public_garden']:
+ lobby=lobby.difference(Polygon(by[k]['polygon']))
+# Partition through the island centres so each output is a simple no-hole polygon.
+parts=[lobby]
+for cut in [LineString([(0,1445),(3260,1445)]),LineString([(0,1530),(3260,1530)]),LineString([(0,1595),(3260,1595)]),LineString([(0,1740),(3260,1740)])]:
+ nxt=[]
+ for p in parts:
+  nxt.extend(list(split(p,cut).geoms))
+ parts=nxt
+idx=0
+for p in sorted(parts,key=lambda p:(p.bounds[1],p.bounds[0])):
+ assert not len(p.interiors),'lobby holes'
+ if p.area<10:continue
+ idx+=1
+ known('lobby'+str(idx),'门诊大厅（区段'+str(idx)+'）','hall',list(p.exterior.coords)[:-1],P,'open_space')
+# Original image exterior planting, recorded separately from indoor area.
+known('outside_green','入口外绿化','landscape',(1280,1850,1905,1885),P,'landscape')
+# Door/opening observations only. Unknown room functions may still have visible doors.
+for k in ['mr1','mr2','mr_machine','report1']:rel(k,'rad_west')
+for k in ['mr1','mr2','change1','change2','dsa1','dsa2','change3','change4']:rel(k,'rad_patient1')
+for k in ['dsa1','dsa2','staff_change','rad_exam3','rad_exam4','ct']:rel(k,'rad_control')
+for k in ['rad_exam3','rad_exam4','ct','rad_exam5','rad_exam6','rad_read']:rel(k,'rad_patient2')
+for k in ['rad_exam5','rad_exam6','rad_read','report2']:rel(k,'rad_east')
+for a,b in [('rad_mid','staff_change'),('rad_wait1','rad_patient1'),('rad_wait2','rad_patient2'),('rad_wait1','rad_core'),('rad_wait2','rad_core'),('rad_wait1','medical_street'),('rad_wait2','medical_street'),('rad_west','office_main'),('rad_east','office_main')]:rel(a,b)
+for k in ['office1','office2','office3','meeting']:rel(k,'office_west')
+for k in ['office5','office6','office7','meeting']:rel(k,'office_main')
+rel('office4','office_main');rel('office_core','office_north');rel('office_west','office_north');rel('office_west','office_main');rel('office_north','office_main')
+for k in ['change_m1','change_f1','office_wc1','office_stair1','office8']:rel(k,'office_main')
+rel('staff_entry','office_main');rel('staff_entry','office_east')
+for k in ['office9','office10','change_m2','change_f2','office_wc2','office_stair2','infusion_hall']:rel(k,'office_east')
+for k in ['dirty','support_wc','support_pass']:rel(k,'support_core')
+rel('support_core','vip_core');rel('vip_core','admission_counter');rel('vip_core','medical_street')
+for k in ['shop_top','shop1','shop2','bank']:rel(k,'support_pass')
+rel('support_pass','admission_hall')
+for k in ['admission1','admission2','admission3','admission4','admission5']:rel(k,'admission_counter')
+rel('admission_counter','admission_hall','service')
+for k in ['south_wc','south_small1','south_small2','admission_hall','medical_street']:rel(k,'south_core')
+rel('infusion_hall','medical_street');rel('infusion_hall','nurse','service');rel('nurse','treatment');rel('treatment','infusion_small');rel('infusion_small','infusion_hall')
+rel('pharmacy','pharmacy_wait','service');rel('pharmacy','pharmacy_wait_south','service');rel('pharmacy','office_east')
+rel('infusion_hall','infusion_core');rel('infusion_core','medical_street');rel('pharmacy_wait','pharmacy_wait_south');rel('pharmacy_wait_south','medical_street');rel('pharmacy_wait','east_escalator');rel('pool_platform','medical_street');rel('garden_pass','infusion_hall')
+# Only contiguous lobby pieces share access. Islands of landscape do not become circulation nodes.
+lobbykeys=['lobby'+str(i) for i in range(1,idx+1)]
+for i,a in enumerate(lobbykeys):
+ for b in lobbykeys[i+1:]:
+  if Polygon(by[a]['polygon']).boundary.intersection(Polygon(by[b]['polygon']).boundary).length>3:rel(a,b)
+for a in ['medical_street','admission_hall','public_escalator']:
+ for b in lobbykeys:
+  if Polygon(by[a]['polygon']).boundary.intersection(Polygon(by[b]['polygon']).boundary).length>10:rel(a,b)
+for b in lobbykeys:
+ if Polygon(by['consult_counter']['polygon']).boundary.intersection(Polygon(by[b]['polygon']).boundary).length>10:rel('consult_counter',b,'service')
+# Assign stable S IDs in contiguous original-image horizontal bands, top to bottom, left to right.
+# original x=2443-v; original y=u.
+for s in D:
+ s['polygon_px']=[[round(2443-y,2),round(x,2)] for x,y in s['polygon']]
+# Each band corresponds to one column of adjacent rooms on the reading view.
+bands=[0,410,505,580,635,695,765,815,875,965,1025,1090,1180,1280,1490,1590,1650,1740,1850,1960,2250]
+def order(s):
+ p=Polygon(s['polygon_px']);y=p.bounds[1];b=next((i for i in range(len(bands)-1) if bands[i]<=y<bands[i+1]),99)
+ return (b,p.bounds[0],y)
+D.sort(key=order)
+for i,s in enumerate(D,1):s['id']=f'S{i:03d}'
+spaces=[{k:s[k] for k in ['id','name','type','level','scope','polygon_px']} for s in D]
+rels=[];seen=set()
+for a,b,t in edges:
+ a,b=by[a]['id'],by[b]['id'];key=tuple(sorted([a,b]))+(t,)
+ if key in seen:continue
+ seen.add(key);rels.append(dict(id=f'R{len(rels)+1:03d}',source=a,target=b,type=t))
+entrances=[('E001','VIP入口','vip','vip_core',(435,1445)),('E002','探视入口','visiting','admission_hall',(1210,1835)),('E003','门诊入口','outpatient','lobby'+str(idx),(2110,1720)),('E004','医护人员入口','staff','staff_entry',(1385,612)),('E005','自助银行外门','public_service','bank',(895,1835))]
+# E003 target is selected by geometric proximity to the visible chamfer entrance.
+for eid,n,t,k,p in entrances:
+ if eid=='E003':k=min(lobbykeys,key=lambda k:Polygon(by[k]['polygon']).distance(__import__('shapely').geometry.Point(p)))
+ rels.append(dict(id=eid,source=None,target=by[k]['id'],type='entrance',name=n,entrance_type=t,position_px=[2443-p[1],p[0]]))
+data=dict(image=dict(file=source.name,width=2444,height=3260),spaces=spaces,relations=rels)
+(ROOT/'annotation.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'
+')
+(TMP/'working-spaces.json').write_text(json.dumps(D,ensure_ascii=False,indent=2)+'
+')
+pending=[]
+for s in D:
+ if s['type']!='unknown':continue
+ pending.append(dict(number=f'{len(pending)+1:02d}',id=s['id'],key=s['key'],polygon_px=s['polygon_px'],**qs[s['key']]))
+(TMP/'review-map.json').write_text(json.dumps(pending,ensure_ascii=False,indent=2)+'
+')
+(TMP/'original-sha256.txt').write_text(hashlib.sha256(source.read_bytes()).hexdigest()+'
+')
+print('spaces',len(spaces),'pending',len(pending),'relations',len(rels),'lobby_sections',idx)
+for q in pending:print(q['number'],q['id'],q['key'],q['candidates'])
+PY
+uv run --with pymupdf --with shapely --with pillow python /tmp/outpatient30-review/build_annotation.py
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py normalize p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py validate p-写作过程/标注试样/30_佛山市禅城区中心医院/annotation.json --allow-incomplete

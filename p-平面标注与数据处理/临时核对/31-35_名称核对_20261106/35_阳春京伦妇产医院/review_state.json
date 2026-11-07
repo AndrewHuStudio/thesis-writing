@@ -1,0 +1,565 @@
+{
+  "name_items": [
+    {
+      "review_id": "01",
+      "space_id": "S004",
+      "status": "confirmed",
+      "answer": "休息室，外面的大厅连接在一起",
+      "confirmed_name": "休息室",
+      "applied": true
+    },
+    {
+      "review_id": "02",
+      "space_id": "S017",
+      "status": "confirmed",
+      "answer": "露天庭院",
+      "confirmed_name": "露天庭院",
+      "applied": true
+    },
+    {
+      "review_id": "03",
+      "space_id": "S042",
+      "status": "confirmed",
+      "answer": "大厅的一部分",
+      "confirmed_name": "大厅的一部分",
+      "applied": true
+    },
+    {
+      "review_id": "04",
+      "space_id": "S058",
+      "status": "confirmed",
+      "answer": "医护休息室",
+      "confirmed_name": "医护休息室",
+      "applied": true
+    },
+    {
+      "review_id": "05",
+      "space_id": "S073",
+      "status": "confirmed",
+      "answer": "库房",
+      "confirmed_name": "库房",
+      "applied": true
+    },
+    {
+      "review_id": "06",
+      "space_id": "S074",
+      "status": "confirmed",
+      "answer": "库房",
+      "confirmed_name": "库房",
+      "applied": true
+    },
+    {
+      "review_id": "07",
+      "space_id": "S081",
+      "status": "confirmed",
+      "answer": "清洁间",
+      "confirmed_name": "清洁间",
+      "applied": true
+    }
+  ],
+  "connectivity_items": [
+    {
+      "review_id": "K01",
+      "source": "S075",
+      "target": "S072",
+      "status": "confirmed_disconnected",
+      "question": "门厅东侧电梯交通核S072是否只经S076进入门厅，还是也能直接连通S075？",
+      "judgement": "倾向S072经南侧白色前厅接S076；S075侧未见明确门洞，原R075暂移除。",
+      "related_space_ids": [
+        "S076",
+        "S073",
+        "S074"
+      ],
+      "answer": "只经S076进入",
+      "reason": "用户确认S072仅经S076进入；S075—S072无直接access。"
+    },
+    {
+      "review_id": "K02",
+      "source": "S042",
+      "target": "S044",
+      "status": "not_required",
+      "question": "03号灰色区域S042与东侧白色区域S043之间是否可以通行？",
+      "judgement": "S043至S044的双门明确，S042与S043的分界性质不清；目前不补S042的连接。",
+      "related_space_ids": [
+        "S039",
+        "S044"
+      ],
+      "linked_name_review_id": "03",
+      "answer": "S042与S043之间 合并 ，他们就是大厅的一部分，",
+      "history": [
+        {
+          "source": "S042",
+          "target": "S043",
+          "question": "03号灰色区域S042与东侧白色区域S043之间是否可以通行？",
+          "status": "pending"
+        }
+      ],
+      "reason": "用户要求将S043合并入S042；原S042—S043边界已退出，当前引用S042—S044保留既有对外双门R052/P036。",
+      "resolution": "merged",
+      "retired_space_id": "S043",
+      "surviving_space_id": "S042"
+    }
+  ],
+  "checks": {
+    "connectivity_reviewed": true,
+    "visual_reviewed": true
+  },
+  "review_date": "2026-11-07",
+  "relation_changes": [
+    {
+      "relation_id": "R015",
+      "before": {
+        "id": "R015",
+        "source": "S012",
+        "target": "S013",
+        "type": "access"
+      },
+      "after": {
+        "id": "R015",
+        "source": "S014",
+        "target": "S013",
+        "type": "access"
+      },
+      "reason": "卫生间门朝向后侧通道S014，非休息室S012。"
+    },
+    {
+      "relation_id": "R026",
+      "before": {
+        "id": "R026",
+        "source": "S022",
+        "target": "S024",
+        "type": "access"
+      },
+      "after": {
+        "id": "R026",
+        "source": "S035",
+        "target": "S024",
+        "type": "access"
+      },
+      "reason": "对应清洁/煎药/荫凉房右侧门直接朝向S035；原S022为另一侧后勤走道。"
+    },
+    {
+      "relation_id": "R028",
+      "before": {
+        "id": "R028",
+        "source": "S022",
+        "target": "S026",
+        "type": "access"
+      },
+      "after": {
+        "id": "R028",
+        "source": "S035",
+        "target": "S026",
+        "type": "access"
+      },
+      "reason": "对应清洁/煎药/荫凉房右侧门直接朝向S035；原S022为另一侧后勤走道。"
+    },
+    {
+      "relation_id": "R030",
+      "before": {
+        "id": "R030",
+        "source": "S022",
+        "target": "S028",
+        "type": "access"
+      },
+      "after": {
+        "id": "R030",
+        "source": "S035",
+        "target": "S028",
+        "type": "access"
+      },
+      "reason": "对应清洁/煎药/荫凉房右侧门直接朝向S035；原S022为另一侧后勤走道。"
+    },
+    {
+      "relation_id": "R011",
+      "removed": {
+        "id": "R011",
+        "source": "S008",
+        "target": "S035",
+        "type": "access"
+      },
+      "reason": "S008楼梯与S035之间为连续墙，S035侧可见门属于S009水吧台；楼梯保留独立外门。"
+    },
+    {
+      "relation_id": "R049",
+      "removed": {
+        "id": "R049",
+        "source": "S039",
+        "target": "S038",
+        "type": "access"
+      },
+      "reason": "S039与S038仅角点接触，实际经S044衔接，不保留跨角直连。"
+    },
+    {
+      "relation_id": "R051",
+      "removed": {
+        "id": "R051",
+        "source": "S039",
+        "target": "S043",
+        "type": "access"
+      },
+      "reason": "S039与S043之间有连续横向分隔；S043明确双门连接S044，暂不建立跨墙直连。"
+    },
+    {
+      "relation_id": "R063",
+      "removed": {
+        "id": "R063",
+        "source": "S056",
+        "target": "S044",
+        "type": "access"
+      },
+      "reason": "S056北侧与S044之间为连续分隔；人员通过东侧双门进入S075再接门厅。"
+    },
+    {
+      "relation_id": "R075",
+      "removed": {
+        "id": "R075",
+        "source": "S075",
+        "target": "S072",
+        "type": "access"
+      },
+      "reason": "S075与S072相邻侧未见门；暂移除原直连，保留S072至S076的概念连接，列K01核对。"
+    },
+    {
+      "space_id": "S015",
+      "before_polygon_px": [
+        [
+          1754,
+          1090
+        ],
+        [
+          1754,
+          1185
+        ],
+        [
+          1719,
+          1185
+        ],
+        [
+          1719,
+          1145
+        ],
+        [
+          1636,
+          1145
+        ],
+        [
+          1636,
+          1090
+        ]
+      ],
+      "after_polygon_px": [
+        [
+          1754,
+          1090
+        ],
+        [
+          1754,
+          1185
+        ],
+        [
+          1694,
+          1185
+        ],
+        [
+          1694,
+          1145
+        ],
+        [
+          1636,
+          1145
+        ],
+        [
+          1636,
+          1090
+        ]
+      ],
+      "reason": "按原图配液室L形入口补齐既有空缺，未重编号或细分空间。"
+    },
+    {
+      "relation_id": "R016",
+      "before": {
+        "id": "R016",
+        "source": "S037",
+        "target": "S016",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P010",
+            "kind": "door",
+            "position_px": [
+              1674,
+              1185
+            ]
+          }
+        ]
+      },
+      "after": {
+        "id": "R016",
+        "source": "S006",
+        "target": "S016",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P010",
+            "kind": "door",
+            "position_px": [
+              1674,
+              1185
+            ]
+          }
+        ]
+      },
+      "reason": "配液室及清洁室右侧实际进入输液留观区S006，门厅通道S037位于下侧。"
+    },
+    {
+      "relation_id": "R017",
+      "before": {
+        "id": "R017",
+        "source": "S037",
+        "target": "S015",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P011",
+            "kind": "door",
+            "position_px": [
+              1709,
+              1185
+            ]
+          }
+        ]
+      },
+      "after": {
+        "id": "R017",
+        "source": "S006",
+        "target": "S015",
+        "type": "access",
+        "openings": [
+          {
+            "id": "P011",
+            "kind": "door",
+            "position_px": [
+              1709,
+              1185
+            ]
+          }
+        ]
+      },
+      "reason": "配液室及清洁室右侧实际进入输液留观区S006，门厅通道S037位于下侧。"
+    },
+    {
+      "space_id": "S006",
+      "before_polygon_px": [
+        [
+          1949,
+          855
+        ],
+        [
+          1949,
+          1180
+        ],
+        [
+          1939,
+          1215
+        ],
+        [
+          1914,
+          1240
+        ],
+        [
+          1884,
+          1250
+        ],
+        [
+          1636,
+          1250
+        ],
+        [
+          1636,
+          1185
+        ],
+        [
+          1694,
+          1185
+        ],
+        [
+          1694,
+          1145
+        ],
+        [
+          1719,
+          1145
+        ],
+        [
+          1719,
+          1185
+        ],
+        [
+          1754,
+          1185
+        ],
+        [
+          1754,
+          855
+        ]
+      ],
+      "after_polygon_px": [
+        [
+          1636.0,
+          1185.0
+        ],
+        [
+          1636.0,
+          1250.0
+        ],
+        [
+          1884.0,
+          1250.0
+        ],
+        [
+          1914.0,
+          1240.0
+        ],
+        [
+          1939.0,
+          1215.0
+        ],
+        [
+          1949.0,
+          1180.0
+        ],
+        [
+          1949.0,
+          855.0
+        ],
+        [
+          1754.0,
+          855.0
+        ],
+        [
+          1754.0,
+          1090.0
+        ],
+        [
+          1754.0,
+          1185.0
+        ],
+        [
+          1719.0,
+          1185.0
+        ],
+        [
+          1694.0,
+          1185.0
+        ]
+      ],
+      "reason": "配液室入口小L形范围从原输液留观块中扣除，防止重复占地。"
+    }
+  ],
+  "layout_inferences": [
+    {
+      "source": "S035",
+      "target": "S033",
+      "reason": "西药房后场朝西侧工作人员通道组织，与中药房及药房柜台区域相邻；保留既有概念关系，门扇不清，不生成红点。"
+    },
+    {
+      "source": "S072",
+      "target": "S076",
+      "reason": "用户在K01确认S072只经S076进入，概念连接已同步；无清晰门位，不产生红点。"
+    },
+    {
+      "source": "S075",
+      "target": "S082",
+      "reason": "南侧独立电梯嵌在大厅边缘，面向S075，按交通核整体记录，不推断内部小间路线。"
+    }
+  ],
+  "not_required_details": [
+    {
+      "space_ids": [
+        "S079",
+        "S081"
+      ],
+      "reason": "资料室、小清洁/卫生辅助间具体入口未辨明，本轮不细究；未补人员关系，不表示不相通。"
+    },
+    {
+      "space_ids": [
+        "S073"
+      ],
+      "reason": "合并功能块中的小隔间不细分，仅记录可见朝S075的门。"
+    }
+  ],
+  "opening_audit_file": "20261107_填写同步与连通验收/连通性测试结果.json",
+  "image_signature": {
+    "file": "35_阳春京伦妇产医院_原图.jpg",
+    "width": 2444,
+    "height": 3260,
+    "sha256": "9526aa0f3b97f294cb32845f6e68804682f926678ab69f95fddc249e468224c8"
+  },
+  "visual_evidence": {
+    "full_svg_reviewed": true,
+    "dense_regions_reviewed": [
+      "诊疗与休息室",
+      "庭院与药房",
+      "合并大厅",
+      "影像诊室",
+      "门厅东侧",
+      "南侧清洁间"
+    ],
+    "directory": "20261107_填写同步与连通验收",
+    "opening_ids_and_positions_preserved": true,
+    "pending_review_ids": [],
+    "note": "用户填写已归档。主要通行组织按概念精度验收；S079与S081具体内部入口本轮不细究，未记录边不构成不可达负例。"
+  },
+  "space_merges": [
+    {
+      "retired_space_id": "S043",
+      "surviving_space_id": "S042",
+      "answer": "S042与S043之间 合并 ，他们就是大厅的一部分，",
+      "retired_space": {
+        "id": "S043",
+        "name": "灰色区域东侧通道",
+        "type": "corridor",
+        "level": "open_space",
+        "scope": "public_service",
+        "polygon_px": [
+          [
+            1126,
+            976
+          ],
+          [
+            1126,
+            1035
+          ],
+          [
+            954,
+            1035
+          ],
+          [
+            954,
+            976
+          ]
+        ],
+        "area_ratio": 0.00441977
+      },
+      "relation_remaps": [
+        {
+          "relation_id": "R052",
+          "field": "source",
+          "before": "S043",
+          "after": "S042"
+        }
+      ]
+    }
+  ],
+  "confirmed_continuity": [
+    {
+      "source": "S004",
+      "target": "S007",
+      "relation_id": "R132",
+      "answer": "休息室，外面的大厅连接在一起",
+      "reason": "休息室与外部公共通道连续；仅新增概念关系，保留原S004—S006连续连接。"
+    }
+  ],
+  "final_audit_file": "20261107_填写同步与连通验收/连通性测试结果.json"
+}

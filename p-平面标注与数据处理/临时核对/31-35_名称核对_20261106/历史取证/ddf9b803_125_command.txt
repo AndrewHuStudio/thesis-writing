@@ -1,0 +1,34 @@
+uv run --with shapely python - <<'PY'
+import json
+from shapely.geometry import Polygon
+from collections import Counter
+from pathlib import Path
+p=Path('p-写作过程/标注试样/31_暨南大学附属第一医院综合楼工程/annotation.json')
+d=json.loads(p.read_text());m={s['id']:s for s in d['spaces']};ps={k:Polygon(s['polygon_px']) for k,s in m.items()}
+print('relations',Counter(r['type'] for r in d['relations']))
+for r in d['relations']:
+ if r['type']!='entrance':
+  dist=ps[r['source']].distance(ps[r['target']])
+  if dist>5:print('DISTANCE',r,round(dist,2))
+PY
+python - <<'PY'
+from pathlib import Path
+import xml.etree.ElementTree as E
+p=Path('p-写作过程/标注试样/31_暨南大学附属第一医院综合楼工程/标注.svg')
+r=E.fromstring(p.read_text());w=float(r.attrib['width']);h=float(r.attrib['height']);n='{http://www.w3.org/2000/svg}'
+o=E.Element(n+'svg',{'width':str(h),'height':str(h),'viewBox':f'0 0 {h} {h}'})
+g=E.SubElement(o,n+'g',{'transform':f'translate({(h-w)/2} 0)'})
+for a in list(r):g.append(a)
+E.ElementTree(o).write('/tmp/outpatient31-review/annotation-square.svg',encoding='unicode')
+PY
+qlmanage -t -s 4000 -o /tmp/outpatient31-review /tmp/outpatient31-review/annotation-square.svg
+python - <<'PY'
+from PIL import Image
+im=Image.open('/tmp/outpatient31-review/annotation-square.svg.png');print('square',im.size)
+im.resize((1500,1500)).save('/tmp/outpatient31-review/svg-full-preview.png')
+# Original SVG is centered inside the square wrapper. Inspect dense original top room cluster and image zone.
+scale=im.width/3417
+im.crop(tuple(round(v*scale) for v in (1300,480,1990,900))).save('/tmp/outpatient31-review/svg-dense-preview.png')
+rv=Image.open('/tmp/outpatient31-review/31_高清核对总图.png')
+rv.crop((20,1610,3700,3220)).resize((1840,805)).save('/tmp/outpatient31-review/review-dense-preview.png')
+PY

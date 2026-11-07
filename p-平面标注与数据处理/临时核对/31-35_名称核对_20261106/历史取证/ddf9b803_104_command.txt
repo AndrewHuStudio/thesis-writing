@@ -1,0 +1,5 @@
+python - <<'PY'
+from PIL import Image
+im=Image.open('/tmp/outpatient31-review/标注.svg.png');print(im.size)
+im.resize((1200,round(im.height*1200/im.width))).save('/tmp/outpatient31-review/annotation-overview.png')
+PY

@@ -1,0 +1,10 @@
+mkdir -p /tmp/outpatient31-review; python - <<'PY'
+from PIL import Image
+from pathlib import Path
+p=Path('p-写作过程/标注试样/31_暨南大学附属第一医院综合楼工程/31_暨南大学附属第一医院综合楼工程_原图.jpg')
+im=Image.open(p)
+print(im.size)
+im.transpose(Image.Transpose.ROTATE_90).save('/tmp/outpatient31-review/upright.png')
+im.transpose(Image.Transpose.ROTATE_90).resize((2000,1500)).save('/tmp/outpatient31-review/overview.png')
+PY
+cat /tmp/outpatient30-review/ocr.swift

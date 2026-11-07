@@ -1,0 +1,6 @@
+uv run --with pillow python - <<'PY'
+from PIL import Image
+im=Image.open('p-写作过程/标注试样/33_西京医院住院二部翻建工程/33_西京医院住院二部翻建工程_原图.jpg')
+for n,b in [('组装',(628,795,743,913)),('右侧值班',(2212,790,2325,905)),('南侧外签',(150,2438,245,2510))]:
+ im.crop(b).resize(((b[2]-b[0])*5,(b[3]-b[1])*5)).save('/tmp/outpatient33-review/'+n+'.png')
+PY

@@ -1,0 +1,11 @@
+python - <<'PY'
+from PIL import Image,ImageDraw,ImageFont
+im=Image.open('p-写作过程/标注试样/32_青岛大学附属医院东区病房综合楼/32_青岛大学附属医院东区病房综合楼_原图.jpg')
+d=ImageDraw.Draw(im);f=ImageFont.truetype('/System/Library/Fonts/Supplemental/Arial.ttf',20)
+for x in range(300,2101,100):
+ d.line((x,200,x,3000),fill='#ffaaaa',width=1)
+ for y in range(200,3001,400):d.text((x,y),str(x),font=f,fill='red')
+for y in range(200,3001,100):
+ d.line((300,y,2100,y),fill='#ffaaaa',width=1);d.text((300,y),str(y),font=f,fill='red')
+im.save('/tmp/outpatient32-review/坐标参考.png')
+PY

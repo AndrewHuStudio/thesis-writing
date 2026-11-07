@@ -1,0 +1,271 @@
+cat > /tmp/outpatient28-review/build_annotation.py <<'PY'
+from pathlib import Path
+import json,hashlib
+from shapely.geometry import Polygon
+P=Path('/Users/hushili/Documents/研究-论文写作/大论文/p-写作过程/标注试样/28_广东省人民医院心脑血管专科医院一期项目')
+image=next(P.glob('*.jpg')); initial_hash=hashlib.sha256(image.read_bytes()).hexdigest()
+spaces=[]; reviews=[]; relations=[]; groups={}; ref={}
+def rect(x1,y1,x2,y2): return [[x1,y1],[x2,y1],[x2,y2],[x1,y2]]
+def add(key,name,typ,b,scope,level='room',candidate='',basis='',confidence='低',group=''):
+ sid=f'S{len(spaces)+1:03d}'; poly=rect(*b) if len(b)==4 and isinstance(b[0],(int,float)) else b
+ spaces.append(dict(id=sid,name=name or '名称未确认',type=typ if name else 'unknown',level=level,scope=scope,polygon_px=poly))
+ ref[key]=sid
+ if not name: reviews.append(dict(id=sid,candidate=candidate or '未知用途',basis=basis or '房名模糊，缺少足以确定用途的图面证据',confidence=confidence,group=group))
+ return sid
+def a(key,name,typ,b,**kw):return add(key,name,typ,b,scope,group=group,**kw)
+def u(key,b,c='',basis='',cf='低',level='room'):return a(key,None,'unknown',b,candidate=c,basis=basis,confidence=cf,level=level)
+def rel(k1,k2,typ='access'):
+ s,t=ref[k1],ref[k2]
+ if not any(r['source'] in (s,t) and r['target'] in (s,t) and r['type']==typ for r in relations):relations.append(dict(id=f'R{len(relations)+1:03d}',source=s,target=t,type=typ))
+def ent(key,name,typ,pos):
+ n=1+sum(r['type']=='entrance' for r in relations);relations.append(dict(id=f'E{n:02d}',source=None,target=ref[key],type='entrance',name=name,entrance_type=typ,position_px=pos))
+# 北侧中心供应：从上至下，每排从左到右；设备工作区按可见功能块记录。
+scope='sterile_supply';group='A 北侧中心供应'
+u('cssd_yellow',[[429,595],[537,595],[537,551],[724,551],[724,655],[651,655],[651,675],[537,675],[537,712],[429,712]],'检查包装区／清洁工作区','黄色连续工作区，邻接下方疑似灭菌设备带；无可读完整房名','中',level='functional_block')
+u('cssd_store',(726,552,798,627),'库房／工作人员用房','供应区上侧独立小房间，房名疑似含库字','低')
+u('cssd_office',(801,552,837,627),'办公室','独立小房间，原字形疑似办公','中')
+u('cssd_duty',(840,552,875,599),'值班室／工作人员用房','位于交通核旁的小房间，字形不完整','低')
+u('cssd_food',(878,552,912,627),'工作人员用房','上侧独立房间；图面文字不足','低')
+a('cssd_lift','电梯交通核','vertical_core',(915,552,950,626),level='core_block')
+a('cssd_corepass','供应区交通核前通道','corridor',[[953,551],[986,551],[986,752],[878,752],[878,715],[953,715]],level='open_space')
+a('cssd_wcore','西北交通核','vertical_core',(156,595,313,712),level='core_block')
+u('cssd_red',(316,595,425,790),'去污区／清洗消毒区','红色连续区位于供应区西端，与清洁区相邻；原字不可可靠辨读','中',level='functional_block')
+a('cssd_top_pass','供应区内部通道','corridor',[[726,629],[838,629],[838,600],[876,600],[876,843],[840,843],[840,659],[726,659]],level='open_space')
+a('cssd_wc','中心供应卫生间','toilet',(879,630,950,712))
+u('cssd_ster',(539,678,650,712),'灭菌区／灭菌设备带','成排设备状矩形，与两侧工作区衔接','中',level='functional_block')
+u('cssd_yellow_room',(653,659,762,712),'无菌物品库／洁物库','黄色独立房间，位于设备带东侧；名称不清','低')
+u('cssd_mchange',(765,661,798,712),'男更衣室','成对小房间，字形疑似男更','中')
+u('cssd_fchange',(801,661,837,712),'女更衣室','成对小房间，字形疑似女更','中')
+a('cssd_wpass','供应区西侧通道','corridor',[[156,715],[313,715],[313,753],[260,753],[260,827],[313,827],[313,843],[205,843],[205,758],[156,758]],level='open_space')
+u('cssd_green',[[429,715],[648,715],[648,844],[456,844],[456,790],[429,790]],'无菌物品存放区／无菌库','绿色大区的文字疑似无菌物品存放；可见文字不完整','中',level='functional_block')
+u('cssd_linen',(651,715,723,782),'敷料存放／敷料处理','位于供应工作区与东侧房间之间，字形疑似敷料','低')
+u('cssd_lowerstore',(726,715,837,790),'收包区／洁物收发','蓝色较大房间，靠内部通道，字形不清','低')
+u('cssd_wsmall1',(263,755,312,788),'工作人员用房','供应区西侧小房间，房名模糊','低')
+u('cssd_wsmall2',(263,791,312,826),'库房／清洁用房','供应区西侧小房间，房名模糊','低')
+u('cssd_water',(316,793,398,837),'水处理间','字形疑似水处理，处于供应区西南端','中')
+u('cssd_small',(401,793,426,837),'工作人员用房','狭小独立房间，原文不清','低')
+u('cssd_steam',[[651,785],[723,785],[723,793],[763,793],[763,844],[651,844]],'蒸汽／设备支持用房','供应区下侧独立房间，字形疑似蒸字','低')
+u('cssd_smallb1',(766,794,799,844),'工作人员用房','供应区下侧小房间，文字无法可靠辨认','低')
+u('cssd_smallb2',(802,794,837,844),'工作人员用房','供应区下侧小房间，文字无法可靠辨认','低')
+a('cssd_bottompass','供应区南侧通道','corridor',[[205,846],[877,846],[877,876],[205,858]],level='open_space')
+# 北侧住院服务及医院街上端。
+scope='inpatient_support';group='B 北侧住院服务与医院街'
+a('north_maincore','北侧楼梯电梯交通核','vertical_core',(990,551,1086,712),level='core_block')
+a('north_elevator','北侧东电梯组','vertical_core',(1168,552,1218,712),level='core_block')
+a('north_lift_hall','北侧电梯厅','hall',(1089,552,1165,712),level='open_space')
+a('inpatient_lobby','住院大厅','hall',(1221,552,1576,712),level='open_space')
+a('north_servicehall','住院服务大厅','hall',[[879,754],[988,754],[988,715],[1577,715],[1577,876],[1219,876],[1219,818],[879,818]],level='open_space')
+a('inpatient_pharm','住院药房','pharmacy',(879,821,1043,875),level='functional_block')
+a('admission','出入院登记','registration',(1046,821,1216,875),level='semi_open_space')
+scope='public_service';group='C 医院街中段'
+u('street_void_n',(1298,880,1499,1035),'采光庭院／中庭','医院街内白色矩形、无家具，轮廓清晰但未见可读名称','低',level='open_space')
+a('street_west','医院街西通道','corridor',(1219,880,1294,2073),level='open_space')
+a('street_east','医院街东通道','corridor',(1504,880,1577,2073),level='open_space')
+a('street_cross_n','医院街北中段','hall',[[1297,1038],[1501,1038],[1501,1237],[1466,1237],[1466,1114],[1332,1114],[1332,1237],[1297,1237]],level='open_space')
+a('street_core_n','医院街中北交通核','vertical_core',(1335,1117,1463,1237),level='core_block')
+u('street_void_s',(1298,1241,1499,1708),'采光庭院／中庭','医院街内纵向白色矩形，未见室内家具或可读名称','低',level='open_space')
+a('street_cross_s','医院街南中段','hall',[[1297,1712],[1331,1712],[1331,1839],[1466,1839],[1466,1712],[1501,1712],[1501,2073],[1297,2073]],level='open_space')
+a('street_core_s','医院街中南交通核','vertical_core',(1335,1713,1463,1836),level='core_block')
+# 影像科：上部 MR/CT 片区。
+scope='imaging';group='D 影像科上部'
+a('img_core_n','影像科西北交通核','vertical_core',[[369,1352],[382,1307],[411,1272],[449,1246],[488,1236],[488,1293],[450,1293],[450,1352]],level='core_block')
+a('img_northpass','影像科北侧患者通道','corridor',(492,1238,1094,1274),level='open_space')
+a('img_wait_n','影像科北候诊区','hall',(1098,1238,1216,1474),level='open_space')
+a('mr1','MR检查室（西）','imaging',(493,1278,576,1393))
+a('mr_ctrl','MR控制室','imaging',(580,1278,641,1393))
+a('mr2','MR检查室（东）','imaging',(645,1278,729,1393))
+a('ct1','CT检查室（西）','imaging',(733,1278,819,1365))
+a('ct_ctrl','CT控制室','imaging',(823,1278,881,1365))
+a('ct2','CT检查室（东）','imaging',(885,1278,972,1365))
+u('ct_inject',(976,1278,1009,1365),'注射室／准备室','紧邻CT，字形疑似注射','中')
+u('ct_door',(1013,1278,1050,1365),'门控室／准备室','CT东侧蓝色小房间，文字疑似门字','低')
+u('ct_change',(1054,1278,1093,1365),'更衣室','位于CT片区端头，字形疑似更衣','中')
+a('img_wpass','影像科西侧工作人员通道','corridor',[[451,1296],[488,1296],[488,1833],[451,1833]],level='open_space')
+a('img_doc','影像科医生办公室','office',(371,1357,447,1474))
+a('img_ctpass','CT片区工作人员通道','corridor',[[733,1369],[1094,1369],[1094,1393],[761,1393],[761,1476],[733,1476]],level='open_space')
+a('mr_equipment1','MR设备室（西）','equipment_room',(493,1397,576,1474))
+u('mr_support',(580,1397,608,1474),'气瓶间／设备支持用房','MR设备室旁狭长房间，原文字形疑似气字','低')
+a('mr_branchpass','MR工作人员支通道','corridor',(612,1397,641,1476),level='open_space')
+a('mr_equipment2','MR设备室（东）','equipment_room',(645,1397,729,1474))
+a('img_doctor2','影像科医生办公室（内）','office',(765,1397,848,1474))
+a('img_chief','影像科主任办公室','office',(852,1397,886,1474))
+u('img_support1',(890,1397,926,1474),'阅片室／资料室','位于医生办公室旁，房名无法完整识别','低')
+u('img_support2',(930,1397,968,1474),'值班室／办公室','蓝色独立小房间，文字不清','低')
+u('img_support3',(972,1397,1009,1474),'值班室／办公室','蓝色独立小房间，文字不清','低')
+a('img_fchange','影像科女更衣室','staff_support',(1013,1397,1050,1474))
+a('img_mchange','影像科男更衣室','staff_support',(1054,1397,1093,1474))
+# 影像中段。
+group='E 影像科中部'
+a('img_staff_n','影像科中北工作人员通道','corridor',(491,1478,1094,1514),level='open_space')
+u('img_wsmall1',(371,1479,447,1515),'主任办公室／工作人员用房','西侧成排支持房间，字形近似主任','低')
+u('img_wsmall2',(371,1519,447,1553),'资料室／阅片室','西侧蓝色支持房间，文字模糊','低')
+u('img_blue_mid',(493,1518,608,1594),'阅片室','字形疑似阅片，处于影像工作人员通道旁','中')
+u('img_green1',(612,1518,688,1594),'普放检查室／钼靶检查室','绿色检查房，有设备示意；文字不可可靠识别','低')
+u('img_control1',(692,1518,729,1594),'设备控制室','与绿色检查房成对，蓝色窄房并有门','中')
+u('img_control2',(733,1518,771,1594),'设备控制室','与右侧检查房成对，蓝色窄房','中')
+u('img_green2',(775,1518,850,1594),'普放检查室／透视检查室','绿色检查房，有设备示意；原名不清','低')
+a('dr1','DR检查室（西）','imaging',(854,1518,930,1594))
+u('img_control3',(934,1518,969,1594),'DR控制室','处于DR检查室之间，蓝色窄房','中')
+u('img_control4',(973,1518,1011,1594),'DR控制室','与东侧DR配套，蓝色窄房','中')
+a('dr2','DR检查室（东）','imaging',(1015,1518,1093,1594))
+a('img_mwc','影像科男卫生间','toilet',(1136,1478,1216,1536))
+a('img_fwc','影像科女卫生间','toilet',(1136,1540,1216,1595))
+u('img_mchange2',(1098,1478,1132,1536),'男更衣室','邻接男卫生间，字形疑似病人更衣','中')
+u('img_fchange2',(1098,1540,1132,1595),'女更衣室','邻接女卫生间，字形疑似病人更衣','中')
+u('img_wsmall3',(371,1557,447,1592),'值班室／工作人员用房','西侧蓝色小房间，原名不清','低')
+u('img_wsmall4',(371,1596,447,1632),'阅片室／资料室','西侧蓝色小房间，文字不完整','低')
+a('img_branch_w','影像科西侧联系通道','corridor',(491,1598,608,1633),level='open_space')
+a('img_patient_mid','影像科中部患者通道','corridor',(612,1598,1094,1633),level='open_space')
+a('img_wait_mid','影像科中候诊区','hall',(1098,1599,1216,1748),level='open_space')
+# 影像下段。
+group='F 影像科下部与商业'
+u('img_wsmall5',(371,1636,447,1673),'阅片室／工作人员用房','西侧蓝色小房间，字形不清','低')
+u('img_wsmall6',(371,1677,447,1708),'处置室／工作人员用房','西侧最后一间蓝色小房，原名不清','低')
+a('img_film','影像科片库','storage',(493,1637,608,1710))
+u('img_green3',(612,1637,688,1710),'普放检查室／透视检查室','绿色检查房，有设备示意；房名不清','低')
+u('img_control5',(692,1637,729,1710),'设备控制室','与西侧绿色检查房成对','中')
+u('img_control6',(733,1637,771,1710),'设备控制室','位于两间绿色检查房之间','中')
+u('img_green4',(775,1637,850,1710),'普放检查室／透视检查室','绿色检查房，有设备示意；房名不清','低')
+u('img_control7',(854,1637,890,1710),'设备控制室','与东侧较大检查房邻接','中')
+u('img_gi',(894,1637,971,1710),'胃肠检查室／胃肠机房','房名疑似胃肠机，且有成套设备示意','中')
+u('img_blue1',(975,1637,1011,1710),'值班室／设备用房','影像科南排蓝色小房间，文字不清','低')
+u('img_blue2',(1015,1637,1051,1710),'打印室','字形疑似打印，邻接登记室','中')
+a('img_reg','影像科登记室','registration',(1055,1637,1093,1710))
+a('img_core_s','影像科西南交通核','vertical_core',(371,1713,447,1832),level='core_block')
+a('img_staff_s','影像科南侧工作人员通道','corridor',(491,1714,1094,1748),level='open_space')
+a('img_wait_s','影像科南候诊区','hall',(1098,1752,1216,1833),level='open_space')
+scope='public_service'
+a('shop1','超市','retail_service',(493,1752,729,1833),level='functional_block')
+a('shop2','书店','retail_service',(733,1752,850,1833),level='functional_block')
+a('shop3','花店','retail_service',(854,1752,971,1833),level='functional_block')
+a('shop4','咖啡','retail_service',(975,1752,1093,1833),level='functional_block')
+# 南侧横向医院街及门诊大厅。
+group='G 南侧医院街与门诊大厅'
+a('street_south','南侧医院街','hall',(1158,2077,2338,2152),level='open_space')
+a('outpatient_lobby','门诊大厅','hall',(1162,2156,1636,2598),level='open_space')
+# 急诊与药房。仍按相邻片区依次，不跳向东侧门诊。
+scope='emergency';group='H 急诊北部与门急诊药房'
+a('em_wc','急诊北侧卫生间','toilet',(450,2077,531,2150))
+a('em_obs','留观区','observation',[[577,2078],[1154,2078],[1154,2150],[887,2150],[887,2218],[885,2276],[577,2276]],level='functional_block')
+a('em_pass_n','急诊北部通道','corridor',[[535,2078],[573,2078],[573,2278],[884,2278],[884,2320],[448,2320],[448,2281],[535,2281]],level='open_space')
+u('em_triage',(887,2155,969,2217),'护士站','柜台状半开敞空间，文字疑似护士站','中',level='semi_open_space')
+a('em_duty','急诊值班室','staff_support',(889,2221,969,2276))
+a('em_core_n','急诊东北交通核','vertical_core',[[974,2156],[1154,2156],[1154,2217],[1018,2217],[1018,2277],[974,2277]],level='core_block')
+a('em_core_w','急诊西北交通核','vertical_core',(450,2155,531,2276),level='core_block')
+u('em_iso',[[361,2226],[445,2171],[445,2276],[400,2276]],'隔离区／隔离室','弧形外墙旁独立房间，原字疑似隔离区','中')
+scope='pharmacy_support'
+a('out_pharm','门急诊药房','pharmacy',[[889,2281],[1017,2281],[1017,2221],[1154,2221],[1154,2478],[889,2478]],level='functional_block')
+scope='emergency'
+u('em_surgery',[[417,2396],[429,2356],[449,2324],[502,2324],[502,2396]],'手术室／抢救室','弧侧独立绿色房，字形更接近手术','中')
+u('em_red',(506,2324,531,2396),'设备间／交通设施','狭长红色区，构造不清，不能仅凭颜色确定用途','低')
+u('em_blue_top1',(535,2324,572,2358),'设备用房／处置支持','急诊中岛上排小房间，字形不清','低')
+u('em_green_top',(576,2324,617,2358),'消毒室／清洁用房','小房间位于疑似抢救区上侧，字形疑似消字','低')
+u('em_blue_top2',(621,2324,654,2358),'处置室／治疗室','急诊中岛上排房间，字形不清','低')
+u('em_blue_top3',(695,2324,730,2358),'男更衣室／男厕','成对小房间之一，字形疑似男字','低')
+u('em_blue_top4',(734,2324,771,2396),'卫生间／工作人员用房','位于医生房间旁，原名疑似卫生','低')
+a('em_doc','急诊医生办公室','office',(775,2324,852,2396))
+u('em_big_green',(535,2362,617,2478),'抢救室／治疗室','急诊中岛较大绿色房间，多组床位或设备示意','中',level='functional_block')
+u('em_big_blue',(621,2362,654,2478),'抢救支持／治疗支持用房','与绿色大房间并置，原文字不清','低')
+u('em_blue_mid',(695,2362,730,2396),'女更衣室／女厕','与上方小房成对，文字疑似女字','低')
+a('em_innerpass','急诊中岛内部通道','corridor',[[658,2324],[691,2324],[691,2399],[852,2399],[852,2429],[658,2429]],level='open_space')
+u('em_small_w1',(418,2400,463,2426),'卫生间／清洁支持','弧侧上方房间的附属小房，文字模糊','低')
+u('em_small_w2',(467,2400,531,2426),'处置支持用房','急诊西端附属小房，原名不清','低')
+u('em_wblue',[[418,2430],[531,2430],[531,2478],[450,2478]],'清创室／缝合室','弧侧蓝色房，位置邻急诊入口；原字形不足','低')
+u('em_blueb1',(658,2433,694,2478),'诊室','原字疑似诊字，位于急诊中岛南排','低')
+u('em_blueb2',(698,2433,734,2478),'清创室／处置室','急诊南排蓝色小房间，文字不清','低')
+u('em_blueb3',(738,2433,774,2478),'输液支持／治疗室','急诊南排蓝色小房间，文字不清','低')
+u('em_blueb4',(778,2433,814,2478),'配药室／处置室','急诊南排蓝色小房间，文字疑似配字','低')
+u('em_nurse',[[818,2433],[854,2433],[854,2478],[818,2478]],'护士站','位于中岛通道端部，原字疑似护士站','中',level='semi_open_space')
+a('em_eastpass','急诊药房西侧联系通道','corridor',(857,2281,885,2478),level='open_space')
+# 急诊南侧，弧形大厅与一列房间。
+group='I 急诊南侧'
+a('em_mainhall','急诊大厅与候诊通道','hall',[[285,2333],[296,2280],[321,2236],[358,2229],[397,2280],[532,2280],[532,2320],[448,2320],[425,2355],[413,2399],[414,2448],[445,2482],[1154,2482],[1154,2517],[748,2517],[748,2553],[657,2553],[657,2545],[609,2545],[609,2553],[572,2553],[572,2558],[532,2558],[532,2565],[487,2565],[487,2558],[448,2558],[448,2549],[405,2549],[405,2530],[369,2500],[353,2523],[323,2483],[298,2422]],level='open_space')
+u('em_south_nurse',[[354,2527],[369,2504],[401,2532],[388,2556]],'护士站／分诊台','弧侧候诊区端部，字形疑似护士站','中',level='semi_open_space')
+u('em_arc1',[[390,2560],[405,2534],[446,2553],[428,2608]],'诊室／治疗室','沿弧形外墙的绿色房间，未能可靠读名','低')
+u('em_arc2',[[432,2610],[450,2562],[484,2562],[474,2624]],'诊室／治疗室','急诊弧形南排绿色房间，房名模糊','低')
+u('em_arc3',[[478,2625],[488,2569],[529,2569],[529,2634]],'诊室／治疗室','急诊弧形南排绿色房间，房名模糊','低')
+u('em_arc4',[[533,2634],[533,2562],[569,2562],[569,2633]],'诊室／治疗室','急诊弧形南排绿色房间，房名模糊','低')
+u('em_arc5',[[573,2632],[573,2557],[606,2557],[606,2625]],'诊室／治疗室','急诊弧形南排绿色房间，房名模糊','低')
+u('em_arc6',[[610,2624],[610,2549],[654,2549],[654,2607]],'诊室／处置室','急诊弧形南排绿色房间，房名模糊','低')
+u('em_green_s0',(658,2520,774,2598),'留观／治疗用房','较大绿色房间，床位状示意，房名不清','低')
+u('em_green_s1',[[778,2521],[893,2521],[893,2626],[778,2639]],'治疗／输液用房','绿色房间带小附属间，多组设备或床位示意','低')
+u('em_green_s2',[[897,2521],[971,2521],[971,2617],[897,2626]],'治疗／输液用房','绿色房间带小附属间，名称不清','低')
+u('em_green_s3',[[975,2521],[1091,2521],[1091,2602],[975,2617]],'治疗／输液用房','绿色房间带小附属间，名称不清','低')
+u('em_green_s4',[[1095,2521],[1154,2521],[1154,2611],[1095,2602]],'治疗／诊室','急诊南排端部绿色房间，房名不清','低')
+# 东侧门诊：顶端服务片区，随后每一排由西至东。
+scope='ordinary_outpatient';group='J 东侧门诊北部'
+u('out_reg',(1639,2157,1774,2226),'门诊收费／门诊挂号','大厅旁蓝灰色服务区，原字疑似门诊收费','中',level='semi_open_space')
+a('out_core_w','门诊西北交通核','vertical_core',[[1778,2157],[1822,2157],[1822,2276],[1699,2276],[1699,2230],[1778,2230]],level='core_block')
+a('out_wc','门诊北侧卫生间','toilet',(1826,2157,1903,2276))
+a('out_wait1','门诊西候诊区','hall',(1944,2157,2082,2276),level='open_space')
+a('out_nurse1','门诊西护士站','nurse_station',(1944,2238,2027,2263),level='semi_open_space')
+# 候诊与护士站不能重复计面积：候诊轮廓扣除柜台，分成无洞凹多边形。
+s=spaces[-2];s['polygon_px']=[[1944,2157],[2082,2157],[2082,2276],[1944,2276],[1944,2265],[2029,2265],[2029,2236],[1944,2236]]
+a('out_wait2','门诊东候诊区','hall',[[2086,2157],[2237,2157],[2237,2276],[2086,2276],[2086,2265],[2229,2265],[2229,2236],[2086,2236]],level='open_space')
+a('out_nurse2','门诊东护士站','nurse_station',(2086,2238,2227,2263),level='semi_open_space')
+a('out_core_e','门诊东北交通核','vertical_core',(2262,2157,2338,2276),level='core_block')
+a('out_phlebo','门诊采血区','laboratory',(1639,2230,1695,2518),level='semi_open_space')
+a('out_court1','门诊西庭院','courtyard',(1699,2281,1822,2518),level='open_space')
+a('out_court2','门诊东庭院','courtyard',(2027,2281,2144,2518),level='open_space')
+# 四列小房间，6排；每排从左到右。核心名称保持unknown。
+group='K 东侧门诊成排小房间'
+ys=[2282,2322,2361,2401,2440,2480,2519]
+cols=[(1827,1903),(1944,2022),(2149,2227),(2262,2338)]
+for row in range(6):
+ for col,(x1,x2) in enumerate(cols):
+  u(f'consult_{row+1}_{col+1}',(x1,ys[row],x2,ys[row+1]-3),'诊室','沿门诊通道重复布置，单间有桌椅或诊床示意；无可读房名','中')
+a('out_pass_w','门诊西纵向通道','corridor',(1907,2157,1940,2519),level='open_space')
+a('out_pass_e','门诊东纵向通道','corridor',(2231,2157,2258,2519),level='open_space')
+group='L 东侧门诊南排'
+a('out_pass_s','门诊南侧通道','corridor',(1639,2523,2338,2554),level='open_space')
+u('out_south1',[[1641,2559],[1700,2559],[1700,2628],[1641,2636]],'日间用房／日间治疗','南排西端蓝色房，房名疑似日字','低')
+u('out_south2',[[1704,2559],[1822,2559],[1822,2623],[1761,2615],[1704,2627]],'多功能用房／诊疗支持','南排较大蓝色房，原名不清','低')
+u('out_south3',[[1826,2559],[1863,2559],[1863,2630],[1826,2624]],'值班室／工作人员用房','与走廊相接的蓝色小房，文字模糊','低')
+u('out_south4',[[1867,2559],[1902,2559],[1902,2637],[1867,2630]],'更衣室','蓝色小房，字形疑似更衣','中')
+xs=[1906,1946,1987,2027,2067,2107,2147,2187,2227,2267]
+bottom=[2642,2646,2648,2648,2646,2642,2637,2630,2623,2617]
+for i in range(9):
+ u(f'out_sconsult{i+1}',[[xs[i],2559],[xs[i+1]-4,2559],[xs[i+1]-4,bottom[i+1]],[xs[i],bottom[i]]],'诊室／治疗室','门诊南排绿色小房，布置重复，文字不可辨','中')
+u('out_south5',[[2270,2559],[2303,2559],[2303,2612],[2270,2616]],'值班室／工作人员用房','东端蓝色小房，原名模糊','低')
+u('out_south6',[[2307,2559],[2338,2559],[2338,2608],[2307,2612]],'更衣室','东端蓝色小房，字形疑似更衣','中')
+# 图上可直接看到的概念通行；不依据共墙或色块直接连通。
+for pair in [('cssd_top_pass','cssd_bottompass'),('cssd_wpass','cssd_bottompass'),('cssd_corepass','north_servicehall'),('north_maincore','north_servicehall'),('north_elevator','north_lift_hall'),('north_lift_hall','north_servicehall'),('inpatient_lobby','north_servicehall'),('north_servicehall','street_west'),('north_servicehall','street_east'),('street_west','street_cross_n'),('street_east','street_cross_n'),('street_cross_n','street_core_n'),('street_west','street_cross_s'),('street_east','street_cross_s'),('street_cross_s','street_core_s'),('street_west','street_south'),('street_east','street_south'),('street_south','outpatient_lobby')]:rel(*pair)
+# 供应区仅记清楚门口，模糊工作区间暂不编造。
+for k in ['cssd_office','cssd_store','cssd_mchange','cssd_fchange','cssd_lowerstore']:
+ rel(k,'cssd_top_pass')
+for k in ['cssd_wcore','cssd_wsmall1','cssd_wsmall2','cssd_water']:
+ rel(k,'cssd_wpass')
+# 影像交通通道和图示门口。
+for p in [('img_wpass','img_staff_n'),('img_wpass','img_branch_w'),('img_wpass','img_staff_s'),('img_staff_n','mr_branchpass'),('img_staff_n','img_ctpass'),('img_patient_mid','img_wait_mid'),('img_northpass','img_wait_n'),('img_staff_s','img_wait_s'),('img_wait_n','street_west'),('img_wait_mid','street_west'),('img_wait_s','street_west'),('img_wait_n','img_wait_mid'),('img_wait_mid','img_wait_s')]:rel(*p)
+for k in ['mr1','mr_ctrl','mr2','ct1','ct_ctrl','ct2','ct_inject']:rel(k,'img_northpass')
+for k in ['ct1','ct_ctrl','ct2','ct_door','ct_change','img_doctor2','img_chief','img_support1','img_support2','img_support3','img_fchange','img_mchange']:rel(k,'img_ctpass')
+for k in ['mr_equipment1','mr_support','mr_equipment2','img_blue_mid','img_green1','img_control1','img_control2','img_green2','dr1','img_control3','img_control4','dr2']:rel(k,'img_staff_n')
+for k in ['img_green1','img_control1','img_control2','img_green2','dr1','img_control3','img_control4','dr2','img_green3','img_control5','img_control6','img_green4','img_control7','img_gi','img_blue1','img_blue2','img_reg']:rel(k,'img_patient_mid')
+for k in ['img_film','img_green3','img_control5','img_control6','img_green4','img_control7','img_gi','img_blue2','img_reg']:rel(k,'img_staff_s')
+for k in ['img_core_n','img_doc','img_wsmall1','img_wsmall2','img_wsmall3','img_wsmall4','img_wsmall5','img_wsmall6','img_core_s']:rel(k,'img_wpass')
+for k in ['img_mwc','img_mchange2']:rel(k,'img_wait_n')
+for k in ['img_fwc','img_fchange2']:rel(k,'img_wait_mid')
+# 门诊商铺入口朝南侧外廊，原图看不清，不推定从影像通道穿入。
+# 急诊与药房。
+for p in [('em_pass_n','em_mainhall'),('em_pass_n','em_obs'),('em_pass_n','em_duty'),('em_pass_n','em_core_w'),('em_pass_n','em_core_n'),('em_pass_n','em_triage'),('em_mainhall','em_innerpass'),('em_innerpass','em_eastpass'),('em_eastpass','em_pass_n'),('em_eastpass','em_mainhall'),('em_mainhall','outpatient_lobby'),('em_obs','street_south')]:rel(*p)
+for k in ['em_doc','em_blue_top3','em_blue_top4','em_blue_mid','em_blueb1','em_blueb2','em_blueb3','em_blueb4']:rel(k,'em_innerpass')
+for k in ['em_iso','em_wblue','em_surgery','em_south_nurse','em_arc1','em_arc2','em_arc3','em_arc4','em_arc5','em_arc6','em_green_s0','em_green_s1','em_green_s2','em_green_s3','em_green_s4']:rel(k,'em_mainhall')
+rel('out_pharm','outpatient_lobby','service')
+rel('out_pharm','em_pass_n')
+# 东侧成排小房间的开门凹口清晰。
+for row in range(1,7):
+ for col in range(1,5):rel(f'consult_{row}_{col}','out_pass_w' if col<=2 else 'out_pass_e')
+for p in [('out_pass_w','street_south'),('out_pass_e','street_south'),('out_pass_w','out_pass_s'),('out_pass_e','out_pass_s'),('out_pass_s','outpatient_lobby'),('out_core_w','out_reg'),('out_core_e','out_pass_e'),('out_reg','street_south'),('out_wait1','out_pass_w'),('out_wait2','out_pass_e')]:rel(*p)
+for k in ['out_south1','out_south2','out_south3','out_south4','out_south5','out_south6']+[f'out_sconsult{i}' for i in range(1,10)]:rel(k,'out_pass_s')
+rel('out_nurse1','out_wait1','service');rel('out_nurse2','out_wait2','service');rel('out_phlebo','outpatient_lobby','service');rel('out_reg','outpatient_lobby','service');rel('admission','north_servicehall','service')
+# 外部入口与医院街内部接口分开：只录图上可辨认的外部出入口。
+ent('inpatient_lobby','住院入口','inpatient',[1399,552]);ent('cssd_corepass','中心供应北侧出入口','staff',[968,551]);ent('north_lift_hall','北侧交通厅出入口','staff',[1127,552]);ent('north_servicehall','住院服务东侧出入口','public',[1577,730]);ent('north_servicehall','住院服务东南出入口','public',[1536,876]);ent('img_wpass','影像科西南出入口','staff',[471,1833]);ent('em_pass_n','急诊北侧出入口','staff',[553,2078]);ent('em_mainhall','急诊西侧入口（北）','emergency',[312,2296]);ent('em_mainhall','急诊西侧入口（南）','emergency',[328,2489]);ent('outpatient_lobby','门诊入口','outpatient',[1399,2598])
+D=dict(image=dict(file=image.name,width=2444,height=3260),spaces=spaces,relations=relations)
+(P/'annotation.json').write_text(json.dumps(D,ensure_ascii=False,indent=2)+'\n')
+for i,r in enumerate(reviews,1):r['number']=f'{i:02d}'
+Path('/tmp/outpatient28-review/review-map.json').write_text(json.dumps(reviews,ensure_ascii=False,indent=2))
+Path('/tmp/outpatient28-review/ref.json').write_text(json.dumps(ref,ensure_ascii=False,indent=2))
+Path('/tmp/outpatient28-review/original-sha256.txt').write_text(initial_hash+'\n')
+print('spaces',len(spaces),'pending',len(reviews),'relations',len(relations))
+PY
+python /tmp/outpatient28-review/build_annotation.py

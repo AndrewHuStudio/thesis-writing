@@ -1,0 +1,12 @@
+uv run --with pymupdf --with shapely python /Users/hushili/.codex/skills/outpatient-plan-annotation/scripts/annotation_tools.py summary 'p-写作过程/标注试样/35_阳春京伦妇产医院/annotation.json' --output 'p-写作过程/标注试样/35_阳春京伦妇产医院/标注说明.md' && uv run --with pymupdf --with shapely --with pillow python /tmp/outpatient35-review/render_review.py && uv run --with pymupdf --with shapely --with pillow python - <<'PY'
+import pymupdf
+from PIL import Image
+from pathlib import Path
+root=Path('p-写作过程/标注试样/35_阳春京伦妇产医院')
+doc=pymupdf.open(root/'标注.svg')
+p=doc[0]
+p.get_pixmap(alpha=False).save('/tmp/outpatient35-review/35_SVG检查.png')
+for name,bounds in [('西北密集',(385,610,1265,1455)),('西南密集',(385,1600,1270,2200)),('东南密集',(1385,1585,2280,2200))]:
+ p.get_pixmap(matrix=pymupdf.Matrix(2,2),clip=pymupdf.Rect(*bounds),alpha=False).save('/tmp/outpatient35-review/SVG_'+name+'.png')
+print('SVG whole and 3 dense detail views rendered')
+PY
