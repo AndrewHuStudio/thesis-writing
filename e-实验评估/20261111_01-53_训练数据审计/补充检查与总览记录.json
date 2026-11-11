@@ -1,0 +1,118 @@
+{
+  "svg_space_name_type_issues": [],
+  "area_ratio_derivation_issues": [],
+  "normalization_roundtrip_max_error_px": 4.547473508864641e-13,
+  "normalization_frame_status": "provisional_geometry_frame_not_verified_building_boundary",
+  "endpoint_distance_gt_px": {
+    "1": 2722,
+    "2": 2239,
+    "5": 751,
+    "10": 161,
+    "20": 12,
+    "50": 0
+  },
+  "endpoint_distance_gt_relative_longside": {
+    "0.001": 2233,
+    "0.002": 919,
+    "0.005": 85,
+    "0.01": 14,
+    "0.02": 0
+  },
+  "shared_opening_positions": [
+    {
+      "plan": "51_喀什地区塔什库尔干县人民医院新院区",
+      "position_px": [
+        1206,
+        570
+      ],
+      "items": [
+        {
+          "opening": "P067",
+          "relation": "R001",
+          "source": "S001",
+          "target": "S002"
+        },
+        {
+          "opening": "P010",
+          "relation": "R050",
+          "source": "S067",
+          "target": "S001"
+        }
+      ],
+      "status": "review_shared_location_not_automatic_duplicate_error"
+    }
+  ],
+  "types": {
+    "hall": 484,
+    "service": 112,
+    "entrance": 79,
+    "vertical_core": 656,
+    "vestibule": 80,
+    "registration": 127,
+    "pharmacy_counter": 36,
+    "office": 540,
+    "pharmacy": 127,
+    "corridor": 850,
+    "toilet": 478,
+    "consultation": 736,
+    "triage": 23,
+    "retail_service": 71,
+    "building_control": 66,
+    "landscape": 52,
+    "staff_support": 565,
+    "treatment": 332,
+    "medication_preparation": 81,
+    "observation": 105,
+    "laboratory": 91,
+    "equipment_room": 79,
+    "storage": 231,
+    "imaging": 322,
+    "examination": 129,
+    "resuscitation": 44,
+    "nurse_station": 88,
+    "service_work_area": 135,
+    "building_services": 295,
+    "waste_handling": 42,
+    "operating_room": 18,
+    "education": 25,
+    "courtyard": 59,
+    "sterile_supply": 38,
+    "conference": 40,
+    "isolation": 16,
+    "patient_preparation": 58,
+    "rehabilitation": 3,
+    "reserved_space": 14,
+    "hospital_logistics": 8,
+    "auxiliary_room": 14,
+    "ward": 58,
+    "unknown": 1029
+  },
+  "levels": {
+    "open_space": 1445,
+    "semi_open_space": 212,
+    "room": 5473,
+    "core_block": 666,
+    "functional_block": 589,
+    "landscape": 51
+  },
+  "scope_codes": 106,
+  "source_212_files_unchanged": true,
+  "all_53_overview_images_inspected": true,
+  "overview_scope": "global_image_and_candidate_overlay_only_not_every_room_or_door_semantic_verification",
+  "per_plan_overview_notes": {
+    "03": "存在分翼和独立单元；保留多部件边界，不用凸包跨填空地。",
+    "13": "原图为拍摄页，见纸张遮挡和轻微透视；边界及尺度提取前检查校正。",
+    "16": "页底含另一图残片；仅提取与当前标注对应的楼层范围。",
+    "17": "同页可见另一层图；仅提取已标注的主要平面。",
+    "27": "同页侧边有另一图残片；未知功能只保留缺失标签状态。",
+    "31": "主平面外另有独立标注单元，需确认是否纳入同一可布置域。",
+    "40": "存在多个组团/图块，需逐块核对目标层与连接范围，保留多部件表达。",
+    "45": "主翼与独立狭长翼之间有室外范围，不自动连成实心大轮廓。",
+    "48": "页面上方存在其它总图线条，提取范围限定为当前标注平面。",
+    "51": "页底存在另一层残片，按外部记录限定已标注完整平面。",
+    "52": "主翼与独立狭长翼分离，需保留组团与室外边界区别。",
+    "53": "建筑轮廓、庭院和潜在屋面/室内外范围须结合原图与原核对限制检查。"
+  },
+  "all_53_boundary_candidates_remain_unverified": true,
+  "all_53_pool_policy": "train_candidate_no_validation_or_test_split"
+}

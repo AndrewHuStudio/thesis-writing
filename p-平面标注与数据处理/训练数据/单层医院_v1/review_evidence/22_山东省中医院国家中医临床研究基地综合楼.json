@@ -1,0 +1,152 @@
+{
+  "name_items": [
+    {
+      "review_id": "01",
+      "space_id": "S010",
+      "status": "confirmed",
+      "answer": "管井",
+      "confirmed_name": "管井",
+      "applied": true
+    },
+    {
+      "review_id": "02",
+      "space_id": "S011",
+      "status": "confirmed",
+      "answer": "新风机房",
+      "confirmed_name": "新风机房",
+      "applied": true
+    },
+    {
+      "review_id": "03",
+      "space_id": "S024",
+      "status": "confirmed",
+      "answer": "内庭院",
+      "confirmed_name": "内庭院",
+      "applied": true
+    },
+    {
+      "review_id": "04",
+      "space_id": "S026",
+      "status": "confirmed",
+      "answer": "管井",
+      "confirmed_name": "管井",
+      "applied": true
+    },
+    {
+      "review_id": "05",
+      "space_id": "S027",
+      "status": "confirmed",
+      "answer": "新风机房",
+      "confirmed_name": "新风机房",
+      "applied": true
+    },
+    {
+      "review_id": "06",
+      "space_id": "S050",
+      "status": "confirmed",
+      "answer": "管井",
+      "confirmed_name": "管井",
+      "applied": true
+    },
+    {
+      "review_id": "07",
+      "space_id": "S053",
+      "status": "confirmed",
+      "answer": "药品库",
+      "confirmed_name": "药品库",
+      "applied": true
+    },
+    {
+      "review_id": "08",
+      "space_id": "S064",
+      "status": "confirmed",
+      "answer": "管井",
+      "confirmed_name": "管井",
+      "applied": true
+    },
+    {
+      "review_id": "09",
+      "space_id": "S065",
+      "status": "confirmed",
+      "answer": "管井",
+      "confirmed_name": "管井",
+      "applied": true
+    },
+    {
+      "review_id": "10",
+      "space_id": "S061",
+      "status": "confirmed",
+      "answer": "管井",
+      "confirmed_name": "管井",
+      "applied": true
+    },
+    {
+      "review_id": "11",
+      "space_id": "S068",
+      "status": "confirmed",
+      "answer": "出入院手续",
+      "confirmed_name": "出入院手续",
+      "applied": true
+    },
+    {
+      "review_id": "12",
+      "space_id": "S071",
+      "status": "confirmed",
+      "answer": "鲜花超市",
+      "confirmed_name": "鲜花超市",
+      "applied": true
+    },
+    {
+      "review_id": "13",
+      "space_id": "S073",
+      "status": "confirmed",
+      "answer": "休息等候",
+      "confirmed_name": "休息等候",
+      "applied": true
+    }
+  ],
+  "connectivity_items": [
+    {
+      "review_id": "K01",
+      "source": "S025",
+      "target": "S015",
+      "status": "confirmed_disconnected",
+      "answer": "不链接。026链接右侧的走道",
+      "reason": "S026—S015已有access及P053，S025—S026只记共墙。"
+    },
+    {
+      "review_id": "K02",
+      "source": "S045",
+      "target": "S044",
+      "status": "confirmed_connected",
+      "answer": "护士站对外有入口，通过护士站进去",
+      "reason": "R087已同步；无法定位对外门，不新增红点。"
+    }
+  ],
+  "checks": {
+    "connectivity_reviewed": true,
+    "visual_reviewed": true
+  },
+  "property_decisions": [
+    {
+      "review_id": "03",
+      "space_id": "S024",
+      "answer": "都不计入面积",
+      "applied": "S024/S056均为courtyard/open_space，无area_ratio。"
+    }
+  ],
+  "layout_inferences": [
+    "S031—S030保留半墙服务区布局判断，无定位门位。",
+    "S054—S069为无实体隔墙的区域连续。"
+  ],
+  "notes": [
+    "保留用户确认的S025不直连S015，不为全图连通补边。",
+    "管井记录已辨检修门，不作常规患者通路；不细分交通核内部路线。"
+  ],
+  "image_signature": {
+    "file": "22_山东省中医院国家中医临床研究基地综合楼_原图.jpg",
+    "width": 2424,
+    "height": 3244,
+    "sha256": "8e946ed3d386e54bae8a6b5772f28b3074d71e85cc7fa16a8e4db98a2c477053"
+  }
+}

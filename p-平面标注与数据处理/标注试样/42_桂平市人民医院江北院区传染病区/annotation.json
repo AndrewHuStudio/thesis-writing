@@ -711,23 +711,23 @@
       "scope": "fever_outpatient",
       "polygon_px": [
         [
-          1594,
-          2342
+          1472.0,
+          2553.0
         ],
         [
-          1594,
-          2553
+          1594.0,
+          2553.0
         ],
         [
-          1472,
-          2553
+          1594.0,
+          2455.0
         ],
         [
-          1472,
-          2342
+          1472.0,
+          2455.0
         ]
       ],
-      "area_ratio": 0.01387897
+      "area_ratio": 0.00644616
     },
     {
       "id": "S025",
@@ -763,39 +763,39 @@
       "scope": "fever_outpatient",
       "polygon_px": [
         [
-          1457,
-          2342
+          1329.0,
+          2558.0
         ],
         [
-          1457,
-          2553
+          1249.0,
+          2558.0
         ],
         [
-          1396,
-          2553
+          1249.0,
+          2637.0
         ],
         [
-          1396,
-          2637
+          1396.0,
+          2637.0
         ],
         [
-          1249,
-          2637
+          1396.0,
+          2553.0
         ],
         [
-          1249,
-          2558
+          1457.0,
+          2553.0
         ],
         [
-          1329,
-          2558
+          1457.0,
+          2455.0
         ],
         [
-          1329,
-          2342
+          1329.0,
+          2455.0
         ]
       ],
-      "area_ratio": 0.02100338
+      "area_ratio": 0.01320502
     },
     {
       "id": "S027",
@@ -805,23 +805,23 @@
       "scope": "fever_outpatient",
       "polygon_px": [
         [
-          1311,
-          2268
+          1189.0,
+          2553.0
         ],
         [
-          1311,
-          2553
+          1311.0,
+          2553.0
         ],
         [
-          1189,
-          2553
+          1311.0,
+          2393.0
         ],
         [
-          1189,
-          2268
+          1189.0,
+          2393.0
         ]
       ],
-      "area_ratio": 0.01874647
+      "area_ratio": 0.01052434
     },
     {
       "id": "S028",
@@ -2092,6 +2092,84 @@
         ]
       ],
       "area_ratio": 0.00377194
+    },
+    {
+      "id": "S071",
+      "name": "卫生间",
+      "type": "toilet",
+      "scope": "staff_support",
+      "level": "room",
+      "polygon_px": [
+        [
+          1311.0,
+          2268.0
+        ],
+        [
+          1311.0,
+          2393.0
+        ],
+        [
+          1189.0,
+          2393.0
+        ],
+        [
+          1189.0,
+          2268.0
+        ]
+      ],
+      "area_ratio": 0.00822214
+    },
+    {
+      "id": "S072",
+      "name": "卫生间",
+      "type": "toilet",
+      "scope": "staff_support",
+      "level": "room",
+      "polygon_px": [
+        [
+          1457.0,
+          2342.0
+        ],
+        [
+          1457.0,
+          2455.0
+        ],
+        [
+          1329.0,
+          2455.0
+        ],
+        [
+          1329.0,
+          2342.0
+        ]
+      ],
+      "area_ratio": 0.00779836
+    },
+    {
+      "id": "S073",
+      "name": "卫生间",
+      "type": "toilet",
+      "scope": "staff_support",
+      "level": "room",
+      "polygon_px": [
+        [
+          1594.0,
+          2342.0
+        ],
+        [
+          1594.0,
+          2455.0
+        ],
+        [
+          1472.0,
+          2455.0
+        ],
+        [
+          1472.0,
+          2342.0
+        ]
+      ],
+      "area_ratio": 0.00743281
     }
   ],
   "relations": [
@@ -2099,49 +2177,129 @@
       "id": "R001",
       "source": "S002",
       "target": "S001",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P001",
+          "kind": "open_passage",
+          "position_px": [
+            1782,
+            795
+          ]
+        }
+      ]
     },
     {
       "id": "R002",
       "source": "S002",
       "target": "S003",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P002",
+          "kind": "open_passage",
+          "position_px": [
+            1745,
+            1135
+          ]
+        }
+      ]
     },
     {
       "id": "R003",
       "source": "S002",
       "target": "S004",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P003",
+          "kind": "door",
+          "position_px": [
+            1640,
+            1320
+          ]
+        }
+      ]
     },
     {
       "id": "R004",
       "source": "S002",
       "target": "S005",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P004",
+          "kind": "door",
+          "position_px": [
+            1640,
+            1430
+          ]
+        }
+      ]
     },
     {
       "id": "R005",
       "source": "S002",
       "target": "S006",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P005",
+          "kind": "door",
+          "position_px": [
+            1640,
+            1535
+          ]
+        }
+      ]
     },
     {
       "id": "R006",
       "source": "S002",
       "target": "S007",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P006",
+          "kind": "door",
+          "position_px": [
+            1640,
+            1665
+          ]
+        }
+      ]
     },
     {
       "id": "R007",
       "source": "S002",
       "target": "S009",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P007",
+          "kind": "door",
+          "position_px": [
+            1640,
+            1740
+          ]
+        }
+      ]
     },
     {
       "id": "R008",
       "source": "S002",
       "target": "S010",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P008",
+          "kind": "open_passage",
+          "position_px": [
+            1790,
+            1916
+          ]
+        }
+      ]
     },
     {
       "id": "R009",
@@ -2153,169 +2311,449 @@
       "id": "R010",
       "source": "S002",
       "target": "S035",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P009",
+          "kind": "door",
+          "position_px": [
+            1498,
+            1115
+          ]
+        }
+      ]
     },
     {
       "id": "R011",
       "source": "S002",
       "target": "S036",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P010",
+          "kind": "door",
+          "position_px": [
+            1498,
+            1180
+          ]
+        }
+      ]
     },
     {
       "id": "R012",
       "source": "S002",
       "target": "S042",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P011",
+          "kind": "door",
+          "position_px": [
+            1498,
+            1740
+          ]
+        }
+      ]
     },
     {
       "id": "R013",
       "source": "S002",
       "target": "S044",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P012",
+          "kind": "door",
+          "position_px": [
+            1498,
+            1870
+          ]
+        }
+      ]
     },
     {
       "id": "R014",
       "source": "S002",
       "target": "S023",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P013",
+          "kind": "door",
+          "position_px": [
+            1561,
+            2130
+          ]
+        }
+      ]
     },
     {
       "id": "R015",
       "source": "S007",
       "target": "S008",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P014",
+          "kind": "open_passage",
+          "position_px": [
+            1795,
+            1695
+          ]
+        }
+      ]
     },
     {
       "id": "R016",
       "source": "S010",
       "target": "S011",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P015",
+          "kind": "open_passage",
+          "position_px": [
+            1785,
+            2113
+          ]
+        }
+      ]
     },
     {
       "id": "R017",
       "source": "S021",
       "target": "S012",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P016",
+          "kind": "open_passage",
+          "position_px": [
+            1694,
+            2350
+          ]
+        }
+      ]
     },
     {
       "id": "R018",
       "source": "S021",
       "target": "S013",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P017",
+          "kind": "door",
+          "position_px": [
+            1694,
+            2420
+          ]
+        }
+      ]
     },
     {
       "id": "R019",
       "source": "S021",
       "target": "S014",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P018",
+          "kind": "door",
+          "position_px": [
+            1694,
+            2515
+          ]
+        }
+      ]
     },
     {
       "id": "R020",
       "source": "S021",
       "target": "S015",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P019",
+          "kind": "door",
+          "position_px": [
+            1694,
+            2590
+          ]
+        }
+      ]
     },
     {
       "id": "R021",
       "source": "S021",
       "target": "S017",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P020",
+          "kind": "open_passage",
+          "position_px": [
+            1500,
+            2750
+          ]
+        }
+      ]
     },
     {
       "id": "R022",
       "source": "S021",
       "target": "S020",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P021",
+          "kind": "door",
+          "position_px": [
+            1650,
+            2316
+          ]
+        }
+      ]
     },
     {
       "id": "R023",
       "source": "S021",
       "target": "S024",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P022",
+          "kind": "door",
+          "position_px": [
+            1602,
+            2475
+          ]
+        }
+      ]
     },
     {
       "id": "R024",
       "source": "S021",
       "target": "S025",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P023",
+          "kind": "door",
+          "position_px": [
+            1450,
+            2640
+          ]
+        }
+      ]
     },
     {
       "id": "R025",
       "source": "S021",
       "target": "S028",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P024",
+          "kind": "open_passage",
+          "position_px": [
+            1320,
+            2655
+          ]
+        }
+      ]
     },
     {
       "id": "R026",
       "source": "S021",
       "target": "S029",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P025",
+          "kind": "open_passage",
+          "position_px": [
+            1302,
+            2790
+          ]
+        }
+      ]
     },
     {
       "id": "R027",
       "source": "S002",
       "target": "S018",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P026",
+          "kind": "door",
+          "position_px": [
+            1690,
+            1920
+          ]
+        }
+      ]
     },
     {
       "id": "R028",
       "source": "S002",
       "target": "S019",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P027",
+          "kind": "door",
+          "position_px": [
+            1640,
+            2050
+          ]
+        }
+      ]
     },
     {
       "id": "R029",
       "source": "S023",
-      "target": "S024",
-      "type": "access"
+      "target": "S073",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P028",
+          "kind": "door",
+          "position_px": [
+            1510,
+            2333
+          ]
+        }
+      ]
     },
     {
       "id": "R030",
       "source": "S023",
       "target": "S047",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P029",
+          "kind": "open_passage",
+          "position_px": [
+            1498,
+            2205
+          ]
+        }
+      ]
     },
     {
       "id": "R031",
       "source": "S046",
       "target": "S047",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P030",
+          "kind": "door",
+          "position_px": [
+            1450,
+            2088
+          ]
+        }
+      ]
     },
     {
       "id": "R032",
       "source": "S047",
-      "target": "S026",
-      "type": "access"
+      "target": "S072",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P031",
+          "kind": "door",
+          "position_px": [
+            1410,
+            2333
+          ]
+        }
+      ]
     },
     {
       "id": "R033",
       "source": "S048",
-      "target": "S027",
-      "type": "access"
+      "target": "S071",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P032",
+          "kind": "door",
+          "position_px": [
+            1318,
+            2320
+          ]
+        }
+      ]
     },
     {
       "id": "R034",
       "source": "S048",
       "target": "S049",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P033",
+          "kind": "door",
+          "position_px": [
+            1220,
+            2038
+          ]
+        }
+      ]
     },
     {
       "id": "R035",
       "source": "S049",
       "target": "S050",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P034",
+          "kind": "open_passage",
+          "position_px": [
+            1230,
+            2133
+          ]
+        }
+      ]
     },
     {
       "id": "R036",
       "source": "S050",
-      "target": "S027",
-      "type": "access"
+      "target": "S071",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P035",
+          "kind": "open_passage",
+          "position_px": [
+            1230,
+            2260
+          ]
+        }
+      ]
     },
     {
       "id": "R037",
       "source": "S027",
       "target": "S028",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P036",
+          "kind": "door",
+          "position_px": [
+            1220,
+            2559
+          ]
+        }
+      ]
     },
     {
       "id": "R038",
@@ -2327,133 +2765,353 @@
       "id": "R039",
       "source": "S051",
       "target": "S037",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P037",
+          "kind": "open_passage",
+          "position_px": [
+            1181,
+            1112
+          ]
+        }
+      ]
     },
     {
       "id": "R040",
       "source": "S051",
       "target": "S038",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P038",
+          "kind": "open_passage",
+          "position_px": [
+            1181,
+            1196
+          ]
+        }
+      ]
     },
     {
       "id": "R041",
       "source": "S051",
       "target": "S039",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P039",
+          "kind": "open_passage",
+          "position_px": [
+            1181,
+            1395
+          ]
+        }
+      ]
     },
     {
       "id": "R042",
       "source": "S051",
       "target": "S041",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P040",
+          "kind": "open_passage",
+          "position_px": [
+            1181,
+            1520
+          ]
+        }
+      ]
     },
     {
       "id": "R043",
       "source": "S051",
       "target": "S043",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P041",
+          "kind": "door",
+          "position_px": [
+            1181,
+            1740
+          ]
+        }
+      ]
     },
     {
       "id": "R044",
       "source": "S051",
       "target": "S045",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P042",
+          "kind": "door",
+          "position_px": [
+            1181,
+            1842
+          ]
+        }
+      ]
     },
     {
       "id": "R045",
       "source": "S051",
       "target": "S048",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P043",
+          "kind": "door",
+          "position_px": [
+            1181,
+            1960
+          ]
+        }
+      ]
     },
     {
       "id": "R046",
       "source": "S051",
       "target": "S053",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P044",
+          "kind": "open_passage",
+          "position_px": [
+            1049,
+            980
+          ]
+        }
+      ]
     },
     {
       "id": "R047",
       "source": "S051",
       "target": "S055",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P045",
+          "kind": "open_passage",
+          "position_px": [
+            1047,
+            1324
+          ]
+        }
+      ]
     },
     {
       "id": "R048",
       "source": "S051",
       "target": "S056",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P046",
+          "kind": "open_passage",
+          "position_px": [
+            1047,
+            1432
+          ]
+        }
+      ]
     },
     {
       "id": "R049",
       "source": "S051",
       "target": "S057",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P047",
+          "kind": "door",
+          "position_px": [
+            1047,
+            1535
+          ]
+        }
+      ]
     },
     {
       "id": "R050",
       "source": "S051",
       "target": "S058",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P048",
+          "kind": "door",
+          "position_px": [
+            1047,
+            1655
+          ]
+        }
+      ]
     },
     {
       "id": "R051",
       "source": "S051",
       "target": "S059",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P049",
+          "kind": "door",
+          "position_px": [
+            1047,
+            1770
+          ]
+        }
+      ]
     },
     {
       "id": "R052",
       "source": "S051",
       "target": "S060",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P050",
+          "kind": "door",
+          "position_px": [
+            1047,
+            1890
+          ]
+        }
+      ]
     },
     {
       "id": "R053",
       "source": "S051",
       "target": "S062",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P051",
+          "kind": "open_passage",
+          "position_px": [
+            1047,
+            1970
+          ]
+        }
+      ]
     },
     {
       "id": "R054",
       "source": "S051",
       "target": "S064",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P052",
+          "kind": "open_passage",
+          "position_px": [
+            1054,
+            2060
+          ]
+        }
+      ]
     },
     {
       "id": "R055",
       "source": "S051",
       "target": "S065",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P053",
+          "kind": "open_passage",
+          "position_px": [
+            1060,
+            2160
+          ]
+        }
+      ]
     },
     {
       "id": "R056",
       "source": "S051",
       "target": "S066",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P054",
+          "kind": "open_passage",
+          "position_px": [
+            1060,
+            2300
+          ]
+        }
+      ]
     },
     {
       "id": "R057",
       "source": "S051",
       "target": "S067",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P055",
+          "kind": "open_passage",
+          "position_px": [
+            1055,
+            2460
+          ]
+        }
+      ]
     },
     {
       "id": "R058",
       "source": "S051",
       "target": "S030",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P056",
+          "kind": "open_passage",
+          "position_px": [
+            1084,
+            2768
+          ]
+        }
+      ]
     },
     {
       "id": "R059",
       "source": "S051",
       "target": "S031",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P057",
+          "kind": "open_passage",
+          "position_px": [
+            1120,
+            2558
+          ]
+        }
+      ]
     },
     {
       "id": "R060",
       "source": "S051",
       "target": "S068",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P058",
+          "kind": "open_passage",
+          "position_px": [
+            1014,
+            2700
+          ]
+        }
+      ]
     },
     {
       "id": "R061",
@@ -2465,43 +3123,113 @@
       "id": "R062",
       "source": "S053",
       "target": "S054",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P059",
+          "kind": "open_passage",
+          "position_px": [
+            925,
+            1105
+          ]
+        }
+      ]
     },
     {
       "id": "R063",
       "source": "S039",
       "target": "S040",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P060",
+          "kind": "open_passage",
+          "position_px": [
+            1430,
+            1465
+          ]
+        }
+      ]
     },
     {
       "id": "R064",
       "source": "S039",
       "target": "S041",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P061",
+          "kind": "open_passage",
+          "position_px": [
+            1225,
+            1465
+          ]
+        }
+      ]
     },
     {
       "id": "R065",
       "source": "S059",
       "target": "S061",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P062",
+          "kind": "open_passage",
+          "position_px": [
+            880,
+            1809
+          ]
+        }
+      ]
     },
     {
       "id": "R066",
       "source": "S064",
       "target": "S063",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P063",
+          "kind": "open_passage",
+          "position_px": [
+            887,
+            2010
+          ]
+        }
+      ]
     },
     {
       "id": "R067",
       "source": "S034",
       "target": "S051",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P064",
+          "kind": "door",
+          "position_px": [
+            1181,
+            1010
+          ]
+        }
+      ]
     },
     {
       "id": "R068",
       "source": "S033",
       "target": "S002",
-      "type": "access"
+      "type": "access",
+      "openings": [
+        {
+          "id": "P065",
+          "kind": "door",
+          "position_px": [
+            1498,
+            865
+          ]
+        }
+      ]
     },
     {
       "id": "R069",
@@ -2759,6 +3487,70 @@
       "position_px": [
         851,
         2055
+      ]
+    },
+    {
+      "id": "R096",
+      "source": "S071",
+      "target": "S027",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P066",
+          "kind": "open_passage",
+          "position_px": [
+            1265,
+            2393
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R097",
+      "source": "S072",
+      "target": "S026",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P067",
+          "kind": "open_passage",
+          "position_px": [
+            1348,
+            2455
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R098",
+      "source": "S073",
+      "target": "S024",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P068",
+          "kind": "open_passage",
+          "position_px": [
+            1490,
+            2455
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R099",
+      "source": "S021",
+      "target": "S016",
+      "type": "access",
+      "openings": [
+        {
+          "id": "P069",
+          "kind": "open_passage",
+          "position_px": [
+            1694,
+            2680
+          ]
+        }
       ]
     }
   ]
