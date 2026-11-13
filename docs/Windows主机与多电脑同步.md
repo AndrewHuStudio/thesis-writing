@@ -1,10 +1,10 @@
 # Windows 主机与多电脑同步
 
-更新日期：2026-11-07。适用仓库：`AndrewHuStudio/thesis-writing`（私有）。本文说明如何将已有论文、标注及 GCN 小试验带到 Windows 主机，不代表整套平面生成系统已经实现。
+更新日期：2026-11-13。适用仓库：`AndrewHuStudio/thesis-writing`（当日核查为公开；后续以 GitHub 实时状态为准）。本文说明如何将论文、标注及 GCN 实验带到 Windows 主机，不代表整套平面生成系统已经实现。
 
 ## 第一次在 Windows 主机使用
 
-安装 Git for Windows、Git LFS、GitHub CLI 和 Python 3.13；论文 DOCX 使用 Word 或兼容的办公软件打开。下列命令在 PowerShell 执行。GitHub 登录时使用有该私有仓库权限的账号；登录通过浏览器完成，不把令牌写入项目文件。
+安装 Git for Windows、Git LFS、GitHub CLI 和 Python 3.13；论文 DOCX 使用 Word 或兼容的办公软件打开。下列命令在 PowerShell 执行。GitHub 登录时使用有该仓库访问权限的账号（推送还需写权限）；登录通过浏览器完成，不把令牌写入项目文件。
 
 ```powershell
 gh auth login
@@ -46,6 +46,38 @@ py -3.13 -m venv .venv
 当前 PNG 绘图仅自动查找 macOS 字体，Windows 的中文可能显示为方框。可用浏览器打开输出 SVG 查看中文，指标和 JSON 仍可核查；Windows PNG 中文字体尚待适配。`-X utf8` 用于避免 Windows 默认编码影响中文 JSON 和说明文件。
 
 ## 两台电脑之间交接
+
+### 立即收到这次更新
+
+在 Windows 已克隆的论文仓库根目录打开 PowerShell，保存并关闭 Word，确认当前为 `main` 且 `git status --short` 没有输出，再运行以下命令；任一步报错就先处理该错误。
+
+```powershell
+git status --short
+git branch --show-current
+git pull --ff-only origin main
+git lfs pull
+git lfs fsck
+git rev-parse HEAD
+git ls-remote origin refs/heads/main
+```
+
+最后两条的提交号应相同。首次拉取也会拿到“多端同步”Skill，位置为 `.agents/skills/multi-device-sync/`，可在项目中请求“使用多端同步”。该位置参照 [OpenAI 官方技能说明](https://learn.chatgpt.com/docs/build-skills)；未发现时重新打开项目。
+
+### 每两分钟检查并接收
+
+完成首次拉取后，在同一个仓库根目录执行：
+
+```powershell
+py -3 -X utf8 .agents/skills/multi-device-sync/scripts/receive.py --repo . --watch
+```
+
+保持该窗口运行，默认每 120 秒检查一次；Ctrl+C 停止，省略 `--watch` 则只检查并接收一轮。电脑休眠、离线或关闭窗口时无法接收。这不是已安装的开机后台服务，Windows 端仍需执行此命令。
+
+接收器只在 `main`、远端正确、工作区干净且可快进时更新，并下载和校验 LFS。输出 `updated` 表示本轮拿到新版本，`current` 表示本轮版本一致。未提交改动、Office 锁文件（包括被 Git 忽略的锁文件）、本地领先或分叉都会暂停更新，保留本地内容；被忽略的本地文件若与远端新增文件同名，也会阻止合并。LFS 文件仍为占位指针时不报告成功。不会自动提交、推送、stash 或强制覆盖。不要在接收更新时同时编辑同一文件。
+
+`dirty` 时先审阅并提交本地改动，`word_open` 时保存并关闭 Word，`ahead` / `diverged` 时先同步本地提交。`error` 需处理网络、GitHub 登录或 Git LFS，不能当作成功。异常退出遗留的 `.git/multi-device-sync.lock` 只有在确认无接收进程运行后才能移除。
+
+### 日常手工交接
 
 开始工作前，先确认上一台电脑的改动已经推送，再在当前电脑执行：
 

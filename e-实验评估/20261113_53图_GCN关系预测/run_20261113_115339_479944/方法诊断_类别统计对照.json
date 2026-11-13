@@ -1,0 +1,19 @@
+{
+  "created_date": "2026-11-13",
+  "evaluation_scope": "same_53_training_pool_diagnostic_only",
+  "baseline": "pooled_observed_access_density_by_type_level_function_known_pair",
+  "baseline_definition": "For each unordered pair of node feature patterns, divide pooled observed positive access count by pooled candidate pair count across all 53 training plans. This is observed-label density, not calibrated true connection probability.",
+  "ranking_metric": "macro_recall_at_observed_positive_edge_budget_with_fractional_ties",
+  "plans": 53,
+  "nodes": 8431,
+  "nodes_sharing_their_feature_pattern_with_another_node_in_the_same_plan": 7907,
+  "within_plan_duplicate_node_fraction": 0.9378484165579409,
+  "sum_of_distinct_feature_patterns_within_plans": 1472,
+  "candidate_pairs": 878300,
+  "positive_pairs": 8575,
+  "frequency_baseline_macro_recall": 0.13847183712798414,
+  "current_gcn_macro_recall": 0.14774603684762158,
+  "difference_percentage_points": 0.927419971963744,
+  "held_out_evaluation": null,
+  "interpretation": "The current training-pool comparison motivates examining input information and graph construction. It does not establish a generalization advantage or equivalence between models."
+}

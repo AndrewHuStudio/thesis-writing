@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<title>53图首轮GCN关系训练技术路线</title>
+<desc>依据run_20261113_115339_479944的config.json、model.py和实际运行记录绘制。CPU运行，两层残差GCN，正例与未标记学习。</desc>
+<rect width="1600" height="1000" fill="white"/>
+<text x="52" y="65.6" text-anchor="start" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="600" fill="#233247">53图首轮GCN关系训练技术路线</text>
+<text x="52" y="113.8" text-anchor="start" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#52637a">空间清单输入、候选关系评分与参数学习</text>
+<rect x="52" y="170" width="220" height="140" rx="9" fill="#f5f7fa" stroke="#aebdce" stroke-width="2"/>
+<text x="162.0" y="210.7" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="600" fill="#233247">结构化数据</text>
+<text x="162.0" y="247.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">53份平面</text>
+<text x="162.0" y="278.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">8,431个空间节点</text>
+<path d="M272,240 L304,240" fill="none" stroke="#526b89" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="304.0,240.0 293.2,245.2 293.2,234.8" fill="#526b89"/>
+<rect x="304" y="170" width="220" height="140" rx="9" fill="#f5f7fa" stroke="#aebdce" stroke-width="2"/>
+<text x="414.0" y="210.7" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="600" fill="#233247">50维节点特征</text>
+<text x="414.0" y="247.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">43维功能类型</text>
+<text x="414.0" y="278.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">6维层级 + 1维标记</text>
+<path d="M524,240 L556,240" fill="none" stroke="#526b89" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="556.0,240.0 545.2,245.2 545.2,234.8" fill="#526b89"/>
+<rect x="556" y="170" width="220" height="140" rx="9" fill="#f5f7fa" stroke="#aebdce" stroke-width="2"/>
+<text x="666.0" y="210.7" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="600" fill="#233247">输入消息图</text>
+<text x="666.0" y="247.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">空间清单全连接</text>
+<text x="666.0" y="278.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">归一化均值聚合</text>
+<path d="M776,240 L808,240" fill="none" stroke="#526b89" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="808.0,240.0 797.2,245.2 797.2,234.8" fill="#526b89"/>
+<rect x="808" y="170" width="220" height="140" rx="9" fill="#eaf1f9" stroke="#aebdce" stroke-width="2"/>
+<text x="918.0" y="210.7" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="600" fill="#233247">两层残差GCN</text>
+<text x="918.0" y="247.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">50 → 32 → 32</text>
+<text x="918.0" y="278.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">空间节点表示</text>
+<path d="M1028,240 L1060,240" fill="none" stroke="#526b89" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1060.0,240.0 1049.2,245.2 1049.2,234.8" fill="#526b89"/>
+<rect x="1060" y="170" width="220" height="140" rx="9" fill="#eaf1f9" stroke="#aebdce" stroke-width="2"/>
+<text x="1170.0" y="210.7" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="600" fill="#233247">对称空间对解码</text>
+<text x="1170.0" y="247.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">和、绝对差、乘积</text>
+<text x="1170.0" y="278.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">96 → 32 → 1</text>
+<path d="M1280,240 L1312,240" fill="none" stroke="#526b89" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1312.0,240.0 1301.2,245.2 1301.2,234.8" fill="#526b89"/>
+<rect x="1312" y="170" width="220" height="140" rx="9" fill="#f5f7fa" stroke="#aebdce" stroke-width="2"/>
+<text x="1422.0" y="210.7" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="600" fill="#233247">候选连接输出</text>
+<text x="1422.0" y="247.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">access候选分数</text>
+<text x="1422.0" y="278.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">逐图JSON与NPZ</text>
+<rect x="52" y="450" width="320" height="150" rx="9" fill="#f4f0e8" stroke="#c7bda7" stroke-width="2"/>
+<text x="212.0" y="490.7" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="600" fill="#233247">关系监督</text>
+<text x="212.0" y="527.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">8,575对有效access正例</text>
+<text x="212.0" y="558.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">2对明确不连接</text>
+<rect x="52" y="670" width="320" height="130" rx="9" fill="#f4f0e8" stroke="#c7bda7" stroke-width="2"/>
+<text x="212.0" y="710.7" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="600" fill="#233247">总体空间对采样</text>
+<text x="212.0" y="747.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">每图每轮均匀抽取</text>
+<text x="212.0" y="778.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">1,024对空间</text>
+<rect x="540" y="470" width="430" height="180" rx="9" fill="#f4f0e8" stroke="#c7bda7" stroke-width="2"/>
+<text x="755.0" y="510.7" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="600" fill="#233247">非负PU风险与负例监督</text>
+<text x="755.0" y="547.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">正例风险与总体风险估计</text>
+<text x="755.0" y="578.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">非负修正 + 明确负例损失</text>
+<rect x="1090" y="470" width="450" height="180" rx="9" fill="#eaf1f9" stroke="#aebdce" stroke-width="2"/>
+<text x="1315.0" y="510.7" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="600" fill="#233247">AdamW参数更新</text>
+<text x="1315.0" y="547.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">学习率0.003 / 随机种子7</text>
+<text x="1315.0" y="578.0" text-anchor="middle" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#233247">120轮，按图平均损失</text>
+<path d="M372,525 L540,525" fill="none" stroke="#526b89" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="540.0,525.0 529.2,530.2 529.2,519.8" fill="#526b89"/>
+<path d="M372,735 L450,735 L450,605 L540,605" fill="none" stroke="#526b89" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="540.0,605.0 529.2,610.2 529.2,599.8" fill="#526b89"/>
+<path d="M1170,310 L1170,385 L755,385 L755,470" fill="none" stroke="#526b89" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="755.0,470.0 749.8,459.2 760.2,459.2" fill="#526b89"/>
+<text x="775" y="422.1" text-anchor="start" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#52637a">模型分数</text>
+<path d="M970,560 L1090,560" fill="none" stroke="#526b89" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1090.0,560.0 1079.2,565.2 1079.2,554.8" fill="#526b89"/>
+<path d="M1315,650 L1315,735 L1035,735 L1035,350 L918,350 L918,310" fill="none" stroke="#2d659b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="918.0,310.0 923.2,320.8 912.8,320.8" fill="#2d659b"/>
+<text x="1090" y="780.0" text-anchor="start" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#2d659b">反向传播与权重更新</text>
+<text x="540" y="691.2" text-anchor="start" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400" fill="#615646">先验假设 π = min(0.5, 2 × 已记录正例比例)</text>
+<text x="540" y="723.2" text-anchor="start" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="400" fill="#615646">各图分别计算，候选分数待校准</text>
+<text x="52" y="884.8" text-anchor="start" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="600" fill="#233247">本轮配置  CPU · 8,449个参数 · 120轮 · 训练循环6.97秒</text>
+<text x="52" y="924.0" text-anchor="start" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#52637a">输出诊断  训练风险曲线、逐图关系对照、权重重载与数据哈希校验</text>
+<text x="52" y="965.0" text-anchor="start" font-family="STHeiti, PingFang SC, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#52637a">图示范围  全部53图参与训练，本图对应2026-11-13首轮实现</text>
+</svg>
