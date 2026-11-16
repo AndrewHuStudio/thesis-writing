@@ -26,9 +26,11 @@ class SpaceRelationGCN(nn.Module):
             nn.Linear(3 * hidden, hidden), nn.ReLU(), nn.Linear(hidden, 1))
 
     def encode(self, x):
+        x = x.to(self.first.node.weight.device)
         return self.second(self.first(x))
 
     def decode(self, embeddings, pairs):
+        pairs = pairs.to(embeddings.device)
         left, right = embeddings[pairs[:, 0]], embeddings[pairs[:, 1]]
         features = torch.cat((left + right, (left - right).abs(), left * right), dim=1)
         return self.decoder(features).squeeze(-1)

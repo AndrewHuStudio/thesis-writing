@@ -4,6 +4,7 @@ from copy import deepcopy
 from datetime import datetime
 import json
 import math
+import os
 from pathlib import Path
 import platform
 import shutil
@@ -11,6 +12,8 @@ import time
 from zoneinfo import ZoneInfo
 
 import numpy as np
+
+os.environ.setdefault('CUBLAS_WORKSPACE_CONFIG', ':4096:8')
 import torch
 
 from data import fingerprints, load_dataset, sample_training_pairs
@@ -31,6 +34,8 @@ def arguments():
     parser.add_argument('--batch-graphs', type=int, default=8)
     parser.add_argument('--threads', type=int, default=2)
     parser.add_argument('--expected-plans', type=int, default=53)
+    parser.add_argument('--device', default='cpu', help='cpu, cuda:0, or cuda:1')
+    parser.add_argument('--output-dir', type=Path, help='New directory for this run')
     args = parser.parse_args()
     positive = [args.epochs, args.hidden, args.learning_rate, args.prior_multiplier,
                 args.population_pairs, args.batch_graphs, args.threads, args.expected_plans]
@@ -89,6 +94,13 @@ def train(model, samples, args, output):
 
 def execute(args, output):
     root = args.project_root.resolve()
+    device = torch.device(args.device)
+    if device.type not in ('cpu', 'cuda'):
+        raise ValueError('Supported training devices are CPU and CUDA')
+    if device.type == 'cuda':
+        if not torch.cuda.is_available():
+            raise RuntimeError('CUDA was requested but is unavailable')
+        torch.cuda.set_device(device)
     data_dir = root / 'p-平面标注与数据处理/训练数据/单层医院_v1'
     samples, input_paths, vocabulary = load_dataset(data_dir)
     if len(samples) != args.expected_plans:
@@ -110,7 +122,9 @@ def execute(args, output):
         'learning_rate': args.learning_rate, 'prior_multiplier': args.prior_multiplier,
         'population_pairs_per_plan_per_epoch': args.population_pairs,
         'batch_graphs': args.batch_graphs, 'threads': args.threads,
-        'optimizer': 'AdamW', 'weight_decay': 1e-4, 'device': 'cpu',
+        'optimizer': 'AdamW', 'weight_decay': 1e-4, 'device': str(device),
+        'cuda_runtime': torch.version.cuda,
+        'gpu_name': torch.cuda.get_device_name(device) if device.type == 'cuda' else None,
         'python': platform.python_version(), 'platform': platform.platform(),
         'torch': str(torch.__version__), 'numpy': np.__version__,
         'feature_order': vocabulary['node_feature_order'],
@@ -129,7 +143,7 @@ def execute(args, output):
     snapshot.mkdir()
     for path in Path(__file__).parent.glob('*.py'):
         shutil.copy2(path, snapshot / path.name)
-    model = SpaceRelationGCN(50, args.hidden)
+    model = SpaceRelationGCN(50, args.hidden).to(device)
     mean_prior = np.mean([assumed_prior(sample, args.prior_multiplier) for sample in samples])
     torch.nn.init.constant_(model.decoder[-1].bias, math.log(mean_prior / (1 - mean_prior)))
     initial, history, best_epoch = train(model, samples, args, output)
@@ -139,6 +153,7 @@ def execute(args, output):
     temporary.replace(output / 'weights.pt')
     final, rows, predictions = diagnostics(model, samples, args.prior_multiplier)
     reloaded, _ = load_checkpoint(output / 'weights.pt')
+    reloaded.to(device)
     reloaded_metrics, _, reloaded_predictions = diagnostics(reloaded, samples, args.prior_multiplier)
     maximum_difference = max(float(np.abs(left - right).max())
                              for left, right in zip(predictions, reloaded_predictions))
@@ -150,7 +165,7 @@ def execute(args, output):
         'source_files_checked': len(source_paths),
         'source_files_unchanged': source_hashes == fingerprints(source_paths, root),
         'all_plans_used_each_epoch': len(samples),
-        'code_file_line_counts': {p.name: len(p.read_text().splitlines())
+        'code_file_line_counts': {p.name: len(p.read_text(encoding='utf-8').splitlines())
                                   for p in snapshot.glob('*.py')},
         'split': 'all_53_train', 'held_out_evaluation': None,
     }
@@ -171,7 +186,9 @@ def main():
     torch.manual_seed(args.seed)
     torch.use_deterministic_algorithms(True)
     stamp = datetime.now(ZoneInfo('Asia/Shanghai')).strftime('%Y%m%d_%H%M%S_%f')
-    output = args.project_root.resolve() / 'e-实验评估/20261113_53图_GCN关系预测' / f'run_{stamp}'
+    output = args.output_dir or (args.project_root.resolve()
+                                / 'e-实验评估/20261113_53图_GCN关系预测' / f'run_{stamp}')
+    output = output.resolve()
     output.mkdir(parents=True, exist_ok=False)
     write_json(output / 'status.json', {'status': 'running'})
     print(f'OUTPUT_DIRECTORY={output}', flush=True)

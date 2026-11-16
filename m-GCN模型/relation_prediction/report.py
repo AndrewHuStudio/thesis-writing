@@ -9,12 +9,14 @@ from PIL import Image, ImageDraw, ImageFont
 def write_json(path, value):
     path = Path(path)
     temporary = path.with_suffix(path.suffix + '.tmp')
-    temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + '\n')
+    temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + '\n', encoding='utf-8')
     temporary.replace(path)
 
 
 def font(size=15):
     for path in ['/System/Library/Fonts/PingFang.ttc',
+                 'C:/Windows/Fonts/msyh.ttc',
+                 'C:/Windows/Fonts/simhei.ttf',
                  '/System/Library/Fonts/STHeiti Medium.ttc',
                  '/System/Library/Fonts/Hiragino Sans GB.ttc',
                  '/Library/Fonts/Arial Unicode.ttf',
@@ -52,7 +54,7 @@ def curve_image(history, output):
 
 
 def comparison_image(sample, scores, output):
-    source = json.loads(Path(sample['source_path']).read_text())
+    source = json.loads(Path(sample['source_path']).read_text(encoding='utf-8'))
     boxes = np.asarray(source['targets']['boxes'])
     image = Image.new('RGB', (1200, 680), 'white')
     draw = ImageDraw.Draw(image)
@@ -165,4 +167,4 @@ def write_report(output, configuration, initial, final, best_epoch, rows, histor
 - https://arxiv.org/abs/1609.02907
 - https://papers.nips.cc/paper/2017/file/7cce53cf90577442771720a370c3c723-Paper.pdf
 '''
-    (output / '结果说明.md').write_text(report)
+    (output / '结果说明.md').write_text(report, encoding='utf-8')

@@ -92,6 +92,27 @@ class RelationChecks(unittest.TestCase):
         result = metrics.budget_recall(np.array([.8, .7, .6]), np.array([1, 1, -1]), 2)
         self.assertEqual(result, 1)
 
+    @unittest.skipUnless(torch.cuda.is_available(), 'CUDA is unavailable')
+    def test_cuda_accepts_cpu_inputs_and_returns_numpy_diagnostics(self):
+        data = self.api('data')
+        module = self.api('model')
+        metrics = self.api('metrics')
+        device = torch.device('cuda:1' if torch.cuda.device_count() > 1 else 'cuda:0')
+        sample = data.prepare_sample(self.example())
+        torch.manual_seed(7)
+        cpu_model = module.SpaceRelationGCN(50, 16).eval()
+        gpu_model = module.SpaceRelationGCN(50, 16).to(device).eval()
+        gpu_model.load_state_dict(cpu_model.state_dict())
+        expected = cpu_model.score_pairs(sample['x'], sample['all_pairs'])
+        actual = gpu_model.score_pairs(sample['x'], sample['all_pairs'])
+        torch.testing.assert_close(actual.cpu(), expected, rtol=1e-4, atol=1e-5)
+        summary, _, predictions = metrics.diagnostics(gpu_model, [sample], 2.)
+        self.assertEqual(summary['plans'], 1)
+        self.assertTrue(np.isfinite(predictions[0]).all())
+        loss = module.graph_loss(gpu_model, sample, sample['all_pairs'], 2.)
+        loss.backward()
+        self.assertTrue(all(torch.isfinite(p.grad).all() for p in gpu_model.parameters()))
+
 
 if __name__ == '__main__':
     torch.set_num_threads(2)

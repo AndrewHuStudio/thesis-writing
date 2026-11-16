@@ -34,13 +34,13 @@ def diagnostics(model, samples, multiplier):
     for sample in samples:
         logits = score_sample(model, sample)
         labels = sample['pair_labels']
-        positive_logits = logits[torch.from_numpy(labels == 1)]
+        positive_logits = logits[torch.from_numpy(labels == 1).to(logits.device)]
         prior = assumed_prior(sample, multiplier)
         risk = pu_risk(positive_logits, logits, prior)
-        negative_logits = logits[torch.from_numpy(labels == 0)]
+        negative_logits = logits[torch.from_numpy(labels == 0).to(logits.device)]
         if negative_logits.numel():
             risk += torch.nn.functional.softplus(negative_logits).mean()
-        scores = logits.sigmoid().numpy()
+        scores = logits.sigmoid().cpu().numpy()
         rows.append({
             'plan_id': sample['plan_id'], 'nodes': len(sample['x']),
             'candidate_pairs': len(scores), 'known_positives': int((labels == 1).sum()),

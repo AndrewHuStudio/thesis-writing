@@ -1,0 +1,126 @@
+{
+  "status": "complete",
+  "pid": 123736,
+  "device": "cuda:1",
+  "epochs_per_run": 120,
+  "seeds": [
+    7,
+    19,
+    43
+  ],
+  "evaluation_scope": "training_pool_diagnostics",
+  "prior_multiplier": 2.0,
+  "runs": [
+    {
+      "seed": 7,
+      "directory": "D:\\AA2024胡时利\\thesis-writing\\e-实验评估\\20261114_Windows显卡训练\\batch_20261114_103153_574675\\seed_7",
+      "result": {
+        "status": "complete",
+        "best_epoch": 120,
+        "epochs_completed": 120,
+        "metrics": {
+          "evaluation_scope": "all_53_training_plans",
+          "macro_pu_risk_plus_known_negatives": 0.10140164140260445,
+          "macro_recall_at_observed_edge_budget": 0.14464546741842055,
+          "plans": 53,
+          "known_positive_pairs": 8575,
+          "known_negative_pairs": 2
+        }
+      },
+      "verification": {
+        "checkpoint_reload_max_absolute_score_difference": 0.0,
+        "checkpoint_reload_metrics_identical": true,
+        "input_files_checked": 55,
+        "input_files_unchanged": true,
+        "source_files_checked": 371,
+        "source_files_unchanged": true,
+        "all_plans_used_each_epoch": 53,
+        "code_file_line_counts": {
+          "data.py": 106,
+          "metrics.py": 65,
+          "model.py": 77,
+          "report.py": 170,
+          "run.py": 203,
+          "test_relations.py": 119,
+          "windows_batch.py": 67
+        },
+        "split": "all_53_train",
+        "held_out_evaluation": null
+      }
+    },
+    {
+      "seed": 19,
+      "directory": "D:\\AA2024胡时利\\thesis-writing\\e-实验评估\\20261114_Windows显卡训练\\batch_20261114_103153_574675\\seed_19",
+      "result": {
+        "status": "complete",
+        "best_epoch": 120,
+        "epochs_completed": 120,
+        "metrics": {
+          "evaluation_scope": "all_53_training_plans",
+          "macro_pu_risk_plus_known_negatives": 0.10425356051550722,
+          "macro_recall_at_observed_edge_budget": 0.14139519983650664,
+          "plans": 53,
+          "known_positive_pairs": 8575,
+          "known_negative_pairs": 2
+        }
+      },
+      "verification": {
+        "checkpoint_reload_max_absolute_score_difference": 0.0,
+        "checkpoint_reload_metrics_identical": true,
+        "input_files_checked": 55,
+        "input_files_unchanged": true,
+        "source_files_checked": 371,
+        "source_files_unchanged": true,
+        "all_plans_used_each_epoch": 53,
+        "code_file_line_counts": {
+          "data.py": 106,
+          "metrics.py": 65,
+          "model.py": 77,
+          "report.py": 170,
+          "run.py": 203,
+          "test_relations.py": 119,
+          "windows_batch.py": 67
+        },
+        "split": "all_53_train",
+        "held_out_evaluation": null
+      }
+    },
+    {
+      "seed": 43,
+      "directory": "D:\\AA2024胡时利\\thesis-writing\\e-实验评估\\20261114_Windows显卡训练\\batch_20261114_103153_574675\\seed_43",
+      "result": {
+        "status": "complete",
+        "best_epoch": 120,
+        "epochs_completed": 120,
+        "metrics": {
+          "evaluation_scope": "all_53_training_plans",
+          "macro_pu_risk_plus_known_negatives": 0.101828812639106,
+          "macro_recall_at_observed_edge_budget": 0.14491431232491198,
+          "plans": 53,
+          "known_positive_pairs": 8575,
+          "known_negative_pairs": 2
+        }
+      },
+      "verification": {
+        "checkpoint_reload_max_absolute_score_difference": 0.0,
+        "checkpoint_reload_metrics_identical": true,
+        "input_files_checked": 55,
+        "input_files_unchanged": true,
+        "source_files_checked": 371,
+        "source_files_unchanged": true,
+        "all_plans_used_each_epoch": 53,
+        "code_file_line_counts": {
+          "data.py": 106,
+          "metrics.py": 65,
+          "model.py": 77,
+          "report.py": 170,
+          "run.py": 203,
+          "test_relations.py": 119,
+          "windows_batch.py": 67
+        },
+        "split": "all_53_train",
+        "held_out_evaluation": null
+      }
+    }
+  ]
+}

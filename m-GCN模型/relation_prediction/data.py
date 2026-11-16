@@ -63,8 +63,8 @@ def load_dataset(directory):
     directory = Path(directory).resolve()
     manifest_path = directory / 'manifest.json'
     vocabulary_path = directory / 'vocabulary.json'
-    manifest = json.loads(manifest_path.read_text())
-    vocabulary = json.loads(vocabulary_path.read_text())
+    manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+    vocabulary = json.loads(vocabulary_path.read_text(encoding='utf-8'))
     if len(vocabulary['node_feature_order']) != 50:
         raise ValueError('Unexpected feature vocabulary')
     samples, paths = [], [manifest_path, vocabulary_path]
@@ -74,7 +74,7 @@ def load_dataset(directory):
         path = (directory / entry['sample']).resolve()
         if not path.is_relative_to(directory):
             raise ValueError('Sample path leaves dataset directory')
-        source = json.loads(path.read_text())
+        source = json.loads(path.read_text(encoding='utf-8'))
         if source['plan_id'] != entry['plan_id']:
             raise ValueError('Sample ID differs from manifest')
         sample = prepare_sample(source)

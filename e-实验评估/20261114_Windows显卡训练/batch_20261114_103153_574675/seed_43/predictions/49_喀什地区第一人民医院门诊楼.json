@@ -1,0 +1,1462 @@
+{
+  "plan_id": "49_喀什地区第一人民医院门诊楼",
+  "split": "train",
+  "diagnostics": {
+    "plan_id": "49_喀什地区第一人民医院门诊楼",
+    "nodes": 82,
+    "candidate_pairs": 3321,
+    "known_positives": 80,
+    "known_negatives": 0,
+    "unlabeled_pairs": 3241,
+    "assumed_prior": 0.04817825956037338,
+    "pu_risk_plus_known_negatives": 0.149327352643013,
+    "recall_at_observed_edge_budget": 0.20892857142857144,
+    "mean_known_positive_score": 0.15065279603004456,
+    "known_negative_scores": [],
+    "distinct_scores": 397
+  },
+  "all_pair_scores": "49_喀什地区第一人民医院门诊楼.npz",
+  "tie_order_for_display": "source_order_only_not_evidence_of_preference",
+  "candidates": [
+    {
+      "source": "S055",
+      "target": "S078",
+      "score_uncalibrated": 0.4976995289325714,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S022",
+      "target": "S029",
+      "score_uncalibrated": 0.41968661546707153,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S022",
+      "target": "S036",
+      "score_uncalibrated": 0.41968661546707153,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S022",
+      "target": "S037",
+      "score_uncalibrated": 0.41968661546707153,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S029",
+      "target": "S035",
+      "score_uncalibrated": 0.41968661546707153,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S035",
+      "target": "S036",
+      "score_uncalibrated": 0.41968661546707153,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S035",
+      "target": "S037",
+      "score_uncalibrated": 0.41968661546707153,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S002",
+      "target": "S055",
+      "score_uncalibrated": 0.415602445602417,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S002",
+      "target": "S078",
+      "score_uncalibrated": 0.415602445602417,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S055",
+      "target": "S059",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S055",
+      "target": "S060",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S055",
+      "target": "S061",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S055",
+      "target": "S074",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S055",
+      "target": "S075",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S055",
+      "target": "S076",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S059",
+      "target": "S078",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S060",
+      "target": "S078",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S061",
+      "target": "S078",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S074",
+      "target": "S078",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S075",
+      "target": "S078",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S076",
+      "target": "S078",
+      "score_uncalibrated": 0.3909420669078827,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S029",
+      "target": "S036",
+      "score_uncalibrated": 0.37838178873062134,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S029",
+      "target": "S037",
+      "score_uncalibrated": 0.37838178873062134,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S036",
+      "target": "S037",
+      "score_uncalibrated": 0.37838178873062134,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S055",
+      "target": "S079",
+      "score_uncalibrated": 0.3696196675300598,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S078",
+      "target": "S079",
+      "score_uncalibrated": 0.3696196675300598,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S008",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S015",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S016",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S028",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S038",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S046",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S015",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S008",
+      "target": "S016",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S008",
+      "target": "S028",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S038",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S046",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S016",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S028",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S038",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S046",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S016",
+      "target": "S028",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S016",
+      "target": "S038",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S046",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S038",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S046",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S038",
+      "target": "S046",
+      "score_uncalibrated": 0.3081650137901306,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S002",
+      "target": "S007",
+      "score_uncalibrated": 0.29298853874206543,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S002",
+      "target": "S008",
+      "score_uncalibrated": 0.29298853874206543,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S002",
+      "target": "S015",
+      "score_uncalibrated": 0.29298853874206543,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S002",
+      "target": "S016",
+      "score_uncalibrated": 0.29298853874206543,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S002",
+      "target": "S028",
+      "score_uncalibrated": 0.29298853874206543,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S002",
+      "target": "S038",
+      "score_uncalibrated": 0.29298853874206543,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S002",
+      "target": "S046",
+      "score_uncalibrated": 0.29298853874206543,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S052",
+      "target": "S053",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S052",
+      "target": "S062",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S052",
+      "target": "S063",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S052",
+      "target": "S064",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S052",
+      "target": "S071",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S052",
+      "target": "S081",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S052",
+      "target": "S082",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S053",
+      "target": "S062",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S053",
+      "target": "S063",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S053",
+      "target": "S064",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S053",
+      "target": "S071",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S053",
+      "target": "S081",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S053",
+      "target": "S082",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S062",
+      "target": "S063",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S062",
+      "target": "S064",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S062",
+      "target": "S071",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S062",
+      "target": "S081",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S062",
+      "target": "S082",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S063",
+      "target": "S064",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S063",
+      "target": "S071",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S063",
+      "target": "S081",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S063",
+      "target": "S082",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S064",
+      "target": "S071",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S064",
+      "target": "S081",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S064",
+      "target": "S082",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S071",
+      "target": "S081",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S071",
+      "target": "S082",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S081",
+      "target": "S082",
+      "score_uncalibrated": 0.2840680181980133,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S024",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S033",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S024",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S033",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S024",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S033",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S024",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S033",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S024",
+      "target": "S028",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S024",
+      "target": "S038",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S024",
+      "target": "S046",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S033",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S033",
+      "target": "S038",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S033",
+      "target": "S046",
+      "score_uncalibrated": 0.27471616864204407,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S025",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S034",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S025",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S034",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S025",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S034",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S025",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S034",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S025",
+      "target": "S028",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S025",
+      "target": "S038",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S025",
+      "target": "S046",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S034",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S034",
+      "target": "S038",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S034",
+      "target": "S046",
+      "score_uncalibrated": 0.23669037222862244,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S043",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S073",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S043",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S073",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S043",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S073",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S043",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S016",
+      "target": "S073",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S043",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S073",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S038",
+      "target": "S043",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S038",
+      "target": "S073",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S043",
+      "target": "S046",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S046",
+      "target": "S073",
+      "score_uncalibrated": 0.22100292146205902,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S040",
+      "score_uncalibrated": 0.20853298902511597,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S040",
+      "score_uncalibrated": 0.20853298902511597,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S040",
+      "score_uncalibrated": 0.20853298902511597,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S040",
+      "score_uncalibrated": 0.20853298902511597,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S028",
+      "target": "S040",
+      "score_uncalibrated": 0.20853298902511597,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S038",
+      "target": "S040",
+      "score_uncalibrated": 0.20853298902511597,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S040",
+      "target": "S046",
+      "score_uncalibrated": 0.20853298902511597,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S029",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S036",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S037",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S029",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S036",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S037",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S029",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S036",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S037",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S029",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S036",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S037",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S029",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S028",
+      "target": "S036",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S037",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S029",
+      "target": "S038",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S029",
+      "target": "S046",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S036",
+      "target": "S038",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S036",
+      "target": "S046",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S037",
+      "target": "S038",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S037",
+      "target": "S046",
+      "score_uncalibrated": 0.19085612893104553,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S021",
+      "score_uncalibrated": 0.17369720339775085,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S021",
+      "score_uncalibrated": 0.17369720339775085,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S021",
+      "score_uncalibrated": 0.17369720339775085,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S021",
+      "score_uncalibrated": 0.17369720339775085,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S021",
+      "target": "S028",
+      "score_uncalibrated": 0.17369720339775085,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S021",
+      "target": "S038",
+      "score_uncalibrated": 0.17369720339775085,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S021",
+      "target": "S046",
+      "score_uncalibrated": 0.17369720339775085,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S020",
+      "target": "S055",
+      "score_uncalibrated": 0.168313667178154,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S020",
+      "target": "S078",
+      "score_uncalibrated": 0.168313667178154,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S023",
+      "target": "S055",
+      "score_uncalibrated": 0.168313667178154,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S023",
+      "target": "S078",
+      "score_uncalibrated": 0.168313667178154,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S032",
+      "target": "S055",
+      "score_uncalibrated": 0.168313667178154,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S032",
+      "target": "S078",
+      "score_uncalibrated": 0.168313667178154,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S054",
+      "target": "S055",
+      "score_uncalibrated": 0.168313667178154,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S054",
+      "target": "S078",
+      "score_uncalibrated": 0.168313667178154,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S055",
+      "target": "S058",
+      "score_uncalibrated": 0.168313667178154,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S058",
+      "target": "S078",
+      "score_uncalibrated": 0.168313667178154,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S012",
+      "target": "S050",
+      "score_uncalibrated": 0.16808857023715973,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S006",
+      "target": "S052",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S006",
+      "target": "S053",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S006",
+      "target": "S062",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S006",
+      "target": "S063",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S006",
+      "target": "S064",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S006",
+      "target": "S071",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S006",
+      "target": "S081",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S006",
+      "target": "S082",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S052",
+      "target": "S065",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S053",
+      "target": "S065",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S062",
+      "target": "S065",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S063",
+      "target": "S065",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S064",
+      "target": "S065",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S065",
+      "target": "S071",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S065",
+      "target": "S081",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S065",
+      "target": "S082",
+      "score_uncalibrated": 0.15946394205093384,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S020",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S023",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S032",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S054",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S058",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S020",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S023",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S032",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S054",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S058",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S020",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S023",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S032",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S054",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S058",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S020",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S023",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S032",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S054",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S058",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S020",
+      "target": "S028",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S020",
+      "target": "S038",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S020",
+      "target": "S046",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S023",
+      "target": "S028",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S023",
+      "target": "S038",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S023",
+      "target": "S046",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S032",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S054",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S058",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S032",
+      "target": "S038",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S032",
+      "target": "S046",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S038",
+      "target": "S054",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S038",
+      "target": "S058",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S046",
+      "target": "S054",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S046",
+      "target": "S058",
+      "score_uncalibrated": 0.14725907146930695,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S001",
+      "target": "S007",
+      "score_uncalibrated": 0.1438601166009903,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S001",
+      "target": "S008",
+      "score_uncalibrated": 0.1438601166009903,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S001",
+      "target": "S015",
+      "score_uncalibrated": 0.1438601166009903,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S001",
+      "target": "S016",
+      "score_uncalibrated": 0.1438601166009903,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S001",
+      "target": "S028",
+      "score_uncalibrated": 0.1438601166009903,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S001",
+      "target": "S038",
+      "score_uncalibrated": 0.1438601166009903,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S001",
+      "target": "S046",
+      "score_uncalibrated": 0.1438601166009903,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S007",
+      "target": "S051",
+      "score_uncalibrated": 0.14304284751415253,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S008",
+      "target": "S051",
+      "score_uncalibrated": 0.14304284751415253,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S015",
+      "target": "S051",
+      "score_uncalibrated": 0.14304284751415253,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S016",
+      "target": "S051",
+      "score_uncalibrated": 0.14304284751415253,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S028",
+      "target": "S051",
+      "score_uncalibrated": 0.14304284751415253,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S038",
+      "target": "S051",
+      "score_uncalibrated": 0.14304284751415253,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S046",
+      "target": "S051",
+      "score_uncalibrated": 0.14304284751415253,
+      "reference_status": "known_access"
+    },
+    {
+      "source": "S029",
+      "target": "S052",
+      "score_uncalibrated": 0.14078755676746368,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S029",
+      "target": "S053",
+      "score_uncalibrated": 0.14078755676746368,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S029",
+      "target": "S062",
+      "score_uncalibrated": 0.14078755676746368,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S029",
+      "target": "S063",
+      "score_uncalibrated": 0.14078755676746368,
+      "reference_status": "unlabeled"
+    },
+    {
+      "source": "S029",
+      "target": "S064",
+      "score_uncalibrated": 0.14078755676746368,
+      "reference_status": "unlabeled"
+    }
+  ]
+}
