@@ -1,0 +1,607 @@
+{
+  "per_seed": [
+    {
+      "model": "program_mean",
+      "seed": null,
+      "all_plans_evaluated_once": true,
+      "summary": {
+        "plans": 53,
+        "source_groups": 48,
+        "fine_rooms_count": {
+          "plan_macro": 85.30188679245283,
+          "group_macro": 91.11458333333333,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_center_error_pct_long_side": {
+          "plan_macro": 35.18133592339541,
+          "group_macro": 35.33066063472764,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_box_iou": {
+          "plan_macro": 0.000525897478966219,
+          "group_macro": 0.0005078433641510446,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_polygon_iou": {
+          "plan_macro": 0.0005260216841167401,
+          "group_macro": 0.0005079806066323891,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_area_relative_error": {
+          "plan_macro": 0.9815924936031177,
+          "group_macro": 1.011722919301924,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_outside_area_fraction": {
+          "plan_macro": 0.08944174409990967,
+          "group_macro": 0.09875859244365026,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_count": {
+          "plan_macro": 52.43396226415094,
+          "group_macro": 54.97222222222222,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_center_error_pct_long_side": {
+          "plan_macro": 32.698734736922994,
+          "group_macro": 32.838302361822535,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_box_iou": {
+          "plan_macro": 0.007618426151049184,
+          "group_macro": 0.00713395983727919,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_polygon_iou": {
+          "plan_macro": 0.006224753153810435,
+          "group_macro": 0.005748415870300605,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_area_relative_error": {
+          "plan_macro": 4.751767911892734,
+          "group_macro": 5.138094358717098,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_outside_area_fraction": {
+          "plan_macro": 0.09546298106231445,
+          "group_macro": 0.10505789534023703,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_overlap_area_fraction": {
+          "plan_macro": 0.6691445958128925,
+          "group_macro": 0.6719172480085233,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_overlap_pair_count": {
+          "plan_macro": 2200.566037735849,
+          "group_macro": 2409.3645833333335,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_identity_box_iou": {
+          "plan_macro": 0.0005258974755942856,
+          "group_macro": 0.0005078433628619273,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "generated_observed_access_bbox_gap": {
+          "plan_macro": 0.016290893504738738,
+          "group_macro": 0.01471697569852242,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "reference_observed_access_bbox_gap": {
+          "plan_macro": 0.0007035220274480223,
+          "group_macro": 0.0006374066367847091,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        }
+      }
+    },
+    {
+      "model": "boundary_gcn",
+      "seed": 7,
+      "all_plans_evaluated_once": true,
+      "summary": {
+        "plans": 53,
+        "source_groups": 48,
+        "fine_rooms_count": {
+          "plan_macro": 85.30188679245283,
+          "group_macro": 91.11458333333333,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_center_error_pct_long_side": {
+          "plan_macro": 31.98626576642646,
+          "group_macro": 31.443724529847376,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_box_iou": {
+          "plan_macro": 0.003799614275321825,
+          "group_macro": 0.003848370536686146,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_polygon_iou": {
+          "plan_macro": 0.003808885993273766,
+          "group_macro": 0.003858608067037215,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_area_relative_error": {
+          "plan_macro": 0.5562400740972047,
+          "group_macro": 0.5461024599092154,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_outside_area_fraction": {
+          "plan_macro": 0.00960004023076093,
+          "group_macro": 0.010204095269910243,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_count": {
+          "plan_macro": 52.43396226415094,
+          "group_macro": 54.97222222222222,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_center_error_pct_long_side": {
+          "plan_macro": 24.616108839637395,
+          "group_macro": 24.083445027984535,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_box_iou": {
+          "plan_macro": 0.032072787236606094,
+          "group_macro": 0.03243450073630924,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_polygon_iou": {
+          "plan_macro": 0.0277524894004125,
+          "group_macro": 0.028388936340232988,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_area_relative_error": {
+          "plan_macro": 2.2313081981690375,
+          "group_macro": 2.344142428520532,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_outside_area_fraction": {
+          "plan_macro": 0.02786262184426233,
+          "group_macro": 0.030504838205903172,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_overlap_area_fraction": {
+          "plan_macro": 0.010730652757056518,
+          "group_macro": 0.010812021127212662,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_overlap_pair_count": {
+          "plan_macro": 13.90566037735849,
+          "group_macro": 14.972222222222223,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_identity_box_iou": {
+          "plan_macro": 0.0006870421282544483,
+          "group_macro": 0.0006655231603597637,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "generated_observed_access_bbox_gap": {
+          "plan_macro": 0.22225313085430073,
+          "group_macro": 0.223938362672925,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "reference_observed_access_bbox_gap": {
+          "plan_macro": 0.0007035220274480223,
+          "group_macro": 0.0006374066367847091,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        }
+      }
+    },
+    {
+      "model": "boundary_gcn",
+      "seed": 19,
+      "all_plans_evaluated_once": true,
+      "summary": {
+        "plans": 53,
+        "source_groups": 48,
+        "fine_rooms_count": {
+          "plan_macro": 85.30188679245283,
+          "group_macro": 91.11458333333333,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_center_error_pct_long_side": {
+          "plan_macro": 32.599518924153266,
+          "group_macro": 32.1676889729787,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_box_iou": {
+          "plan_macro": 0.0045099172421711724,
+          "group_macro": 0.0046232172926996785,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_polygon_iou": {
+          "plan_macro": 0.004526167406090192,
+          "group_macro": 0.004641160241863078,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_area_relative_error": {
+          "plan_macro": 0.6199532473090507,
+          "group_macro": 0.6104782121630445,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_outside_area_fraction": {
+          "plan_macro": 0.010912260547458466,
+          "group_macro": 0.011822419655050704,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_count": {
+          "plan_macro": 52.43396226415094,
+          "group_macro": 54.97222222222222,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_center_error_pct_long_side": {
+          "plan_macro": 24.146035937225854,
+          "group_macro": 23.53452585290694,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_box_iou": {
+          "plan_macro": 0.03201449133636638,
+          "group_macro": 0.03239283090232436,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_polygon_iou": {
+          "plan_macro": 0.027152834519643454,
+          "group_macro": 0.02773413929604801,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_area_relative_error": {
+          "plan_macro": 2.6324000954445883,
+          "group_macro": 2.7751294843370773,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_outside_area_fraction": {
+          "plan_macro": 0.029579895606436073,
+          "group_macro": 0.03238510991264609,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_overlap_area_fraction": {
+          "plan_macro": 0.01774514735201973,
+          "group_macro": 0.01830322496552772,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_overlap_pair_count": {
+          "plan_macro": 24.28301886792453,
+          "group_macro": 26.35763888888889,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_identity_box_iou": {
+          "plan_macro": 0.0007441113186771718,
+          "group_macro": 0.0007134050647437107,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "generated_observed_access_bbox_gap": {
+          "plan_macro": 0.21532505750656128,
+          "group_macro": 0.21591479194143579,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "reference_observed_access_bbox_gap": {
+          "plan_macro": 0.0007035220274480223,
+          "group_macro": 0.0006374066367847091,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        }
+      }
+    },
+    {
+      "model": "boundary_gcn",
+      "seed": 43,
+      "all_plans_evaluated_once": true,
+      "summary": {
+        "plans": 53,
+        "source_groups": 48,
+        "fine_rooms_count": {
+          "plan_macro": 85.30188679245283,
+          "group_macro": 91.11458333333333,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_center_error_pct_long_side": {
+          "plan_macro": 32.18302646081397,
+          "group_macro": 31.752577492940873,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_box_iou": {
+          "plan_macro": 0.0034896720688859955,
+          "group_macro": 0.0035796479021627885,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_polygon_iou": {
+          "plan_macro": 0.003501063147295381,
+          "group_macro": 0.0035922255314851034,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_area_relative_error": {
+          "plan_macro": 0.5731065532630181,
+          "group_macro": 0.5650452851850751,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_outside_area_fraction": {
+          "plan_macro": 0.011673014785302756,
+          "group_macro": 0.012485210618915341,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_count": {
+          "plan_macro": 52.43396226415094,
+          "group_macro": 54.97222222222222,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_center_error_pct_long_side": {
+          "plan_macro": 24.537145104473826,
+          "group_macro": 23.98221330541648,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_box_iou": {
+          "plan_macro": 0.031489314281853455,
+          "group_macro": 0.031479779837366335,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_polygon_iou": {
+          "plan_macro": 0.027401248193129748,
+          "group_macro": 0.027817999891163337,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_area_relative_error": {
+          "plan_macro": 2.3914810855249886,
+          "group_macro": 2.519288345862217,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "other_valid_spaces_outside_area_fraction": {
+          "plan_macro": 0.026681730340833196,
+          "group_macro": 0.029039026827708796,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_overlap_area_fraction": {
+          "plan_macro": 0.012380692005349393,
+          "group_macro": 0.012706808021117932,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_overlap_pair_count": {
+          "plan_macro": 15.754716981132075,
+          "group_macro": 17.03125,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "fine_rooms_identity_box_iou": {
+          "plan_macro": 0.0006906484399704188,
+          "group_macro": 0.0006595775219390513,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "generated_observed_access_bbox_gap": {
+          "plan_macro": 0.21984923630952835,
+          "group_macro": 0.22260337917962011,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        },
+        "reference_observed_access_bbox_gap": {
+          "plan_macro": 0.0007035220274480223,
+          "group_macro": 0.0006374066367847091,
+          "plans_with_measurement": 53,
+          "groups_with_measurement": 48
+        }
+      }
+    }
+  ],
+  "comparisons": {
+    "boundary_gcn": {
+      "seeds": 3,
+      "metrics": {
+        "fine_rooms_count": {
+          "mean": 91.11458333333333,
+          "seed_standard_deviation": 0.0
+        },
+        "fine_rooms_center_error_pct_long_side": {
+          "mean": 31.787996998588984,
+          "seed_standard_deviation": 0.363279554564911
+        },
+        "fine_rooms_box_iou": {
+          "mean": 0.004017078577182871,
+          "seed_standard_deviation": 0.0005418542889122199
+        },
+        "fine_rooms_polygon_iou": {
+          "mean": 0.004030664613461799,
+          "seed_standard_deviation": 0.0005452234386328212
+        },
+        "fine_rooms_area_relative_error": {
+          "mean": 0.5738753190857784,
+          "seed_standard_deviation": 0.033083779916709556
+        },
+        "fine_rooms_outside_area_fraction": {
+          "mean": 0.011503908514625428,
+          "seed_standard_deviation": 0.0011734388858385078
+        },
+        "other_valid_spaces_count": {
+          "mean": 54.97222222222222,
+          "seed_standard_deviation": 0.0
+        },
+        "other_valid_spaces_center_error_pct_long_side": {
+          "mean": 23.866728062102652,
+          "seed_standard_deviation": 0.29211418359848246
+        },
+        "other_valid_spaces_box_iou": {
+          "mean": 0.03210237049199998,
+          "seed_standard_deviation": 0.0005395817233690768
+        },
+        "other_valid_spaces_polygon_iou": {
+          "mean": 0.02798035850914811,
+          "seed_standard_deviation": 0.0003563145140094496
+        },
+        "other_valid_spaces_area_relative_error": {
+          "mean": 2.5461867529066087,
+          "seed_standard_deviation": 0.21674894185785035
+        },
+        "other_valid_spaces_outside_area_fraction": {
+          "mean": 0.03064299164875269,
+          "seed_standard_deviation": 0.0016773141575609067
+        },
+        "fine_rooms_overlap_area_fraction": {
+          "mean": 0.01394068470461944,
+          "seed_standard_deviation": 0.003895044606851515
+        },
+        "fine_rooms_overlap_pair_count": {
+          "mean": 19.453703703703706,
+          "seed_standard_deviation": 6.066971207146414
+        },
+        "fine_rooms_identity_box_iou": {
+          "mean": 0.0006795019156808418,
+          "seed_standard_deviation": 2.9511104542896888e-05
+        },
+        "generated_observed_access_bbox_gap": {
+          "mean": 0.22081884459799364,
+          "seed_standard_deviation": 0.004299167893391485
+        },
+        "reference_observed_access_bbox_gap": {
+          "mean": 0.0006374066367847091,
+          "seed_standard_deviation": 0.0
+        }
+      }
+    },
+    "program_mean": {
+      "seeds": 1,
+      "metrics": {
+        "fine_rooms_count": {
+          "mean": 91.11458333333333,
+          "seed_standard_deviation": null
+        },
+        "fine_rooms_center_error_pct_long_side": {
+          "mean": 35.33066063472764,
+          "seed_standard_deviation": null
+        },
+        "fine_rooms_box_iou": {
+          "mean": 0.0005078433641510446,
+          "seed_standard_deviation": null
+        },
+        "fine_rooms_polygon_iou": {
+          "mean": 0.0005079806066323891,
+          "seed_standard_deviation": null
+        },
+        "fine_rooms_area_relative_error": {
+          "mean": 1.011722919301924,
+          "seed_standard_deviation": null
+        },
+        "fine_rooms_outside_area_fraction": {
+          "mean": 0.09875859244365026,
+          "seed_standard_deviation": null
+        },
+        "other_valid_spaces_count": {
+          "mean": 54.97222222222222,
+          "seed_standard_deviation": null
+        },
+        "other_valid_spaces_center_error_pct_long_side": {
+          "mean": 32.838302361822535,
+          "seed_standard_deviation": null
+        },
+        "other_valid_spaces_box_iou": {
+          "mean": 0.00713395983727919,
+          "seed_standard_deviation": null
+        },
+        "other_valid_spaces_polygon_iou": {
+          "mean": 0.005748415870300605,
+          "seed_standard_deviation": null
+        },
+        "other_valid_spaces_area_relative_error": {
+          "mean": 5.138094358717098,
+          "seed_standard_deviation": null
+        },
+        "other_valid_spaces_outside_area_fraction": {
+          "mean": 0.10505789534023703,
+          "seed_standard_deviation": null
+        },
+        "fine_rooms_overlap_area_fraction": {
+          "mean": 0.6719172480085233,
+          "seed_standard_deviation": null
+        },
+        "fine_rooms_overlap_pair_count": {
+          "mean": 2409.3645833333335,
+          "seed_standard_deviation": null
+        },
+        "fine_rooms_identity_box_iou": {
+          "mean": 0.0005078433628619273,
+          "seed_standard_deviation": null
+        },
+        "generated_observed_access_bbox_gap": {
+          "mean": 0.01471697569852242,
+          "seed_standard_deviation": null
+        },
+        "reference_observed_access_bbox_gap": {
+          "mean": 0.0006374066367847091,
+          "seed_standard_deviation": null
+        }
+      }
+    }
+  },
+  "input_files_unchanged": true,
+  "input_files_checked": 56,
+  "test_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "grouping_status": "provisional_requires_source_identity_review",
+  "total_test_rooms": 4521
+}

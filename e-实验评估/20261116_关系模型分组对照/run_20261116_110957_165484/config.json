@@ -1,0 +1,41 @@
+{
+  "project_root": "D:\\AA2024胡时利\\thesis-writing",
+  "output_dir": null,
+  "device": "cuda:1",
+  "seeds": [
+    7
+  ],
+  "folds": 5,
+  "test_folds": [
+    0
+  ],
+  "epochs": 2,
+  "hidden": 32,
+  "learning_rate": 0.003,
+  "prior_multiplier": 2.0,
+  "population_pairs": 1024,
+  "batch_graphs": 8,
+  "patience_checks": 6,
+  "models": [
+    "mlp",
+    "gcn"
+  ],
+  "created_at": "2026-11-16T11:09:58.957110+08:00",
+  "source_audit_sha256": "5e692863cb747c4d64a6df2142f249645760180085a9b688f9031a26c8ba07d7",
+  "torch": "2.11.0+cu128",
+  "numpy": "2.5.4",
+  "python": "3.12.7",
+  "primary_metric": "group_macro_observed_positive_recall_at_n_candidates",
+  "checkpoint_selection": "validation_group_macro_recall_at_n",
+  "input_features": "existing_50_columns_only",
+  "user_inference_conditions": [
+    "building_boundary",
+    "space_program"
+  ],
+  "evaluation_status": "exploratory_provisional_source_groups",
+  "unknown_pair_policy": "unlabeled_in_PU_training_and_evaluation",
+  "heldout_predictions_use_test_labels": false,
+  "observed_budget_metric_is_diagnostic_only": true,
+  "boundary_used_by_current_comparison_models": false,
+  "hyperparameter_search": false
+}

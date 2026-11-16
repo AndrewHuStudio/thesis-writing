@@ -1,0 +1,6571 @@
+{
+  "source_run": "D:\\AA2024胡时利\\thesis-writing\\e-实验评估\\20261103_09体检区_GCN复原\\run_20261103_110918_324218",
+  "scope": "health_examination",
+  "epochs": 6000,
+  "evaluation_status": "historical_same_graph_fit_diagnostic",
+  "input_conditions": [
+    "type one-hot",
+    "level one-hot",
+    "given conceptual access graph"
+  ],
+  "evaluated_rooms": 28,
+  "boundary": "known_input_boundary_of_current_full_09_plan",
+  "absolute_metric_scale_available": false,
+  "equivalent_room_matching": "not_applied",
+  "matching_note": "Scored by saved identity. Interchangeable-instance matching requires an explicit equivalence definition.",
+  "reference_room_overlap_pair_count": 0,
+  "aggregates": {
+    "gcn": {
+      "mean_center_distance_pct_scope_long_side": {
+        "mean": 11.144844021824078,
+        "seed_standard_deviation": 0.0004634261082650031
+      },
+      "mean_box_iou": {
+        "mean": 0.3174106564135018,
+        "seed_standard_deviation": 0.0002870815296258666
+      },
+      "mean_polygon_iou": {
+        "mean": 0.31741065641350197,
+        "seed_standard_deviation": 0.0002870815296261737
+      },
+      "mean_polygon_area_relative_error": {
+        "mean": 0.03653263508846219,
+        "seed_standard_deviation": 7.208004981595295e-05
+      },
+      "room_overlap_pair_count": {
+        "mean": 90.66666666666667,
+        "seed_standard_deviation": 0.5773502691896257
+      },
+      "room_overlap_area_fraction": {
+        "mean": 0.26239837487223905,
+        "seed_standard_deviation": 1.2378241893497593e-05
+      },
+      "outside_building_area_fraction": {
+        "mean": 0.0,
+        "seed_standard_deviation": 0.0
+      }
+    },
+    "mlp": {
+      "mean_center_distance_pct_scope_long_side": {
+        "mean": 14.71148055609404,
+        "seed_standard_deviation": 4.79026163421896e-09
+      },
+      "mean_box_iou": {
+        "mean": 0.17681236354663066,
+        "seed_standard_deviation": 7.142598965792492e-09
+      },
+      "mean_polygon_iou": {
+        "mean": 0.17681236354663057,
+        "seed_standard_deviation": 7.142598972467326e-09
+      },
+      "mean_polygon_area_relative_error": {
+        "mean": 0.03743959975162844,
+        "seed_standard_deviation": 1.4561370865040874e-09
+      },
+      "room_overlap_pair_count": {
+        "mean": 232.0,
+        "seed_standard_deviation": 0.0
+      },
+      "room_overlap_area_fraction": {
+        "mean": 0.23590527207106896,
+        "seed_standard_deviation": 2.42681515320826e-09
+      },
+      "outside_building_area_fraction": {
+        "mean": 0.0,
+        "seed_standard_deviation": 0.0
+      }
+    }
+  },
+  "runs": [
+    {
+      "model": "gcn",
+      "seed": 7,
+      "metrics": {
+        "evaluation_rooms": 28,
+        "matching": "saved_node_identity",
+        "coordinate_unit": "saved_pilot_scope_long_side",
+        "mean_center_distance_pct_scope_long_side": 11.144540091503393,
+        "mean_box_iou": 0.31760429978687515,
+        "mean_polygon_iou": 0.3176042997868758,
+        "mean_polygon_area_relative_error": 0.03646945136851552,
+        "room_overlap_pair_count": 90,
+        "room_overlap_area_fraction": 0.26238481058182944,
+        "outside_building_area_fraction": 0.0,
+        "outside_room_ids": [],
+        "reference_room_overlap_pair_count": 0,
+        "reference_overlap_area_fraction": 0.0,
+        "overlap_details": [
+          {
+            "source": "S125",
+            "target": "S126",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S125",
+            "target": "S127",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S125",
+            "target": "S128",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S125",
+            "target": "S129",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S125",
+            "target": "S130",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S125",
+            "target": "S131",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S126",
+            "target": "S127",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S126",
+            "target": "S128",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S126",
+            "target": "S129",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S126",
+            "target": "S130",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S126",
+            "target": "S131",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S127",
+            "target": "S128",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S127",
+            "target": "S129",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S127",
+            "target": "S130",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S127",
+            "target": "S131",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S128",
+            "target": "S129",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S128",
+            "target": "S130",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S128",
+            "target": "S131",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S129",
+            "target": "S130",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S129",
+            "target": "S131",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S130",
+            "target": "S131",
+            "area": 0.0039014190544926796
+          },
+          {
+            "source": "S135",
+            "target": "S136",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S135",
+            "target": "S137",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S135",
+            "target": "S138",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S135",
+            "target": "S139",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S135",
+            "target": "S140",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S135",
+            "target": "S141",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S135",
+            "target": "S142",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S135",
+            "target": "S143",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S135",
+            "target": "S145",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S135",
+            "target": "S147",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S135",
+            "target": "S149",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S136",
+            "target": "S137",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S136",
+            "target": "S138",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S136",
+            "target": "S139",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S136",
+            "target": "S140",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S136",
+            "target": "S141",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S136",
+            "target": "S142",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S136",
+            "target": "S143",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S136",
+            "target": "S145",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S136",
+            "target": "S147",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S136",
+            "target": "S149",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S137",
+            "target": "S138",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S137",
+            "target": "S139",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S137",
+            "target": "S140",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S137",
+            "target": "S141",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S137",
+            "target": "S142",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S137",
+            "target": "S143",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S137",
+            "target": "S145",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S137",
+            "target": "S147",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S137",
+            "target": "S149",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S138",
+            "target": "S139",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S138",
+            "target": "S140",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S138",
+            "target": "S141",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S138",
+            "target": "S142",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S138",
+            "target": "S143",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S138",
+            "target": "S145",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S138",
+            "target": "S147",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S138",
+            "target": "S149",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S139",
+            "target": "S140",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S139",
+            "target": "S141",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S139",
+            "target": "S142",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S139",
+            "target": "S143",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S139",
+            "target": "S145",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S139",
+            "target": "S147",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S139",
+            "target": "S149",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S140",
+            "target": "S141",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S140",
+            "target": "S142",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S140",
+            "target": "S143",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S140",
+            "target": "S145",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S140",
+            "target": "S147",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S140",
+            "target": "S149",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S141",
+            "target": "S142",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S141",
+            "target": "S143",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S141",
+            "target": "S145",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S141",
+            "target": "S147",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S141",
+            "target": "S149",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S142",
+            "target": "S143",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S142",
+            "target": "S145",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S142",
+            "target": "S147",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S142",
+            "target": "S149",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S143",
+            "target": "S145",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S143",
+            "target": "S147",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S143",
+            "target": "S149",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S144",
+            "target": "S146",
+            "area": 0.0038831430117037833
+          },
+          {
+            "source": "S144",
+            "target": "S148",
+            "area": 0.0038831430117037833
+          },
+          {
+            "source": "S145",
+            "target": "S147",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S145",
+            "target": "S149",
+            "area": 0.003858914344323844
+          },
+          {
+            "source": "S146",
+            "target": "S148",
+            "area": 0.0038831430117037833
+          },
+          {
+            "source": "S147",
+            "target": "S149",
+            "area": 0.003858914344323844
+          }
+        ],
+        "per_room": [
+          {
+            "id": "S120",
+            "name": "办公室",
+            "bbox_center_distance": 8.537018438658782e-06,
+            "polygon_iou": 0.9996834260893734,
+            "box_iou": 0.9996834260893734,
+            "polygon_area_relative_error": 2.602758900962998e-05,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S121",
+            "name": "办公室",
+            "bbox_center_distance": 9.23043829000904e-06,
+            "polygon_iou": 0.9994787714033542,
+            "box_iou": 0.999478771403354,
+            "polygon_area_relative_error": 0.00010222132361658247,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S122",
+            "name": "污洗间",
+            "bbox_center_distance": 4.092230795058937e-06,
+            "polygon_iou": 0.9998077983934781,
+            "box_iou": 0.99980779839348,
+            "polygon_area_relative_error": 3.5970406796702744e-05,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S124",
+            "name": "细胞室",
+            "bbox_center_distance": 5.949934554027631e-06,
+            "polygon_iou": 0.9997393436848031,
+            "box_iou": 0.9997393436848029,
+            "polygon_area_relative_error": 2.2212122483286602e-05,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S125",
+            "name": "诊室",
+            "bbox_center_distance": 0.16259345222617086,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.031831232760785734,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S126",
+            "name": "诊室",
+            "bbox_center_distance": 0.10909275578682608,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.00506405103149814,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S127",
+            "name": "诊室",
+            "bbox_center_distance": 0.054618132299734216,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.00506405103149814,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S128",
+            "name": "诊室",
+            "bbox_center_distance": 0.00014350906213407664,
+            "polygon_iou": 0.9947243172660568,
+            "box_iou": 0.9947243172660516,
+            "polygon_area_relative_error": 0.005064051031503202,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S129",
+            "name": "诊室",
+            "bbox_center_distance": 0.05433111467642679,
+            "polygon_iou": 5.23539841372865e-05,
+            "box_iou": 5.235398413728649e-05,
+            "polygon_area_relative_error": 0.00506405103149814,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S130",
+            "name": "诊室",
+            "bbox_center_distance": 0.10880573816351605,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.00506405103149814,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S131",
+            "name": "诊室",
+            "bbox_center_distance": 0.16328036165082632,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.00506405103149814,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S132",
+            "name": "体检生活区",
+            "bbox_center_distance": 1.5057391610907502e-06,
+            "polygon_iou": 0.9999824669230303,
+            "box_iou": 0.9999824669230303,
+            "polygon_area_relative_error": 1.1562604678556635e-06,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S134",
+            "name": "换衣间",
+            "bbox_center_distance": 1.7233256414141972e-06,
+            "polygon_iou": 0.9999112612758382,
+            "box_iou": 0.9999112612758347,
+            "polygon_area_relative_error": 1.4407724183617876e-05,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S135",
+            "name": "诊室",
+            "bbox_center_distance": 0.320857057335895,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04169027599733,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S136",
+            "name": "诊室",
+            "bbox_center_distance": 0.26735636089648007,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.006153205229467845,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S137",
+            "name": "诊室",
+            "bbox_center_distance": 0.21482415057182133,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.006359055849763554,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S138",
+            "name": "诊室",
+            "bbox_center_distance": 0.16131801319923417,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04169027599733,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S139",
+            "name": "诊室",
+            "bbox_center_distance": 0.10781731675997008,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.006153205229467845,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S140",
+            "name": "诊室",
+            "bbox_center_distance": 0.05431662032107897,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04169027599733,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S141",
+            "name": "诊室",
+            "bbox_center_distance": 0.00015800355687963668,
+            "polygon_iou": 0.9583093051070247,
+            "box_iou": 0.9583093051070217,
+            "polygon_area_relative_error": 0.04169027599733,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S142",
+            "name": "诊室",
+            "bbox_center_distance": 0.05463262665602097,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04169027599733496,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S143",
+            "name": "诊室",
+            "bbox_center_distance": 0.10910725014287946,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04169027599733,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S144",
+            "name": "诊室",
+            "bbox_center_distance": 0.10733020541167645,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03567341076579802,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S145",
+            "name": "诊室",
+            "bbox_center_distance": 0.21805649711743869,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04169027599733,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S146",
+            "name": "诊室",
+            "bbox_center_distance": 0.0016190418775370282,
+            "polygon_iou": 0.9412313499054271,
+            "box_iou": 0.9412313499054192,
+            "polygon_area_relative_error": 0.03567341076580301,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S147",
+            "name": "诊室",
+            "bbox_center_distance": 0.3260318170442193,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.00615320522946729,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S148",
+            "name": "诊室",
+            "bbox_center_distance": 0.10570409424081365,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.07995948673521878,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S149",
+            "name": "诊室",
+            "bbox_center_distance": 0.41844606793649036,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.4907701921557959,
+            "outside_fraction": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "model": "gcn",
+      "seed": 19,
+      "metrics": {
+        "evaluation_rooms": 28,
+        "matching": "saved_node_identity",
+        "coordinate_unit": "saved_pilot_scope_long_side",
+        "mean_center_distance_pct_scope_long_side": 11.144614563954244,
+        "mean_box_iou": 0.3175468422108447,
+        "mean_polygon_iou": 0.31754684221084467,
+        "mean_polygon_area_relative_error": 0.03651730790398933,
+        "room_overlap_pair_count": 91,
+        "room_overlap_area_fraction": 0.26240125466025405,
+        "outside_building_area_fraction": 0.0,
+        "outside_room_ids": [],
+        "reference_room_overlap_pair_count": 0,
+        "reference_overlap_area_fraction": 0.0,
+        "overlap_details": [
+          {
+            "source": "S121",
+            "target": "S122",
+            "area": 6.824835227460162e-07
+          },
+          {
+            "source": "S125",
+            "target": "S126",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S125",
+            "target": "S127",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S125",
+            "target": "S128",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S125",
+            "target": "S129",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S125",
+            "target": "S130",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S125",
+            "target": "S131",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S126",
+            "target": "S127",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S126",
+            "target": "S128",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S126",
+            "target": "S129",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S126",
+            "target": "S130",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S126",
+            "target": "S131",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S127",
+            "target": "S128",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S127",
+            "target": "S129",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S127",
+            "target": "S130",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S127",
+            "target": "S131",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S128",
+            "target": "S129",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S128",
+            "target": "S130",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S128",
+            "target": "S131",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S129",
+            "target": "S130",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S129",
+            "target": "S131",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S130",
+            "target": "S131",
+            "area": 0.003901008590948823
+          },
+          {
+            "source": "S135",
+            "target": "S136",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S135",
+            "target": "S137",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S135",
+            "target": "S138",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S135",
+            "target": "S139",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S135",
+            "target": "S140",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S135",
+            "target": "S141",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S135",
+            "target": "S142",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S135",
+            "target": "S143",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S135",
+            "target": "S145",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S135",
+            "target": "S147",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S135",
+            "target": "S149",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S136",
+            "target": "S137",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S136",
+            "target": "S138",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S136",
+            "target": "S139",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S136",
+            "target": "S140",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S136",
+            "target": "S141",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S136",
+            "target": "S142",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S136",
+            "target": "S143",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S136",
+            "target": "S145",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S136",
+            "target": "S147",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S136",
+            "target": "S149",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S137",
+            "target": "S138",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S137",
+            "target": "S139",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S137",
+            "target": "S140",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S137",
+            "target": "S141",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S137",
+            "target": "S142",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S137",
+            "target": "S143",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S137",
+            "target": "S145",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S137",
+            "target": "S147",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S137",
+            "target": "S149",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S138",
+            "target": "S139",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S138",
+            "target": "S140",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S138",
+            "target": "S141",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S138",
+            "target": "S142",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S138",
+            "target": "S143",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S138",
+            "target": "S145",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S138",
+            "target": "S147",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S138",
+            "target": "S149",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S139",
+            "target": "S140",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S139",
+            "target": "S141",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S139",
+            "target": "S142",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S139",
+            "target": "S143",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S139",
+            "target": "S145",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S139",
+            "target": "S147",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S139",
+            "target": "S149",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S140",
+            "target": "S141",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S140",
+            "target": "S142",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S140",
+            "target": "S143",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S140",
+            "target": "S145",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S140",
+            "target": "S147",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S140",
+            "target": "S149",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S141",
+            "target": "S142",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S141",
+            "target": "S143",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S141",
+            "target": "S145",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S141",
+            "target": "S147",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S141",
+            "target": "S149",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S142",
+            "target": "S143",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S142",
+            "target": "S145",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S142",
+            "target": "S147",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S142",
+            "target": "S149",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S143",
+            "target": "S145",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S143",
+            "target": "S147",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S143",
+            "target": "S149",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S144",
+            "target": "S146",
+            "area": 0.003882795038083748
+          },
+          {
+            "source": "S144",
+            "target": "S148",
+            "area": 0.003882795038083748
+          },
+          {
+            "source": "S145",
+            "target": "S147",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S145",
+            "target": "S149",
+            "area": 0.0038586814631547724
+          },
+          {
+            "source": "S146",
+            "target": "S148",
+            "area": 0.003882795038083748
+          },
+          {
+            "source": "S147",
+            "target": "S149",
+            "area": 0.0038586814631547724
+          }
+        ],
+        "per_room": [
+          {
+            "id": "S120",
+            "name": "办公室",
+            "bbox_center_distance": 1.539090634762916e-05,
+            "polygon_iou": 0.9993155259567055,
+            "box_iou": 0.9993155259567055,
+            "polygon_area_relative_error": 4.0853707152081815e-05,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S121",
+            "name": "办公室",
+            "bbox_center_distance": 7.603256128264786e-06,
+            "polygon_iou": 0.9991657629900731,
+            "box_iou": 0.9991657629900733,
+            "polygon_area_relative_error": 7.570673001693142e-05,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S122",
+            "name": "污洗间",
+            "bbox_center_distance": 9.141695747099386e-06,
+            "polygon_iou": 0.9996688411352314,
+            "box_iou": 0.9996688411352335,
+            "polygon_area_relative_error": 7.343661342503198e-05,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S124",
+            "name": "细胞室",
+            "bbox_center_distance": 9.50120846762646e-06,
+            "polygon_iou": 0.9996044511056026,
+            "box_iou": 0.9996044511056028,
+            "polygon_area_relative_error": 9.2304747231025e-05,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S125",
+            "name": "诊室",
+            "bbox_center_distance": 0.16259609097519992,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.031722675054334466,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S126",
+            "name": "诊室",
+            "bbox_center_distance": 0.10909539454508571,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.005168727030107862,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S127",
+            "name": "诊室",
+            "bbox_center_distance": 0.05462077108597185,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.005168727030107862,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S128",
+            "name": "诊室",
+            "bbox_center_distance": 0.00014616872719169864,
+            "polygon_iou": 0.9945662380978548,
+            "box_iou": 0.9945662380978494,
+            "polygon_area_relative_error": 0.005168727030112923,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S129",
+            "name": "诊室",
+            "bbox_center_distance": 0.05432847600255282,
+            "polygon_iou": 6.230368756715832e-05,
+            "box_iou": 6.230368756715834e-05,
+            "polygon_area_relative_error": 0.005168727030107862,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S130",
+            "name": "诊室",
+            "bbox_center_distance": 0.10880309946143794,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.005168727030107862,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S131",
+            "name": "诊室",
+            "bbox_center_distance": 0.16327772293936366,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.005168727030107862,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S132",
+            "name": "体检生活区",
+            "bbox_center_distance": 4.0325988785555584e-06,
+            "polygon_iou": 0.9998695749722658,
+            "box_iou": 0.9998695749722658,
+            "polygon_area_relative_error": 0.00010566199745464465,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S134",
+            "name": "换衣间",
+            "bbox_center_distance": 6.278840243634286e-06,
+            "polygon_iou": 0.9997475778126095,
+            "box_iou": 0.9997475778126129,
+            "polygon_area_relative_error": 3.7018826257572776e-06,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S135",
+            "name": "诊室",
+            "bbox_center_distance": 0.320858783937438,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.041748108918443314,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S136",
+            "name": "诊室",
+            "bbox_center_distance": 0.2673580875218872,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.006213182773096029,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S137",
+            "name": "诊室",
+            "bbox_center_distance": 0.21482587723222624,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.006419020970536803,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S138",
+            "name": "诊室",
+            "bbox_center_distance": 0.1613197399187168,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.041748108918443314,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S139",
+            "name": "诊室",
+            "bbox_center_distance": 0.1078190435971512,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.006213182773096029,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S140",
+            "name": "诊室",
+            "bbox_center_distance": 0.05431834750781207,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.041748108918443314,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S141",
+            "name": "诊室",
+            "bbox_center_distance": 0.000156521736818685,
+            "polygon_iou": 0.9580918287949718,
+            "box_iou": 0.9580918287949751,
+            "polygon_area_relative_error": 0.041748108918443314,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S142",
+            "name": "诊室",
+            "bbox_center_distance": 0.05463090087415005,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04174810891844827,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S143",
+            "name": "诊室",
+            "bbox_center_distance": 0.10910552401130215,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.041748108918443314,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S144",
+            "name": "诊室",
+            "bbox_center_distance": 0.10733318061422813,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03575982535654079,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S145",
+            "name": "诊室",
+            "bbox_center_distance": 0.21805477081063224,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.041748108918443314,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S146",
+            "name": "诊室",
+            "bbox_center_distance": 0.0016160763497864114,
+            "polygon_iou": 0.9412194773507684,
+            "box_iou": 0.9412194773507668,
+            "polygon_area_relative_error": 0.03575982535654578,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S147",
+            "name": "诊室",
+            "bbox_center_distance": 0.32603009067929684,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.006213182773095475,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S148",
+            "name": "诊室",
+            "bbox_center_distance": 0.10570111932747828,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.07986271012643616,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S149",
+            "name": "诊室",
+            "bbox_center_distance": 0.41844434154564775,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.49068022584035365,
+            "outside_fraction": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "model": "gcn",
+      "seed": 43,
+      "metrics": {
+        "evaluation_rooms": 28,
+        "matching": "saved_node_identity",
+        "coordinate_unit": "saved_pilot_scope_long_side",
+        "mean_center_distance_pct_scope_long_side": 11.145377410014595,
+        "mean_box_iou": 0.31708082724278563,
+        "mean_polygon_iou": 0.31708082724278547,
+        "mean_polygon_area_relative_error": 0.03661114599288174,
+        "room_overlap_pair_count": 91,
+        "room_overlap_area_fraction": 0.26240905937463366,
+        "outside_building_area_fraction": 0.0,
+        "outside_room_ids": [],
+        "reference_room_overlap_pair_count": 0,
+        "reference_overlap_area_fraction": 0.0,
+        "overlap_details": [
+          {
+            "source": "S120",
+            "target": "S121",
+            "area": 1.463669809120381e-06
+          },
+          {
+            "source": "S125",
+            "target": "S126",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S125",
+            "target": "S127",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S125",
+            "target": "S128",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S125",
+            "target": "S129",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S125",
+            "target": "S130",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S125",
+            "target": "S131",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S126",
+            "target": "S127",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S126",
+            "target": "S128",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S126",
+            "target": "S129",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S126",
+            "target": "S130",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S126",
+            "target": "S131",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S127",
+            "target": "S128",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S127",
+            "target": "S129",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S127",
+            "target": "S130",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S127",
+            "target": "S131",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S128",
+            "target": "S129",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S128",
+            "target": "S130",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S128",
+            "target": "S131",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S129",
+            "target": "S130",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S129",
+            "target": "S131",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S130",
+            "target": "S131",
+            "area": 0.0039009662541360855
+          },
+          {
+            "source": "S135",
+            "target": "S136",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S135",
+            "target": "S137",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S135",
+            "target": "S138",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S135",
+            "target": "S139",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S135",
+            "target": "S140",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S135",
+            "target": "S141",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S135",
+            "target": "S142",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S135",
+            "target": "S143",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S135",
+            "target": "S145",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S135",
+            "target": "S147",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S135",
+            "target": "S149",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S136",
+            "target": "S137",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S136",
+            "target": "S138",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S136",
+            "target": "S139",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S136",
+            "target": "S140",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S136",
+            "target": "S141",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S136",
+            "target": "S142",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S136",
+            "target": "S143",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S136",
+            "target": "S145",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S136",
+            "target": "S147",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S136",
+            "target": "S149",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S137",
+            "target": "S138",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S137",
+            "target": "S139",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S137",
+            "target": "S140",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S137",
+            "target": "S141",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S137",
+            "target": "S142",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S137",
+            "target": "S143",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S137",
+            "target": "S145",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S137",
+            "target": "S147",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S137",
+            "target": "S149",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S138",
+            "target": "S139",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S138",
+            "target": "S140",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S138",
+            "target": "S141",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S138",
+            "target": "S142",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S138",
+            "target": "S143",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S138",
+            "target": "S145",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S138",
+            "target": "S147",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S138",
+            "target": "S149",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S139",
+            "target": "S140",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S139",
+            "target": "S141",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S139",
+            "target": "S142",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S139",
+            "target": "S143",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S139",
+            "target": "S145",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S139",
+            "target": "S147",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S139",
+            "target": "S149",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S140",
+            "target": "S141",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S140",
+            "target": "S142",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S140",
+            "target": "S143",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S140",
+            "target": "S145",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S140",
+            "target": "S147",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S140",
+            "target": "S149",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S141",
+            "target": "S142",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S141",
+            "target": "S143",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S141",
+            "target": "S145",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S141",
+            "target": "S147",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S141",
+            "target": "S149",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S142",
+            "target": "S143",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S142",
+            "target": "S145",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S142",
+            "target": "S147",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S142",
+            "target": "S149",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S143",
+            "target": "S145",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S143",
+            "target": "S147",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S143",
+            "target": "S149",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S144",
+            "target": "S146",
+            "area": 0.003884430336039006
+          },
+          {
+            "source": "S144",
+            "target": "S148",
+            "area": 0.003884430336039006
+          },
+          {
+            "source": "S145",
+            "target": "S147",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S145",
+            "target": "S149",
+            "area": 0.0038578699860843026
+          },
+          {
+            "source": "S146",
+            "target": "S148",
+            "area": 0.003884430336039006
+          },
+          {
+            "source": "S147",
+            "target": "S149",
+            "area": 0.0038578699860843026
+          }
+        ],
+        "per_room": [
+          {
+            "id": "S120",
+            "name": "办公室",
+            "bbox_center_distance": 3.0029135103890255e-06,
+            "polygon_iou": 0.9995989838272992,
+            "box_iou": 0.9995989838272991,
+            "polygon_area_relative_error": 0.00040101617270079753,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S121",
+            "name": "办公室",
+            "bbox_center_distance": 5.29922971446403e-05,
+            "polygon_iou": 0.9975767521221545,
+            "box_iou": 0.9975767521221547,
+            "polygon_area_relative_error": 6.366303822013108e-05,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S122",
+            "name": "污洗间",
+            "bbox_center_distance": 6.861067253763007e-05,
+            "polygon_iou": 0.9968597121827144,
+            "box_iou": 0.9968597121827122,
+            "polygon_area_relative_error": 1.352761780361578e-06,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S124",
+            "name": "细胞室",
+            "bbox_center_distance": 5.3849089736403704e-05,
+            "polygon_iou": 0.9973788575401106,
+            "box_iou": 0.9973788575401106,
+            "polygon_area_relative_error": 0.0001800644568558137,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S125",
+            "name": "诊室",
+            "bbox_center_distance": 0.16254904159631064,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03171147798858278,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S126",
+            "name": "诊室",
+            "bbox_center_distance": 0.10904834575433875,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.005179523721355042,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S127",
+            "name": "诊室",
+            "bbox_center_distance": 0.054573724078925676,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.005179523721355042,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S128",
+            "name": "诊室",
+            "bbox_center_distance": 0.00010107482407679618,
+            "polygon_iou": 0.9942089963550764,
+            "box_iou": 0.9942089963550771,
+            "polygon_area_relative_error": 0.005179523721360103,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S129",
+            "name": "诊室",
+            "bbox_center_distance": 0.05437553016375924,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.005179523721355042,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S130",
+            "name": "诊室",
+            "bbox_center_distance": 0.10885015182925639,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.005179523721355042,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S131",
+            "name": "诊室",
+            "bbox_center_distance": 0.16332477471010604,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.005179523721355042,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S132",
+            "name": "体检生活区",
+            "bbox_center_distance": 2.6880714432172578e-05,
+            "polygon_iou": 0.9992738504405169,
+            "box_iou": 0.9992738504405171,
+            "polygon_area_relative_error": 3.292599843459899e-05,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S134",
+            "name": "换衣间",
+            "bbox_center_distance": 7.633201328897349e-05,
+            "polygon_iou": 0.9964599755837144,
+            "box_iou": 0.9964599755837178,
+            "polygon_area_relative_error": 0.000710860766373544,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S135",
+            "name": "诊室",
+            "bbox_center_distance": 0.32080986829237784,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04194962838688662,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S136",
+            "name": "诊室",
+            "bbox_center_distance": 0.26730917217211353,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.006422175202975295,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S137",
+            "name": "诊室",
+            "bbox_center_distance": 0.2147769623155369,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.006627970112837386,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S138",
+            "name": "诊室",
+            "bbox_center_distance": 0.16127082573318782,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04194962838688662,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S139",
+            "name": "诊室",
+            "bbox_center_distance": 0.10777013086864294,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.006422175202975295,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S140",
+            "name": "诊室",
+            "bbox_center_distance": 0.054269439109296956,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04194962838688662,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S141",
+            "name": "诊室",
+            "bbox_center_distance": 0.00020767220301637726,
+            "polygon_iou": 0.9574735419017264,
+            "box_iou": 0.9574735419017297,
+            "polygon_area_relative_error": 0.04194962838688662,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S142",
+            "name": "诊室",
+            "bbox_center_distance": 0.05467982664971214,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04194962838689158,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S143",
+            "name": "诊室",
+            "bbox_center_distance": 0.10915444546757473,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04194962838688662,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S144",
+            "name": "诊室",
+            "bbox_center_distance": 0.10730701838967115,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03535372099859605,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S145",
+            "name": "诊室",
+            "bbox_center_distance": 0.2181036901010466,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.04194962838688662,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S146",
+            "name": "诊室",
+            "bbox_center_distance": 0.0016427468012496034,
+            "polygon_iou": 0.939432492844681,
+            "box_iou": 0.939432492844679,
+            "polygon_area_relative_error": 0.03535372099860104,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S147",
+            "name": "诊室",
+            "bbox_center_distance": 0.3260790092511573,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.006422175202974741,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S148",
+            "name": "诊室",
+            "bbox_center_distance": 0.1057272969950884,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.08031751066689956,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S149",
+            "name": "诊室",
+            "bbox_center_distance": 0.41849325979699037,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.49036673719553475,
+            "outside_fraction": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "model": "mlp",
+      "seed": 7,
+      "metrics": {
+        "evaluation_rooms": 28,
+        "matching": "saved_node_identity",
+        "coordinate_unit": "saved_pilot_scope_long_side",
+        "mean_center_distance_pct_scope_long_side": 14.711480560930474,
+        "mean_box_iou": 0.1768123654353896,
+        "mean_polygon_iou": 0.17681236543538964,
+        "mean_polygon_area_relative_error": 0.0374396008748261,
+        "room_overlap_pair_count": 232,
+        "room_overlap_area_fraction": 0.2359052748323838,
+        "outside_building_area_fraction": 0.0,
+        "outside_room_ids": [],
+        "reference_room_overlap_pair_count": 0,
+        "reference_overlap_area_fraction": 0.0,
+        "overlap_details": [
+          {
+            "source": "S120",
+            "target": "S121",
+            "area": 0.003851169981730185
+          },
+          {
+            "source": "S125",
+            "target": "S126",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S127",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S128",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S129",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S130",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S131",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S135",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S136",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S137",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S138",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S139",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S125",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S127",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S128",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S129",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S130",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S131",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S135",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S136",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S137",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S138",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S139",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S126",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S128",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S129",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S130",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S131",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S135",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S136",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S137",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S138",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S139",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S127",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S129",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S130",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S131",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S135",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S136",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S137",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S138",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S139",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S128",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S130",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S131",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S135",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S136",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S137",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S138",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S139",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S129",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S131",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S135",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S136",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S137",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S138",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S139",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S130",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S135",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S136",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S137",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S138",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S139",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S131",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S136",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S137",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S138",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S139",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S135",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S137",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S138",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S139",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S136",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S138",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S139",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S137",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S138",
+            "target": "S139",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S138",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S138",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S138",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S138",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S138",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S138",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S138",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S138",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S138",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S138",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S139",
+            "target": "S140",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S139",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S139",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S139",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S139",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S139",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S139",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S139",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S139",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S139",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S140",
+            "target": "S141",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S140",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S140",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S140",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S140",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S140",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S140",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S140",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S140",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S141",
+            "target": "S142",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S141",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S141",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S141",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S141",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S141",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S141",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S141",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S142",
+            "target": "S143",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S142",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S142",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S142",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S142",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S142",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S142",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S143",
+            "target": "S144",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S143",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S143",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S143",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S143",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S143",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S144",
+            "target": "S145",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S144",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S144",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S144",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S144",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S145",
+            "target": "S146",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S145",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S145",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S145",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S146",
+            "target": "S147",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S146",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S146",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S147",
+            "target": "S148",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S147",
+            "target": "S149",
+            "area": 0.003876539413874477
+          },
+          {
+            "source": "S148",
+            "target": "S149",
+            "area": 0.003876539413874477
+          }
+        ],
+        "per_room": [
+          {
+            "id": "S120",
+            "name": "办公室",
+            "bbox_center_distance": 0.02675034714993898,
+            "polygon_iou": 0.3292633233294624,
+            "box_iou": 0.32926332332946245,
+            "polygon_area_relative_error": 0.018541565086174716,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S121",
+            "name": "办公室",
+            "bbox_center_distance": 0.026750349289514273,
+            "polygon_iou": 0.33735425491192356,
+            "box_iou": 0.3373542549119235,
+            "polygon_area_relative_error": 0.017878518843195627,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S122",
+            "name": "污洗间",
+            "bbox_center_distance": 2.446628511831004e-10,
+            "polygon_iou": 0.999999991116287,
+            "box_iou": 0.9999999911162849,
+            "polygon_area_relative_error": 3.091095075683832e-09,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S124",
+            "name": "细胞室",
+            "bbox_center_distance": 1.1663290773825378e-10,
+            "polygon_iou": 0.9999999946384137,
+            "box_iou": 0.9999999946384139,
+            "polygon_area_relative_error": 1.9221791331602676e-09,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S125",
+            "name": "诊室",
+            "bbox_center_distance": 0.18398968721150394,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.02525116794560947,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S126",
+            "name": "诊室",
+            "bbox_center_distance": 0.13914230353441417,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.01140883186706663,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S127",
+            "name": "诊室",
+            "bbox_center_distance": 0.10240637448074133,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.01140883186706663,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S128",
+            "name": "诊室",
+            "bbox_center_distance": 0.08688221707523962,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408831867071659,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S129",
+            "name": "诊室",
+            "bbox_center_distance": 0.10268857269297674,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.01140883186706663,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S130",
+            "name": "诊室",
+            "bbox_center_distance": 0.13955764216883618,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.01140883186706663,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S131",
+            "name": "诊室",
+            "bbox_center_distance": 0.18531782758796178,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.01140883186706663,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S132",
+            "name": "体检生活区",
+            "bbox_center_distance": 3.1593832381095365e-10,
+            "polygon_iou": 0.9999999905263,
+            "box_iou": 0.9999999905263001,
+            "polygon_area_relative_error": 3.107451300470495e-09,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S134",
+            "name": "换衣间",
+            "bbox_center_distance": 2.808330123895878e-09,
+            "polygon_iou": 0.9999998670339256,
+            "box_iou": 0.9999998670339253,
+            "polygon_area_relative_error": 5.99916649646489e-08,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S135",
+            "name": "诊室",
+            "bbox_center_distance": 0.37740824755296004,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332589439778,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S136",
+            "name": "诊室",
+            "bbox_center_distance": 0.3242681174174342,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.0016139443603402992,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S137",
+            "name": "诊室",
+            "bbox_center_distance": 0.2722274150455348,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.00182073517551364,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S138",
+            "name": "诊室",
+            "bbox_center_distance": 0.2194627845088193,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332589439778,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S139",
+            "name": "诊室",
+            "bbox_center_distance": 0.16717547780110384,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.0016139443603402992,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S140",
+            "name": "诊室",
+            "bbox_center_distance": 0.11600006901163187,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332589439778,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S141",
+            "name": "诊室",
+            "bbox_center_distance": 0.06769417192144488,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332589439778,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S142",
+            "name": "诊室",
+            "bbox_center_distance": 0.04054571520826048,
+            "polygon_iou": 0.28412881063459716,
+            "box_iou": 0.28412881063459855,
+            "polygon_area_relative_error": 0.037313325894402755,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S143",
+            "name": "诊室",
+            "bbox_center_distance": 0.06812032251509878,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332589439778,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S144",
+            "name": "诊室",
+            "bbox_center_distance": 0.11649794361088624,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332589439778,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S145",
+            "name": "诊室",
+            "bbox_center_distance": 0.16863609518653425,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332589439778,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S146",
+            "name": "诊室",
+            "bbox_center_distance": 0.2218996699910818,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.037313325894402755,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S147",
+            "name": "诊室",
+            "bbox_center_distance": 0.274673718713837,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.0016139443603397417,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S148",
+            "name": "诊室",
+            "bbox_center_distance": 0.324789789827993,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.07812292853974441,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S149",
+            "name": "诊室",
+            "bbox_center_distance": 0.3663296940712201,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.4975790834594872,
+            "outside_fraction": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "model": "mlp",
+      "seed": 19,
+      "metrics": {
+        "evaluation_rooms": 28,
+        "matching": "saved_node_identity",
+        "coordinate_unit": "saved_pilot_scope_long_side",
+        "mean_center_distance_pct_scope_long_side": 14.711480551351325,
+        "mean_box_iou": 0.17681236955503205,
+        "mean_polygon_iou": 0.1768123695550319,
+        "mean_polygon_area_relative_error": 0.03743959810644506,
+        "room_overlap_pair_count": 232,
+        "room_overlap_area_fraction": 0.23590527110367554,
+        "outside_building_area_fraction": 0.0,
+        "outside_room_ids": [],
+        "reference_room_overlap_pair_count": 0,
+        "reference_overlap_area_fraction": 0.0,
+        "overlap_details": [
+          {
+            "source": "S120",
+            "target": "S121",
+            "area": 0.003851169878521213
+          },
+          {
+            "source": "S125",
+            "target": "S126",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S127",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S128",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S129",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S130",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S131",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S135",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S136",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S137",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S138",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S139",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S125",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S127",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S128",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S129",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S130",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S131",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S135",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S136",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S137",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S138",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S139",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S126",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S128",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S129",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S130",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S131",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S135",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S136",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S137",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S138",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S139",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S127",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S129",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S130",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S131",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S135",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S136",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S137",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S138",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S139",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S128",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S130",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S131",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S135",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S136",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S137",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S138",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S139",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S129",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S131",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S135",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S136",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S137",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S138",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S139",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S130",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S135",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S136",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S137",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S138",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S139",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S131",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S136",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S137",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S138",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S139",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S135",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S137",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S138",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S139",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S136",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S138",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S139",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S137",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S138",
+            "target": "S139",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S138",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S138",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S138",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S138",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S138",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S138",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S138",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S138",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S138",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S138",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S139",
+            "target": "S140",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S139",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S139",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S139",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S139",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S139",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S139",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S139",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S139",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S139",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S140",
+            "target": "S141",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S140",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S140",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S140",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S140",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S140",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S140",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S140",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S140",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S141",
+            "target": "S142",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S141",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S141",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S141",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S141",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S141",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S141",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S141",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S142",
+            "target": "S143",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S142",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S142",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S142",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S142",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S142",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S142",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S143",
+            "target": "S144",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S143",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S143",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S143",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S143",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S143",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S144",
+            "target": "S145",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S144",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S144",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S144",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S144",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S145",
+            "target": "S146",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S145",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S145",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S145",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S146",
+            "target": "S147",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S146",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S146",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S147",
+            "target": "S148",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S147",
+            "target": "S149",
+            "area": 0.003876539418613312
+          },
+          {
+            "source": "S148",
+            "target": "S149",
+            "area": 0.003876539418613312
+          }
+        ],
+        "per_room": [
+          {
+            "id": "S120",
+            "name": "办公室",
+            "bbox_center_distance": 0.0267503482676944,
+            "polygon_iou": 0.3292633005279618,
+            "box_iou": 0.3292633005279618,
+            "polygon_area_relative_error": 0.018541537789891104,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S121",
+            "name": "办公室",
+            "bbox_center_distance": 0.02675034817175881,
+            "polygon_iou": 0.33735426977462074,
+            "box_iou": 0.33735426977462074,
+            "polygon_area_relative_error": 0.01787854516344353,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S122",
+            "name": "污洗间",
+            "bbox_center_distance": 5.766330500721323e-11,
+            "polygon_iou": 0.9999999952038687,
+            "box_iou": 0.999999995203871,
+            "polygon_area_relative_error": 3.9130708436180884e-09,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S124",
+            "name": "细胞室",
+            "bbox_center_distance": 1.7303316192337231e-10,
+            "polygon_iou": 0.999999992854522,
+            "box_iou": 0.999999992854522,
+            "polygon_area_relative_error": 1.0176901626942285e-09,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S125",
+            "name": "诊室",
+            "bbox_center_distance": 0.18398968721867315,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.02525116919891707,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S126",
+            "name": "诊室",
+            "bbox_center_distance": 0.13914230353982338,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408830658573663,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S127",
+            "name": "诊室",
+            "bbox_center_distance": 0.10240637448245928,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408830658573663,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S128",
+            "name": "诊室",
+            "bbox_center_distance": 0.08688221707062656,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408830658578692,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S129",
+            "name": "诊室",
+            "bbox_center_distance": 0.10268857268345752,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408830658573663,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S130",
+            "name": "诊室",
+            "bbox_center_distance": 0.1395576421576993,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408830658573663,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S131",
+            "name": "诊室",
+            "bbox_center_distance": 0.18531782757646284,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408830658573663,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S132",
+            "name": "体检生活区",
+            "bbox_center_distance": 1.4288645539024452e-10,
+            "polygon_iou": 0.9999999968875123,
+            "box_iou": 0.9999999968875122,
+            "polygon_area_relative_error": 1.9261004198205126e-09,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S134",
+            "name": "换衣间",
+            "bbox_center_distance": 4.3176191413761103e-10,
+            "polygon_iou": 0.9999999814746728,
+            "box_iou": 0.9999999814746732,
+            "polygon_area_relative_error": 3.038956211636778e-09,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S135",
+            "name": "诊室",
+            "bbox_center_distance": 0.37740824756397784,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332471757149,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S136",
+            "name": "诊室",
+            "bbox_center_distance": 0.32426811742851086,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.001613943139873674,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S137",
+            "name": "诊室",
+            "bbox_center_distance": 0.2722274150566859,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.001820733955299804,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S138",
+            "name": "诊室",
+            "bbox_center_distance": 0.2194627845200703,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332471757149,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S139",
+            "name": "诊室",
+            "bbox_center_distance": 0.16717547781248568,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.001613943139873674,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S140",
+            "name": "诊室",
+            "bbox_center_distance": 0.11600006902315217,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332471757149,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S141",
+            "name": "诊室",
+            "bbox_center_distance": 0.06769417193266644,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332471757149,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S142",
+            "name": "诊室",
+            "bbox_center_distance": 0.04054571521277175,
+            "polygon_iou": 0.28412881081773483,
+            "box_iou": 0.2841288108177364,
+            "polygon_area_relative_error": 0.037313324717576465,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S143",
+            "name": "诊室",
+            "bbox_center_distance": 0.0681203225093177,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332471757149,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S144",
+            "name": "诊室",
+            "bbox_center_distance": 0.11649794360255536,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332471757149,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S145",
+            "name": "诊室",
+            "bbox_center_distance": 0.16863609517735914,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332471757149,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S146",
+            "name": "诊室",
+            "bbox_center_distance": 0.22189966998151003,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.037313324717576465,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S147",
+            "name": "诊室",
+            "bbox_center_distance": 0.2746737187040421,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.0016139431398731164,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S148",
+            "name": "诊室",
+            "bbox_center_distance": 0.32478978981806067,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.07812292985768456,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S149",
+            "name": "诊室",
+            "bbox_center_distance": 0.36632969406120514,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.49757908529018713,
+            "outside_fraction": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "model": "mlp",
+      "seed": 43,
+      "metrics": {
+        "evaluation_rooms": 28,
+        "matching": "saved_node_identity",
+        "coordinate_unit": "saved_pilot_scope_long_side",
+        "mean_center_distance_pct_scope_long_side": 14.711480556000328,
+        "mean_box_iou": 0.17681235564947026,
+        "mean_polygon_iou": 0.17681235564947015,
+        "mean_polygon_area_relative_error": 0.03743960027361416,
+        "room_overlap_pair_count": 232,
+        "room_overlap_area_fraction": 0.23590527027714758,
+        "outside_building_area_fraction": 0.0,
+        "outside_room_ids": [],
+        "reference_room_overlap_pair_count": 0,
+        "reference_overlap_area_fraction": 0.0,
+        "overlap_details": [
+          {
+            "source": "S120",
+            "target": "S121",
+            "area": 0.003851169859555306
+          },
+          {
+            "source": "S125",
+            "target": "S126",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S127",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S128",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S129",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S130",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S131",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S135",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S136",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S137",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S138",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S139",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S125",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S127",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S128",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S129",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S130",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S131",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S135",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S136",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S137",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S138",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S139",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S126",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S128",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S129",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S130",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S131",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S135",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S136",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S137",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S138",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S139",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S127",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S129",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S130",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S131",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S135",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S136",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S137",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S138",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S139",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S128",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S130",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S131",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S135",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S136",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S137",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S138",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S139",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S129",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S131",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S135",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S136",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S137",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S138",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S139",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S130",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S135",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S136",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S137",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S138",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S139",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S131",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S136",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S137",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S138",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S139",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S135",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S137",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S138",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S139",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S136",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S138",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S139",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S137",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S138",
+            "target": "S139",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S138",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S138",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S138",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S138",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S138",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S138",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S138",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S138",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S138",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S138",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S139",
+            "target": "S140",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S139",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S139",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S139",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S139",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S139",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S139",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S139",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S139",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S139",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S140",
+            "target": "S141",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S140",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S140",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S140",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S140",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S140",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S140",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S140",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S140",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S141",
+            "target": "S142",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S141",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S141",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S141",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S141",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S141",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S141",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S141",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S142",
+            "target": "S143",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S142",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S142",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S142",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S142",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S142",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S142",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S143",
+            "target": "S144",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S143",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S143",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S143",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S143",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S143",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S144",
+            "target": "S145",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S144",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S144",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S144",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S144",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S145",
+            "target": "S146",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S145",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S145",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S145",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S146",
+            "target": "S147",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S146",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S146",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S147",
+            "target": "S148",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S147",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          },
+          {
+            "source": "S148",
+            "target": "S149",
+            "area": 0.0038765394142895103
+          }
+        ],
+        "per_room": [
+          {
+            "id": "S120",
+            "name": "办公室",
+            "bbox_center_distance": 0.026750348416632486,
+            "polygon_iou": 0.32926329609551047,
+            "box_iou": 0.32926329609551047,
+            "polygon_area_relative_error": 0.018541532773866193,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S121",
+            "name": "办公室",
+            "bbox_center_distance": 0.026750348022820725,
+            "polygon_iou": 0.33735427028024845,
+            "box_iou": 0.33735427028024845,
+            "polygon_area_relative_error": 0.017878550000109978,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S122",
+            "name": "污洗间",
+            "bbox_center_distance": 1.3279257005416772e-09,
+            "polygon_iou": 0.9999998185890498,
+            "box_iou": 0.9999998185890518,
+            "polygon_area_relative_error": 1.173306574342737e-08,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S124",
+            "name": "细胞室",
+            "bbox_center_distance": 9.597711063274044e-11,
+            "polygon_iou": 0.9999999936857839,
+            "box_iou": 0.9999999936857839,
+            "polygon_area_relative_error": 2.6014659162667525e-09,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S125",
+            "name": "诊室",
+            "bbox_center_distance": 0.18398968721920894,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.02525116805537581,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S126",
+            "name": "诊室",
+            "bbox_center_distance": 0.13914230355064772,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408831761225216,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S127",
+            "name": "诊室",
+            "bbox_center_distance": 0.10240637451116139,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408831761225216,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S128",
+            "name": "诊室",
+            "bbox_center_distance": 0.08688221712095258,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408831761230245,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S129",
+            "name": "诊室",
+            "bbox_center_distance": 0.10268857273999345,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408831761225216,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S130",
+            "name": "诊室",
+            "bbox_center_distance": 0.1395576422095686,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408831761225216,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S131",
+            "name": "诊室",
+            "bbox_center_distance": 0.18531782762325766,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.011408831761225216,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S132",
+            "name": "体检生活区",
+            "bbox_center_distance": 1.2196059894059678e-10,
+            "polygon_iou": 0.9999999964147152,
+            "box_iou": 0.9999999964147147,
+            "polygon_area_relative_error": 1.9259080429918895e-09,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S134",
+            "name": "换衣间",
+            "bbox_center_distance": 5.417711838908649e-10,
+            "polygon_iou": 0.999999771948603,
+            "box_iou": 0.9999997719486033,
+            "polygon_area_relative_error": 3.7778081148564575e-08,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S135",
+            "name": "诊室",
+            "bbox_center_distance": 0.37740824753242347,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.037313325791329774,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S136",
+            "name": "诊室",
+            "bbox_center_distance": 0.3242681173961261,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.0016139442534502167,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S137",
+            "name": "诊室",
+            "bbox_center_distance": 0.27222741502318715,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.001820735068645697,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S138",
+            "name": "诊室",
+            "bbox_center_distance": 0.21946278448493173,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.037313325791329774,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S139",
+            "name": "诊室",
+            "bbox_center_distance": 0.16717547777477637,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.0016139442534502167,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S140",
+            "name": "诊室",
+            "bbox_center_distance": 0.11600006898094066,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.037313325791329774,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S141",
+            "name": "诊室",
+            "bbox_center_distance": 0.06769417188150428,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.037313325791329774,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S142",
+            "name": "诊室",
+            "bbox_center_distance": 0.04054571516269934,
+            "polygon_iou": 0.28412881117125327,
+            "box_iou": 0.28412881117125477,
+            "polygon_area_relative_error": 0.03731332579133475,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S143",
+            "name": "诊室",
+            "bbox_center_distance": 0.06812032250055286,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.037313325791329774,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S144",
+            "name": "诊室",
+            "bbox_center_distance": 0.11649794360973227,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.037313325791329774,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S145",
+            "name": "诊室",
+            "bbox_center_distance": 0.16863609519081565,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.037313325791329774,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S146",
+            "name": "诊室",
+            "bbox_center_distance": 0.2218996699981951,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.03731332579133475,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S147",
+            "name": "诊室",
+            "bbox_center_distance": 0.27467371872264584,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.001613944253449659,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S148",
+            "name": "诊室",
+            "bbox_center_distance": 0.3247897898378912,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.07812292865517136,
+            "outside_fraction": 0.0
+          },
+          {
+            "id": "S149",
+            "name": "诊室",
+            "bbox_center_distance": 0.3663296940817911,
+            "polygon_iou": 0.0,
+            "box_iou": 0.0,
+            "polygon_area_relative_error": 0.49757908361982234,
+            "outside_fraction": 0.0
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -33,3 +33,21 @@ scores = model.score_pairs(node_features, candidate_pairs).sigmoid()
 ```
 
 `model.py`和调用脚本需位于可导入路径。节点数可变化，类型与层级列序沿用检查点配置。相同输入节点得到相同表示，实际候选选择需要结合设计条件进一步检查。
+
+## 来源分组对照
+
+`benchmark_run.py`按医院名称与精确源文件哈希建立暂定来源组，对照训练来源关系统计、空间对MLP和现有GCN。每折训练、验证和测试来源组互斥，验证集选择神经网络权重。默认运行5折与3个随机种子，每次最长120轮。
+
+```powershell
+.venv/gcn-win/Scripts/python.exe -X utf8 m-GCN模型/relation_prediction/benchmark_run.py --device cuda:1
+```
+
+结果保存至`e-实验评估/20261116_关系模型分组对照/run_时间戳/`，包含来源审计、分折、逐轮验证记录、权重、留出预测及汇总。主指标为每图保留节点数n对候选时的已标注正例召回，先逐图计算再按来源组平均，保留并列均摊处理。未知空间对在PU训练和评价中保持未标注状态。
+
+完成全部折后，可生成实验说明、来源分组核对表、分区字段清单和30对关系核对清单。
+
+```powershell
+.venv/gcn-win/Scripts/python.exe -X utf8 m-GCN模型/relation_prediction/benchmark_report.py "结果目录的完整路径"
+```
+
+2026年11月16日用户确认未来提供建筑边界与空间清单。当前三个对照方法沿用原有50维功能与层级输入，边界条件编码和多个布局方案生成属于后续模型实现。已有分区字段可研究作为辅助监督，输入条件以实际设计用途为准。暂定来源分组需结合项目身份核对，当前实验用于探索性比较。
