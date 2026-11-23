@@ -1,0 +1,21 @@
+{
+  "boundary": [[0, 0], [18, 0], [18, 14], [12, 14], [12, 9], [0, 9], [0, 0]],
+  "entrance_edge": 0,
+  "program": {
+    "rooms": [
+      {"id": "T01", "name": "分诊室", "type": "triage", "min_area_m2": 8, "max_area_m2": 10},
+      {"id": "C01", "name": "诊室", "type": "consultation", "min_area_m2": 12, "max_area_m2": 16},
+      {"id": "P01", "name": "处置室", "type": "treatment", "min_area_m2": 10, "max_area_m2": 14},
+      {"id": "S01", "name": "医护工作室", "type": "staff_support", "min_area_m2": 8, "max_area_m2": 12}
+    ],
+    "required_connections": [],
+    "optional_connections": [["C01", "T01"], ["P01", "S01"]],
+    "forbidden_connections": [["C01", "S01"]],
+    "corridor_width_m": 2,
+    "door_width_m": 0.9,
+    "sight_target": "T01",
+    "patient_route": ["@entry", "C01"],
+    "staff_route": ["S01", "P01"],
+    "assumptions": ["合成示例。面积与净宽仅用于验证程序，不是建筑规范阈值。"]
+  }
+}

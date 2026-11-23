@@ -1,0 +1,439 @@
+{
+  "coverage": [
+    {
+      "fold": 0,
+      "vocabulary_size": 66,
+      "train": {
+        "nodes": 5071,
+        "encoded_nodes": 4912
+      },
+      "validation": {
+        "nodes": 1667,
+        "encoded_nodes": 1243
+      },
+      "test": {
+        "nodes": 1693,
+        "encoded_nodes": 1096
+      },
+      "test_duplicate_nodes_before": 1614,
+      "test_duplicate_nodes_after": 1504
+    },
+    {
+      "fold": 1,
+      "vocabulary_size": 63,
+      "train": {
+        "nodes": 5098,
+        "encoded_nodes": 4609
+      },
+      "validation": {
+        "nodes": 1666,
+        "encoded_nodes": 1475
+      },
+      "test": {
+        "nodes": 1667,
+        "encoded_nodes": 1252
+      },
+      "test_duplicate_nodes_before": 1574,
+      "test_duplicate_nodes_after": 1440
+    },
+    {
+      "fold": 2,
+      "vocabulary_size": 73,
+      "train": {
+        "nodes": 5068,
+        "encoded_nodes": 4634
+      },
+      "validation": {
+        "nodes": 1697,
+        "encoded_nodes": 1400
+      },
+      "test": {
+        "nodes": 1666,
+        "encoded_nodes": 1491
+      },
+      "test_duplicate_nodes_before": 1546,
+      "test_duplicate_nodes_after": 1386
+    },
+    {
+      "fold": 3,
+      "vocabulary_size": 77,
+      "train": {
+        "nodes": 5026,
+        "encoded_nodes": 4691
+      },
+      "validation": {
+        "nodes": 1708,
+        "encoded_nodes": 1421
+      },
+      "test": {
+        "nodes": 1697,
+        "encoded_nodes": 1328
+      },
+      "test_duplicate_nodes_before": 1573,
+      "test_duplicate_nodes_after": 1426
+    },
+    {
+      "fold": 4,
+      "vocabulary_size": 73,
+      "train": {
+        "nodes": 5030,
+        "encoded_nodes": 4971
+      },
+      "validation": {
+        "nodes": 1693,
+        "encoded_nodes": 1124
+      },
+      "test": {
+        "nodes": 1708,
+        "encoded_nodes": 1465
+      },
+      "test_duplicate_nodes_before": 1600,
+      "test_duplicate_nodes_after": 1446
+    }
+  ],
+  "tie_stats": [
+    {
+      "run": "fold_0_gcn_seed_7",
+      "baseline": {
+        "plans": 10,
+        "partial_ties": 9,
+        "sum_partial_tie_group_sizes": 2116
+      },
+      "scoped": {
+        "plans": 10,
+        "partial_ties": 9,
+        "sum_partial_tie_group_sizes": 1353
+      }
+    },
+    {
+      "run": "fold_0_gcn_seed_19",
+      "baseline": {
+        "plans": 10,
+        "partial_ties": 10,
+        "sum_partial_tie_group_sizes": 2041
+      },
+      "scoped": {
+        "plans": 10,
+        "partial_ties": 9,
+        "sum_partial_tie_group_sizes": 1284
+      }
+    },
+    {
+      "run": "fold_0_gcn_seed_43",
+      "baseline": {
+        "plans": 10,
+        "partial_ties": 9,
+        "sum_partial_tie_group_sizes": 772
+      },
+      "scoped": {
+        "plans": 10,
+        "partial_ties": 8,
+        "sum_partial_tie_group_sizes": 1322
+      }
+    },
+    {
+      "run": "fold_1_gcn_seed_7",
+      "baseline": {
+        "plans": 9,
+        "partial_ties": 9,
+        "sum_partial_tie_group_sizes": 5480
+      },
+      "scoped": {
+        "plans": 9,
+        "partial_ties": 9,
+        "sum_partial_tie_group_sizes": 1042
+      }
+    },
+    {
+      "run": "fold_1_gcn_seed_19",
+      "baseline": {
+        "plans": 9,
+        "partial_ties": 7,
+        "sum_partial_tie_group_sizes": 5038
+      },
+      "scoped": {
+        "plans": 9,
+        "partial_ties": 9,
+        "sum_partial_tie_group_sizes": 1031
+      }
+    },
+    {
+      "run": "fold_1_gcn_seed_43",
+      "baseline": {
+        "plans": 9,
+        "partial_ties": 8,
+        "sum_partial_tie_group_sizes": 5028
+      },
+      "scoped": {
+        "plans": 9,
+        "partial_ties": 7,
+        "sum_partial_tie_group_sizes": 980
+      }
+    },
+    {
+      "run": "fold_2_gcn_seed_7",
+      "baseline": {
+        "plans": 11,
+        "partial_ties": 10,
+        "sum_partial_tie_group_sizes": 2731
+      },
+      "scoped": {
+        "plans": 11,
+        "partial_ties": 10,
+        "sum_partial_tie_group_sizes": 272
+      }
+    },
+    {
+      "run": "fold_2_gcn_seed_19",
+      "baseline": {
+        "plans": 11,
+        "partial_ties": 11,
+        "sum_partial_tie_group_sizes": 2048
+      },
+      "scoped": {
+        "plans": 11,
+        "partial_ties": 8,
+        "sum_partial_tie_group_sizes": 327
+      }
+    },
+    {
+      "run": "fold_2_gcn_seed_43",
+      "baseline": {
+        "plans": 11,
+        "partial_ties": 10,
+        "sum_partial_tie_group_sizes": 2228
+      },
+      "scoped": {
+        "plans": 11,
+        "partial_ties": 7,
+        "sum_partial_tie_group_sizes": 583
+      }
+    },
+    {
+      "run": "fold_3_gcn_seed_7",
+      "baseline": {
+        "plans": 12,
+        "partial_ties": 12,
+        "sum_partial_tie_group_sizes": 1327
+      },
+      "scoped": {
+        "plans": 12,
+        "partial_ties": 10,
+        "sum_partial_tie_group_sizes": 230
+      },
+      "example": {
+        "plan": "44_桂平市人民医院新门诊楼（原农机公司大楼）",
+        "baseline": {
+          "S005": 0.191656231880188,
+          "S007": 0.191656231880188,
+          "S023": 0.191656231880188
+        },
+        "scoped": {
+          "S005": 0.03842637315392494,
+          "S007": 0.34766319394111633,
+          "S023": 0.03842637315392494
+        }
+      }
+    },
+    {
+      "run": "fold_3_gcn_seed_19",
+      "baseline": {
+        "plans": 12,
+        "partial_ties": 10,
+        "sum_partial_tie_group_sizes": 1261
+      },
+      "scoped": {
+        "plans": 12,
+        "partial_ties": 9,
+        "sum_partial_tie_group_sizes": 222
+      },
+      "example": {
+        "plan": "44_桂平市人民医院新门诊楼（原农机公司大楼）",
+        "baseline": {
+          "S005": 0.18265275657176971,
+          "S007": 0.18265275657176971,
+          "S023": 0.18265275657176971
+        },
+        "scoped": {
+          "S005": 0.03484654799103737,
+          "S007": 0.24465809762477875,
+          "S023": 0.03484654799103737
+        }
+      }
+    },
+    {
+      "run": "fold_3_gcn_seed_43",
+      "baseline": {
+        "plans": 12,
+        "partial_ties": 12,
+        "sum_partial_tie_group_sizes": 1069
+      },
+      "scoped": {
+        "plans": 12,
+        "partial_ties": 11,
+        "sum_partial_tie_group_sizes": 230
+      },
+      "example": {
+        "plan": "44_桂平市人民医院新门诊楼（原农机公司大楼）",
+        "baseline": {
+          "S005": 0.20454001426696777,
+          "S007": 0.20454001426696777,
+          "S023": 0.20454001426696777
+        },
+        "scoped": {
+          "S005": 0.048117853701114655,
+          "S007": 0.27746036648750305,
+          "S023": 0.048117853701114655
+        }
+      }
+    },
+    {
+      "run": "fold_4_gcn_seed_7",
+      "baseline": {
+        "plans": 11,
+        "partial_ties": 9,
+        "sum_partial_tie_group_sizes": 1660
+      },
+      "scoped": {
+        "plans": 11,
+        "partial_ties": 8,
+        "sum_partial_tie_group_sizes": 1061
+      }
+    },
+    {
+      "run": "fold_4_gcn_seed_19",
+      "baseline": {
+        "plans": 11,
+        "partial_ties": 9,
+        "sum_partial_tie_group_sizes": 1875
+      },
+      "scoped": {
+        "plans": 11,
+        "partial_ties": 7,
+        "sum_partial_tie_group_sizes": 996
+      }
+    },
+    {
+      "run": "fold_4_gcn_seed_43",
+      "baseline": {
+        "plans": 11,
+        "partial_ties": 11,
+        "sum_partial_tie_group_sizes": 2108
+      },
+      "scoped": {
+        "plans": 11,
+        "partial_ties": 8,
+        "sum_partial_tie_group_sizes": 787
+      }
+    }
+  ],
+  "scoped": {
+    "per_seed": [
+      {
+        "model": "gcn",
+        "seed": 7,
+        "all_plans_evaluated_once": true,
+        "summary": {
+          "plans": 53,
+          "source_groups": 48,
+          "plan_macro_recall_at_half_n": 0.14011463618414716,
+          "group_macro_recall_at_half_n": 0.1388157024077351,
+          "plan_macro_recall_at_n": 0.23161347247188535,
+          "group_macro_recall_at_n": 0.22952781765586813,
+          "plan_macro_recall_at_2n": 0.3678154966509884,
+          "group_macro_recall_at_2n": 0.3661634160119574,
+          "plan_macro_recall_at_observed_positive_budget": 0.22733518359642188,
+          "group_macro_recall_at_observed_positive_budget": 0.22644544641368247,
+          "plan_macro_random_recall_at_n": 0.01805582704216349,
+          "group_macro_random_recall_at_n": 0.016889644848024608
+        }
+      },
+      {
+        "model": "gcn",
+        "seed": 19,
+        "all_plans_evaluated_once": true,
+        "summary": {
+          "plans": 53,
+          "source_groups": 48,
+          "plan_macro_recall_at_half_n": 0.12964694458387618,
+          "group_macro_recall_at_half_n": 0.12917262886441555,
+          "plan_macro_recall_at_n": 0.2264639582461849,
+          "group_macro_recall_at_n": 0.22522964320857797,
+          "plan_macro_recall_at_2n": 0.36588879584493883,
+          "group_macro_recall_at_2n": 0.36469305740399854,
+          "plan_macro_recall_at_observed_positive_budget": 0.22410739790979614,
+          "group_macro_recall_at_observed_positive_budget": 0.22345951399131894,
+          "plan_macro_random_recall_at_n": 0.01805582704216349,
+          "group_macro_random_recall_at_n": 0.016889644848024608
+        }
+      },
+      {
+        "model": "gcn",
+        "seed": 43,
+        "all_plans_evaluated_once": true,
+        "summary": {
+          "plans": 53,
+          "source_groups": 48,
+          "plan_macro_recall_at_half_n": 0.13571735081208453,
+          "group_macro_recall_at_half_n": 0.13469191238111963,
+          "plan_macro_recall_at_n": 0.22788873841844498,
+          "group_macro_recall_at_n": 0.2267333999148904,
+          "plan_macro_recall_at_2n": 0.35950254865101694,
+          "group_macro_recall_at_2n": 0.3605189901172629,
+          "plan_macro_recall_at_observed_positive_budget": 0.22204208811019852,
+          "group_macro_recall_at_observed_positive_budget": 0.2222277740548275,
+          "plan_macro_random_recall_at_n": 0.01805582704216349,
+          "group_macro_random_recall_at_n": 0.016889644848024608
+        }
+      }
+    ],
+    "comparisons": [
+      {
+        "model": "gcn",
+        "seed_count": 3,
+        "metrics": {
+          "plan_macro_recall_at_half_n": {
+            "mean": 0.13515964386003596,
+            "seed_standard_deviation": 0.0052560840597224425
+          },
+          "group_macro_recall_at_half_n": {
+            "mean": 0.13422674788442343,
+            "seed_standard_deviation": 0.004838336526866168
+          },
+          "plan_macro_recall_at_n": {
+            "mean": 0.22865538971217178,
+            "seed_standard_deviation": 0.0026589828590651956
+          },
+          "group_macro_recall_at_n": {
+            "mean": 0.22716362025977885,
+            "seed_standard_deviation": 0.002181144895164344
+          },
+          "plan_macro_recall_at_2n": {
+            "mean": 0.36440228038231465,
+            "seed_standard_deviation": 0.00435127248951646
+          },
+          "group_macro_recall_at_2n": {
+            "mean": 0.3637918211777396,
+            "seed_standard_deviation": 0.0029281488985049087
+          },
+          "plan_macro_recall_at_observed_positive_budget": {
+            "mean": 0.22449488987213884,
+            "seed_standard_deviation": 0.002667738269064207
+          },
+          "group_macro_recall_at_observed_positive_budget": {
+            "mean": 0.22404424481994298,
+            "seed_standard_deviation": 0.002168783677114856
+          },
+          "plan_macro_random_recall_at_n": {
+            "mean": 0.01805582704216349,
+            "seed_standard_deviation": 0.0
+          },
+          "group_macro_random_recall_at_n": {
+            "mean": 0.016889644848024608,
+            "seed_standard_deviation": 0.0
+          }
+        }
+      }
+    ]
+  }
+}

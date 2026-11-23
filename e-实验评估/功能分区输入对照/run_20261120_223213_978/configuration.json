@@ -1,0 +1,29 @@
+{
+  "baseline": "D:\\AA2024胡时利\\thesis-writing\\e-实验评估\\20261116_关系模型分组对照\\run_20261116_111027_795796",
+  "source_audit_sha256": "5e692863cb747c4d64a6df2142f249645760180085a9b688f9031a26c8ba07d7",
+  "folds": 5,
+  "seeds": [
+    7,
+    19,
+    43
+  ],
+  "device": "cuda:1",
+  "torch": "2.11.0+cu128",
+  "settings": {
+    "epochs": 120,
+    "hidden": 32,
+    "learning_rate": 0.003,
+    "prior_multiplier": 2.0,
+    "population_pairs": 1024,
+    "batch_graphs": 8,
+    "patience_checks": 6
+  },
+  "zone_field": "metadata.scope_original",
+  "zone_encoding": "train-fold vocabulary; absent, uncertain and unseen zones are zero",
+  "decoder_inputs": [
+    "same known zone",
+    "both zones known"
+  ],
+  "evaluation": "exploratory; retrospective zone annotations supplied for held-out floors",
+  "labels": "same original positive, unlabeled and confirmed-negative observations"
+}

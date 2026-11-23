@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "outpatient-chat-progress",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "esbuild index.jsx --bundle --minify --define:process.env.NODE_ENV=\\\"production\\\" --outfile=dist/progress.js && esbuild thinking.jsx --bundle --minify --outfile=dist/thinking.js && esbuild reply.jsx --bundle --minify --outfile=dist/reply.js"
+  },
+  "dependencies": {
+    "@ant-design/x": "2.5.0",
+    "antd": "^6.1.1",
+    "motion": "^12.43.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "streamdown": "^2.8.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.0"
+  }
+}

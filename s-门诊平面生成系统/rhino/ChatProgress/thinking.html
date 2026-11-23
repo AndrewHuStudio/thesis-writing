@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+<style>
+  body { margin: 0; overflow: hidden; background: white; color: #717171; font: 14px/24px "Microsoft YaHei UI", sans-serif }
+  .shimmer {
+    display: inline-block;
+    color: transparent;
+    background-image: linear-gradient(90deg, transparent calc(50% - var(--spread)), #202020, transparent calc(50% + var(--spread))), linear-gradient(#929292, #929292);
+    background-size: 250% 100%, auto;
+    background-repeat: no-repeat;
+    background-clip: text;
+  }
+  @media (forced-colors: active) { .shimmer { color: CanvasText; background: none } }
+</style>
+<div id="root">正在思考</div><script src="thinking.js"></script>
+</html>

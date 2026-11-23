@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RhinoUI major_ver="5" minor_ver="0" guid="ce0c58c0-bb1b-4b4b-a786-8b499cd7a8ea" localize="False" default_language_id="1033">
+  <tool_bar_groups>
+    <tool_bar_group guid="99180e4c-b153-4ead-8baf-f406e6075953" dock_bar_guid64="1f060960-eec7-4443-9e2a-0c9c36f716ff" active_tool_bar_group="51d3700a-aa5b-4512-907d-d14556565cb1" hide_single_tab="True" single_file="True">
+      <text><locale_1033>医院首层平面设计</locale_1033></text>
+      <tool_bar_group_item guid="51d3700a-aa5b-4512-907d-d14556565cb1" major_version="1" minor_version="1">
+        <text><locale_1033>医院首层平面设计</locale_1033></text>
+        <tool_bar_id>6e782a15-be7d-47e2-a27e-712055132a25</tool_bar_id>
+      </tool_bar_group_item>
+      <dock_bar_info docking="True" visible="True" floating="False" horz="True" dock_location="top" point_pos="0,0" />
+    </tool_bar_group>
+  </tool_bar_groups>
+  <tool_bars>
+    <tool_bar guid="6e782a15-be7d-47e2-a27e-712055132a25">
+      <text><locale_1033>医院首层平面设计</locale_1033></text>
+      <tool_bar_item guid="cdd9cefb-2860-4b72-9127-9f695ae268be">
+        <text><locale_1033>打开医院首层平面设计</locale_1033></text>
+        <left_macro_id>c546dfc6-eaaa-4de1-91c7-c75225ff2261</left_macro_id>
+      </tool_bar_item>
+    </tool_bar>
+  </tool_bars>
+  <macros>
+    <macro_item guid="c546dfc6-eaaa-4de1-91c7-c75225ff2261" bitmap_id="7098f0c8-8624-4fd8-96a8-8ae77f933d7c">
+      <text><locale_1033>打开医院首层平面设计</locale_1033></text>
+      <button_text><locale_1033>医院首层平面设计</locale_1033></button_text>
+      <tooltip><locale_1033>打开医院首层平面设计</locale_1033></tooltip>
+      <script>_OutpatientPlanner</script>
+    </macro_item>
+  </macros>
+  <icons>
+    <icon guid="7098f0c8-8624-4fd8-96a8-8ae77f933d7c">
+      <light>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+          <rect x="1" y="1" width="30" height="30" rx="6" fill="#165AA8"/>
+          <path d="M15 25H7V7h18v18h-5M16 7v8h9" fill="none" stroke="#fff" stroke-width="2.4"/>
+          <path d="M11 15v7m-3.5-3.5h7" stroke="#A6F4E2" stroke-width="2.4"/>
+        </svg>
+      </light>
+    </icon>
+  </icons>
+</RhinoUI>

@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <DefaultItemExcludes>$(DefaultItemExcludes);ChatProgress/node_modules/**;ChatProgress/dist/**</DefaultItemExcludes>
+    <TargetExt>.rhp</TargetExt>
+    <AssemblyName>OutpatientRhino</AssemblyName>
+    <AssemblyTitle>Outpatient Planning Assistant</AssemblyTitle>
+    <Version>0.3.40</Version>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RhinoSystemDir Condition="'$(RhinoSystemDir)' == ''">$(RHINO_SYSTEM_DIR)</RhinoSystemDir>
+    <RhinoCoreDir Condition="'$(RhinoCoreDir)' == ''">$(RhinoSystemDir)/netcore</RhinoCoreDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets/Welcome.png" LogicalName="OutpatientRhino.Welcome.png" />
+    <EmbeddedResource Include="Assets/ComposerAction.xaml" LogicalName="OutpatientRhino.ComposerAction.xaml" />
+    <None Update="Assets/FluentIcons-LICENSE.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="OutpatientRhino.rui" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="ChatProgress/index.html" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="ChatProgress/thinking.html" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="ChatProgress/reply.html" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="ChatProgress/dist/reply.js;ChatProgress/dist/reply.css" Link="ChatProgress/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="ChatProgress/dist/thinking.js" Link="ChatProgress/thinking.js" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="ChatProgress/dist/progress.js" Link="ChatProgress/progress.js" CopyToOutputDirectory="PreserveNewest" />
+    <Reference Include="Microsoft.Web.WebView2.Core" HintPath="$(RhinoSystemDir)/Microsoft.Web.WebView2.Core.dll" Private="false" />
+    <Reference Include="Microsoft.Web.WebView2.Wpf" HintPath="$(RhinoSystemDir)/Microsoft.Web.WebView2.Wpf.dll" Private="false" />
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+    <Reference Include="RhinoCommon" HintPath="$(RhinoCoreDir)/RhinoCommon.dll" Private="false" />
+    <Reference Include="Eto" HintPath="$(RhinoSystemDir)/Eto.dll" Private="false" />
+  </ItemGroup>
+  <Target Name="BundleChatProgress" BeforeTargets="PrepareForBuild"
+          Inputs="ChatProgress/index.jsx;ChatProgress/thinking.jsx;ChatProgress/reply.jsx;ChatProgress/reply-layout.css;ChatProgress/package.json;ChatProgress/package-lock.json"
+          Outputs="ChatProgress/dist/progress.js;ChatProgress/dist/thinking.js;ChatProgress/dist/reply.js;ChatProgress/dist/reply.css">
+    <Exec WorkingDirectory="ChatProgress" Command="npm ci --no-audit --no-fund" />
+    <Exec WorkingDirectory="ChatProgress" Command="npm run build" />
+  </Target>
+  <Target Name="CheckRhinoReferences" BeforeTargets="ResolveAssemblyReferences">
+    <Error Condition="!Exists('$(RhinoCoreDir)/RhinoCommon.dll') Or !Exists('$(RhinoSystemDir)/Eto.dll')"
+           Text="Set RhinoSystemDir to the Rhino 9 System directory (see Build.ps1)." />
+  </Target>
+</Project>
